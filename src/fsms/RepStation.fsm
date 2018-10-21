@@ -1,0 +1,97 @@
+class FSM
+{
+  fsmName = "RepStation";
+  class States
+  {
+    class Start
+    {
+      name = "Start";
+      init = "private [""_vec"", ""_nobs"",""_timenow""];" \n
+       "_vec = vehicle player;" \n
+       "";
+      precondition = "";
+      class Links
+      {
+        class _
+        {
+          priority = 0.000000;
+          to="Check";
+          precondition = "";
+          condition="";
+          action="";
+        };
+      };
+    };
+    class Check
+    {
+      name = "Check";
+      init = "";
+      precondition = "";
+      class Links
+      {
+        class vehicle_player_
+        {
+          priority = 1.000000;
+          to="End";
+          precondition = "";
+          condition="!d_player_in_vec || {!alive player} || {!alive _vec}";
+          action="";
+        };
+        class player____driver
+        {
+          priority = 0.000000;
+          to="Check_for_Repair";
+          precondition = "";
+          condition="player == driver _vec";
+          action="";
+        };
+      };
+    };
+    class End
+    {
+      name = "End";
+      init = "";
+      precondition = "";
+      class Links
+      {
+      };
+    };
+    class Check_for_Repair
+    {
+      name = "Check_for_Repair";
+      init = "if (damage _vec > 0.09) then {" \n
+       "	_nobs = nearestObjects [position _vec, [""Land_repair_center"", ""Land_Mil_Repair_center_EP1""], 15];" \n
+       "	if (count _nobs > 0) then {" \n
+       "		_vec setDamage 0;" \n
+       "		_vec vehicleChat ""Your vehicle got repaired at a repair station!!!""" \n
+       "	};" \n
+       "};" \n
+       "_timenow = time + 3;";
+      precondition = "";
+      class Links
+      {
+        class vehicle_player_
+        {
+          priority = 1.000000;
+          to="End";
+          precondition = "";
+          condition="!d_player_in_vec || {!alive player} || {!alive _vec}";
+          action="";
+        };
+        class Delay
+        {
+          priority = 0.000000;
+          to="Check";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+  };
+  initState="Start";
+  finalStates[] =
+  {
+    "End",
+  };
+};

@@ -1,0 +1,4345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="Domination">
+  <Package name="Domination">
+    <Container name="Mission">
+      <Key ID="STR_DOM_MISSIONSTRING_0">
+        <Original>Wreck Repair Point</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1">
+        <Original>Wreck Repair</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_2">
+        <Original>Jet Service</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_3">
+        <Original>Chopper Service</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_4">
+        <Original>Vehicle Service</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_5">
+        <Original>Ammo Point</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_6">
+        <Original>Teleporter / Parajump</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_7">
+        <Original>Lift One</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_8">
+        <Original>Lift Two</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_9">
+        <Original>Lift Three</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_10">
+        <Original>Wreck Lift</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_11">
+        <Original>Normal</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_12">
+        <Original>MHQ One</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_13">
+        <Original>MHQ Two</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_14">
+        <Original>West MHQ One</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_15">
+        <Original>West MHQ Two</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_16">
+        <Original>East MHQ One</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_17">
+        <Original>East MHQ Two</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_18">
+        <Original>Drop Artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_19">
+        <Original>Drop Humvee</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_20">
+        <Original>Drop Ammo</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_21">
+        <Original>Drop Pickup</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_22">
+        <Original>Drop Uaz</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_23">
+        <Original>Welcome to...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_24">
+        <Original>You have to free the island from all enemy forces.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_25">
+        <Original>To clear a target kill all enemies, destroy the radio tower at the main target site, solve the main target sidemission and capture all depots.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_26">
+        <Original>There are several side missions available that will get you some extra vehicles if you solve them.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_27">
+        <Original>Once a main target is clear, a flag gets created in a random place from where you can jump with the HALO parajump script (if enabled, not available in the TT version).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_28">
+        <Original>You can transport all vehicles with your blackhawk or Mi8 choppers, except heavier vehicles like M1, T72/T90 and Shilka.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_29">
+        <Original>The MHQs are your mobile respawn points.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_30">
+        <Original>You can drop an ammo crate from a MHQ or if you are the pilot of a helicopter (but you have to load a crate at base first)!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_31">
+        <Original>The maximum number of ammo crates simultaneously is %1. An ammo crate gets only deleted if the crate was destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_32">
+        <Original>Reload a crate into chopper 1,2,3 or W or in one of the MHQs, otherwise you will end up at the next target without any crate.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_33">
+        <Original>Once deployed you can teleport from one MHQ to the other, enable satellite view or create a bike.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_34">
+        <Original>The engineers can repair and refuel all vehicles and aircraft.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_35">
+        <Original>That only works once if no salvage truck or repair truck is near an engineer (reload and refuel capability can be restored at base).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_36">
+        <Original>Engineers can also load static weapons like D30, DSHKM, etc, into their 5to salvage trucks, and unload them wherever they want.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_37">
+        <Original>Engineers are also able to flip tanks that are lying upside down when they have a repair truck near them (in the AI version every player can do that).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_38">
+        <Original>Engineers can also repair or rebuild the service buildings at base if the enemy destroys them (not available in the TT version).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_39">
+        <Original>%1 for both teams</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_40">
+        <Original>The flag at your base can be used as a teleporter to your mobile respawns or you can choose parajump there (if enabled).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_41">
+        <Original>If a vehicle that you've won for solving a sidemission or clearing a main target gets destroyed you can transport the wreck with chopper 4 (W) to the wreck repair point at your base and you'll get a new one after some time.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_42">
+        <Original>Chopper 4 (W) can only transport wrecks, nothing else.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_43">
+        <Original>The artillery operators can fire artillery strikes about every six minutes. They are also able to rescue hostages (in the AI version every player can do that). You have to bring the hostages to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_44">
+        <Original>The leaders of team Alpha or team Charlie (alpha 1 and charlie 1) can request air drops (in the AI version every player can do that). A chopper will bring an artillery cannon or a vehicle or a ammobox.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_45">
+        <Original>(Not available in the TT version).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_46">
+        <Original>MG Gunners can place MG nests, medics can place mashes.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_47">
+        <Original>If you have the freelook bug/headbug press the Fix Headbug button in the status dialog (available at mobile respawn) to fix this annoying bug.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_48">
+        <Original>You can also change the viewdistance and other settings in the status dialog.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_49">
+        <Original>It is also possible to put the primary weapon in your backpack. You are then able to take another primary weapon and switch between the weapon in the backpack and the currently selected weapon.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_50">
+        <Original>SHIFT-G brings up a quick magazine check.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_51">
+        <Original>The revive system used in Dom is a little bit different to what you may be used to.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_52">
+        <Original>Unconscious units play a death animation and not the usual roll around on the ground animations.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_53">
+        <Original>When map respawn is available choose one of the rotating and size changing markers to respawn (does only work if the marker is green!)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_54">
+        <Original>You can drag unconscious units in prone position too.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_55">
+        <Original>Open the paramaters dialog in the server lobby to see a list of available features that you can change ingame before mission start (an admin must do that).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_56">
+        <Original>Other things can be changed by editing the i xxx sqf files of the mission.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_57">
+        <Original>Scrolling the mouse wheel while pointing at a vehicle will show the crew of the vehicle (same if you are inside a vehicle).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_58">
+        <Original>Mission by Xeno</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_59">
+        <Original>Uses load/unload scripts (enhanced) from -eutf-Myke, Mandos parachute, Spect from Kegetys (complete rewrite), SAT View from Vienna, weather winter by ruebe, respawnblock by Alex4 (fru) and animated letters from BIS.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_60">
+        <Original>(All those scripts are heavily modified).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_61">
+        <Original>Have a lot of fun !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_62">
+        <Original>Waiting for orders...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_63">
+        <Original>Oh, you, %1, are trying to cheat... doesn't work anymore...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_64">
+        <Original>You need %2 points for parajump. Your current score is %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_65">
+        <Original>You can not jump. You have to wait %1 minutes for your next jump!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_66">
+        <Original>!!!!!!!!!!!! You need a parachute pack first !!!!!!!!!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_67">
+        <Original>Height: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_68">
+        <Original>Only engineers can load static weapons</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_69">
+        <Original>Allready %1 items loaded. Not possible to load more.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_70">
+        <Original>No static weapon in range.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_71">
+        <Original>Static weapon destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_72">
+        <Original>You're too far from %1!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_73">
+        <Original>You are allready loading an item. Please wait until it is finished</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_74">
+        <Original>%1 will be loaded in %2 sec.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_75">
+        <Original>%1 loaded and attached!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_76">
+        <Original>You need %2 points for activating sat view. Your current score is %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_77">
+        <Original>Satellite ON</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_78">
+        <Original>Satellite OFF</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_79">
+        <Original>Only engineers can place static weapons</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_80">
+        <Original>You have to get out before you can place the static weapon!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_81">
+        <Original>No static weapon loaded...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_82">
+        <Original>Unload canceled</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_83">
+        <Original>Someone else unloaded allready an item. Try again.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_84">
+        <Original>Static placement preview mode. Press Place Static to place the object. You may place the object 20 m arround the Salvage truck</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_85">
+        <Original>Cancel Placing Static</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_86">
+        <Original>Place Static</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_87">
+        <Original>You are too far away from the Salvage truck to place the static vehicle, placing canceled !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_88">
+        <Original>Static placement canceled...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_89">
+        <Original>%1 placed!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_90">
+        <Original>(DEAD) </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_91">
+        <Original>(Pilot)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_92">
+        <Original>(Driver)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_93">
+        <Original>(Gunner)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_94">
+        <Original>(Commander)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_95">
+        <Original>Camera: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_96">
+        <Original>Spectating Script v1.03 by Kegetys</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_97">
+        <Original>Click at the camera/target text at the top to open camera/target menus.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_98">
+        <Original>Units on the map can be clicked to target them.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_99">
+        <Original>Keyboard controls:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_100">
+        <Original>A/D - Previous/Next target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_101">
+        <Original>W/S - Previous/Next camera</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_102">
+        <Original>1-5 - Direct camera change</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_103">
+        <Original>N - 3D view: Toggle night vision on/off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_104">
+        <Original>N - Full map: Toggle marker text off/names/types</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_105">
+        <Original>T - Toggle unit tags on/off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_106">
+        <Original>F - Toggle AI filter on/off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_107">
+        <Original>G - Toggle Group/Formation Leader filter on/off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_108">
+        <Original>H - Toggle Map Markers Updates on/off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_109">
+        <Original>Tab - Toggle UI on/off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_110">
+        <Original>M - Toggle map on/full/off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_111">
+        <Original>Numpad plus/minus - Increase/decrease full map marker size</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_112">
+        <Original>Space - Drop camera (W,S,A,D keys = movement)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_113">
+        <Original>Space - Toggle gunsight (1st person view)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_114">
+        <Original>Esc - Butterfly mode</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_115">
+        <Original>X - Quit spectating (if enabled)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_116">
+        <Original>Mouse controls:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_117">
+        <Original>Right button - Rotate camera (free camera mode only)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_118">
+        <Original>Left button - Move camera</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_119">
+        <Original>Left and right button - Zoom</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_120">
+        <Original>Improvement modifications by Dwarden, Vipermaul and norrin</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_121">
+        <Original>Complete rewrite by Xeno</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_122">
+        <Original>Free</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_123">
+        <Original>Chase</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_124">
+        <Original>Flyby</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_125">
+        <Original>Top-down</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_126">
+        <Original>1st person</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_127">
+        <Original>Missile camera</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_128">
+        <Original>Night vision</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_129">
+        <Original>Unit tags</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_130">
+        <Original>Filter AI</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_131">
+        <Original>Filter Unknown (Dead)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_132">
+        <Original>Press F1 for help</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_133">
+        <Original>Press F1 for help, X to exit spectating!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_134">
+        <Original>Spectator Mode Initialized.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_135">
+        <Original>Land on ground to return to spectating\nClick at map to jump to location</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_136">
+        <Original>\n\n\n\n\n\n\n\n\n Map Marker Updates Enabled</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_137">
+        <Original>\n\n\n\n\n\n\n\n\n Map Marker Updates Disabled</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_138">
+        <Original>%1 (%2) was killed by %3 (%4) (%5m)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_139">
+        <Original>An air taxi is allready on the way to your position!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_140">
+        <Original>You are less than 500 m away from the base, no air taxi for you!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_141">
+        <Original>Calling in air taxi...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_142">
+        <Original>Air taxi will start in a few seconds, stand by. Stay at your position!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_143">
+        <Original>First</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_144">
+        <Original>Second</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_145">
+        <Original> artillery currently not available...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_146">
+        <Original>Artillery currently not available...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_147">
+        <Original>You don't have enough points to request an artillery strike. You need %2 points for a strike, your current score is %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_148">
+        <Original>Somebody else is requesting an artillery strike... you have to try again later...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_149">
+        <Original>Somebody else allready executed an artillery strike, artillery currently not available...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_150">
+        <Original>You are to far away from your selected target, no line of sight !!! Get closer (&lt;%1 m).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_151">
+        <Original>Friendlies near artillery target. Aborting artillery strike...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_152">
+        <Original>Artillery canceled</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_153">
+        <Original>Call Artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_154">
+        <Original>Weapon %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_155">
+        <Original>%1 to Backpack</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_156">
+        <Original>You have to be at least %1 to create a %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_157">
+        <Original>You have to be at least %2 to create a %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_158">
+        <Original>Creating a %1 is not possible in a vehicle...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_159">
+        <Original>Creating a vehicle is only possible once after respawn...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_160">
+        <Original>You have allready created a vehicle, find it and use it again!!! Or wait %1 minutes before you can create a new one (might take longer)!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_161">
+        <Original>Creating %1, stand by...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_162">
+        <Original>Flip ATV</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_163">
+        <Original>Transport aircraft in the air... Drop not available!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_164">
+        <Original>You don't have enough points to request an air drop. You need %2 points for an air drop, your current score is %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_165">
+        <Original>Somebody else is calling a drop... you have to try again later...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_166">
+        <Original>You are too far away from the drop point, no line of sight !!! Get closer (&lt;%1 m).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_167">
+        <Original>Calling in %1 air drop</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_168">
+        <Original>Air drop canceled</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_169">
+        <Original>This is a East mobile respawn vehicle.\nYou are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_170">
+        <Original>This is a US mobile respawn vehicle.\nYou are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_171">
+        <Original>This is a East vehicle.\nYou are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_172">
+        <Original>This is a US vehicle. You are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_173">
+        <Original>This is a East chopper.\nYou are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_174">
+        <Original>This is a US chopper.\nYou are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_175">
+        <Original>You're not allowed to fly!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_176">
+        <Original>Turn Off Hud</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_177">
+        <Original>Turn On Hud</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_178">
+        <Original>This is a US chopper.\n You are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_179">
+        <Original>You current rank (%1) doesn't allow you to fly the wreck lift chopper. You need to be at least %2 for that</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_180">
+        <Original>This is a East truck.\nYou are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_181">
+        <Original>This is a US truck.\nYou are not allowed to enter it !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_182">
+        <Original>Only engineers can enter a Salvage truck...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_183">
+        <Original>Welcome on board, %1!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_184">
+        <Original>This is the wreck lift chopper.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_185">
+        <Original>Remember, it can only lift wrecks.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_186">
+        <Original>This is a normal lift chopper.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_187">
+        <Original>It can lift almost any vehicle except wrecks.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_188">
+        <Original>This is a normal chopper.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_189">
+        <Original>It is not able to lift anything.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_190">
+        <Original>It is able to load an ammobox.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_191">
+        <Original>It is NOT able to load an ammobox.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_192">
+        <Original>Dist to vec: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_193">
+        <Original>Type: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_194">
+        <Original>Lifting %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_195">
+        <Original>Dist attached to ground: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_196">
+        <Original>Wreck Lift Chopper</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_197">
+        <Original>Lift Chopper</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_198">
+        <Original>Too high</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_199">
+        <Original>Attached</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_200">
+        <Original>Normal Chopper</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_201">
+        <Original>Weapons and magazines layout cleared.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_202">
+        <Original>Seize %1...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_203">
+        <Original>Main Target: Seize %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_204">
+        <Original>Next target is: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_205">
+        <Original>Player markers with player names available</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_206">
+        <Original>Player markers only (without names) available</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_207">
+        <Original>Player markers with player roles available</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_208">
+        <Original>Player markers with player health available</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_209">
+        <Original>Hiding player markers, one moment</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_210">
+        <Original>Player markers hidden</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_211">
+        <Original>Vehicle destroyed!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_212">
+        <Original>You can't deploy a MHQ at base!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_213">
+        <Original>You can't deploy a MHQ here!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_214">
+        <Original>Wait a few seconds before you can deploy/undeploy the MHQ again!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_215">
+        <Original>You can't deploy a MHQ when there is still crew on board!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_216">
+        <Original>All AI soldiers dismissed !!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_217">
+        <Original>Can't drop box near Ammo Point.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_218">
+        <Original>Too high to drop an ammocrate, please land!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_219">
+        <Original>Too fast to drop an ammocrate, please stop!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_220">
+        <Original>Maximum number (%1) of ammo crates reached!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_221">
+        <Original>Pick up a dropped box...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_222">
+        <Original>No ammobox loaded into this vehicle !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_223">
+        <Original>You have to wait %1 seconds before you can drop a box from this vehicle again !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_224">
+        <Original>Dropping ammo box... stand by...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_225">
+        <Original>Ammobox dropped !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_226">
+        <Original>You have created the maximum number (%1) ammo crates!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_227">
+        <Original>Please wait until one or more get automatically deleted...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_228">
+        <Original>You have to wait %1 seconds before you can drop a new ammocrate</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_229">
+        <Original>Ammobox created !!!!!!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_230">
+        <Original>Call Drop</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_231">
+        <Original>CONGRATULATIONS</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_232">
+        <Original>You have cleared the island</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_233">
+        <Original>You have resolved all side missions</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_234">
+        <Original>Winner: The US Team</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_235">
+        <Original> West %1:%2 East</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_236">
+        <Original>Winner: The East Team</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_237">
+        <Original>East %1:%2 West</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_238">
+        <Original>Winner: Both Teams</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_239">
+        <Original>West %1:%2 East</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_240">
+        <Original>Have a good time !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_241">
+        <Original>You must be kidding...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_242">
+        <Original>You have allready placed a FARP. You have to remove it to build a new one.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_243">
+        <Original>No engineer truck nearby to build a FARP!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_244">
+        <Original>It is not possible to place a FARP into water.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_245">
+        <Original>You need %2 points to build a FARP. Your current score is: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_246">
+        <Original>Place not valid. Try another location to place the FARP.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_247">
+        <Original>You died before your FARP was ready.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_248">
+        <Original>FARP ready.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_249">
+        <Original>Remove FARP</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_250">
+        <Original>Lift vehicle</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_251">
+        <Original>Release vehicle</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_252">
+        <Original>Vehicle attached to chopper</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_253">
+        <Original>Vehicle released</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_254">
+        <Original>Lift wreck</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_255">
+        <Original>Release wreck</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_256">
+        <Original>Load Static</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_257">
+        <Original>Unload Static</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_258">
+        <Original>Chopper Menu</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_259">
+        <Original>HALO Jump</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_260">
+        <Original>Deserted %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_261">
+        <Original>%1 (Deployed)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_262">
+        <Original>MHQ Menu</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_263">
+        <Original>Sidemissions Only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_264">
+        <Original>Main Targets Only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_265">
+        <Original>Welcome to Domination! 2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_266">
+        <Original>Have a nice time</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_267">
+        <Original>Too high to load an ammocrate, please land!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_268">
+        <Original>Too fast to load an ammocrate, please stop!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_269">
+        <Original>This vehicle allready has an ammobox loaded !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_270">
+        <Original>You have to wait %1 seconds before you can load a dropped box in this vehicle again !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_271">
+        <Original>No ammo boxes nearby, can't load a box...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_272">
+        <Original>Loading ammo box... stand by...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_273">
+        <Original>Ammobox loaded !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_274">
+        <Original>You can only lock/unlock a vehicle when you are outside the vehicle!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_275">
+        <Original>Vehicle allready locked...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_276">
+        <Original>Vehicle is allready unlocked</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_277">
+        <Original>Even as an admin you can't unlock a deployed MHQ :-)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_278">
+        <Original>Vehicle locked</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_279">
+        <Original>Vehicle unlocked</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_280">
+        <Original>Health: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_281">
+        <Original>You have allready build a mash. You have to remove it to build a new one.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_282">
+        <Original>It is not possible to place a medic tent into water.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_283">
+        <Original>Place not valid. Try another location to place the mash.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_284">
+        <Original>You died before your mash was ready.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_285">
+        <Original>Mash ready.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_286">
+        <Original>Remove Mash</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_287">
+        <Original>You get %1 points because other units used your mash for healing!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_288">
+        <Original>You get %1 points for healing other units!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_289">
+        <Original>You have allready placed a mg nest. You have to remove it to build a new one.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_290">
+        <Original>It is not possible to place a mg nest into water.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_291">
+        <Original>You need %2 points to build a mg nest. Your current score is: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_292">
+        <Original>Place not valid. Try another location to place the mg nest.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_293">
+        <Original>You died before your MG nest was ready.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_294">
+        <Original>MG Nest ready.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_295">
+        <Original>Remove MG Nest</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_296">
+        <Original>(Choose Parachute location)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_297">
+        <Original>(Create %1)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_298">
+        <Original>Respawn</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_299">
+        <Original>Select Respawn Position</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_300">
+        <Original>Save gear layout</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_301">
+        <Original>Clear gear layout</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_302">
+        <Original>Get Backpack</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_303">
+        <Original>Create Trench</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_304">
+        <Original>Show Status</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_305">
+        <Original>Build Mash</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_306">
+        <Original>Build MG Nest</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_307">
+        <Original>Build FARP</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_308">
+        <Original>Your current rank %1 doesn't allow you to use a %3.\n\nYou need to be %2 for this.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_309">
+        <Original>You need %2 points to rebuild a factory, your current score is: %1!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_310">
+        <Original>Rebuilding support building. This will take some time...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_311">
+        <Original>You are currently not a group leader, no AI available. Create a new group!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_312">
+        <Original>You are too far away from the AI recruit building!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_313">
+        <Original>Recruit Barracks</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_314">
+        <Original>Recruit AI</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_315">
+        <Original>You died before you could remove your FARP nest.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_316">
+        <Original>FARP removed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_317">
+        <Original>You died before you could remove your mash.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_318">
+        <Original>Mash removed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_319">
+        <Original>You have to get out of the MG nest before you can remove it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_320">
+        <Original>You died before you could remove your MG nest.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_321">
+        <Original>MG nest removed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_322">
+        <Original>Not possible for a tank or wheeled APC!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_323">
+        <Original>Vehicle status: %4\n--------------------------------\nFuel: %1\nDamage: %2\nEstimated repair time: %3 sec</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_324">
+        <Original>You have to restore your repair/refuel capability at base first or take one of the two Salvage trucks with you.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_325">
+        <Original>You need %2 points to repair/refuel a vehicle, your current score is: %1!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_326">
+        <Original>You have to wait until you can repair a vehicle at base again.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_327">
+        <Original>Vehicle status:\n---------------------\nFuel: %1\nDamage: %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_328">
+        <Original>Repairing and refuelling %1... Stand by</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_329">
+        <Original>Cancel Service</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_330">
+        <Original>Still working...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_331">
+        <Original>You have entered a vehicle, service canceled</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_332">
+        <Original>Service canceled...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_333">
+        <Original>You get %1 point(s) for repairing/refueling!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_334">
+        <Original>%1 repaired and refuelled</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_335">
+        <Original>Attention!\nThis is a reserved admin slot.\nIf you are an admin on this server log in in the next 20 seconds otherwise you'll get kicked automatically!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_336">
+        <Original>Welcome %1!\nYou logged in, no kick</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_337">
+        <Original>Attention!\nYou have 5 seconds to log in or you get kicked automatically!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_338">
+        <Original>You will be kicked now... !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_339">
+        <Original>You are too far away from the FARP...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_340">
+        <Original>Engineer repair/refuel capability restored.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_341">
+        <Original>You need a primary weapon to save the layout !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_342">
+        <Original>Weapons and magazines layout saved. You will respawn with this layout, means all magazines that you currently have.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_343">
+        <Original>He is still alive, you can't search him then...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_344">
+        <Original>You are too far away from the body...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_345">
+        <Original>Checking body, please wait</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_346">
+        <Original>You died before you finished checking the body.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_347">
+        <Original>Somebody else allready searched the body...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_348">
+        <Original>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_349">
+        <Original>Very nice. Seems these airdrop codes for main targets could prove useful.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_350">
+        <Original>Yeah. Finally able to know when those fighters show up. Now, if we only had something to fight them with.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_351">
+        <Original>Jolly bloody crap good. Finally some early warnings possible against those attack choppers.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_352">
+        <Original>Code name for the MG chopper. Could be useful.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_353">
+        <Original>Niiiiice. They can shell us, but they can't hit us. Not anymore.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_354">
+        <Original>Don't they know they shouldn't put tracking devices on their patrol vehicles? Handy.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_355">
+        <Original>The information you found is allready known.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_356">
+        <Original>You couldn't find any documents of value</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_357">
+        <Original>Viewdistance</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_358">
+        <Original>Viewdistance: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_359">
+        <Original>No Gras</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_360">
+        <Original>Medium Gras</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_361">
+        <Original>Full Gras</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_362">
+        <Original>Gras Layer</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_363">
+        <Original>Off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_364">
+        <Original>With Names</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_365">
+        <Original>Markers Only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_366">
+        <Original>Role only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_367">
+        <Original>Health</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_368">
+        <Original>Own side: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_369">
+        <Original>Enemy side: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_370">
+        <Original>Own faction: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_371">
+        <Original>Main targets: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_372">
+        <Original>Island: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_373">
+        <Original>With revive: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_374">
+        <Original>Yes\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_375">
+        <Original>No\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_376">
+        <Original>Maximum number of team kills before first kick: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_377">
+        <Original>How often can a player shoot at base before kick: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_378">
+        <Original>Kick for placing a satchel at base: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_379">
+        <Original>Initial viewdistance: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_380">
+        <Original>Maximum viewdistance: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_381">
+        <Original>Usable main weaponry: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_382">
+        <Original>All\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_383">
+        <Original>Unknown\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_384">
+        <Original>Version: A.C.E\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_385">
+        <Original>With player AI: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_386">
+        <Original>Ranked: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_387">
+        <Original>Version string: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_388">
+        <Original>Mission starttime: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_389">
+        <Original>Internal backpack enabled: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_390">
+        <Original>Sidemissions only: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_391">
+        <Original>Main targets only: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_392">
+        <Original>Show player marker direction: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_393">
+        <Original>Show vehicle marker direction: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_394">
+        <Original>Player marker type: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_396">
+        <Original>With MHQ Respawn/Teleport: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_397">
+        <Original>With Fasttime: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_398">
+        <Original>Enemy skill: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_399">
+        <Original>Low</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_400">
+        <Original>High</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_401">
+        <Original>With island defense: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_402">
+        <Original>With AI recapture: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_403">
+        <Original>Armor at main targets: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_404">
+        <Original>Less</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_405">
+        <Original>None</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_406">
+        <Original>With teleport to base: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_407">
+        <Original>Illumination over main target: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_408">
+        <Original>With enemy artillery spotters: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_409">
+        <Original>With base attack (sabotage): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_410">
+        <Original>With winter weather: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_411">
+        <Original>Override BIS destruction effects: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_412">
+        <Original>Blood and dirt hit effects: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_413">
+        <Original>Block spacebar scanning: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_414">
+        <Original>Player names above head disabled: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_415">
+        <Original>Gras visible at missionstart: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_416">
+        <Original>Player can change gras layer (terraindetail): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_417">
+        <Original>Wrecks get deleted after: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_418">
+        <Original>Never\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_419">
+        <Original>minutes\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_420">
+        <Original>Viewdistance can be changed: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_421">
+        <Original>MHQ vehicles (create): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_422">
+        <Original>Time a player has to wait until he can create a new vehicle at a MHQ: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_423">
+        <Original>Able to fly: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_424">
+        <Original>Maximum number of ammoboxes: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_425">
+        <Original>Ammoboxes currently in use: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_426">
+        <Original>Time to wait until an ammobox can be dropped/loaded again: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_427">
+        <Original>Maximum number of statics per engineer truck: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_428">
+        <Original>Vehicles able to load ammoboxes: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_429">
+        <Original>Weather system enabled: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_430">
+        <Original>MG gunners able to build mg nest: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_431">
+        <Original>Medics able to build medic tent: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_432">
+        <Original>Respawn with same weapons after death: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_433">
+        <Original>With ACRE: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_434">
+        <Original>ACRE signal loss: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_435">
+        <Original>ACRE radio on back: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_436">
+        <Original>Maximum number of AI that can get recruited: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_437">
+        <Original>Points a player loses for teamkill: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_438">
+        <Original>Player points that get subtracted after death: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_439">
+        <Original>Points an engineer needs to service a vehicle: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_440">
+        <Original>Points an engineer gets for servicing (air vec): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_441">
+        <Original>Points an engineer gets for servicing (tank): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_442">
+        <Original>Points an engineer gets for servicing (car): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_443">
+        <Original>Points an engineer gets for servicing (other): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_444">
+        <Original>Points an engineer needs to rebuild the support buildings at base: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_445">
+        <Original>Points an artillery operator needs for a strike: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_446">
+        <Original>Points needed to recuruit one AI soldier: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_447">
+        <Original>Points needed for AAHALO parajump: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_448">
+        <Original>Points needed to create a vehicle at a MHQ: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_449">
+        <Original>Points that get subtracted for creating a vehicle at a MHQ: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_450">
+        <Original>Points a medic gets if someone heals at his Mash: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_451">
+        <Original>Points a medic gets if he heals another unit: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_452">
+        <Original>Rank needed to drive wheeled APCs: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_453">
+        <Original>Rank needed to drive tanks: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_454">
+        <Original>Rank needed to fly helicopters: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_455">
+        <Original>Rank needed to fly planes: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_456">
+        <Original>Points a player gets if he is near a main target when it gets cleared: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_457">
+        <Original>Points a player gets if he is %1 m away from a main target when it gets cleared: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_458">
+        <Original>Points a player gets if he is %1 m away from a sidemission when it gets solved: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_459">
+        <Original>Points needed to build a mg nest: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_460">
+        <Original>Points for transporting other players: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_461">
+        <Original>Points needed to activate SAT View: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_462">
+        <Original>Transport distance to get points: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_463">
+        <Original>Rank needed to fly the wreck lift chopper: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_464">
+        <Original>Air drop radius (0 = exact position): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_465">
+        <Original>Reload/refuel/repair time factor: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_466">
+        <Original>Engine gets shut off on service point: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_467">
+        <Original>AAHALO jump enabled: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_468">
+        <Original>AAHALO jump available at flag at base: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_469">
+        <Original>Time between two AAHALO jumps from base flag: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_470">
+        <Original>AAHALO jump start height: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_471">
+        <Original>Create the following vehicle at jump flag instead parajump: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_472">
+        <Original>Maximum distance artillery operator to arti strike point: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_473">
+        <Original>Artillery reload time between two salvoes: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_474">
+        <Original>Artillery available again after 1, 2, 3 salvoes: %1, %2, %3</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_475">
+        <Original>Check for friendly units near artillery target: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_476">
+        <Original>Player autokick time (kicked out of tanks, planes, choppers for the first seconds): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_477">
+        <Original>Enemy armored vehicles locked: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_478">
+        <Original>Enemy cars locked: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_479">
+        <Original>Enemy air vehicles locked: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_480">
+        <Original>Chopper hud on: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_481">
+        <Original>Show chopper welcome message: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_482">
+        <Original>Show vehicle welcome message: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_483">
+        <Original>Island repair stations can repair vehicles: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_484">
+        <Original>\nPoints for the main target winner team: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_485">
+        <Original>Points for draw (main target): </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_486">
+        <Original>Points for destroying mt radio tower: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_487">
+        <Original>Points for main target mission: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_488">
+        <Original>Points for sidemisson: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_489">
+        <Original>Points for capturing a camp: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_490">
+        <Original>Points subtracted for loosing a camp: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_491">
+        <Original>Points for destroying a vehicle of the other team: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_492">
+        <Original>Points for killing a member of the other team: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_493">
+        <Original>(Dead)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_494">
+        <Original>No human players are medics</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_495">
+        <Original>No human players are artillery operators</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_496">
+        <Original>No human players are engineers</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_497">
+        <Original>%1 is shooting at you !!!!\n\nNo teamkill system active!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_498">
+        <Original>Ari 2 Target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_499">
+        <Original>Ari 1 Target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_500">
+        <Original>Air Drop Zone</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_501">
+        <Original>Attention. You were spotted by enemy artillery observers. Incoming enemy artillery !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_502">
+        <Original>%1 was teamkilled by %2. %2 loses %3 score points!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_503">
+        <Original>%1 was teamkilled by %2.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_504">
+        <Original>%2 is shooting at %1. %2 loses %3 score points!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_505">
+        <Original>%2 is shooting at %1.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_506">
+        <Original>Attention!!!\n\n%1 has changed his name...\nIt was %2 before !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_507">
+        <Original>%1 was kicked because of team killing, number team kills: %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_508">
+        <Original>%1 was kicked automatically because of too much unnecessary shooting at base</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_509">
+        <Original>%1 was kicked automatically because he has placed a satchel at base</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_510">
+        <Original>Mash %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_511">
+        <Original>FARP %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_512">
+        <Original>MG Nest %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_513">
+        <Original>Restore repair/refuel capability</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_514">
+        <Original>%2 was shot uncon by %1. The %3 team gets %4 point.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_515">
+        <Original>%1 has killed %2. The %3 team gets %4 point.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_516">
+        <Original>%1 destroyed a %2 vehicle. The %3 team gets %4 points.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_517">
+        <Original>%1 wreck</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_518">
+        <Original>Search body</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_519">
+        <Original>Attention... the Scud will launch in a few seconds....</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_520">
+        <Original>%2 moved to close to the main target (%1 meters), fuel removed to prevent getting to close to the MT!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_521">
+        <Original>Radiotower</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_522">
+        <Original>All missions resolved!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_523">
+        <Original>Ammo</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_524">
+        <Original>Vehicle Service Point</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_525">
+        <Original>Only for vehicles</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_526">
+        <Original>Plane Service Point</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_527">
+        <Original>Only for planes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_528">
+        <Original>Chopper Service Point</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_529">
+        <Original>Only for choppers</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_530">
+        <Original>Only for wrecks</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_531">
+        <Original>Ammobox load point</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_532">
+        <Original>Load ammoboxes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_533">
+        <Original>Teleport</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_534">
+        <Original>Teleporter</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_535">
+        <Original>Call in Air Taxi</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_536">
+        <Original>Ari Target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_537">
+        <Original>Stop shooting at base or you will get kicked automatically...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_538">
+        <Original>Crew</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_539">
+        <Original>No Target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_540">
+        <Original>No new sidemission available...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_541">
+        <Original>- Codenames for launching saboteur attacks on or base</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_542">
+        <Original>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_543">
+        <Original>- Codename for attack planes to provide early warning whenever the enemy sends an attack plane to the main target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_544">
+        <Original>- Codename for attack helicopters to provide early warning whenever the enemy sends an attack chopper to the main target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_545">
+        <Original>- Codename for light attack helicopters to provide early warning whenever the enemy sends a light attack chopper to the main target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_546">
+        <Original>- Provide grid information on where the enemy is calling in artillery support.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_547">
+        <Original>- Ability to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_548">
+        <Original>No intel found yet...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_549">
+        <Original>Current cloud level: %1/100, rain: %2/100</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_550">
+        <Original>. Light snowfall and ground fog.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_551">
+        <Original>Domination dynamic weather system not used. Current cloud level is %1 percent. Current fog level is %2 percent.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_552">
+        <Original>Squad Mgmt</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_553">
+        <Original>Vehicle Status</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_554">
+        <Original>Find and eliminate the local governor of %1.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_555">
+        <Original>Find the local communication tower in %1 and destroy it.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_556">
+        <Original>Find a fortress in %1 and destroy it.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_557">
+        <Original>Find an enemy ammo truck in %1 and destroy it to cut down ammo supplies.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_558">
+        <Original>Find an enemy truck in %1 and destroy it.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_559">
+        <Original>Find a new APC prototype (concealed as medic) in %1 and destroy it.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_560">
+        <Original>Find a new APC prototype in %1 and destroy it.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_561">
+        <Original>Find the enemy HQ in %1 and destroy it.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_562">
+        <Original>Find a light enemy factory in %1 and destroy it.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_563">
+        <Original>Find a heavy enemy factory in %1 and destroy it.\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_564">
+        <Original>Find an enemy artillery radar in %1 and destroy it\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_565">
+        <Original>Find an enemy anti air radar in %1 and destroy it\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_566">
+        <Original>Find a collaborateur in %1 and eliminate him\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_567">
+        <Original>Find a drug dealer who sells drugs to our troops in %1 and eliminate him\n</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_568">
+        <Original>No secondary main target mission available...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_569">
+        <Original>your base</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_570">
+        <Original>%1 has been cleared...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_571">
+        <Original>Your team gets a %1, it's available at %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_572">
+        <Original>Congratulations...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_573">
+        <Original>Waiting for new orders...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_574">
+        <Original>You get %1 extra points for clearing the main target!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_575">
+        <Original>The US Team won the main target with %1 : %2 kill points.\nThe US Team gets %3 main points.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_576">
+        <Original>The East Team won the main target with %1 : %2 kill points.\nThe East Team gets %3 main points.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_577">
+        <Original>Both teams have %1 kill points.\nBoth teams get %2 main points.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_578">
+        <Original>Team West gets</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_579">
+        <Original>Team East gets</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_580">
+        <Original>Both teams get</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_581">
+        <Original>No Team gets</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_582">
+        <Original>%1 a bonus vehicle, it's available at %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_583">
+        <Original>Teleport not available in a vehicle !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_584">
+        <Original>You are carrying the flag. Teleport is not possible !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_585">
+        <Original>Teleporting not possible while swimming !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_586">
+        <Original>Select Teleport Destination</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_587">
+        <Original>You can not create a trench currently!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_588">
+        <Original>It is not possible to create a trench in water.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_589">
+        <Original>It is not possible to create a trench on a road.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_590">
+        <Original>Creating trench... You can create a trench again after respawn.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_591">
+        <Original>You died before your trench was ready.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_592">
+        <Original>Mobile respawn one gets transported by airlift...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_593">
+        <Original>Mobile respawn one currently driving...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_594">
+        <Original>Mobile respawn one is currently in water...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_595">
+        <Original>Mobile respawn one destroyed...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_596">
+        <Original>Mobile respawn one not deployed...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_597">
+        <Original>Enemies near mobile respawn one...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_598">
+        <Original>Mobile respawn two gets transported by airlift...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_599">
+        <Original>Mobile respawn two currently driving...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_600">
+        <Original>Mobile respawn two is currently in water...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_601">
+        <Original>Mobile respawn two destroyed...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_602">
+        <Original>Mobile respawn two not deployed...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_603">
+        <Original>Enemies near mobile respawn two...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_604">
+        <Original>Respawn at Base</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_605">
+        <Original>Teleport to Mobile Respawn One</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_606">
+        <Original>Teleport to Base</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_607">
+        <Original>Respawn at Mobile Respawn One</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_608">
+        <Original>Respawn at Mobile Respawn Two</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_609">
+        <Original>Teleport to Mobile Respawn Two</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_610">
+        <Original>Undeploy MHQ</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_611">
+        <Original>Speed: %1 km/h</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_612">
+        <Original>Fuel: %1 L</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_613">
+        <Original>Dam: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_614">
+        <Original>Dir: %1 (%2)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_615">
+        <Original>N-NE</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_616">
+        <Original>NE</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_617">
+        <Original>E-NE</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_618">
+        <Original>E-SE</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_619">
+        <Original>SE</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_620">
+        <Original>S-SE</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_621">
+        <Original>S-SW</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_622">
+        <Original>SW</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_623">
+        <Original>W-SW</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_624">
+        <Original>W-NW</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_625">
+        <Original>NW</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_626">
+        <Original>N-NW</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_627">
+        <Original>Welcome on board, %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_628">
+        <Original>This is a mobile respawn vehicle. You can load or drop an ammocrate, and if deployed you can use it to respawn, teleport, create a vehicle or satellite view.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_629">
+        <Original>This is an engineer salvage truck. You can load static weapons and unload them.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_630">
+        <Original>Vec: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_631">
+        <Original>Vec: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_632">
+        <Original>Not possible in a vehicle...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_633">
+        <Original>... Fixing head bug ...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_634">
+        <Original>Air taxi is on the way... hold your position!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_635">
+        <Original>Air taxi canceled, you've died !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_636">
+        <Original>Air taxi damaged or destroyed !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_637">
+        <Original>Air taxi heading to base in a few seconds !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_638">
+        <Original>Air taxi leaving now, have a nice day !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_639">
+        <Original>Air taxi starts now !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_640">
+        <Original>Air taxi allmost there, hang on...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_641">
+        <Original>%1 reconnected as %3 team member.\nHe played for the %2 team before, attention!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_642">
+        <Original>Roger. The drop aircraft will start in a few moments!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_643">
+        <Original>Air drop is on the way... it will take some time!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_644">
+        <Original>Air drop allmost there, stand by!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_645">
+        <Original>Air drop vehicle damaged or destroyed !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_646">
+        <Original>Air cargo dropped!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_647">
+        <Original>%1 deployed</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_648">
+        <Original>%1 undeployed</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_649">
+        <Original>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_650">
+        <Original>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_651">
+        <Original>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_652">
+        <Original>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_653">
+        <Original>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_654">
+        <Original>%1 has found new intel. We can now provide grid information on where the enemy is calling in artillery support.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_655">
+        <Original>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_656">
+        <Original>Your mash was destroyed !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_657">
+        <Original>Your MG nest was destroyed !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_658">
+        <Original>Your FARP was destroyed !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_659">
+        <Original>Attention:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_660">
+        <Original>Enemy mobile forces have recaptured %1!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_661">
+        <Original>Attention!!! Enemy mobile forces have recaptured %1!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_662">
+        <Original>Good work!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_663">
+        <Original>You have captured %1 again!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_664">
+        <Original>You were degraded from %1 to Private !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_665">
+        <Original>You were promoted to Corporal, congratulations !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_666">
+        <Original>You were degraded from %1 to Corporal !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_667">
+        <Original>You were promoted to Sergeant, congratulations !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_668">
+        <Original>You were degraded from %1 to Sergeant !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_669">
+        <Original>You were promoted to Lieutenant, congratulations !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_670">
+        <Original>You were degraded from %1 to Lieutenant !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_671">
+        <Original>You were promoted to Captain, congratulations !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_672">
+        <Original>You were degraded from %1 to Captain !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_673">
+        <Original>You were promoted to Major, congratulations !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_674">
+        <Original>You were degraded from %1 to Major !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_675">
+        <Original>You were promoted to Colonel, congratulations !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_676">
+        <Original>DANGER:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_677">
+        <Original>Enemy troops in your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_678">
+        <Original>CLEAR:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_679">
+        <Original>No more enemies in your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_680">
+        <Original>Rebuild Support Building</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_681">
+        <Original>HE</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_682">
+        <Original>DPICM</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_683">
+        <Original>Flare</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_684">
+        <Original>Smoke</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_685">
+        <Original>SADARM</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_686">
+        <Original>Gras layer set to: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_687">
+        <Original>Selected: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_688">
+        <Original>%1 taken...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_689">
+        <Original>Receiving player information for %1 from server...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_690">
+        <Original>Player information for %1 not stored on server...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_691">
+        <Original>Player information for %1 received...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_692">
+        <Original>Current Backpack: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_693">
+        <Original>Your current AI units (%1/%2):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_694">
+        <Original>You have already %1 AI units under your control!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_695">
+        <Original>You are not a group leader, recruiting AI not possible</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_696">
+        <Original>You current rank is private. You can't recruit soldiers!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_697">
+        <Original>You can't recruit an AI soldier, costs %2 points, your current score (%1) will drop below 10!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_698">
+        <Original>You allready have %1 AI soldiers under your control, it is not possible to recruit more with your current rank...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_699">
+        <Original>You have to wait %1 seconds before you can service the vehicle again...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_700">
+        <Original>Service point stats: fuel available: %1 (in liter), ammo available: %2 (in percent)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_701">
+        <Original>Servicing %1... Please stand by...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_702">
+        <Original>Reloading %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_703">
+        <Original>No more magazines available...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_704">
+        <Original>Repairing...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_705">
+        <Original>Refueling...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_706">
+        <Original>%1 is ready...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_707">
+        <Original>Side Mission</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_708">
+        <Original>Side Mission, Convoy Start</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_709">
+        <Original>Side Mission, Convoy End</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_710">
+        <Original>New side mission:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_711">
+        <Original>Sidemission: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_712">
+        <Original>No new side mission available...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_713">
+        <Original>You get %1 extra points for helping solving the sidemission!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_714">
+        <Original>Your team gets a %1, it's available at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_715">
+        <Original>%1 a bonus vehicle, it's available at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_716">
+        <Original>The sidemission target died due to a tragic accident...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_717">
+        <Original>The enemy decided to destroy the sidemission target by itself...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_718">
+        <Original>The convoy reached its destination...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_719">
+        <Original>None or less than 8 prisoners made it back to base...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_720">
+        <Original>The enemy officer was killed...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_721">
+        <Original>The prototype was destroyed before it reached your base...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_722">
+        <Original>The pilots where killed before they reached the base...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_723">
+        <Original>The enemies reached the cruise missile before us...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_724">
+        <Original>The enemy has launched the scud before we could destroy it...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_725">
+        <Original>Sidemission not resolved</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_726">
+        <Original>There is a radar tower on the top of mount Nebelspitze. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_727">
+        <Original>Good job. The radar tower on top of mount Nebelspitze is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_728">
+        <Original>A high enemy officer arrives today in a ruin called Rog. He is responsible for the death of many civilians. Eliminate him!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_729">
+        <Original>The enemy officer is dead. Good job.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_730">
+        <Original>There is a artillery cannon on top of mount Vysota. Destroy it before enemy troops use it to attack Chernogorsk.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_731">
+        <Original>Good job. The artillery cannon is destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_732">
+        <Original>There is a lighthouse on Isle Skalisty. Enemy ships use it to find their way to the Chernarus south coast, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_733">
+        <Original>Good job. The lighthouse is destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_734">
+        <Original>A high enemy officer makes holidays in Kamyshovo. Eliminate him !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_735">
+        <Original>Good job. The enemy officer is dead.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_736">
+        <Original>The enemy prime minister visits some troops near Lopatino. Eliminate him !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_737">
+        <Original>Good job. The prime minister is dead.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_738">
+        <Original>There is a radio tower on the top of mount Lysina. The enemy uses it to command its armored troops. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_739">
+        <Original>Good job. The radio tower on the top of mount Lysina is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_740">
+        <Original>There is a transformer station in Petrovka. The enemy uses it for some experiments in a laboratory in Krasnostav. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_741">
+        <Original>Good job. The transformer station is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_742">
+        <Original>There is a radio tower on the top of mount Malinovka. The enemy uses it to command its marine task forces. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_743">
+        <Original>Good job. The radio tower on top of mount Malinovka is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_744">
+        <Original>A high enemy officer arrives today in Olsha. He is responsible for the production of biological and chemical weapons. Eliminate him !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_745">
+        <Original>A high enemy government member visits Berezino today. He wants to take a look at the local ship production in the Berezino shipyard. Eliminate him !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_746">
+        <Original>The government member is dead. Good job.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_747">
+        <Original>An enemy train is waiting in Elektrozavodsk for loading tanks and fuel. Find the train and destroy it!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_748">
+        <Original>Good job. The train is down...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_749">
+        <Original>The enemy is testing a new protoype plane at the main. Steal it and bring it to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_750">
+        <Original>Good job. You got the prototype plane.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_751">
+        <Original>The enemy is testing a new protoype plane at Balota airfield. Steal it and bring it to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_752">
+        <Original>An enemy convoy is on route from Orlovets to Sosnovka. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_753">
+        <Original>Good job. The convoy is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_754">
+        <Original>An enemy convoy is on route from Gvozdno to Pusta. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_755">
+        <Original>An enemy convoy is on route from Kozlovka to Msta. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_756">
+        <Original>A high enemy officer visits the enemy troops today in Teufelsschloss. He is a personal friend of the enemy leader. Eliminate him!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_757">
+        <Original>The enemy uses a fuelstation located near Bor to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_758">
+        <Original>Good job. The fuelstation is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_759">
+        <Original>Intel has got some information about a specops camp near Vybor. Find it and eliminate all specops there before they try to sabotage something....</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_760">
+        <Original>Good job. The specops are eliminated.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_761">
+        <Original>Intel has got some information about a specops camp in the north. Find it and eliminate all specops there before they try to sabotage something....</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_762">
+        <Original>There is a radio tower on top of mount Baranchik. This is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_763">
+        <Original>Good job. The radio tower on top of mount Baranchik is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_764">
+        <Original>The enemy has a bunker south of Vyshnoye. Enemy government uses this bunker for emergeny situations. Destroy the radar tower there to cut down the ability for them to communicate.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_765">
+        <Original>Good job. The radio tower south of Vyshnoye is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_766">
+        <Original>There is an enemy tank depot in a village near Dubrovka. Destroy all tanks there to weaken the enemy troops.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_767">
+        <Original>Good job. All tanks are down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_768">
+        <Original>Enemy forces are testing an enhanced tank version at Pobeda-Damm. Your mission is to steal it and bring it to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_769">
+        <Original>Good job. You got the enhanced tank version.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_770">
+        <Original>Enemy forces are testing an enhanced tank version at Pobeda-Damm. Your mission is it to destroy that tank.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_771">
+        <Original>Good job. The enhanced tank version is destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_772">
+        <Original>One of our planes has lost a cruise missile in the northern territories, bad luck for us, it didn't explode. Find it and destroy it before the enemy gets it's hands on it. Be aware they are also heading for the crash site!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_773">
+        <Original>Good job. The cruise missile is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_774">
+        <Original>There is an enemy tank depot in Mogilevka. Destroy all tanks there to weaken the enemy troops.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_775">
+        <Original>This time we want to provoke the enemy. Find the enemy flag in Shakhovka and bring it back to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_776">
+        <Original>Good job. The enemy flag is in our base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_777">
+        <Original>We want to provoke the enemy. Find the enemy flag in Bor and bring it back to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_778">
+        <Original>There is a transformer station in Novy Sobor. The enemy uses it for its communication relais stations. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_779">
+        <Original>Find the enemy flag in Tulga and bring it back to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_780">
+        <Original>The enemy is building a prison near Pogorevka. Destroy the building so that they can not arrest innocent people.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_781">
+        <Original>Good job. The prison is destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_782">
+        <Original>The enemy is producing biological weapons near Grozovoy Pass. Find the watertower that is needed for the production and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_783">
+        <Original>Good job. The water tower is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_784">
+        <Original>In the huge radio tower on top of mount Green Mountain is a IED, it looks like an ammobox. Your job is it to destroy the IED.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_785">
+        <Original>Good job. The IED got destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_786">
+        <Original>The enemy is producing chemical weapons in a factory Solnichniy. Find the container that has some of the chemical for the production and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_787">
+        <Original>Good job. The container is destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_788">
+        <Original>There is a prison camp in Kumyrna. Free the prisoners and bring at least eight prisoners back to your base (only a rescue operator can do that).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_789">
+        <Original>Good job. The prisoners are free.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_790">
+        <Original>There is a prison camp in Khelm. Free the prisoners and bring at least eight prisoners back to your base (only a rescue operator can do that).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_791">
+        <Original>An enemy officer is on a walk in a forrest near Topolka-Damm. This is a good chance to arrest him and bring him to your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_792">
+        <Original>Good job.s The officer was arrested.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_793">
+        <Original>An enemy officer is on a walk in a forrest near Topolka-Damm. Simple task, eliminate him !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_794">
+        <Original>Good job.s The officer was killed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_795">
+        <Original>The enemy is testing a new protoype chopper near mount Klen. Steal it and bring it to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_796">
+        <Original>Good job. You got the prototype chopper.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_798">
+        <Original>The enemy has all its gold in a bank in Elektrozavodsk. Destroy the building so that they can't pay their weapon shipments anymore.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_799">
+        <Original>Good job. The bank building is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_800">
+        <Original>The enemy is producing ball bearings in a factory in Chernogorsk. Destroy the main building and the two chimneys to stop the production.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_801">
+        <Original>Good job. The factory is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_802">
+        <Original>The enemy is producing ammunition in a factory near Berezino. Destroy the main building and the pipelines to stop the production.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_803">
+        <Original>There is a huge transformer station near Zelenogorsk. Destroy the three transfomers to cut down the electrical power.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_804">
+        <Original>Good job. The transformer station is destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_805">
+        <Original>The enemy has a small outpost in a valley near Staroye. Arrest the officer there and bring him back to the flag at your base to get some vital informations.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_806">
+        <Original>Good job. The officer was arrested.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_807">
+        <Original>The enemy has a small outpost in a valley near Staroye. Eliminate the officer there !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_808">
+        <Original>Good job. The officer was killed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_809">
+        <Original>Intel reports about a train with vital military equipment leaving Chernogorsk habour soon. Find the train and destroy it!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_810">
+        <Original>Good job. All artillery guns are down. No artillery observers will appear at main targets anymore.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_811">
+        <Original>One of our own choppers was shot down near Gorka. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_812">
+        <Original>Good job. The crew is back at base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_813">
+        <Original>One of our own choppers was shot down in the northern territories. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_814">
+        <Original>The enemy is building a hangar near Zelegonorsk. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_815">
+        <Original>Good job. The hangar is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_816">
+        <Original>There is an enemy training facility near Gorka. Destroy the main building to cut down their possibilities to train new soldiers.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_817">
+        <Original>Good job. The main building of the training facility is destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_818">
+        <Original>There is a radio tower on the top of a mountain near Nadezhdino. The enemy uses it to communicate. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_819">
+        <Original>Good job. The radio tower on top of a mountain near Nadezhdino is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_820">
+        <Original>A new helicopter prototype gets tested on Krasnostav airfield. Destroy it before enemy troops use it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_821">
+        <Original>Good job. The helicopter is destroyed.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_822">
+        <Original>There is a radar tower on the top of mount Gur Dur. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_823">
+        <Original>Good job. The radar tower on top of mount Gur Dur is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_824">
+        <Original>A high enemy officer arrives today in Shamali. He is responsible for the death of many civilians. Eliminate him!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_825">
+        <Original>There is a artillery cannon on top of mount Sanginakt. Destroy it before enemy troops use it to attack Feruz-Abad.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_826">
+        <Original>A terrorist leader called Nib Nedal hides somewhere near mount Bamjahan. Your task is to find him and eliminate him!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_827">
+        <Original>The terrorist leader is dead. Good job.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_828">
+        <Original>A high enemy officer makes holidays at Lake Charsu. Eliminate him !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_829">
+        <Original>The enemy prime minister visits some troops near Nagara. Eliminate him !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_830">
+        <Original>There is a radio tower on the top of mount Jabal os Saraj. The enemy uses it to command its armored troops. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_831">
+        <Original>Good job. The radio tower on the top of mount Jabal os Saraj is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_832">
+        <Original>There is a radar tower on the top of mount Sanginakt. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_833">
+        <Original>Good job. The radar tower on top of mount Sanginakt is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_834">
+        <Original>There is a radio tower on the top of mount Aqtappa. The enemy uses it to command its marine task forces. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_835">
+        <Original>Good job. The radio tower on top of mount Aqtappa is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_836">
+        <Original>A high enemy officer arrives today in a mine near Feruz-Abad. He is responsible for the production of biological and chemical weapons. Eliminate him !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_837">
+        <Original>A high enemy government member visits Nagara-1-Oilfield today. He wants to take a look at the local oil production in Nagara-1-Oilfield. Eliminate him !</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_838">
+        <Original>An enemy convoy is on route from Landay to Mulladost. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_839">
+        <Original>The enemy is testing a new protoype plane at Rasman airfield. Steal it and bring it to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_840">
+        <Original>An enemy convoy is on route from Nur to Garmsar. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_841">
+        <Original>An enemy convoy is on route from Zavarak to Chaman. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_842">
+        <Original>An enemy convoy is on route from Mulladost to Karachinar. Find it and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_843">
+        <Original>A high enemy officer visits the enemy troops today near Bala-Pass. He is a personal friend of the enemy leader. Eliminate him!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_844">
+        <Original>The enemy uses a fuelstation located near Gospandi to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_845">
+        <Original>Intel has got some information about a specops camp near Nur. Find it and eliminate all specops there before they try to sabotage something....</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_846">
+        <Original>Intel has got some information about a specops camp in the west. Find it and eliminate all specops there before they try to sabotage something....</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_847">
+        <Original>There is a radio tower on top of a mountain near Chaman. This is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_848">
+        <Original>Good job. The radio tower on top of a mountain near Chaman is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_849">
+        <Original>The enemy has a bunker near Sagram. Enemy government uses this bunker for emergeny situations. Destroy the radar tower there to cut down the ability for them to communicate.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_850">
+        <Original>Good job. The radio tower near Sagram is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_851">
+        <Original>There is an enemy tank depot near Ravanay. Destroy all tanks there to weaken the enemy troops.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_852">
+        <Original>Enemy forces are testing an enhanced tank near Timurkalay. Your mission is to steal it and bring it to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_853">
+        <Original>Enemy forces are testing an enhanced tank version near Timurkalay. Your mission is it to destroy that tank.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_854">
+        <Original>There is an enemy tank depot in Zavarak. Destroy all tanks there to weaken the enemy troops.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_855">
+        <Original>This time we want to provoke the enemy. Find the enemy flag in Imarat and bring it back to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_856">
+        <Original>We want to provoke the enemy. Find the enemy flag in Huzrutimam and bring it back to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_857">
+        <Original>Find the enemy flag in Anar and bring it back to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_858">
+        <Original>The enemy is producing chemical weapons in a factory in Sagram. Find the container that has some of the chemicals for the production and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_859">
+        <Original>There is a prison camp in Garmarud. Free the prisoners and bring at least eight prisoners back to your base (only a rescue operator can do that).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_860">
+        <Original>There is a prison camp in Rasman. Free the prisoners and bring at least eight prisoners back to your base (only a rescue operator can do that).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_861">
+        <Original>An enemy officer is on a walk in a forrest near Nur. This is a good chance to arrest him and bring him to your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_862">
+        <Original>An enemy officer is on a walk in a forrest near Nur. Simple task, eliminate him !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_863">
+        <Original>The enemy is testing a new protoype chopper near Zavarak. Steal it and bring it to the flag at your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_864">
+        <Original>The enemy is producing ball bearings in a factory in Lalezar. Destroy the fuel tanks to stop the production.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_865">
+        <Original>Good job. The fuel tanks are down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_866">
+        <Original>The enemy has some very productive oil pumps near Nagara-1-Oilfield. Destroy the pumps there to cut down the enemy fuel supllies.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_867">
+        <Original>Good job. The oil pumps are down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_868">
+        <Original>The enemy has a small outpost in a valley near Jilavur. Arrest the officer there and bring him back to the flag at your base to get some vital informations.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_869">
+        <Original>The enemy has a small outpost in a valley near Jilavur. Eliminate the officer there !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_870">
+        <Original>The enemy has a uran mine near Feruz-Abad. Your task: destroy the containers with mining equipment to prevent further mining!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_871">
+        <Original>Good job. You have destroyed the containers.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_872">
+        <Original>One of our own choppers was shot down near Chaman. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_873">
+        <Original>The enemy is building a hangar near Falar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_874">
+        <Original>The enemy is preparing a Scud launch near Mulladost to attack a neighbour country. Find the Scud before they can fire the missile, hurry...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_875">
+        <Original>Good job. You have destroyed the Scud!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_876">
+        <Original>There is a radio tower on the top of a mountain near Landay. The enemy uses it to communicate. Simple task, destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_877">
+        <Original>Good job. The radio tower on top of a mountain near Landay is down.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_878">
+        <Original>A new helicopter prototype gets tested on Rasman airfield. Destroy it before enemy troops use it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_879">
+        <Original>Message sent to: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_880">
+        <Original>Message stored</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_881">
+        <Original>NO TEXT TO SENT OR STORE</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_882">
+        <Original>You have received a message from %1: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_883">
+        <Original>Uncon</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_884">
+        <Original> (Medic)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_885">
+        <Original>Dead</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_886">
+        <Original>Error</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_887">
+        <Original>Turning player names off...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_888">
+        <Original>Turning player names on...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_889">
+        <Original>Turning player roles on...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_890">
+        <Original>Turning player health on...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_891">
+        <Original>Find and eliminate the local governor of %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_892">
+        <Original>Find the local communication tower in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_893">
+        <Original>Find a fortress in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_894">
+        <Original>Find an enemy ammo truck in %1 and destroy it to cut down ammo supplies.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_895">
+        <Original>Find an enemy truck in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_896">
+        <Original>Find a new APC prototype (concealed as medic) in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_897">
+        <Original>Find a new APC prototype in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_898">
+        <Original>Find the enemy HQ in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_899">
+        <Original>Find a light enemy factory in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_900">
+        <Original>Find a heavy enemy factory in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_901">
+        <Original>Find an enemy artillery radar in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_902">
+        <Original>Find an enemy anti air radar in %1 and destroy it.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_903">
+        <Original>Find a collaborateur in %1 and eliminate him</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_904">
+        <Original>Find a drug dealer who sells drugs to our troops in %1 and eliminate him.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_905">
+        <Original>No Secondary Main Target Mission available</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_906">
+        <Original>Error: No unit</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_907">
+        <Original>You get punished for using ESC Respawn...\n\n3 minutes till respawn and you lose two lives!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_908">
+        <Original>You get punished for using ESC Respawn...\n\n3 minutes till respawn!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_910">
+        <Original>%1 is down</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_911">
+        <Original>%2 is unconscious. Hit by %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_912">
+        <Original>%1 is unconscious.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_913">
+        <Original>%1 was revived by %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_914">
+        <Original>You were revived by: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_914a">
+        <Original>You have revived %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_915">
+        <Original>You get %1 extra life(s) for reviving another player</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_916">
+        <Original>You get %1 extra life(s) and %2 points for reviving another player</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_917">
+        <Original>You have selected a respawn position, stand by!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_918">
+        <Original>You have respawned</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_919">
+        <Original>%1 lives left</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_920">
+        <Original>Trying to find a position at land... Stand by...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_921">
+        <Original>You are seriously wounded!\nWait for help or select a respawn position by map click (when available)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_922">
+        <Original>Yes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_923">
+        <Original>Revive</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_924">
+        <Original>CPR</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_925">
+        <Original>Mobile respawn %1 gets transported by airlift...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_926">
+        <Original>Mobile respawn %1 currently driving...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_927">
+        <Original>Mobile respawn %1 is currently in water...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_928">
+        <Original>Mobile respawn %1 destroyed...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_929">
+        <Original>Mobile respawn %1 not deployed...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_930">
+        <Original>Enemies near mobile respawn %1...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_931">
+        <Original>No lives left...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_932">
+        <Original>You died...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_933">
+        <Original>%1 life(s) left</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_934">
+        <Original>first artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_935">
+        <Original>second artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_936">
+        <Original>artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_937">
+        <Original>First artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_938">
+        <Original>Second artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_939">
+        <Original>Artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_940">
+        <Original>Air Drop Aircraft</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_941">
+        <Original>No position for respawn camp near </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_942">
+        <Original>%1 has changed his name... It was %2 before, ArmA 2 Key: %3</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_943">
+        <Original>Player %1 was kicked automatically because of too much unnecessary shooting at base, ArmA 2 Key: %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_944">
+        <Original>Player %1 was kicked automatically because trying to place a satchel at base, ArmA 2 Key: %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_945">
+        <Original>Player %1 was kicked automatically because he didn't log on in the admin slot, ArmA 2 Key: %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_946">
+        <Original>Player %1 was kicked automatically because he uses cheat tools, ArmA 2 Key: %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_947">
+        <Original>Player %1 does too much shooting at base, ArmA 2 Key: %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_948">
+        <Original>Player %1 placed a satchel at base, ArmA 2 Key: %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_949">
+        <Original>Your team eliminated the governor.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_950">
+        <Original>Your team destroyed the communication tower.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_951">
+        <Original>Your team destroyed the fortress.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_952">
+        <Original>Your team destroyed the ammo truck.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_953">
+        <Original>Your team destroyed the APC.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_954">
+        <Original>Your team destroyed the enemy HQ.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_955">
+        <Original>Your team destroyed the light enemy factory.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_956">
+        <Original>Your team destroyed the heavy enemy factory.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_957">
+        <Original>Your team destroyed the enemy artillery radar.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_958">
+        <Original>Your team destroyed the enemy anti air radar.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_959">
+        <Original>Your team killed the collaborateur.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_960">
+        <Original>Your team killed the drug dealer.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_961">
+        <Original>Secondary main target mission not solved...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_962">
+        <Original>The other team solved the main target mission</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_963">
+        <Original>Unknown air contact</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_964">
+        <Original>Enemy patrol</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_965">
+        <Original>Main Targets</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_966">
+        <Original>West Route</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_967">
+        <Original>North Route</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_968">
+        <Original>East Route</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_969">
+        <Original>Complete, ordered</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_970">
+        <Original>Random 2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_971">
+        <Original>Random 4</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_972">
+        <Original>Random 6</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_973">
+        <Original>Random 8</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_974">
+        <Original>Random 10</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_975">
+        <Original>Random 12</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_976">
+        <Original>Random 14</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_977">
+        <Original>Random 16</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_978">
+        <Original>Random 18</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_979">
+        <Original>Random 21</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_980">
+        <Original>Time of day:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_981">
+        <Original>00:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_982">
+        <Original>01:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_983">
+        <Original>02:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_984">
+        <Original>03:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_985">
+        <Original>04:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_986">
+        <Original>05:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_987">
+        <Original>06:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_988">
+        <Original>07:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_989">
+        <Original>08:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_990">
+        <Original>09:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_991">
+        <Original>10:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_992">
+        <Original>11:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_993">
+        <Original>12:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_994">
+        <Original>13:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_995">
+        <Original>14:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_996">
+        <Original>15:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_997">
+        <Original>16:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_998">
+        <Original>17:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_999">
+        <Original>18:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1000">
+        <Original>19:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1001">
+        <Original>20:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1002">
+        <Original>21:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1003">
+        <Original>22:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1004">
+        <Original>23:00</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1005">
+        <Original>With revive:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1006">
+        <Original>Yes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1007">
+        <Original>No</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1008">
+        <Original>Only medics can revive:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1009">
+        <Original>Max lives (revive):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1010">
+        <Original>Unlimited</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1011">
+        <Original>Life time:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1012">
+        <Original>60 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1013">
+        <Original>120 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1014">
+        <Original>180 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1015">
+        <Original>240 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1016">
+        <Original>300 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1017">
+        <Original>600 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1018">
+        <Original>1200 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1019">
+        <Original>Respawn possible after:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1020">
+        <Original>30 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1021">
+        <Original>90 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1022">
+        <Original>Respawn time (in seconds):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1023">
+        <Original>With AI recruitment:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1024">
+        <Original>With AI features but no AI recruit:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1025">
+        <Original>Initial Viewdistance:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1026">
+        <Original>1000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1027">
+        <Original>1500 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1028">
+        <Original>2000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1029">
+        <Original>2500 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1030">
+        <Original>3000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1031">
+        <Original>3500 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1032">
+        <Original>4000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1033">
+        <Original>4500 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1034">
+        <Original>5000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1035">
+        <Original>Maximum Viewdistance:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1036">
+        <Original>6000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1037">
+        <Original>7000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1038">
+        <Original>8000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1039">
+        <Original>9000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1040">
+        <Original>10000 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1041">
+        <Original>Viewdistance changable:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1042">
+        <Original>With ACRE:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1043">
+        <Original>ACRE signal loss (in percent):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1044">
+        <Original>Normal loss (100%)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1045">
+        <Original>Two-thirds loss (75%)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1046">
+        <Original>Half loss (50%)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1047">
+        <Original>Quarter loss (25%)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1048">
+        <Original>No loss (0%)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1049">
+        <Original>ACRE radio on back:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1050">
+        <Original>would NOT work</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1051">
+        <Original>would work</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1052">
+        <Original>Mission Type:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1053">
+        <Original>Default Mission Type</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1054">
+        <Original>Main Targets Only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1055">
+        <Original>Side Missions Only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1056">
+        <Original>Teleport or spawn at MHQ:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1057">
+        <Original>Disable MHQ if less than x m away from MT:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1058">
+        <Original>Off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1059">
+        <Original>500 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1060">
+        <Original>700 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1061">
+        <Original>900 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1062">
+        <Original>No MHQ tele when enemy near:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1063">
+        <Original>Disabled</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1064">
+        <Original>50 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1065">
+        <Original>100 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1066">
+        <Original>200 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1067">
+        <Original>MHQ Camo enabled:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1068">
+        <Original>Enable teleport to base:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1069">
+        <Original>Fast time (real - ingame):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1070">
+        <Original>No fast time</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1071">
+        <Original>1 sec ~ 1 minute</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1072">
+        <Original>5 sec ~ 1 minute</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1073">
+        <Original>10 sec ~ 1 minute</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1074">
+        <Original>20 sec ~ 1 minute</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1075">
+        <Original>30 sec ~ 1 minute</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1076">
+        <Original>HALO at base wait time:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1077">
+        <Original>0 Minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1078">
+        <Original>5 Minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1079">
+        <Original>10 Minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1080">
+        <Original>30 Minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1081">
+        <Original>60 Minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1082">
+        <Original>Lock armored enemy vecs:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1083">
+        <Original>Lock enemy cars:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1084">
+        <Original>Lock enemy air vecs:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1085">
+        <Original>Illumination main target:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1086">
+        <Original>Delete MT empty AI vehicles after:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1087">
+        <Original>Never</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1088">
+        <Original>5 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1089">
+        <Original>10 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1090">
+        <Original>15 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1091">
+        <Original>20 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1092">
+        <Original>25 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1093">
+        <Original>30 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1094">
+        <Original>40 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1095">
+        <Original>60 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1096">
+        <Original>Repair buildings can repair:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1097">
+        <Original>No parachute jump flags:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1098">
+        <Original>Parachute from base:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1099">
+        <Original>Only pilots can fly:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1100">
+        <Original>Without NVgoggles:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1101">
+        <Original>Disable vehicle TI:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1102">
+        <Original>Ammobox handling:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1103">
+        <Original>New</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1104">
+        <Original>Old</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1105">
+        <Original>MHQ vec creation time:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1106">
+        <Original>1 Minute</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1107">
+        <Original>Air vecs autokick time:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1108">
+        <Original>HALO jump height:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1109">
+        <Original>888 m</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1110">
+        <Original>With backpack:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1111">
+        <Original>Weapons limited:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1112">
+        <Original>Ranked:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1113">
+        <Original>Subtract score when a player dies:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1114">
+        <Original>-1 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1115">
+        <Original>-2 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1116">
+        <Original>-3 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1117">
+        <Original>-4 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1118">
+        <Original>-5 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1119">
+        <Original>-6 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1120">
+        <Original>-7 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1121">
+        <Original>-8 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1122">
+        <Original>-9 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1123">
+        <Original>-10 Points</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1124">
+        <Original>Skill Enemy:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1125">
+        <Original>Low</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1126">
+        <Original>Normal</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1127">
+        <Original>High</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1128">
+        <Original>With isle defense:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1129">
+        <Original>Base sabotage:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1130">
+        <Original>Enemy recaptures targets:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1131">
+        <Original>Show Base Safezone (Red):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1132">
+        <Original>Armor at main targets:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1133">
+        <Original>Less</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1134">
+        <Original>None</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1135">
+        <Original>Enemy arty spotters at mt:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1136">
+        <Original>ArtiOp. max. strike dist:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1137">
+        <Original>Infinite</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1138">
+        <Original>Artillery reload time:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1139">
+        <Original>5 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1140">
+        <Original>10 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1141">
+        <Original>20 secs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1142">
+        <Original>Artillery avail. after:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1143">
+        <Original>Arty check friendlies:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1144">
+        <Original>ACE Wounds:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1145">
+        <Original>On</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1146">
+        <Original>Wounds life time:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1147">
+        <Original>No poor mans r</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1148">
+        <Original>ACE wounds for AI:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1149">
+        <Original>No revive punish:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1150">
+        <Original>IFAK Capacity:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1151">
+        <Original>2 items</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1152">
+        <Original>4 items</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1153">
+        <Original>6 items</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1154">
+        <Original>8 items</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1155">
+        <Original>10 items</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1156">
+        <Original>Enable Chopper Hud:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1157">
+        <Original>Enable Vehicle Hud:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1158">
+        <Original>Vehicle welcome msg:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1159">
+        <Original>Show player names:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1160">
+        <Original>Default player name state:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1161">
+        <Original>Names</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1162">
+        <Original>Roles</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1163">
+        <Original>Health</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1164">
+        <Original>Internal weather system:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1165">
+        <Original>With winter weather:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1166">
+        <Original>Override BIS Effects:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1167">
+        <Original>Dirt and blood effects:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1168">
+        <Original>Block spacebar scanning:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1169">
+        <Original>Max. number ammo boxes:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1170">
+        <Original>Delete wrecks after:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1171">
+        <Original>90 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1172">
+        <Original>120 minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1173">
+        <Original>Wreck max repairs:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1174">
+        <Original>Grass:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1175">
+        <Original>Player can disable grass:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1176">
+        <Original>Recruit AI (max.):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1177">
+        <Original>Player marker:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1178">
+        <Original>Name only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1179">
+        <Original>Marker only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1180">
+        <Original>Role only</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1181">
+        <Original>Disable player markers:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1182">
+        <Original>Player marker with dir:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1183">
+        <Original>Vehicle marker with dir:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1184">
+        <Original>Marker type:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1186">
+        <Original>Air drop radius:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1187">
+        <Original>Exact position</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1188">
+        <Original>Airdrop max. dist:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1189">
+        <Original>Vec reload, engine off:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1190">
+        <Original>Vec reload, time factor:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1191">
+        <Original>With MG nest (machine gunners):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1192">
+        <Original>With medic tent (medics):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1193">
+        <Original>Engineer full repair (old versions):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1194">
+        <Original>Negative TK points:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1195">
+        <Original>Salvage cargo capacity:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1196">
+        <Original>AI observers arty avail time:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1197">
+        <Original>Max number TKs for kick:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1198">
+        <Original>Disable</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1199">
+        <Original>Kick players shooting at base:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1200">
+        <Original>2 Shots</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1201">
+        <Original>3 Shots</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1202">
+        <Original>5 Shots</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1203">
+        <Original>10 Shots</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1204">
+        <Original>20 Shots</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1205">
+        <Original>30 Shots</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1206">
+        <Original>No kick</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1207">
+        <Original>Kick for base satchel:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1208">
+        <Original>No teamkilling possible:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1209">
+        <Original>No 3rd person:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1210">
+        <Original>With camo nets at base:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1211">
+        <Original>Main Target Bonus Vehicle:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1212">
+        <Original>Sidemission Bonus Vehicle:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1213">
+        <Original>MT Tower Satchels only:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1214">
+        <Original>SPECTATING</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1215">
+        <Original>Camera</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1216">
+        <Original>Target</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1217">
+        <Original>Unknown</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1218">
+        <Original>Close</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1219">
+        <Original>ADMIN DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1220">
+        <Original>Select player:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1221">
+        <Original>Name:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1222">
+        <Original>Unit:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1223">
+        <Original>Score:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1224">
+        <Original>Reset TKs</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1225">
+        <Original>Kick player</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1226">
+        <Original>Spectating</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1227">
+        <Original>Ban player</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1228">
+        <Original>SUPPORT DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1229">
+        <Original>Cancel</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1230">
+        <Original>Drop Ammo</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1231">
+        <Original>Drop Vehicle</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1232">
+        <Original>Drop Artillery</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1233">
+        <Original>Select Support:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1234">
+        <Original>Select drop zone by map click:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1235">
+        <Original>AI RECRUIT DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1236">
+        <Original>Exit</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1237">
+        <Original>Select unit to recruit:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1238">
+        <Original>Recruit</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1239">
+        <Original>Your current AI units:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1240">
+        <Original>Dismiss</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1241">
+        <Original>Dismiss All</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1242">
+        <Original>ARTILLERY DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1243">
+        <Original>Fire Series:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1244">
+        <Original>Fire!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1245">
+        <Original>Select Ordnance: </Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1246">
+        <Original>Select artillery target by map click:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1247">
+        <Original>Take Backpack</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1248">
+        <Original>BACKPACK DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1249">
+        <Original>Select Backpack:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1250">
+        <Original>Teleport</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1251">
+        <Original>Base</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1252">
+        <Original>Mobile Respawn One</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1253">
+        <Original>Mobile Respawn Two</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1254">
+        <Original>Select Teleport Destination</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1255">
+        <Original>Changing position... Stand by!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1256">
+        <Original>MESSAGE SYSTEM</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1257">
+        <Original>Select Player</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1258">
+        <Original>Select player to send message to</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1259">
+        <Original>Message Text:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1260">
+        <Original>Send Msg To:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1261">
+        <Original>Clear Text Box</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1262">
+        <Original>Select Received Msg:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1263">
+        <Original>Select received messages</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1264">
+        <Original>Select Send Msg:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1265">
+        <Original>Select send messages</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1266">
+        <Original>PARAJUMP</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1267">
+        <Original>Choose your parachute location and then single click for jump position</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1268">
+        <Original>Press Esc to deploy. Deploy between 220 feet and 120 feet.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1269">
+        <Original>Don't forget to open your parachute!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1270">
+        <Original>!!!! REMEMBER TO PRESS ESC !!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1271">
+        <Original>!!!! REMEMBER TO OPEN YOUR PARACHUTE !!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1272">
+        <Original>Capturing Camp</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1273">
+        <Original>SATELLITE CAMERA</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1274">
+        <Original>50m to N</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1275">
+        <Original>50m to S</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1276">
+        <Original>50m to W</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1277">
+        <Original>50m to E</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1278">
+        <Original>to center</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1279">
+        <Original>Zoom on</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1280">
+        <Original>Zoom off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1281">
+        <Original>NVG on</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1282">
+        <Original>TI on</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1283">
+        <Original>NVG off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1284">
+        <Original>TI off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1285">
+        <Original>Viewdistance:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1286">
+        <Original>Click on the slider to change the VD</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1287">
+        <Original>Select Gras Layer</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1288">
+        <Original>Click on the number to change the layer</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1289">
+        <Original>Player Marker</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1290">
+        <Original>Click on the box below to activate/deactivate</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1291">
+        <Original>Show Player Names</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1292">
+        <Original>Click to turn on/off</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1293">
+        <Original>SETTINGS DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1294">
+        <Original>Points needed for</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1295">
+        <Original>different ranks:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1296">
+        <Original>General mission settings</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1297">
+        <Original>Click on the textbox and use up and down cursor to browse.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1298">
+        <Original>Medics (player names)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1299">
+        <Original>Artillery operators (player names)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1300">
+        <Original>Engineers (player names)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1301">
+        <Original>Squad Mgmt</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1302">
+        <Original>Settings</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1303">
+        <Original>Fix Headbug</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1304">
+        <Original>Msg System</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1305">
+        <Original>Admin Dialog</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1306">
+        <Original>Side Mission:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1307">
+        <Original>Main Target:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1308">
+        <Original>Secondary Main Target Mission:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1309">
+        <Original>Intel found:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1310">
+        <Original>Weather Information:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1311">
+        <Original>Points (West : East):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1312">
+        <Original>Kills (West : East):</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1313">
+        <Original>Click on 'Side Mission:' or 'Main Targets:' caption to show it on the map</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1314">
+        <Original>Your current rank:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1315">
+        <Original>Your score:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1316">
+        <Original>Camps captured:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1317">
+        <Original>Lives left:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1318">
+        <Original>STATUS DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1319">
+        <Original>UNLOAD DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1320">
+        <Original>Select</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1321">
+        <Original>Select vehicle to unload:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1322">
+        <Original>VEHICLE DIALOG</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1323">
+        <Original>Ammobox loaded:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1324">
+        <Original>Drop Box</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1325">
+        <Original>Load Box</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1326">
+        <Original>Create Vehicle</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1327">
+        <Original>SAT View</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1328">
+        <Original>Deploy MHQ</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1329">
+        <Original>Click on a respawn position on the map to respawn</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1330">
+        <Original>Following:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1331">
+        <Original>Specating</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1332">
+        <Original>Map click respawn available:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1333">
+        <Original>Show Map</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1334">
+        <Original>Show Players</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1335">
+        <Original>Nightvision On</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1336">
+        <Original>You are seriously wounded!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1337">
+        <Original>Wait for help or select a respawn position by map click (when available)</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1338">
+        <Original>Near Players</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1339">
+        <Original>Next target is: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1340">
+        <Original>%1 captured...  Waiting for new orders...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1341">
+        <Original>%1 captured...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1342">
+        <Original>You have recaptured %1!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1343">
+        <Original>%1 lost!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1344">
+        <Original>New mission available...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1345">
+        <Original>Mission accomplished...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1346">
+        <Original>Sidemission not resolved.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1347">
+        <Original>%1 artillery available</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1348">
+        <Original>%1 available again in a few minutes</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1349">
+        <Original>Crossroad, requesting %1 strike. %2 salvoes at %3 north, %4 west!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1350">
+        <Original>This is %1, roger.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1351">
+        <Original>First artillery salvo %1 on the way...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1352">
+        <Original>Second artillery salvo %1 on the way...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1353">
+        <Original>Artillery salvo %1 on the way...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1354">
+        <Original>First artillery Splashdown, salvo %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1355">
+        <Original>Second artillery splashdown, salvo %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1356">
+        <Original>Artillery splashdown, salvo %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1357">
+        <Original>%1 reloading...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1358">
+        <Original>%1 fire series ended</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1359">
+        <Original>%1 executing %2 strike, salvoes %3</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1360">
+        <Original>%1 artillery observers spotted at main target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1361">
+        <Original>Secondary Main Target Mission: %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1362">
+        <Original>All enemy artillery observers down at current main target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1363">
+        <Original>Radio tower spotted at main target. Destroy it so that the enemy can not call in reinforcements.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1364">
+        <Original>Main target radio tower down. Now the enemy will not be able to call in further reinforcements.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1365">
+        <Original>%1 enemy camps sighted at main target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1366">
+        <Original>The enemy has spotted you at main target. Enemy reinforcements inbound.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1367">
+        <Original>The enemy has spotted one of the teams at main target. Enemy reinforcements inbound.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1368">
+        <Original>All side missions resolved!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1369">
+        <Original>It seems that the enemy doesn't want to give up %1 and starts a counter-attack. Search defensive positions, the attack will start in a few minutes.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1370">
+        <Original>The counter-attack starts. Hold the current target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1371">
+        <Original>Good job. The counter-attack was defeated.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1372">
+        <Original>Mobile respawn one is being transported by airlift.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1373">
+        <Original>Mobile respawn one has been released.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1374">
+        <Original>Mobile respawn two is being transported by airlift.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1375">
+        <Original>Mobile respawn two has been released.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1376">
+        <Original>Russian camp captured by US troops!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1377">
+        <Original>US camp captured by Russian troops!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1378">
+        <Original>Camp captured by US troops!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1379">
+        <Original>Camp captured by Russian troops!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1380">
+        <Original>Camp captured by Resistance troops!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1381">
+        <Original>New flag for parajump created at current target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1382">
+        <Original>New flag for parajump and Parachute box created at current target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1383">
+        <Original>New vehicle create flag created at current target.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1384">
+        <Original>The %1 team solved the main target mission and gets %2 points.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1385">
+        <Original>The %1 team destroyed the main target radio tower and gets %2 points.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1386">
+        <Original>Our anti air radar at base was destroyed, we are not able to track enemy air movements anymore... rebuilding it will take some time</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1387">
+        <Original>Anti air radar at base up again!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1388">
+        <Original>Attention, the enemy launches a saboteur attack on the base...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1389">
+        <Original>Various airborne enemy troops are heading to the main target, be prepared...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1390">
+        <Original>Enemy fighters are on the way to the main target, attention...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1391">
+        <Original>Enemy attack choppers are on the way to the main target, attention...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1392">
+        <Original>Light enemy support choppers are on the way to the main target, attention...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1393">
+        <Original>Your jet service support building was destroyed. You are not able to service aircraft as long as it is down !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1394">
+        <Original>Jet service support building up again. Servicing planes is now possible again.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1395">
+        <Original>Your chopper service support building was destroyed. You are not able to service choppers as long as it is down !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1396">
+        <Original>Chopper service support building up again. Servicing choppers is now possible again.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1397">
+        <Original>Your wreck repair support building was destroyed. You are not able to repair wrecks as long as it is down !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1398">
+        <Original>Wreck repair support building up again. Repairing wrecks is now possible again.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1399">
+        <Original>Sidemission: Enemy troops will arrive in less than %1 minutes at the crash site...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1400">
+        <Original>Sidemission: ATTENTION!!! Enemy troops will arrive in less than 2 minutes at the crash site...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1401">
+        <Original>Rebuilding %1 at %2, this will take some time...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1402">
+        <Original>%1 ready at %2</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1403">
+        <Original>Enemy troops in your base.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1404">
+        <Original>Crossroad, requesting %1 strike. %2 salvoes at grid %3!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1405">
+        <Original>Takistan camp captured by US troops!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1406">
+        <Original>US camp captured by Takistan troops!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1407">
+        <Original>Camp captured by Takistan troops!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1408">
+        <Original>Unflip Vehicle</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1409">
+        <Original>Enemy units near your base</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1410">
+        <Original>3rd person view not available outside vehicles</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1411">
+        <Original>Maximum number ammo boxes (%1) allready loaded... Please pick up a dropped box...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1412">
+        <Original>Loading ammobox... please wait, don't move...</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1413">
+        <Original>Ammobox loaded... ready !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1414">
+        <Original>Ammobox loading canceled !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1415">
+        <Original>You are now qualified to fly, get in as gunner or command attack air vehicles !!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1416">
+        <Original>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou will be qualified in about %2 minute(s).</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1417">
+        <Original>Only pilots can fly</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1418">
+        <Original>Unlock Vehicle</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1419">
+        <Original>Lock Vehicle</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1420">
+        <Original>Admin Spectate</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1421">
+        <Original>You are not trained to use a %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1422">
+        <Original>You have to change your magazines!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1423">
+        <Original>Your current rank doesn't allow you to use a %1</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1424">
+        <Original>You can't call an air taxi. You need %2 points for that, your score is %1!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1425">
+        <Original>Sidemissions random:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1426">
+        <Original>Attention!\nThis is a reserved member slot.\nYou'll get kicked automatically in a few seconds!\nPlease select another slot!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1427">
+        <Original>ACE weapon check when entering vehicles:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1428">
+        <Original>Ammo box drop only possible from the pilot seat!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1429">
+        <Original>Join</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1430">
+        <Original>Leave</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1431">
+        <Original>A.I.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1432">
+        <Original>has left your group</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1433">
+        <Original>has joined your group</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1434">
+        <Original>Domination action menus are available when you press the Teamswitch key (%1)!!!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1435">
+        <Original>Server visits: %1, time played: %2, total score: %3</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1436">
+        <Original>Hostname</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1437">
+        <Original>Host:</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1438">
+        <Original>Welcome %1 on the %2 server</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1439">
+        <Original>Welcome back %1 on the %2 server</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1440">
+        <Original>You have played %1 times on the server, time played %2, total score %3</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1441">
+        <Original>You have already requested player stats from the server!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1442">
+        <Original>Requesting player stats from server, stand by!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1443">
+        <Original>Could not retrieve player stats from server, timeout!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1444">
+        <Original>Player stats from server received!</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1445">
+        <Original>not available</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1446">
+        <Original>Over head</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1447">
+        <Original>Cursor target</Original>
+      </Key>
+       <Key ID="STR_DOM_MISSIONSTRING_1448">
+        <Original>Finally we've found the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</Original>
+      </Key>
+    </Container>
+  </Package>
+</Project>
