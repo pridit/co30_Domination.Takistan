@@ -16,17 +16,17 @@ _vehicle setVariable [QGVAR(Vehicle_Attached), false];
 _vehicle setVariable [QGVAR(Vehicle_Released), false];
 _vehicle setVariable [QGVAR(Attached_Vec), objNull];
 
-_possible_types = GV(_vehicle,GVAR(lift_types));
-
 sleep 10.123;
 
-while {(alive _vehicle) && (alive player) && (player in _vehicle)} do {
+_possible_types = GV(_vehicle,GVAR(lift_types));
+
+while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
     if ((driver _vehicle) == player) then {
         _pos = getPos _vehicle;
         
         if (!(GV(_vehicle,GVAR(Vehicle_Attached))) && {(_pos select 2 > 2.5)} && {(_pos select 2 < 50)}) then {
             _nearest = objNull;
-            _nobjects = nearestObjects [_vehicle, ["LandVehicle","Air"], 70];
+            _nobjects = nearestObjects [(position _vehicle), ["LandVehicle","Air"], 70];
             if (count _nobjects > 0) then {
                 _dummy = _nobjects select 0;
                 if (_dummy == _vehicle) then {
@@ -39,24 +39,11 @@ while {(alive _vehicle) && (alive player) && (player in _vehicle)} do {
                 if (_nearest isKindOf "CAManBase") then {
                     _nearest = objNull;
                 } else {
-                    _nupper = toUpper(typeof _nearest);
-                    #ifndef __ACE__
-                    if ((damage _nearest < 1) || {!(_nupper in _possible_types)}) then {_nearest = objNull};
-                    #else
-                    _alt = _nearest call ace_v_alive;
-                    if (isNil "_alt") then {
-                        if ((damage _nearest < 1) || {!(_nupper in _possible_types)}) then {_nearest = objNull};
-                    } else {
-                        if (_alt || {!(_nupper in _possible_types)}) then {_nearest = objNull};
-                    };
-                    #endif
+                    if ((damage _nearest < 1) || {!((toUpper (typeof _nearest)) in _possible_types)}) then {_nearest = objNull};
                 };
             };
             sleep 0.1;
-            private "_marp";
-            _marp = GV(_nearest,GVAR(WreckMaxRepair));
-            if (isNil "_marp") then {_marp = GVAR(WreckMaxRepair)};
-            if (_marp > 0 && {!isNull _nearest} && {_nearest != (GV(_vehicle,GVAR(Attached_Vec)))}) then {
+            if (!isNull _nearest && {_nearest != (GV(_vehicle,GVAR(Attached_Vec)))}) then {
                 _nearest_pos = getPos _nearest;
                 _nx = _nearest_pos select 0;_ny = _nearest_pos select 1;_px = _pos select 0;_py = _pos select 1;
                 if ((_px <= _nx + 10 && {_px >= _nx - 10}) && {(_py <= _ny + 10 && {_py >= _ny - 10})}) then {

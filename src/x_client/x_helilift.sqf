@@ -1,8 +1,8 @@
 // by Xeno
-//#define __DEBUG__
 #define THIS_FILE "x_helilift.sqf"
 #include "x_setup.sqf"
 private ["_vehicle", "_nearest", "_id", "_pos", "_nobjects", "_dummy", "_depl", "_nx", "_ny", "_px", "_py", "_npos", "_fuelloss"];
+
 if (!X_Client) exitWith {};
 
 PARAMS_1(_vehicle);

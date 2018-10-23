@@ -25,7 +25,7 @@ _vec setVariable [QGVAR(choppertype), _index];\
 _vec setVariable [QGVAR(vec_type), "chopper"];\
 switch (_index) do {\
     case 0: {_vec addEventHandler ["getin", {[_this,0] call FUNC(checkhelipilot)}]};\
-    case 1: {_vec addEventHandler ["getin", {_this call FUNC(checkhelipilot_wreck)}]};\
+    case 1: {_vec addEventHandler ["getin", {[_this,0] call FUNC(checkhelipilot_wreck)}]};\
     case 2: {_vec addEventHandler ["getin", {[_this,1] call FUNC(checkhelipilot)}]};\
 };\
 _vec addEventHandler ["getout", {_this call FUNC(checkhelipilotout)}]
