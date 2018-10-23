@@ -4,7 +4,7 @@
 #include "x_setup.sqf"
 if (!isServer) exitWith{};
 private ["_name", "_uid", "_pa", "_oldwtime", "_connecttime", "_newwtime"];
-PARAMS_2(_name,_uid);
+PARAMS_3(_id, _name, _uid);
 
 __TRACE_2("","_name","_uid")
 
