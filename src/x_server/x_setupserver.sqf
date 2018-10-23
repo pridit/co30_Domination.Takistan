@@ -41,6 +41,14 @@ __cppfln(FUNC(checktransport2),x_server\x_checktransport2.sqf);
 execfsm "fsms\TTPoints.fsm";
 #endif
 
+[
+    ['A10_US_EP1'],
+    ['C130J_US_EP1'],
+    ['MV22'],
+    ['UH1Y'],
+    ['AH64D_EP1']
+] execVM "x_server\x_getbonus.sqf";
+
 if (GVAR(with_ai)) then {execVM "x_server\x_delaiserv.sqf"};
 
 if (GVAR(MissionType) in [0,2]) then {
