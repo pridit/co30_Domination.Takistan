@@ -1841,7 +1841,7 @@ FUNC(startClientScripts) = {
                 GVAR(nomercyendtime) = nil;
             };
             _vec = vehicle player;
-            if (_vec != player && {_vec isKindOf "Air"}) then {
+            if (_vec != player && {_vec isKindOf "Air"} && !(serverCommandAvailable "#shutdown")) then {
                 _type = typeOf _vec;
                 if ((toUpper(_type) in GVAR(mt_bonus_vehicle_array) || {toUpper(_type) in GVAR(sm_bonus_vehicle_array)}) && {(player == driver _vec || {player == gunner _vec} || {player == commander _vec})}) then {
                     _was_engineon = isEngineOn _vec;
