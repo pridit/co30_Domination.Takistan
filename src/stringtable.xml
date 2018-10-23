@@ -4340,6 +4340,12 @@
        <Key ID="STR_DOM_MISSIONSTRING_1448">
         <Original>Finally we've found the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</Original>
       </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1449">
+       <Original>%1 has joined the server</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1450">
+        <Original>%1 has left the server</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

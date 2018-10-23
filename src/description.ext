@@ -24,7 +24,6 @@ class Header {
     playerCountMultipleOf = 1;
 };
 
-disableChannels[] = {6};
 enableItemsDropping = 0;
 
 class Params {

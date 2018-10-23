@@ -560,10 +560,8 @@ if (isServer) then {
     };
     if (GVAR(FastTime) > 0) then {execFSM "fsms\FastTime.fsm"};
     
-    __cppfln(FUNC(serverOPC),x_server\x_serverOPC.sqf);
-    __cppfln(FUNC(serverOPD),x_server\x_serverOPD.sqf);
-    onPlayerConnected {[_name,_uid] call FUNC(serverOPC)};
-    onPlayerDisconnected {[_name,_uid] call FUNC(serverOPD)};
+    onPlayerConnected {[_id, _name, _uid] call compile preprocessFileLineNumbers "x_server\x_serverOPC.sqf"};
+    onPlayerDisconnected {[_id, _name, _uid] call compile preprocessFileLineNumbers "x_server\x_serverOPD.sqf"};
     
 #ifdef __ACE__
     if (__COVer && {!(__TTVer)}) then {
