@@ -160,30 +160,8 @@ GVAR(name_flag_base) = switch (GVAR(player_side)) do {
 };
 #endif
 
-#ifdef __CO__
-GVAR(the_box) = switch (GVAR(own_side)) do {
-    case "GUER": {"LocalBasicAmmunitionBox"};
-    case "EAST": {"RUBasicAmmunitionBox"};
-    case "WEST": {"USBasicWeaponsBox"};
-};
-GVAR(the_base_box) = switch (GVAR(own_side)) do {
-    case "GUER": {"GuerillaCacheBox"};
-    case "EAST": {"RUSpecialWeaponsBox"};
-    case "WEST": {"USSpecialWeaponsBox"};
-};
-#endif
-#ifdef __OA__
-GVAR(the_box) = switch (GVAR(own_side)) do {
-    case "GUER": {"LocalBasicAmmunitionBox"};
-    case "EAST": {"TKBasicWeapons_EP1"};
-    case "WEST": {"USBasicWeapons_EP1"};
-};
-GVAR(the_base_box) = switch (GVAR(own_side)) do {
-    case "GUER": {"GuerillaCacheBox"};
-    case "EAST": {"TKSpecialWeapons_EP1"};
-    case "WEST": {"USSpecialWeapons_EP1"};
-};
-#endif
+GVAR(the_box) = "USBasicWeapons_EP1";
+GVAR(the_base_box) = "USVehicleBox";
 
 GVAR(flag_vec) = objNull;
 
