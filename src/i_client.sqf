@@ -234,7 +234,8 @@ GVAR(choppers) = [
     ["HR5",0,"chopper5",305,"n_air","ColorWhite","CH2",(localize "STR_DOM_MISSIONSTRING_8")],
     ["HR6",2,"chopper6",306,"n_air","ColorWhite","LB1",""],
     ["HR7",2,"chopper7",307,"n_air","ColorWhite","LB2",""],
-    ["HR8",0,"chopper8",308,"n_air","ColorWhite","HC3",(localize "STR_DOM_MISSIONSTRING_9")]
+    ["HR8",0,"chopper8",308,"n_air","ColorWhite","HC3",(localize "STR_DOM_MISSIONSTRING_9")],
+    ["HR9",2,"chopper9",309,"n_air","ColorWhite","MV22",""]
 ];
 
 // vehicle varname, unique number (same as in init.sqf), marker name, marker type, marker color, marker text, vehicle string name

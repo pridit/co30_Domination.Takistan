@@ -17,7 +17,9 @@ class Mission
         "CAAir_E_UH1H_EP1",
         "ca_modules_functions",
         "CAAir_BAF",
-        "CAWheeled_E_ATV"
+        "CAWheeled_E_ATV",
+        "cacharacters2",
+        "CAAir2_MV22"
     };
     addOnsAuto[]=
     {
@@ -35,6 +37,7 @@ class Mission
         "CAAir_BAF",
         "CAWheeled_E_ATV",
         "camisc_e_wf",
+        "CAAir2_MV22",
         "takistan"
     };
     randomSeed=6464821;
@@ -61,7 +64,7 @@ class Mission
                 items=1;
                 class Item0
                 {
-                    position[]={8247.0557,296.04001,2158.0806};
+                    position[]={8246.4863,296.04001,2159.0791};
                     azimut=-822.49847;
                     special="NONE";
                     id=10;
@@ -1105,10 +1108,10 @@ class Mission
     };
     class Vehicles
     {
-        items=72;
+        items=73;
         class Item0
         {
-            position[]={8329.1328,296.04001,2047.4893};
+            position[]={8330.8545,296.04001,2045.4362};
             azimut=-28.504801;
             id=0;
             side="EMPTY";
@@ -1119,7 +1122,7 @@ class Mission
         };
         class Item1
         {
-            position[]={8300.3857,296.07678,2031.7095};
+            position[]={8302.1074,296.04001,2029.6564};
             azimut=-28.504801;
             id=1;
             side="EMPTY";
@@ -1130,7 +1133,7 @@ class Mission
         };
         class Item2
         {
-            position[]={8288.5264,296.04001,1978.9854};
+            position[]={8290.248,296.04001,1976.9323};
             azimut=-28.504801;
             id=2;
             side="EMPTY";
@@ -1141,7 +1144,7 @@ class Mission
         };
         class Item3
         {
-            position[]={8125.896,296.04001,2087.9268};
+            position[]={8145.5713,296.04001,2097.8762};
             azimut=95.502777;
             id=3;
             side="EMPTY";
@@ -1152,7 +1155,7 @@ class Mission
         };
         class Item4
         {
-            position[]={8135.0244,296.04001,2092.7339};
+            position[]={8152.9844,296.04001,2102.1301};
             azimut=95.502777;
             id=4;
             side="EMPTY";
@@ -1185,7 +1188,7 @@ class Mission
         };
         class Item7
         {
-            position[]={8051.1206,296.04001,2046.9454};
+            position[]={8064.9287,296.04001,2054.0371};
             azimut=95.5028;
             special="NONE";
             id=37;
@@ -1196,7 +1199,7 @@ class Mission
         };
         class Item8
         {
-            position[]={8060.4082,296.04001,2052.292};
+            position[]={8072.1157,296.04001,2057.9507};
             azimut=95.5028;
             special="NONE";
             id=38;
@@ -1207,7 +1210,7 @@ class Mission
         };
         class Item9
         {
-            position[]={8089.0103,296.04001,2068.0356};
+            position[]={8093.5688,296.04001,2069.7727};
             azimut=95.5028;
             special="NONE";
             id=39;
@@ -1218,7 +1221,7 @@ class Mission
         };
         class Item10
         {
-            position[]={8115.335,296.04001,2082.229};
+            position[]={8114.3589,296.04001,2081.0598};
             azimut=95.5028;
             special="NONE";
             id=40;
@@ -1229,7 +1232,7 @@ class Mission
         };
         class Item11
         {
-            position[]={8070.3101,296.04001,2057.6523};
+            position[]={8079.4805,296.04001,2061.8735};
             azimut=95.5028;
             special="NONE";
             id=41;
@@ -1240,7 +1243,7 @@ class Mission
         };
         class Item12
         {
-            position[]={8079.6235,296.04001,2062.9624};
+            position[]={8087.1514,296.04001,2065.9434};
             azimut=95.5028;
             special="NONE";
             id=42;
@@ -1251,7 +1254,7 @@ class Mission
         };
         class Item13
         {
-            position[]={8097.8345,296.04001,2072.9478};
+            position[]={8101.1499,296.04001,2073.6611};
             azimut=95.5028;
             special="NONE";
             id=43;
@@ -1262,7 +1265,7 @@ class Mission
         };
         class Item14
         {
-            position[]={8106.8687,296.04001,2077.6846};
+            position[]={8107.9902,296.04001,2077.5151};
             azimut=95.5028;
             special="NONE";
             id=44;
@@ -1273,7 +1276,7 @@ class Mission
         };
         class Item15
         {
-            position[]={8032.1592,296.04001,2037.1458};
+            position[]={8051.5557,296.04001,2046.0004};
             azimut=95.5028;
             special="NONE";
             id=45;
@@ -1284,7 +1287,7 @@ class Mission
         };
         class Item16
         {
-            position[]={8041.606,296.04001,2042.2617};
+            position[]={8057.9282,296.04001,2049.9395};
             azimut=95.5028;
             special="NONE";
             id=46;
@@ -1330,7 +1333,7 @@ class Mission
         };
         class Item20
         {
-            position[]={7885.8711,296.04001,1762.9227};
+            position[]={7917.1553,296.29001,1783.7784};
             azimut=-25.143749;
             special="NONE";
             id=50;
@@ -1365,7 +1368,7 @@ class Mission
         };
         class Item23
         {
-            position[]={8328.8936,296.04001,2048.1606};
+            position[]={8330.6152,296.04001,2046.1075};
             azimut=-28.504801;
             special="NONE";
             id=53;
@@ -1376,7 +1379,7 @@ class Mission
         };
         class Item24
         {
-            position[]={8299.8301,296.1181,2032.3965};
+            position[]={8301.5518,296.04001,2030.3434};
             azimut=-28.504801;
             special="NONE";
             id=54;
@@ -1387,7 +1390,7 @@ class Mission
         };
         class Item25
         {
-            position[]={8288.0693,296.04001,1979.6414};
+            position[]={8289.791,296.04001,1977.5883};
             azimut=-28.504801;
             special="NONE";
             id=55;
@@ -1398,7 +1401,7 @@ class Mission
         };
         class Item26
         {
-            position[]={8059.3286,296.04001,1867.5408};
+            position[]={8075.7944,296.11749,1879.0673};
             azimut=-28.3703;
             special="NONE";
             id=56;
@@ -1422,7 +1425,7 @@ class Mission
         };
         class Item28
         {
-            position[]={7733.3052,296.04001,1719.4664};
+            position[]={7740.9893,296.04001,1724.4056};
             azimut=-29.438829;
             special="NONE";
             id=59;
@@ -1433,7 +1436,7 @@ class Mission
         };
         class Item29
         {
-            position[]={7731.6069,296.04001,1718.5005};
+            position[]={7739.291,296.04001,1723.4397};
             azimut=-29.438829;
             special="NONE";
             id=60;
@@ -1444,7 +1447,7 @@ class Mission
         };
         class Item30
         {
-            position[]={7729.9102,296.04001,1717.5625};
+            position[]={7737.5942,296.04001,1722.5017};
             azimut=-29.438829;
             special="NONE";
             id=61;
@@ -1455,7 +1458,7 @@ class Mission
         };
         class Item31
         {
-            position[]={7728.2109,296.04001,1716.5955};
+            position[]={7735.895,296.04001,1721.5347};
             azimut=-29.438829;
             special="NONE";
             id=62;
@@ -1466,7 +1469,7 @@ class Mission
         };
         class Item32
         {
-            position[]={7726.6631,296.04001,1715.7205};
+            position[]={7734.3472,296.04001,1720.6597};
             azimut=-29.438829;
             special="NONE";
             id=63;
@@ -1477,7 +1480,7 @@ class Mission
         };
         class Item33
         {
-            position[]={7724.9624,296.04001,1714.7555};
+            position[]={7732.6465,296.04001,1719.6947};
             azimut=-29.438829;
             special="NONE";
             id=64;
@@ -1488,7 +1491,7 @@ class Mission
         };
         class Item34
         {
-            position[]={7723.2642,296.04001,1713.8175};
+            position[]={7730.9482,296.04001,1718.7567};
             azimut=-29.438829;
             special="NONE";
             id=65;
@@ -1499,7 +1502,7 @@ class Mission
         };
         class Item35
         {
-            position[]={7721.5693,296.04001,1712.8514};
+            position[]={7729.2534,296.04001,1717.7906};
             azimut=-29.438829;
             special="NONE";
             id=66;
@@ -1510,7 +1513,7 @@ class Mission
         };
         class Item36
         {
-            position[]={7719.915,296.04001,1711.9005};
+            position[]={7727.5991,296.04001,1716.8397};
             azimut=-29.438829;
             special="NONE";
             id=67;
@@ -1521,7 +1524,7 @@ class Mission
         };
         class Item37
         {
-            position[]={7718.2144,296.04001,1710.9335};
+            position[]={7725.8984,296.04001,1715.8727};
             azimut=-29.438829;
             special="NONE";
             id=68;
@@ -1532,7 +1535,7 @@ class Mission
         };
         class Item38
         {
-            position[]={7716.5181,296.04001,1709.9955};
+            position[]={7724.2021,296.04001,1714.9347};
             azimut=-29.438829;
             special="NONE";
             id=69;
@@ -1543,7 +1546,7 @@ class Mission
         };
         class Item39
         {
-            position[]={7714.8184,296.04001,1709.0294};
+            position[]={7722.5024,296.04001,1713.9686};
             azimut=-29.438829;
             special="NONE";
             id=70;
@@ -1554,7 +1557,7 @@ class Mission
         };
         class Item40
         {
-            position[]={7713.165,296.04001,1708.0785};
+            position[]={7720.8491,296.04001,1713.0177};
             azimut=-29.438829;
             special="NONE";
             id=71;
@@ -1565,7 +1568,7 @@ class Mission
         };
         class Item41
         {
-            position[]={7711.4653,296.04001,1707.1134};
+            position[]={7719.1494,296.04001,1712.0526};
             azimut=-29.438829;
             special="NONE";
             id=72;
@@ -1576,7 +1579,7 @@ class Mission
         };
         class Item42
         {
-            position[]={7709.7671,296.04001,1706.1754};
+            position[]={7717.4512,296.04001,1711.1146};
             azimut=-29.438829;
             special="NONE";
             id=73;
@@ -1587,7 +1590,7 @@ class Mission
         };
         class Item43
         {
-            position[]={7708.0684,296.04001,1705.2085};
+            position[]={7715.7524,296.04001,1710.1477};
             azimut=-29.438829;
             special="NONE";
             id=74;
@@ -1598,7 +1601,7 @@ class Mission
         };
         class Item44
         {
-            position[]={7706.4673,296.04001,1704.3085};
+            position[]={7714.1514,296.04001,1709.2477};
             azimut=-29.438829;
             special="NONE";
             id=75;
@@ -1609,7 +1612,7 @@ class Mission
         };
         class Item45
         {
-            position[]={7704.7681,296.04001,1703.3424};
+            position[]={7712.4521,296.04001,1708.2816};
             azimut=-29.438829;
             special="NONE";
             id=76;
@@ -1620,7 +1623,7 @@ class Mission
         };
         class Item46
         {
-            position[]={7703.0723,296.04001,1702.4034};
+            position[]={7710.7563,296.04001,1707.3427};
             azimut=-29.438829;
             special="NONE";
             id=77;
@@ -1631,7 +1634,7 @@ class Mission
         };
         class Item47
         {
-            position[]={7701.3721,296.04001,1701.4385};
+            position[]={7709.0562,296.04001,1706.3777};
             azimut=-29.438829;
             special="NONE";
             id=78;
@@ -1660,7 +1663,7 @@ class Mission
         };
         class Item50
         {
-            position[]={8348.2471,296.04001,2013.5933};
+            position[]={8349.9688,296.04001,2011.5402};
             azimut=-28.504801;
             id=81;
             side="EMPTY";
@@ -1671,7 +1674,7 @@ class Mission
         };
         class Item51
         {
-            position[]={8174.0854,296.04001,2017.4811};
+            position[]={8177.314,296.04001,2020.4795};
             azimut=151.92;
             id=82;
             side="EMPTY";
@@ -1682,7 +1685,7 @@ class Mission
         };
         class Item52
         {
-            position[]={8147.6289,296.04001,2002.5151};
+            position[]={8150.8574,296.04001,2005.5135};
             azimut=151.92;
             special="NONE";
             id=83;
@@ -1693,7 +1696,7 @@ class Mission
         };
         class Item53
         {
-            position[]={8174.1011,296.04001,2017.3059};
+            position[]={8177.3296,296.04001,2020.3043};
             azimut=151.92;
             special="NONE";
             id=84;
@@ -1704,7 +1707,7 @@ class Mission
         };
         class Item54
         {
-            position[]={8147.3877,296.04001,2002.6132};
+            position[]={8150.6162,296.04001,2005.6116};
             azimut=151.92038;
             id=117;
             side="EMPTY";
@@ -1715,7 +1718,7 @@ class Mission
         };
         class Item55
         {
-            position[]={8318.8271,296.04001,1998.4636};
+            position[]={8320.5488,296.04001,1996.4105};
             azimut=-28.504801;
             special="NONE";
             id=118;
@@ -1726,7 +1729,7 @@ class Mission
         };
         class Item56
         {
-            position[]={8347.4287,296.04001,2014.2643};
+            position[]={8349.1504,296.04001,2012.2112};
             azimut=-28.504801;
             special="NONE";
             id=119;
@@ -1737,7 +1740,7 @@ class Mission
         };
         class Item57
         {
-            position[]={8320.3037,296.04001,1995.4703};
+            position[]={8322.0254,296.04001,1993.4172};
             azimut=-28.504801;
             id=120;
             side="EMPTY";
@@ -1821,7 +1824,7 @@ class Mission
         };
         class Item64
         {
-            position[]={8264.2422,296.04001,2096.3625};
+            position[]={8264.6504,296.04001,2096.6206};
             azimut=240.513;
             id=127;
             side="EMPTY";
@@ -1831,7 +1834,7 @@ class Mission
         };
         class Item65
         {
-            position[]={8261.5254,296.04001,2101.0354};
+            position[]={8261.9336,296.04001,2101.2935};
             azimut=-122.39519;
             id=128;
             side="EMPTY";
@@ -1841,7 +1844,7 @@ class Mission
         };
         class Item66
         {
-            position[]={8262.9688,296.04001,2098.6472};
+            position[]={8263.377,296.04001,2098.9053};
             azimut=-122.39519;
             id=129;
             side="EMPTY";
@@ -1882,18 +1885,18 @@ class Mission
         };
         class Item70
         {
-            position[]={8270.5459,296.04001,2013.0369};
+            position[]={8272.2676,296.04001,2010.9838};
             azimut=-28.504801;
             id=133;
             side="EMPTY";
             vehicle="UH1H_TK_GUE_EP1";
             lock="UNLOCKED";
             skill=0.60000002;
-            text="ch3_1";
+            text="ch3";
         };
         class Item71
         {
-            position[]={8270.0889,296.04001,2013.5808};
+            position[]={8271.8105,296.04001,2011.5277};
             azimut=-28.504801;
             special="NONE";
             id=134;
@@ -1902,10 +1905,20 @@ class Mission
             lock="UNLOCKED";
             skill=0.60000002;
         };
+        class Item72
+        {
+            position[]={8263.9258,296.03531,1798.4956};
+            azimut=-27.133801;
+            id=135;
+            side="EMPTY";
+            vehicle="MV22";
+            skill=0.60000002;
+            text="ch9";
+        };
     };
     class Markers
     {
-        items=132;
+        items=131;
         class Item0
         {
             position[]={12779.68,158.9151,13160.88};
@@ -1960,7 +1973,7 @@ class Mission
         };
         class Item7
         {
-            position[]={8141.7002,296.04001,1922.9343};
+            position[]={8172.9844,296.04001,1937.7537};
             name="Start";
             text="Start";
             type="hd_start";
@@ -2027,31 +2040,31 @@ class Mission
         };
         class Item16
         {
-            position[]={7728.376,296.04001,1693.4404};
+            position[]={7736.0601,296.04001,1698.3796};
             name="d_base_jet_fac";
             type="Empty";
             angle=-29.6738;
         };
         class Item17
         {
-            position[]={7912.376,296.04001,1777.9247};
+            position[]={7943.6602,296.04001,1798.7804};
             name="d_base_wreck_fac";
             type="Empty";
             angle=-121.01;
         };
         class Item18
         {
-            position[]={8085.7666,296.04001,1880.9807};
+            position[]={8102.2324,296.04001,1892.5072};
             name="d_base_chopper_fac";
             type="Empty";
             angle=-121.01;
         };
         class Item19
         {
-            position[]={8271.1689,296.04001,2105.7791};
+            position[]={8270.9873,296.04001,2105.2361};
             name="d_player_ammobox_pos";
             type="Empty";
-            angle=-32.93079;
+            angle=151.92087;
         };
         class Item20
         {
@@ -2079,694 +2092,687 @@ class Mission
         };
         class Item23
         {
-            position[]={8263.5273,296.03641,1798.7872};
+            position[]={8221.5742,296.0372,1779.5};
             name="d_bonus_air_positions_3";
             type="Empty";
             angle=-27.133801;
         };
         class Item24
         {
-            position[]={8221.5742,296.0372,1779.5};
-            name="d_bonus_air_positions_4";
-            type="Empty";
-            angle=-27.133801;
-        };
-        class Item25
-        {
             position[]={7414.4111,284.72,1698.291};
             name="d_bonus_create_pos";
             type="Empty";
             angle=150.07401;
         };
-        class Item26
+        class Item25
         {
             position[]={7747.2974,297.86548,1833.5187};
             name="d_bonus_vec_positions_1";
             type="Empty";
             angle=62.37434;
         };
-        class Item27
+        class Item26
         {
             position[]={7775.79,297.51547,1828.7998};
             name="d_bonus_vec_positions_2";
             type="Empty";
             angle=62.374298;
         };
-        class Item28
+        class Item27
         {
             position[]={7759.9395,297.20731,1818.1195};
             name="d_bonus_vec_positions_3";
             type="Empty";
             angle=62.374298;
         };
-        class Item29
+        class Item28
         {
             position[]={7793.6172,296.80624,1822.7162};
             name="d_bonus_vec_positions_4";
             type="Empty";
             angle=62.374298;
         };
-        class Item30
+        class Item29
         {
             position[]={7810.875,296.7139,1829.9292};
             name="d_bonus_vec_positions_5";
             type="Empty";
             angle=62.374298;
         };
-        class Item31
+        class Item30
         {
             position[]={7820.8726,296.33667,1827.408};
             name="d_bonus_vec_positions_6";
             type="Empty";
             angle=62.374298;
         };
-        class Item32
+        class Item31
         {
             position[]={7766.5166,298.59384,1847.624};
             name="d_bonus_vec_positions_7";
             type="Empty";
             angle=62.374298;
         };
-        class Item33
+        class Item32
         {
             position[]={8093.1846,294.13864,2121.1196};
             name="d_pos_aihut";
             type="Empty";
             angle=108.73965;
         };
-        class Item34
+        class Item33
         {
             position[]={8036.3701,472.2883,6174.79};
             name="d_sm_0";
             type="Empty";
         };
-        class Item35
+        class Item34
         {
             position[]={4099.9302,531.36749,11785.6};
             name="d_sm_1";
             type="Empty";
             angle=85;
         };
-        class Item36
+        class Item35
         {
             position[]={4111.7798,536.73578,12188.6};
             name="d_sm_1_1";
             type="Empty";
         };
-        class Item37
+        class Item36
         {
             position[]={4005.4099,253.7366,6913.9902};
             name="d_sm_10";
             type="Empty";
         };
-        class Item38
+        class Item37
         {
             position[]={4023.5601,180.5838,6910.6401};
             name="d_sm_10_1";
             type="Empty";
         };
-        class Item39
+        class Item38
         {
             position[]={12262.3,159.1675,4803.0498};
             name="d_sm_11";
             type="Empty";
         };
-        class Item40
+        class Item39
         {
             position[]={4630.23,425.24979,12310};
             name="d_sm_12";
             type="Empty";
             angle=180;
         };
-        class Item41
+        class Item40
         {
             position[]={4673.1299,580.57922,12293.8};
             name="d_sm_12_1";
             type="Empty";
         };
-        class Item42
+        class Item41
         {
             position[]={803.36102,386.67929,10478.5};
             name="d_sm_13";
             type="Empty";
             angle=190;
         };
-        class Item43
+        class Item42
         {
             position[]={847.56299,582.93628,10473.5};
             name="d_sm_13_1";
             type="Empty";
         };
-        class Item44
+        class Item43
         {
             position[]={2264.76,536.33478,8591.3096};
             name="d_sm_14";
             type="Empty";
         };
-        class Item45
+        class Item44
         {
             position[]={2241.8101,549.06458,8565.5303};
             name="d_sm_14_1";
             type="Empty";
         };
-        class Item46
+        class Item45
         {
             position[]={4003.52,446.9967,6911.9502};
             name="d_sm_15";
             type="Empty";
         };
-        class Item47
+        class Item46
         {
             position[]={10477.6,513.86517,7517.2402};
             name="d_sm_16";
             type="Empty";
         };
-        class Item48
+        class Item47
         {
             position[]={10467.4,506.93329,7485.8701};
             name="d_sm_16_1";
             type="Empty";
         };
-        class Item49
+        class Item48
         {
             position[]={5054.5498,370.1348,6886.71};
             name="d_sm_17";
             type="Empty";
         };
-        class Item50
+        class Item49
         {
             position[]={5051.02,491.44958,6900.9302};
             name="d_sm_17_1";
             type="Empty";
         };
-        class Item51
+        class Item50
         {
             position[]={3758.49,478.0668,10887.2};
             name="d_sm_18";
             type="Empty";
         };
-        class Item52
+        class Item51
         {
             position[]={3746.24,534.49249,10864.5};
             name="d_sm_18_1";
             type="Empty";
         };
-        class Item53
+        class Item52
         {
             position[]={2156.6399,541.37738,431.39401};
             name="d_sm_19";
             type="Empty";
             angle=34;
         };
-        class Item54
+        class Item53
         {
             position[]={2044.99,481.24359,7698.4399};
             name="d_sm_19_1";
             type="Empty";
         };
-        class Item55
+        class Item54
         {
             position[]={5802.5698,83.120728,11293.5};
             name="d_sm_2";
             type="Empty";
             angle=314.75269;
         };
-        class Item56
+        class Item55
         {
             position[]={5760.4199,552.86713,11326.9};
             name="d_sm_2_1";
             type="Empty";
         };
-        class Item57
+        class Item56
         {
             position[]={2093.99,420.16681,11685.4};
             name="d_sm_20";
             type="Empty";
             angle=140;
         };
-        class Item58
+        class Item57
         {
             position[]={10833.5,464.28781,6304.3198};
             name="d_sm_20_1";
             type="Empty";
         };
-        class Item59
+        class Item58
         {
             position[]={9793.8604,293.74149,11158.9};
             name="d_sm_21";
             type="Empty";
             angle=182;
         };
-        class Item60
+        class Item59
         {
             position[]={573.26202,525.45813,2835.7};
             name="d_sm_21_1";
             type="Empty";
         };
-        class Item61
+        class Item60
         {
             position[]={2224.6899,444.60281,7741.98};
             name="d_sm_22";
             type="Empty";
             angle=82;
         };
-        class Item62
+        class Item61
         {
             position[]={12283.1,603.86652,10428.3};
             name="d_sm_22_1";
             type="Empty";
         };
-        class Item63
+        class Item62
         {
             position[]={688.84698,454.98489,7477.5801};
             name="d_sm_23";
             type="Empty";
         };
-        class Item64
+        class Item63
         {
             position[]={3790.3,567.86462,8941.1904};
             name="d_sm_24";
             type="Empty";
             angle=300;
         };
-        class Item65
+        class Item64
         {
             position[]={2016.3199,486.01721,10699.2};
             name="d_sm_25";
             type="Empty";
         };
-        class Item66
+        class Item65
         {
             position[]={1028.05,343.2305,7141.3799};
             name="d_sm_26";
             type="Empty";
         };
-        class Item67
+        class Item66
         {
             position[]={1622.09,461.2973,2341.54};
             name="d_sm_27";
             type="Empty";
         };
-        class Item68
+        class Item67
         {
             position[]={8663.1602,493.26199,9925.8799};
             name="d_sm_28";
             type="Empty";
         };
-        class Item69
+        class Item68
         {
             position[]={8679.6797,599.28601,9967.21};
             name="d_sm_28_1";
             type="Empty";
         };
-        class Item70
+        class Item69
         {
             position[]={11637.4,638.95679,9225.6797};
             name="d_sm_29";
             type="Empty";
         };
-        class Item71
+        class Item70
         {
             position[]={11637.4,481.5708,9225.6797};
             name="d_sm_29_1";
             type="Empty";
             angle=80;
         };
-        class Item72
+        class Item71
         {
             position[]={11636.1,423.6593,9256.3301};
             name="d_sm_29_2";
             type="Empty";
             angle=80;
         };
-        class Item73
+        class Item72
         {
             position[]={11680.2,348.0593,9243.5898};
             name="d_sm_29_3";
             type="Empty";
             angle=163;
         };
-        class Item74
+        class Item73
         {
             position[]={11682.1,289.89679,9197.3301};
             name="d_sm_29_4";
             type="Empty";
             angle=169;
         };
-        class Item75
+        class Item74
         {
             position[]={11659.4,337.09451,9183.29};
             name="d_sm_29_5";
             type="Empty";
             angle=178;
         };
-        class Item76
+        class Item75
         {
             position[]={11686,423.80621,9156.4902};
             name="d_sm_29_6";
             type="Empty";
             angle=175;
         };
-        class Item77
+        class Item76
         {
             position[]={9430.1201,375.29581,4718.1899};
             name="d_sm_3";
             type="Empty";
             angle=172;
         };
-        class Item78
+        class Item77
         {
             position[]={9445.4902,590.66632,4702.1099};
             name="d_sm_3_1";
             type="Empty";
         };
-        class Item79
+        class Item78
         {
             position[]={9432.8096,441.1069,4673.5};
             name="d_sm_3_2";
             type="Empty";
         };
-        class Item80
+        class Item79
         {
             position[]={1179.4399,507.75809,7422.9199};
             name="d_sm_30";
             type="Empty";
         };
-        class Item81
+        class Item80
         {
             position[]={10527,543.38428,10989.8};
             name="d_sm_31";
             type="Empty";
         };
-        class Item82
+        class Item81
         {
             position[]={10527,543.38428,10989.8};
             name="d_sm_31_1";
             type="Empty";
             angle=295;
         };
-        class Item83
+        class Item82
         {
             position[]={10502.5,427.09601,11002.5};
             name="d_sm_31_2";
             type="Empty";
             angle=311;
         };
-        class Item84
+        class Item83
         {
             position[]={10488,333.30042,10963.6};
             name="d_sm_31_3";
             type="Empty";
             angle=227;
         };
-        class Item85
+        class Item84
         {
             position[]={10480.9,285.95969,10999.9};
             name="d_sm_31_4";
             type="Empty";
             angle=216;
         };
-        class Item86
+        class Item85
         {
             position[]={10573.1,378.20099,10965.7};
             name="d_sm_31_5";
             type="Empty";
             angle=144;
         };
-        class Item87
+        class Item86
         {
             position[]={10562.3,338.13919,10921.5};
             name="d_sm_31_6";
             type="Empty";
             angle=220;
         };
-        class Item88
+        class Item87
         {
             position[]={8248.5498,448.0466,7783.1299};
             name="d_sm_32";
             type="Empty";
         };
-        class Item89
+        class Item88
         {
             position[]={8283.4004,544.35309,7785.0498};
             name="d_sm_32_1";
             type="Empty";
         };
-        class Item90
+        class Item89
         {
             position[]={8294.1602,610.89148,7750.21};
             name="d_sm_32_2";
             type="Empty";
         };
-        class Item91
+        class Item90
         {
             position[]={8262.4502,500.32999,7730.3999};
             name="d_sm_32_3";
             type="Empty";
         };
-        class Item92
+        class Item91
         {
             position[]={8231.7803,423.3252,7741.3701};
             name="d_sm_32_4";
             type="Empty";
         };
-        class Item93
+        class Item92
         {
             position[]={8197.7695,372.42401,7784.8999};
             name="d_sm_32_5";
             type="Empty";
         };
-        class Item94
+        class Item93
         {
             position[]={6091.8301,407.48059,1160.42};
             name="d_sm_33";
             type="Empty";
         };
-        class Item95
+        class Item94
         {
             position[]={6110.48,597.67987,1142.65};
             name="d_sm_33_1";
             type="Empty";
         };
-        class Item96
+        class Item95
         {
             position[]={6056.48,460.76959,1176.8};
             name="d_sm_33_2";
             type="Empty";
         };
-        class Item97
+        class Item96
         {
             position[]={6008.4702,369.83221,1170.24};
             name="d_sm_33_3";
             type="Empty";
         };
-        class Item98
+        class Item97
         {
             position[]={6023.4102,339.4567,1209.14};
             name="d_sm_33_4";
             type="Empty";
         };
-        class Item99
+        class Item98
         {
             position[]={6101.7598,297.14761,1206.12};
             name="d_sm_33_5";
             type="Empty";
         };
-        class Item100
+        class Item99
         {
             position[]={6166.8599,353.92319,5623.8501};
             name="d_sm_36";
             type="Empty";
         };
-        class Item101
+        class Item100
         {
             position[]={6188.98,493.48499,5644.1299};
             name="d_sm_36_1";
             type="Empty";
         };
-        class Item102
+        class Item101
         {
             position[]={6164.2598,595.79828,5688.6699};
             name="d_sm_36_2";
             type="Empty";
         };
-        class Item103
+        class Item102
         {
             position[]={6107.5498,636.76251,5660.7402};
             name="d_sm_36_3";
             type="Empty";
         };
-        class Item104
+        class Item103
         {
             position[]={6123.3701,580.44812,5614.48};
             name="d_sm_36_4";
             type="Empty";
         };
-        class Item105
+        class Item104
         {
             position[]={6117.23,408.67239,5555.6602};
             name="d_sm_36_5";
             type="Empty";
         };
-        class Item106
+        class Item105
         {
             position[]={9418.0801,499.7063,10004};
             name="d_sm_4";
             type="Empty";
             angle=210;
         };
-        class Item107
+        class Item106
         {
             position[]={9395.7598,571.24902,10003.9};
             name="d_sm_4_1";
             type="Empty";
         };
-        class Item108
+        class Item107
         {
             position[]={9406.75,529.01801,10035};
             name="d_sm_4_2";
             type="Empty";
         };
-        class Item109
+        class Item108
         {
             position[]={8817.3496,131.4991,7138.3901};
             name="d_sm_40";
             type="Empty";
         };
-        class Item110
+        class Item109
         {
             position[]={6849.8701,632.33313,12312.2};
             name="d_sm_41";
             type="Empty";
         };
-        class Item111
+        class Item110
         {
             position[]={2135.8799,576.32178,10716.5};
             name="d_sm_42";
             type="Empty";
         };
-        class Item112
+        class Item111
         {
             position[]={8407.9404,111.2063,12438.6};
             name="d_sm_44";
             type="Empty";
             angle=60;
         };
-        class Item113
+        class Item112
         {
             position[]={8467.4805,96.190941,12467.7};
             name="d_sm_44_1";
             type="Empty";
         };
-        class Item114
+        class Item113
         {
             position[]={4546.1401,252.3428,9396.79};
             name="d_sm_46";
             type="Empty";
         };
-        class Item115
+        class Item114
         {
             position[]={3289.8401,74.346863,11254.8};
             name="d_sm_47";
             type="Empty";
         };
-        class Item116
+        class Item115
         {
             position[]={2811.6899,208.3784,5931.73};
             name="d_sm_49";
             type="Empty";
         };
-        class Item117
+        class Item116
         {
             position[]={5037.5601,366.8212,6886.4902};
             name="d_sm_5";
             type="Empty";
             angle=120;
         };
-        class Item118
+        class Item117
         {
             position[]={5532.2798,401.19641,11980.4};
             name="d_sm_50";
             type="Empty";
         };
-        class Item119
+        class Item118
         {
             position[]={1233.62,145.3436,2201.47};
             name="d_sm_51";
             type="Empty";
         };
-        class Item120
+        class Item119
         {
             position[]={10362.6,408.59229,8646.7305};
             name="d_sm_52";
             type="Empty";
         };
-        class Item121
+        class Item120
         {
             position[]={6582.6899,479.63309,6785.7402};
             name="d_sm_6";
             type="Empty";
         };
-        class Item122
+        class Item121
         {
             position[]={6578.1299,646.96118,6827.25};
             name="d_sm_6_1";
             type="Empty";
         };
-        class Item123
+        class Item122
         {
             position[]={6574.29,511.47989,6856.23};
             name="d_sm_6_2";
             type="Empty";
         };
-        class Item124
+        class Item123
         {
             position[]={1513.83,207.75211,8747.3604};
             name="d_sm_7";
             type="Empty";
             angle=65;
         };
-        class Item125
+        class Item124
         {
             position[]={300.60901,343.1777,386.54099};
             name="d_sm_8";
             type="Empty";
         };
-        class Item126
+        class Item125
         {
             position[]={5843.75,509.64459,11336.1};
             name="d_sm_9";
             type="Empty";
             angle=320;
         };
-        class Item127
+        class Item126
         {
             position[]={5755.54,658.67181,11334.7};
             name="d_sm_9_1";
             type="Empty";
         };
-        class Item128
+        class Item127
         {
             position[]={5793.1401,569.67023,11357.5};
             name="d_sm_9_2";
             type="Empty";
         };
-        class Item129
+        class Item128
         {
             position[]={5800.1401,471.67291,11296.1};
             name="d_sm_9_3";
             type="Empty";
         };
-        class Item130
+        class Item129
         {
             position[]={14036.12,166.6824,13515.29};
             name="xr_playerparkmarker";
             type="Empty";
         };
-        class Item131
+        class Item130
         {
             position[]={8180.4268,296.04001,1752.3551};
-            name="d_bonus_air_positions_5";
+            name="d_bonus_air_positions_4";
             type="Empty";
             angle=-27.133801;
         };
@@ -2776,7 +2782,7 @@ class Mission
         items=3;
         class Item0
         {
-            position[]={8059.3608,296.04001,1867.3898};
+            position[]={8075.8267,296.10568,1878.9163};
             a=5;
             b=5;
             angle=-88.504807;
@@ -2808,7 +2814,7 @@ class Mission
         };
         class Item2
         {
-            position[]={7711.835,296.04001,1719.5604};
+            position[]={7719.519,296.04001,1724.4996};
             a=15;
             b=19;
             angle=-119.874;

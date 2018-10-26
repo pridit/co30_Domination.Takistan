@@ -44,7 +44,6 @@ execfsm "fsms\TTPoints.fsm";
 [
     ['A10_US_EP1'],
     ['C130J_US_EP1'],
-    ['MV22'],
     ['UH1Y'],
     ['AH64D_EP1']
 ] execVM "x_server\x_getbonus.sqf";

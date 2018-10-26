@@ -368,7 +368,7 @@ GVAR(sm_bonus_vehicle_array) = (
                     if (__ACEVer) then {
                         ["A10_US_EP1","AH64D_EP1","AH6J_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1","M6_EP1","ACE_M1A1HC_DESERT","ACE_M1A1HC_TUSK_DESERT","ACE_M1A1HC_TUSK_CSAMM_DESERT","ACE_M1A1HA_TUSK_CSAMM_DESERT","UH60M_EP1"]
                     } else {
-                        ["A10_US_EP1","AH64D_EP1","AH6J_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1","M6_EP1","UH60M_EP1","C130J_US_EP1","MV22","UH1Y"]
+                        ["A10_US_EP1","AH64D_EP1","AH6J_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1","M6_EP1","UH60M_EP1","C130J_US_EP1","UH1Y"]
                     };
                 };
                 case (__ACEVer): {
