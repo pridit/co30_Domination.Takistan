@@ -1,6 +1,6 @@
 rem Domination Build Batch
 
-set MASTER=src
+set MASTER=co30_Domination.Takistan
 set VER=2.80
 set D_VER=2_80
 set D_RELEASE=2
