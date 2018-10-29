@@ -362,8 +362,8 @@ class GVAR(show_player_marker) {
     
     class GVAR(AutoKickTime) {
         title = "$STR_DOM_MISSIONSTRING_1107";
-        values[] = {0,60, 300, 600, 1800,3600};
-        default = 1800;
+        values[] = {0,60,300,600,1800,3600};
+        default = 600;
         texts[] = {"$STR_DOM_MISSIONSTRING_1077","$STR_DOM_MISSIONSTRING_1106","$STR_DOM_MISSIONSTRING_1078","$STR_DOM_MISSIONSTRING_1079","$STR_DOM_MISSIONSTRING_1080","$STR_DOM_MISSIONSTRING_1081"};
     };
 
