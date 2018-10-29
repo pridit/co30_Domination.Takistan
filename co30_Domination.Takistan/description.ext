@@ -809,7 +809,7 @@ class GVAR(show_player_marker) {
     class GVAR(reload_time_factor) {
         title = "$STR_DOM_MISSIONSTRING_1190";
         values[] = {0,1,2,3,4,5,10};
-        default = 4;
+        default = 5;
         texts[] = {"0","1","2","3","4","5","10"};
     };
     
