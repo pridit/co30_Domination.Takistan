@@ -172,9 +172,12 @@ if (_object iskindof "Heli_Light01_Base_H" || {_object iskindof "Heli_Medium01_B
             };
         } forEach _hitp;
     };
+if (damage _object > 0.001) then {
+    if (!isDedicated) then {[_object, (localize "STR_DOM_MISSIONSTRING_704")] call FUNC(VehicleChat)};
+    _object setDamage 0;
+    sleep GVAR(reload_time_factor);
 };
-#endif
-sleep GVAR(reload_time_factor);
+
 if (!alive _object) exitWith {};
 if (!isDedicated) then {[_object, (localize "STR_DOM_MISSIONSTRING_705")] call FUNC(VehicleChat)};
 while {fuel _object < 0.99} do {
