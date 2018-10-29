@@ -1995,37 +1995,37 @@
         <Original>You were degraded from %1 to Private !!!</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_665">
-        <Original>You were promoted to Corporal, congratulations !!!</Original>
+        <Original>You were promoted to Corporal</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_666">
-        <Original>You were degraded from %1 to Corporal !!!</Original>
+        <Original>You were degraded from %1 to Corporal</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_667">
-        <Original>You were promoted to Sergeant, congratulations !!!</Original>
+        <Original>You were promoted to Sergeant</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_668">
-        <Original>You were degraded from %1 to Sergeant !!!</Original>
+        <Original>You were degraded from %1 to Sergeant</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_669">
-        <Original>You were promoted to Lieutenant, congratulations !!!</Original>
+        <Original>You were promoted to Lieutenant</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_670">
-        <Original>You were degraded from %1 to Lieutenant !!!</Original>
+        <Original>You were degraded from %1 to Lieutenant</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_671">
-        <Original>You were promoted to Captain, congratulations !!!</Original>
+        <Original>You were promoted to Captain</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_672">
-        <Original>You were degraded from %1 to Captain !!!</Original>
+        <Original>You were degraded from %1 to Captain</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_673">
-        <Original>You were promoted to Major, congratulations !!!</Original>
+        <Original>You were promoted to Major</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_674">
-        <Original>You were degraded from %1 to Major !!!</Original>
+        <Original>You were degraded from %1 to Major</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_675">
-        <Original>You were promoted to Colonel, congratulations !!!</Original>
+        <Original>You were promoted to Colonel</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_676">
         <Original>DANGER:</Original>
