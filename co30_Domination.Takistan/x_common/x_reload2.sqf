@@ -34,25 +34,13 @@ _object setVariable [QGVAR(last_reload), time];
 
 if (isNil {GVAR(reload_time_factor)}) then {GVAR(reload_time_factor) = 1};
 
-#ifndef __TOH__
 if (GVAR(reload_engineoff)) then {_object action ["engineOff", _object]};
-#else
-if (_object isKindOf "Helicopter_Base_H") then {
-    [1, _object] call BIS_fnc_enginesOff;
-    waitUntil {!(isBatteryOnRTD _object)};
-};
-#endif
 if (!alive _object) exitWith {};
 _object setFuel 0;
 
 _type_name = [_type,0] call FUNC(GetDisplayName);
 if (_type_name == "") then {_type_name = _type};
 if (!isDedicated) then {[_object,format [(localize "STR_DOM_MISSIONSTRING_701"), _type_name]] call FUNC(VehicleChat)};
-
-#ifdef __DEBUG__
-_magazinesxx = _object magazinesTurret [0];
-__TRACE_1("","_magazinesxx");
-#endif
 
 _cfgturrets = configFile >> "CfgVehicles" >> _type >> "Turrets";
 
@@ -157,21 +145,9 @@ if (count _magazines > 0) then {
 _object setVehicleAmmo 1;
 
 if (!alive _object) exitWith {};
-
 sleep GVAR(reload_time_factor);
+
 if (!alive _object) exitWith {};
-if (!isDedicated) then {[_object, (localize "STR_DOM_MISSIONSTRING_704")] call FUNC(VehicleChat)};
-_object setDamage 0;
-#ifdef __TOH__
-if (_object iskindof "Heli_Light01_Base_H" || {_object iskindof "Heli_Medium01_Base_H"} || {_object iskindof "Heli_Heavy_Base_H"}) then {
-    _hitp = _object call BIS_fnc_helicopterGetHitpoints;
-    if (count _hitp > 0) then {
-        {
-            if ((_object getHitPointDamage _x) != 0) then {
-                _object setHitPointDamage [_x, 0];
-            };
-        } forEach _hitp;
-    };
 if (damage _object > 0.001) then {
     if (!isDedicated) then {[_object, (localize "STR_DOM_MISSIONSTRING_704")] call FUNC(VehicleChat)};
     _object setDamage 0;
@@ -185,13 +161,8 @@ while {fuel _object < 0.99} do {
     sleep 0.01;
 };
 sleep GVAR(reload_time_factor);
+
 if (!alive _object) exitWith {};
 if (!isDedicated) then {[_object, format [(localize "STR_DOM_MISSIONSTRING_706"), _type_name]] call FUNC(VehicleChat)};
-
-#ifdef __TOH__
-if (_object isKindOf "Helicopter_Base_H") then {
-    [1, _object] call BIS_fnc_enginesOn;
-};
-#endif
 
 reload _object;

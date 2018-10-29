@@ -15,14 +15,6 @@ _heli_array = [];
     _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
     _vehicle setVariable [QGVAR(vec), _number_v, true];
     _vehicle setVariable [QGVAR(vec_islocked), (_vehicle call d_fnc_isVecLocked)];
-
-#ifdef __TT__
-    if (_number_v < 400) then {
-        _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(checkveckillwest)}}];
-    } else {
-        _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(checkveckilleast)}}];
-    };
-#endif
 } forEach _this;
 _this = nil;
 
