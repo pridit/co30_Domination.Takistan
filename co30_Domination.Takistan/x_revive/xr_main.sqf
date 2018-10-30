@@ -161,7 +161,7 @@ if (GVARXR(with_marker)) then {
 
 if (isDedicated) exitWith {};
 
-if (isNil QGVARXR(respawn_available_after)) then {GVARXR(respawn_available_after) = 150};
+if (isNil QGVARXR(respawn_available_after)) then {GVARXR(respawn_available_after) = -1};
 if (isNil QGVARXR(near_player_dist)) then {GVARXR(near_player_dist) = 250};
 if (isNil QGVARXR(lifetime)) then {GVARXR(lifetime) = 300};
 if (isNil QGVARXR(can_revive)) then {GVARXR(can_revive) = []};
