@@ -1108,7 +1108,7 @@ class Mission
     };
     class Vehicles
     {
-        items=73;
+        items=74;
         class Item0
         {
             position[]={8330.8545,296.04001,2045.4362};
@@ -1917,6 +1917,16 @@ class Mission
             vehicle="MV22";
             skill=0.60000002;
             text="ch9";
+        };
+        class Item73
+        {
+            position[]={8273.5742,296.04001,2122.3438};
+            azimut=120.59666;
+            id=136;
+            side="EMPTY";
+            vehicle="Sign_Checkpoint";
+            skill=0.60000002;
+            init="this setObjectTexture [0, ""pics\release2.jpg""];";
         };
     };
     class Markers
