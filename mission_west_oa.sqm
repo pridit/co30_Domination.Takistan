@@ -1921,12 +1921,12 @@ class Mission
         class Item73
         {
             position[]={8273.5742,296.04001,2122.3438};
-            azimut=120.59666;
+            azimut=120.597;
             id=136;
             side="EMPTY";
             vehicle="Sign_Checkpoint";
             skill=0.60000002;
-            init="this setObjectTexture [0, ""pics\release2.jpg""];";
+            init="this setObjectTexture [0, ""pics\release2.jpg""]; this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
         };
     };
     class Markers

@@ -81,7 +81,7 @@ if (isServer) then {
     __ccppfln(x_shc\x_f\x_shcfunctions.sqf);
 };
 
-__cppfln(x_reload,x_common\x_reload2.sqf);
+__cppfln(x_reload,x_common\x_reload.sqf);
 __ccppfln(x_common\x_f\x_netinit.sqf);
 __cppfln(FUNC(x_checkkill),x_common\x_checkkill.sqf);
 
