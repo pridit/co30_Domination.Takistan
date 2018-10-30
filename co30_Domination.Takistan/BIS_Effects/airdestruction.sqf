@@ -40,15 +40,17 @@ if (local _v) then {
     };
 };
 
-while {_i < 1200 && {(velocity _v select 2) < -20 || {(getpos _v select 2) > 8}} && {!alive _v} && {!isnull _v} && {(getpos _v select 2) > 1}} do {
-    if (!isDedicated) then {
-        _tv = abs(velocity _v select 0) + abs(velocity _v select 1) + abs(velocity _v select 2);
-        _dr = if (_tv > 2) then {1/_tv} else {1};
-        _fl setDropInterval _dr;
-        _sm setDropInterval _dr;
+if (!isNil(_i)) then {
+    while {_i < 1200 && {(velocity _v select 2) < -20 || {(getpos _v select 2) > 8}} && {!alive _v} && {!isnull _v} && {(getpos _v select 2) > 1}} do {
+        if (!isDedicated) then {
+            _tv = abs(velocity _v select 0) + abs(velocity _v select 1) + abs(velocity _v select 2);
+            _dr = if (_tv > 2) then {1/_tv} else {1};
+            _fl setDropInterval _dr;
+            _sm setDropInterval _dr;
+        };
+        __INC(_i);
+        sleep 0.2;
     };
-    __INC(_i);
-    sleep 0.2;
 };
 
 _pos = getpos _v;
