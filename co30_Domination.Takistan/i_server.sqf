@@ -972,11 +972,6 @@ GVAR(recapture_indices) = [];
 // if set to -1 no check is done
 GVAR(max_recaptures) = 2;
 
-/*if (isNil QGVAR(with_carrier) && GVAR(MissionType) != 2) then {
-    GVAR(fac_air_wreck) addEventHandler ["killed", {_this call FUNC(x_fackilled)}];
-    GVAR(fac_air_chopper) addEventHandler ["killed", {_this call FUNC(x_fackilled)}];
-    GVAR(fac_air_jet) addEventHandler ["killed", {_this call FUNC(x_fackilled)}];
-};*/
 if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
     0 spawn {
         scriptName "spawn_CreateWarFac";
@@ -991,7 +986,7 @@ if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
         _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
         _fac setDir _dir;
         _fac setPos _pos;
-        _fac addEventHandler ["killed", {[_this select 0, 0] call FUNC(x_fackilled)}];
+        _fac allowDamage false;
 
         _pos = (GVAR(aircraft_facs) select 1) select 0;
         _dir = (GVAR(aircraft_facs) select 1) select 1;
@@ -999,7 +994,7 @@ if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
         _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
         _fac setDir _dir;
         _fac setPos _pos;
-        _fac addEventHandler ["killed", {[_this select 0, 1] call FUNC(x_fackilled)}];
+        _fac allowDamage false;
 
         _pos = (GVAR(aircraft_facs) select 2) select 0;
         _dir = (GVAR(aircraft_facs) select 2) select 1;
@@ -1007,7 +1002,7 @@ if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
         _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
         _fac setDir _dir;
         _fac setPos _pos;
-        _fac addEventHandler ["killed", {[_this select 0, 2] call FUNC(x_fackilled)}];
+        _fac allowDamage false;
     };
 } else {
     if (isNil QGVAR(with_carrier) && {GVAR(MissionType) == 2}) then {

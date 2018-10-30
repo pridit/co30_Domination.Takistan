@@ -8,15 +8,8 @@ __ccppfln(x_shc\x_shcinit.sqf);
 __cppfln(FUNC(vehirespawn),x_server\x_vehirespawn.sqf);
 __cppfln(FUNC(vehirespawn2),x_server\x_vehirespawn2.sqf);
 __cppfln(FUNC(arifire),x_server\x_arifire.sqf);
-#ifndef __TT__
-__cppfln(FUNC(x_fackilled),x_server\x_fackilled.sqf);
 __cppfln(FUNC(radarkilled),x_server\x_radarkilled.sqf);
-#endif
 __cppfln(FUNC(markercheck),x_server\x_markercheck.sqf);
-#ifdef __TT__
-__cppfln(FUNC(checkveckillwest),x_common\x_checkveckillwest.sqf);
-__cppfln(FUNC(checkveckilleast),x_common\x_checkveckilleast.sqf);
-#endif
 
 #ifndef __TT__
 0 spawn {
