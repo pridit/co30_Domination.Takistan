@@ -40,7 +40,7 @@ if (local _v) then {
     };
 };
 
-if (!isNil(_i)) then {
+if (!isNil "_i") then {
     while {_i < 1200 && {(velocity _v select 2) < -20 || {(getpos _v select 2) > 8}} && {!alive _v} && {!isnull _v} && {(getpos _v select 2) > 1}} do {
         if (!isDedicated) then {
             _tv = abs(velocity _v select 0) + abs(velocity _v select 1) + abs(velocity _v select 2);
