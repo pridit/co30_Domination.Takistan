@@ -145,8 +145,8 @@ FUNCXR(killedEH) = {
         __TRACE_1("killedEH","_exitit");
         if (_exitit) exitWith {};
         GVARXR(use_dom_opendlg) = true;
-        __pSetVar [QGVARXR(presptime), 0];
-        setPlayerRespawnTime 0;
+        __pSetVar [QGVARXR(presptime), 10];
+        setPlayerRespawnTime 10;
     };
     if (GVARXR(withweaponrespawn)) then {
         call FUNCXR(WeapRespawn1)
