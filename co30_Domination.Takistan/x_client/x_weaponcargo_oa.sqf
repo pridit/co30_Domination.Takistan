@@ -188,7 +188,7 @@ __amc(1Rnd_SmokeGreen_M203,20)
 __amc(1Rnd_SmokeYellow_M203,20)
 __amc(M136,10)
 
-__amc(NLAW,5)
+__amc(NLAW,20)
 
 __amc(Dragon_EP1,10)
 __amc(MAAWS_HEAT,2)
