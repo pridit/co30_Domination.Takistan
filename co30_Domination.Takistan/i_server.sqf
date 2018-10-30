@@ -986,7 +986,7 @@ if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
         _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
         _fac setDir _dir;
         _fac setPos _pos;
-        _fac allowDamage false;
+        _fac addEventHandler ["HandleDamage", {false}];
 
         _pos = (GVAR(aircraft_facs) select 1) select 0;
         _dir = (GVAR(aircraft_facs) select 1) select 1;
@@ -994,7 +994,7 @@ if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
         _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
         _fac setDir _dir;
         _fac setPos _pos;
-        _fac allowDamage false;
+        _fac addEventHandler ["HandleDamage", {false}];
 
         _pos = (GVAR(aircraft_facs) select 2) select 0;
         _dir = (GVAR(aircraft_facs) select 2) select 1;
@@ -1002,7 +1002,7 @@ if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
         _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
         _fac setDir _dir;
         _fac setPos _pos;
-        _fac allowDamage false;
+        _fac addEventHandler ["HandleDamage", {false}];
     };
 } else {
     if (isNil QGVAR(with_carrier) && {GVAR(MissionType) == 2}) then {
