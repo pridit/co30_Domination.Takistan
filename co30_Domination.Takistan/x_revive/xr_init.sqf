@@ -145,13 +145,8 @@ FUNCXR(killedEH) = {
         __TRACE_1("killedEH","_exitit");
         if (_exitit) exitWith {};
         GVARXR(use_dom_opendlg) = true;
-        __pSetVar [QGVARXR(presptime), 180];
-        setPlayerRespawnTime 180; // punish players that simply do a respawn
-        if (GVARXR(max_lives) != -1) then {
-            titleText [(localize "STR_DOM_MISSIONSTRING_907"),"PLAIN", 1];
-        } else {
-            titleText [(localize "STR_DOM_MISSIONSTRING_908"),"PLAIN", 1];
-        };
+        __pSetVar [QGVARXR(presptime), 0];
+        setPlayerRespawnTime 0;
     };
     if (GVARXR(withweaponrespawn)) then {
         call FUNCXR(WeapRespawn1)
