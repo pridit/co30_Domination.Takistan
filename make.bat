@@ -3,7 +3,7 @@ rem Domination Build Batch
 set MASTER=co30_Domination.Takistan
 set VER=2.80
 set D_VER=2_80
-set D_RELEASE=2
+set D_RELEASE=3
 
 set NEW_VER=co40_Domination_%D_VER%_West_CO.Takistan
 set NEW_VER_L=co40_domination_%D_VER%_west_co.takistan
