@@ -1926,7 +1926,7 @@ class Mission
             side="EMPTY";
             vehicle="Sign_Checkpoint";
             skill=0.60000002;
-            init="this setObjectTexture [0, ""pics\release2.jpg""]; this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
+            init="this setObjectTexture [0, ""pics\release3.jpg""]; this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
         };
     };
     class Markers
@@ -2091,7 +2091,7 @@ class Mission
         };
         class Item21
         {
-            position[]={8203.3408,296.04001,2034.6158};
+            position[]={8206.5674,296.04001,2036.2288};
             name="d_bonus_air_positions_1";
             type="Empty";
             angle=150.0743;
