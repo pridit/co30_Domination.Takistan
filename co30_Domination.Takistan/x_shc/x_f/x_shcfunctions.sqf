@@ -833,7 +833,7 @@ FUNC(SideMissionResolved) = {
     };
     [QGVAR(current_mission_index),-1] call FUNC(NetSetJIP);
     if (GVAR(side_mission_winner) > 0) then {
-        [QGVAR(smgetbonus), [GVAR(side_mission_winner), GVAR(current_sm_bonus_vec)]] call FUNC(NetCallEventCTS);
+        GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"MissionAccomplished",true];
     };
     if (GVAR(side_mission_winner) in [-1,-2,-300,-400,-500,-600,-700,-878,-879]) then {
         [QGVAR(sm_res_client), [GVAR(side_mission_winner), ""]] call FUNC(NetCallEventToClients);
