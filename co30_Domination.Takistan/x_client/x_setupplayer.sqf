@@ -1806,7 +1806,7 @@ FUNC(startClientScripts) = {
     };
     if (!(GVAR(clientScriptsAr) select 1) && {!isNil QGVAR(player_autokick_time)}) then {
         if (isNil QGVAR(nomercyendtime)) then {
-            GVAR(nomercyendtime) = time + GVAR(player_autokick_time);
+            GVAR(nomercyendtime) = time + 1800;
             if (GVAR(player_autokick_time) <= 0) exitWith {
                 GVAR(clientScriptsAr) set [1, true];
                 GVAR(player_autokick_time) = nil;
