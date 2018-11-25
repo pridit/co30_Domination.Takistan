@@ -217,13 +217,6 @@ class Params {
         texts[] = {"$STR_DOM_MISSIONSTRING_1012","$STR_DOM_MISSIONSTRING_1013","$STR_DOM_MISSIONSTRING_1014","$STR_DOM_MISSIONSTRING_1015","$STR_DOM_MISSIONSTRING_1016","$STR_DOM_MISSIONSTRING_1017","$STR_DOM_MISSIONSTRING_1018"};
     };
     
-    class xr_respawn_available_after {
-        title = "$STR_DOM_MISSIONSTRING_1019";
-        values[] = {30,60,90,120,180,240,300,600};
-        default = 30;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1020","$STR_DOM_MISSIONSTRING_1012","$STR_DOM_MISSIONSTRING_1021","$STR_DOM_MISSIONSTRING_1013","$STR_DOM_MISSIONSTRING_1014","$STR_DOM_MISSIONSTRING_1015","$STR_DOM_MISSIONSTRING_1016","$STR_DOM_MISSIONSTRING_1017"};
-    };
-    
     class GVAR(params_dummy_line_6) {
         title = "---------------------------- Ranked -------------------------------";
         values[] = {-99999};

@@ -10,11 +10,7 @@ _current_target_pos = _t_array select 0;
 _current_target_name = _t_array select 1;
 _current_target_radius = _t_array select 2;
 
-#ifndef __TT__
 [_current_target_name, _current_target_pos,"ELLIPSE","ColorRed",[_current_target_radius,_current_target_radius]] call FUNC(CreateMarkerLocal);
-#else
-[_current_target_name, _current_target_pos,"ELLIPSE","ColorYellow",[_current_target_radius,_current_target_radius]] call FUNC(CreateMarkerLocal);
-#endif
 QGVAR(dummy_marker) setMarkerPosLocal _current_target_pos;
 
 if (!isNil QGVAR(task1)) then {GVAR(task1) setTaskState "Succeeded"};

@@ -41,9 +41,7 @@ if (isNil QGVARXR(lifetime)) then {
 };
 
 // map click respawn available after x seconds, -1 for immedeate respawn
-if (isNil QGVARXR(respawn_available_after)) then {
-    GVARXR(respawn_available_after) = -1;
-};
+GVARXR(respawn_available_after) = -1;
 
 // list players only if they are x meters avway
 GVARXR(near_player_dist) = 250;

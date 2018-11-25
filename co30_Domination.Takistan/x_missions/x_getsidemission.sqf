@@ -46,11 +46,6 @@ if (isNil QGVAR(HC_CLIENT_OBJ)) then {
 sleep 7.012;
 [QGVAR(current_mission_index),_current_mission_index] call FUNC(NetSetJIP);
 [QGVAR(up_m)] call FUNC(NetCallEventToClients);
-#ifndef __TT__
 GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"NewMission",true];
-#else
-GVAR(hq_logic_en1) kbTell [GVAR(hq_logic_en2),"HQ_W","NewMission",true];
-GVAR(hq_logic_ru1) kbTell [GVAR(hq_logic_ru2),"HQ_E","NewMission",true];
-#endif
 GVAR(side_mission_resolved) = false;
 GVAR(side_mission_winner) = 0;

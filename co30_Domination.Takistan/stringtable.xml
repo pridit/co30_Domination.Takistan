@@ -2184,7 +2184,7 @@
         <Original>Good job. The radar tower on top of mount Nebelspitze is down.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_728">
-        <Original>A high enemy officer arrives today in a ruin called Rog. He is responsible for the death of many civilians. Eliminate him!</Original>
+        <Original>A high ranking enemy officer arrives today in a ruin called Rog. He is responsible for the death of many civilians. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_729">
         <Original>The enemy officer is dead. Good job.</Original>
@@ -2202,13 +2202,13 @@
         <Original>Good job. The lighthouse is destroyed.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_734">
-        <Original>A high enemy officer makes holidays in Kamyshovo. Eliminate him !</Original>
+        <Original>A high ranking enemy officer is vacationing in Kamyshovo. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_735">
         <Original>Good job. The enemy officer is dead.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_736">
-        <Original>The enemy prime minister visits some troops near Lopatino. Eliminate him !</Original>
+        <Original>The enemy prime minister visits some troops near Lopatino. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_737">
         <Original>Good job. The prime minister is dead.</Original>
@@ -2232,7 +2232,7 @@
         <Original>Good job. The radio tower on top of mount Malinovka is down.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_744">
-        <Original>A high enemy officer arrives today in Olsha. He is responsible for the production of biological and chemical weapons. Eliminate him !</Original>
+        <Original>A high ranking enemy officer arrives today in Olsha. He is responsible for the production of biological and chemical weapons. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_745">
         <Original>A high enemy government member visits Berezino today. He wants to take a look at the local ship production in the Berezino shipyard. Eliminate him !</Original>
@@ -2268,7 +2268,7 @@
         <Original>An enemy convoy is on route from Kozlovka to Msta. Find it and destroy it.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_756">
-        <Original>A high enemy officer visits the enemy troops today in Teufelsschloss. He is a personal friend of the enemy leader. Eliminate him!</Original>
+        <Original>A high ranking enemy officer visits the enemy troops today in Teufelsschloss. He is a personal friend of the enemy leader. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_757">
         <Original>The enemy uses a fuelstation located near Bor to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Original>
@@ -2469,7 +2469,7 @@
         <Original>Good job. The radar tower on top of mount Gur Dur is down.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_824">
-        <Original>A high enemy officer arrives today in Shamali. He is responsible for the death of many civilians. Eliminate him!</Original>
+        <Original>A high ranking enemy officer arrives today in Shamali. He is responsible for the death of many civilians. Eliminate him!</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_825">
         <Original>There is a artillery cannon on top of mount Sanginakt. Destroy it before enemy troops use it to attack Feruz-Abad.</Original>
@@ -2481,7 +2481,7 @@
         <Original>The terrorist leader is dead. Good job.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_828">
-        <Original>A high enemy officer makes holidays at Lake Charsu. Eliminate him !</Original>
+        <Original>A high ranking enemy officer is vacationing at Lake Charsu. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_829">
         <Original>The enemy prime minister visits some troops near Nagara. Eliminate him !</Original>
@@ -2505,7 +2505,7 @@
         <Original>Good job. The radio tower on top of mount Aqtappa is down.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_836">
-        <Original>A high enemy officer arrives today in a mine near Feruz-Abad. He is responsible for the production of biological and chemical weapons. Eliminate him !</Original>
+        <Original>A high ranking enemy officer arrives today in a mine near Feruz-Abad. He is responsible for the production of biological and chemical weapons. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_837">
         <Original>A high enemy government member visits Nagara-1-Oilfield today. He wants to take a look at the local oil production in Nagara-1-Oilfield. Eliminate him !</Original>
@@ -2526,7 +2526,7 @@
         <Original>An enemy convoy is on route from Mulladost to Karachinar. Find it and destroy it.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_843">
-        <Original>A high enemy officer visits the enemy troops today near Bala-Pass. He is a personal friend of the enemy leader. Eliminate him!</Original>
+        <Original>A high ranking enemy officer is overseeing a training exercise near Bala-Pass. Eliminate him!</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_844">
         <Original>The enemy uses a fuelstation located near Gospandi to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Original>
@@ -4339,6 +4339,9 @@
       </Key>
        <Key ID="STR_DOM_MISSIONSTRING_1448">
         <Original>Finally we've found the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1449">
+        <Original>Side Target: %1</Original>
       </Key>
     </Container>
   </Package>
