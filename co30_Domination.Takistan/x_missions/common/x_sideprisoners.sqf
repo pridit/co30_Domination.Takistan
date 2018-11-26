@@ -8,15 +8,9 @@ PARAMS_1(_posi_a);
 _pos = _posi_a select 0;
 _posi_a = nil;
 
-if (GVAR(with_ranked)) then {GVAR(sm_p_pos) = nil};
-
 sleep 2;
 
-#ifndef __TT__
 _newgroup = [GVAR(own_side)] call FUNC(creategroup);
-#else
-_newgroup = [civilian] call FUNC(creategroup);
-#endif
 _unit_array = ["civilian", "CIV"] call FUNC(getunitliste);
 [_pos, _unit_array select 0, _newgroup] call FUNC(makemgroup);
 _leader = leader _newgroup;
@@ -43,10 +37,6 @@ _hostages_reached_dest = false;
 _all_dead = false;
 _rescued = false;
 
-#ifdef __TT__
-_winner = 0;
-#endif
-
 if (!GVAR(with_ai)) then {
     while {!_hostages_reached_dest && {!_all_dead}} do {
         __MPCheck;
@@ -58,7 +48,7 @@ if (!GVAR(with_ai)) then {
                 _nobjs = (position _leader) nearEntities ["CAManBase", 20];
                 if (count _nobjs > 0) then {
                     {
-                        if (isPlayer _x && {alive _x} && {(toUpper (str(_x)) in ["RESCUE","RESCUE2"])}) exitWith {
+                        if (isPlayer _x && {alive _x}) exitWith {
                             _rescued = true;
                             _retter = _x;
                             {
@@ -97,18 +87,6 @@ if (!GVAR(with_ai)) then {
                     };
                     if (!_do_loop) exitWith {};
                 } forEach _units;
-            };
-        };
-        if (__RankedVer) then {
-            if (_hostages_reached_dest) then {
-                if (!__TTVer) then {
-                    [QGVAR(sm_p_pos), position GVAR(FLAG_BASE)] call FUNC(NetCallEventToClients);
-                } else {
-                    switch (_winner) do {
-                        case 1: {[QGVAR(sm_p_pos), position GVAR(EFLAG_BASE)] call FUNC(NetCallEventToClients)};
-                        case 2: {[QGVAR(sm_p_pos), position GVAR(WFLAG_BASE)] call FUNC(NetCallEventToClients)};
-                    };
-                };
             };
         };
         sleep 5.123;
