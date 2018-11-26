@@ -425,7 +425,7 @@ if (isServer) then {
         [atv1,310,false,300],
         [atv2,311,false,300],
         [atv3,312,false,300],
-        [c130,313,false,300]
+        [c130,313,false,1500]
     ] execVM "x_server\x_helirespawn2.sqf";
 
     // editor varname, unique number
