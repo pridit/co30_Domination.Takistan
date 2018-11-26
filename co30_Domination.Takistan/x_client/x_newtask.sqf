@@ -13,5 +13,4 @@ _dtask setTaskState "Created";
 _dtask setSimpleTaskDestination _target_pos;
 GVAR(current_side_task) = _dtask;
 
-GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"NewMission",true];
 [GVAR(current_side_task), "CREATED"] call FUNC(TaskHint);

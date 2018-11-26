@@ -44,6 +44,9 @@ sleep 7.012;
 GVAR(side_mission_resolved) = false;
 GVAR(side_mission_winner) = 0;
 
+sleep 7.012;
+GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"NewMission",true];
+
 // sleep 30;
 // GVAR(side_mission_resolved) = true;
 // GVAR(side_mission_winner) = 1;
