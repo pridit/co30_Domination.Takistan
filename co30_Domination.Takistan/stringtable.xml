@@ -2484,7 +2484,7 @@
         <Original>A high ranking enemy officer is vacationing at Lake Charsu. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_829">
-        <Original>The enemy prime minister visits some troops near Nagara. Eliminate him !</Original>
+        <Original>The enemy prime minister visits some troops near Nagara. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_830">
         <Original>There is a radio tower on the top of mount Jabal os Saraj. The enemy uses it to command its armored troops. Simple task, destroy it.</Original>
@@ -2508,7 +2508,7 @@
         <Original>A high ranking enemy officer arrives today in a mine near Feruz-Abad. He is responsible for the production of biological and chemical weapons. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_837">
-        <Original>A high enemy government member visits Nagara-1-Oilfield today. He wants to take a look at the local oil production in Nagara-1-Oilfield. Eliminate him !</Original>
+        <Original>A high ranking enemy government member visits Nagara-1-Oilfield today. He wants to take a look at the local oil production in Nagara-1-Oilfield. Eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_838">
         <Original>An enemy convoy is on route from Landay to Mulladost. Find it and destroy it.</Original>
@@ -2580,10 +2580,10 @@
         <Original>There is a prison camp in Rasman. Free the prisoners and bring at least eight prisoners back to your base (only a rescue operator can do that).</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_861">
-        <Original>An enemy officer is on a walk in a forrest near Nur. This is a good chance to arrest him and bring him to your base.</Original>
+        <Original>An enemy officer is on a walk in a forest near Nur. This is a good chance to arrest him and bring him to your base.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_862">
-        <Original>An enemy officer is on a walk in a forrest near Nur. Simple task, eliminate him !!!</Original>
+        <Original>An enemy officer is on a walk in a forest near Nur. Simple task, eliminate him.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_863">
         <Original>The enemy is testing a new protoype chopper near Zavarak. Steal it and bring it to the flag at your base.</Original>
@@ -2601,7 +2601,7 @@
         <Original>Good job. The oil pumps are down.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_868">
-        <Original>The enemy has a small outpost in a valley near Jilavur. Arrest the officer there and bring him back to the flag at your base to get some vital informations.</Original>
+        <Original>The enemy has a small outpost in a valley near Jilavur. Arrest the officer there and bring him back to the flag at your base to get some vital information.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_869">
         <Original>The enemy has a small outpost in a valley near Jilavur. Eliminate the officer there !!!</Original>
@@ -4338,7 +4338,7 @@
         <Original>Cursor target</Original>
       </Key>
        <Key ID="STR_DOM_MISSIONSTRING_1448">
-        <Original>Finally we've found the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</Original>
+        <Original>We've located the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_1449">
         <Original>Side Target: %1</Original>

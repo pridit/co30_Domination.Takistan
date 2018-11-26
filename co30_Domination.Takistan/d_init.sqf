@@ -132,6 +132,7 @@ if (X_Client) then {
     __cppfln(FUNC(x_teleport),x_client\x_teleport.sqf);
     __cppfln(FUNC(x_beam_tele),x_client\x_beam_tele.sqf);
     __cppfln(FUNC(x_update_target),x_client\x_update_target.sqf);
+    __cppfln(FUNC(x_newtask),x_client\x_newtask.sqf);
     __cppfln(FUNC(SatellitenBildd),scripts\SatellitenBild.sqf);
     
     __ccppfln(x_client\x_f\x_clientfuncs.sqf);

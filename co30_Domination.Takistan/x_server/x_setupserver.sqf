@@ -33,14 +33,6 @@ GVAR(last_bonus_vec) = "";
 // check mr
 __cppfln(FUNC(checktransport),x_server\x_checktransport.sqf);
 
-#ifdef __TT__
-__cppfln(FUNC(checktransport2),x_server\x_checktransport2.sqf);
-#endif
-
-#ifdef __TT__
-execfsm "fsms\TTPoints.fsm";
-#endif
-
 [
     ['A10_US_EP1'],
     ['C130J_US_EP1'],
@@ -53,22 +45,7 @@ if (GVAR(with_ai)) then {execVM "x_server\x_delaiserv.sqf"};
 if (GVAR(MissionType) in [0,2]) then {
     0 spawn {
         scriptName "spawn_x_serversetup_startsm";
-        private ["_waittime","_num_p"];
-        sleep 20;
-            if (GVAR(MissionType) != 2) then {
-            _waittime = 200 + random 10;
-            _num_p = call FUNC(PlayersNumber);
-            if (_num_p > 0) then {
-                {
-                    if (_num_p <= (_x select 0)) exitWith {
-                        _waittime = (_x select 1) + random 10;
-                    }
-                } forEach GVAR(time_until_next_sidemission);
-            };
-            sleep _waittime;
-        } else {
-            sleep 15;
-        };
+        sleep 60;
         execVM "x_missions\x_getsidemission.sqf";
     };
 };

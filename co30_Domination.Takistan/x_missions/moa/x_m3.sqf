@@ -16,13 +16,9 @@ if (true) exitWith {};
 #endif
 
 if (X_Client && {!GVAR(IS_HC_CLIENT)}) then {
-#ifndef __TT__
     GVAR(current_mission_text) = (localize "STR_DOM_MISSIONSTRING_852");
     GVAR(current_mission_resolved_text) = (localize "STR_DOM_MISSIONSTRING_769");
-#else
-    GVAR(current_mission_text) = (localize "STR_DOM_MISSIONSTRING_853");
-    GVAR(current_mission_resolved_text) = (localize "STR_DOM_MISSIONSTRING_771");
-#endif
+    [(localize "STR_DOM_MISSIONSTRING_852"), "Steal", _mpos] call FUNC(x_newtask);
 };
 
 if (call FUNC(checkSHC)) then {
@@ -32,7 +28,6 @@ if (call FUNC(checkSHC)) then {
     _vehicle = createVehicle [GVAR(sm_tank), _poss, [], 0, "NONE"];
     _vehicle setDir  markerDir QGVAR(sm_3);
     _vehicle setPos _poss;
-#ifndef __TT__
     sleep 2.123;
     ["specops", 1, "basic", 1, _pos_other,250,true] spawn FUNC(CreateInf);
     sleep 2.321;
@@ -47,13 +42,4 @@ if (call FUNC(checkSHC)) then {
         };
     }];
     _vehicle setDamage 0;
-#else
-    _vehicle addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal)}];
-    _vehicle lock true;
-    __AddToExtraVec(_vehicle)
-    sleep 2.123;
-    ["specops", 1, "basic", 1, _pos_other,250,true] spawn FUNC(CreateInf);
-    sleep 2.321;
-    ["shilka", 1, "bmp", 1, "tank", 0, _pos_other2,2,400,true] spawn FUNC(CreateArmor);
-#endif
 };

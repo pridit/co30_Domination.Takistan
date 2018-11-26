@@ -12,13 +12,9 @@ if (true) exitWith {};
 #endif
 
 if (X_Client && {!GVAR(IS_HC_CLIENT)}) then {
-#ifndef __TT__
     GVAR(current_mission_text) = (localize "STR_DOM_MISSIONSTRING_868");
     GVAR(current_mission_resolved_text) = (localize "STR_DOM_MISSIONSTRING_806");
-#else
-    GVAR(current_mission_text) = (localize "STR_DOM_MISSIONSTRING_869");
-    GVAR(current_mission_resolved_text) = (localize "STR_DOM_MISSIONSTRING_808");
-#endif
+    [(localize "STR_DOM_MISSIONSTRING_868"), "Kidnap", _mpos] call FUNC(x_newtask);
 };
 
 if (call FUNC(checkSHC)) then {

@@ -14,6 +14,7 @@ if (true) exitWith {};
 if (X_Client && {!GVAR(IS_HC_CLIENT)}) then {
     GVAR(current_mission_text) = (localize "STR_DOM_MISSIONSTRING_874");
     GVAR(current_mission_resolved_text) = (localize "STR_DOM_MISSIONSTRING_875");
+    [(localize "STR_DOM_MISSIONSTRING_874"), "Destroy", _mpos] call FUNC(x_newtask);
 };
 
 if (call FUNC(checkSHC)) then {
@@ -36,6 +37,7 @@ if (call FUNC(checkSHC)) then {
         GVAR(side_mission_resolved) = true;
         if (GVAR(IS_HC_CLIENT)) then {
             [QGVAR(sm_var), GVAR(side_mission_winner)] call FUNC(NetCallEventCTS);
+            call FUNC(SideMissionResolved);
         };
     };
 
@@ -82,6 +84,7 @@ if (call FUNC(checkSHC)) then {
         GVAR(side_mission_resolved) = true;
         if (GVAR(IS_HC_CLIENT)) then {
             [QGVAR(sm_var), GVAR(side_mission_winner)] call FUNC(NetCallEventCTS);
+            call FUNC(SideMissionResolved);
         };
     } else {
         call _MissionCompleted;

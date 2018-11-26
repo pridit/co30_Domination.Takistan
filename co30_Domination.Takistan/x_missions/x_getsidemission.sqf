@@ -1,7 +1,7 @@
 // by Xeno
 #define THIS_FILE "x_getsidemission.sqf"
 #include "x_setup.sqf"
-private ["_ffolder", "_mfolder"];
+private ["_mfolder"];
 if (!isServer) exitWith{};
 
 if (__XJIPGetVar(all_sm_res)) exitWith {};
@@ -30,12 +30,7 @@ GVAR(extra_mission_vehicle_remover_array) = [];
 //_current_mission_index = _this select 0;
 //_current_mission_index = 25;
 
-_ffolder = switch (true) do {
-    case (__COVer): {"m"};
-    case (__OAVer): {"moa"};
-};
-
-_mfolder = "x_missions\" + _ffolder + "\%2%1.sqf";
+_mfolder = "x_missions\moa\%2%1.sqf";
 
 if (isNil QGVAR(HC_CLIENT_OBJ)) then {
     execVM (format [_mfolder, _current_mission_index, GVAR(mission_filename)]);
@@ -46,6 +41,10 @@ if (isNil QGVAR(HC_CLIENT_OBJ)) then {
 sleep 7.012;
 [QGVAR(current_mission_index),_current_mission_index] call FUNC(NetSetJIP);
 [QGVAR(up_m)] call FUNC(NetCallEventToClients);
-GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"NewMission",true];
 GVAR(side_mission_resolved) = false;
 GVAR(side_mission_winner) = 0;
+
+// sleep 30;
+// GVAR(side_mission_resolved) = true;
+// GVAR(side_mission_winner) = 1;
+// [QGVAR(sm_var), GVAR(side_mission_winner)] call FUNC(NetCallEventCTS);
