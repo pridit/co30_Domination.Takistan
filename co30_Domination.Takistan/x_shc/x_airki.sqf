@@ -178,23 +178,25 @@ _pat_pos = [_x1, _y1,(_current_target_pos select 2)]
             _vehicles_number = count _vehicles;
             for "_i" from 0 to _vehicles_number do {
                 _vecx = _vehicles select _i;
-                if (fuel _vecx < 0.1 && canMove _vecx) then {
-                    _vecx spawn {
-                        private "_vec";
-                        _vec = _this;
-                        _vec setDamage 1.1;
-                        sleep 200;
-                        if (!isNull _vec) then {_vec call FUNC(DelVecAndCrew)};
-                    };
-                    _vehicles set [_i, -1];
-                } else {
-                    if (isNull _vecx || {!alive _vecx || !canMove _vecx}) then {
+                if (!isNil "_vecx") then {
+                    if (fuel _vecx < 0.1 && canMove _vecx) then {
+                        _vecx spawn {
+                            private "_vec";
+                            _vec = _this;
+                            _vec setDamage 1.1;
+                            sleep 200;
+                            if (!isNull _vec) then {_vec call FUNC(DelVecAndCrew)};
+                        };
                         _vehicles set [_i, -1];
                     } else {
-                        _vecx setFuel 1;
+                        if (isNull _vecx || {!alive _vecx || !canMove _vecx}) then {
+                            _vehicles set [_i, -1];
+                        } else {
+                            _vecx setFuel 1;
+                        };
                     };
+                    sleep 0.01;
                 };
-                sleep 0.01;
             };
             _vehicles = _vehicles - [-1];
         };
