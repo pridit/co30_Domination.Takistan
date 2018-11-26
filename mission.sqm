@@ -43,8 +43,8 @@ class Mission
     randomSeed=6464821;
     class Intel
     {
-        briefingName="co40 Domination OA! West [2.61]";
-        briefingDescription="by Xeno";
+        briefingName="co40 Domination OA! West [2.80]";
+        briefingDescription="Originally by Xeno";
         startWeather=0;
         forecastWeather=0;
         year=2007;
