@@ -27,6 +27,7 @@ if (!isDedicated) then {
     GVAR(client_init_trig) setTriggerStatements ["X_INIT && {!isNil 'd_init_processed'}", "diag_log [diag_frameno, diag_tickTime, time, 'Executing Dom local player JIP trigger'];call compile preprocessFileLineNumbers 'x_client\x_jip.sqf'", ""];
     onPreloadFinished {GVAR(preloaddone) = true; onPreloadFinished {}};
     execVM "tasks.sqf";
+    execVM "BTK\Cargo Drop\Start.sqf";
 };
 
 enableSaving [false,false];
