@@ -31,6 +31,7 @@ _CargoAction = _Transporter addAction [("<t color=""#e7e700"">" + ("Load cargo")
 
 
 //// remove Action
+if (isNil "_Unit") exitWith {};
 waitUntil {(_Unit distance _Transporter > 20) || !(alive _Unit) || !(alive _Transporter)};
 _Transporter removeAction _CargoAction;
 _Transporter setVariable ["BTK_CargoDrop_ActionAdded", false];
