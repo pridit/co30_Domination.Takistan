@@ -12,7 +12,7 @@ if (GVAR(x_sm_type) == "convoy") then {deleteMarkerLocal (format ["XMISSIONM2%1"
 
 GVAR(current_mission_text) = (localize "STR_DOM_MISSIONSTRING_712");
 
-if (GVAR(side_mission_winner) != 0) then {
+if (GVAR(side_mission_winner) > 0) then {
     hint composeText[
         parseText("<t color='#f0ffff00' size='1'>Sidemission resolved</t>"), lineBreak,lineBreak,
         (localize "STR_DOM_MISSIONSTRING_572"), lineBreak,lineBreak,
