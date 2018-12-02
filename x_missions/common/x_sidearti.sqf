@@ -45,9 +45,6 @@ for "_i" from 0 to (_count_arti - 1) do {
         _this call FUNC(AddSMPoints)
         #endif
     }];
-    if (GVAR(domdatabase)) then {
-        _arti addEventHandler ["Killed", {if (isPlayer (_this select 1)) then {[QGVAR(PACKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-    };
     _arti lock true;
     _unit = _grp createUnit [GVAR(sm_arty_crewman), _arti_pos_dir select 0, [], 0, "NONE"];
     if (GVAR(without_nvg) == 0) then {
@@ -55,10 +52,6 @@ for "_i" from 0 to (_count_arti - 1) do {
     };
     _unit setSkill 1;_unit assignAsGunner _arti;_unit moveInGunner _arti;
     _unit setVariable ["BIS_noCoreConversations", true];
-    __addDeadAI(_unit)
-    if (GVAR(domdatabase)) then {
-        _unit addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-    };
     sleep 0.5321;
 };
 
@@ -85,25 +78,10 @@ while {GVAR(dead_arti) != _count_arti} do {
 
 GVAR(dead_arti) = nil;
 
-#ifndef __TT__
 GVAR(side_mission_winner) = 2;
-#endif
-#ifdef __TT__
-if (GVAR(sm_points_west) > GVAR(sm_points_east)) then {
-    GVAR(side_mission_winner) = 2;
-} else {
-    if (GVAR(sm_points_east) > GVAR(sm_points_west)) then {
-        GVAR(side_mission_winner) = 1;
-    } else {
-        if (GVAR(sm_points_east) == GVAR(sm_points_west)) then {
-            GVAR(side_mission_winner) = 123;
-        };
-    };
-};
-#endif
 GVAR(side_mission_resolved) = true;
 GVAR(no_more_observers) = true;
 if (GVAR(IS_HC_CLIENT)) then {
     [QGVAR(sm_var), GVAR(side_mission_winner)] call FUNC(NetCallEventCTS);
-    [QGVAR(sSetVar), [QGVAR(no_more_observers), true]]] call FUNC(NetCallEventCTS);
+    [QGVAR(sSetVar), [QGVAR(no_more_observers), true]] call FUNC(NetCallEventCTS);
 };
