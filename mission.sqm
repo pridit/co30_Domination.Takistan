@@ -1928,7 +1928,7 @@ class Mission
             side="EMPTY";
             vehicle="Sign_Checkpoint";
             skill=0.60000002;
-            init="this setObjectTexture [0, ""pics\release3.jpg""]; this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
+            init="this setObjectTexture [0, ""pics\release4.jpg""]; this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
         };
         class Item74
         {
