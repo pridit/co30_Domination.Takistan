@@ -37,7 +37,6 @@ if (call FUNC(checkSHC)) then {
         GVAR(side_mission_resolved) = true;
         if (GVAR(IS_HC_CLIENT)) then {
             [QGVAR(sm_var), GVAR(side_mission_winner)] call FUNC(NetCallEventCTS);
-            call FUNC(SideMissionResolved);
         };
     };
 
@@ -84,7 +83,6 @@ if (call FUNC(checkSHC)) then {
         GVAR(side_mission_resolved) = true;
         if (GVAR(IS_HC_CLIENT)) then {
             [QGVAR(sm_var), GVAR(side_mission_winner)] call FUNC(NetCallEventCTS);
-            call FUNC(SideMissionResolved);
         };
     } else {
         call _MissionCompleted;
