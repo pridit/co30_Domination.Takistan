@@ -18,7 +18,7 @@ _vehicle setVariable [QGVAR(Attached_Vec), objNull];
 
 sleep 10.123;
 
-_possible_types = GV(_vehicle,GVAR(heli_wreck_lift_types));
+_possible_types = GV(_vehicle,GVAR(lift_types));
 
 while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
     if ((driver _vehicle) == player) then {
