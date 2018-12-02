@@ -44,5 +44,6 @@ _this = nil;
 
     _vehicle setDir _dir;
     _vehicle setPos _endpos;
+    _vehicle setVariable ["D_VEC_SIDE", 2, true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";
 } forEach _vehicle_array;

@@ -1,7 +1,7 @@
 // by Xeno
 #define THIS_FILE "x_wreckmarker2.sqf"
 #include "x_setup.sqf"
-private ["_vehicle", "_mname", "_sav_pos", "_type_name", "_i", "_element", "_timedelete"];
+private ["_vehicle", "_mname", "_sav_pos", "_type_name", "_i", "_element", "_timedelete", "_wreckdel"];
 if (!isServer) exitWith {};
 _vehicle = _this;
 sleep 5;
@@ -20,16 +20,12 @@ _mname = str(_vehicle);
 _sav_pos = [getPosASL _vehicle select 0,getPosASL _vehicle select 1,position _vehicle select 2];
 _type_name = [typeOf _vehicle, 0] call FUNC(GetDisplayName);
 _d_wreck_marker = __XJIPGetVar(GVAR(wreck_marker));
-if (__TTVer) then {
-    _pside = switch (_vehicle getVariable QGVAR(VEC_SIDE)) do {case 1: {east};case 2: {west};default {civilian};};
-    [QGVAR(w_m_c), [_mname,_sav_pos,_type_name,_pside]] call FUNC(NetCallEventToClients);
-    _d_wreck_marker set [count _d_wreck_marker, [_mname,_sav_pos,_type_name,_pside]];
-} else {
-    [QGVAR(w_m_c), [_mname,_sav_pos,_type_name]] call FUNC(NetCallEventToClients);
-    _d_wreck_marker set [count _d_wreck_marker, [_mname,_sav_pos,_type_name]];
-};
+_pside = switch (_vehicle getVariable QGVAR(VEC_SIDE)) do {case 1: {"ColorRed"};case 2: {"ColorBlue"};default {"ColorBlue"};};
+[QGVAR(w_m_c), [_mname,_sav_pos,_type_name]] call FUNC(NetCallEventToClients);
+_d_wreck_marker set [count _d_wreck_marker, [_mname,_sav_pos,_type_name,_pside]];
 [QGVAR(wreck_marker),_d_wreck_marker] call FUNC(NetSetJIP);
-_timedelete = if (GVAR(WreckDeleteTime) != -1) then {time + GVAR(WreckDeleteTime)} else {time + 1e+011};
+_wreckdel = _vehicle getVariable QGVAR(WreckDeleteTime);
+_timedelete = if (!isNil "_wreckdel" && {_wreckdel != -1}) then {time + _wreckdel} else {time + 1e+011};
 while {!isNull _vehicle && {_vehicle distance _sav_pos < 30} && {time < _timedelete}} do {sleep 3.321 + random 2.2};
 _d_wreck_marker = __XJIPGetVar(GVAR(wreck_marker));
 {

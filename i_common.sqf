@@ -580,11 +580,7 @@ for "_i" from 0 to (count (GVAR(mt_bonus_vehicle_array) select 1) - 1) do {
 #endif
 
 // these vehicles can be lifted by the wreck lift chopper (previous chopper 4), but only, if they are completely destroyed
-#ifndef __TT__
-GVAR(heli_wreck_lift_types) = GVAR(sm_bonus_vehicle_array) + GVAR(mt_bonus_vehicle_array);
-#else
-GVAR(heli_wreck_lift_types) = (GVAR(sm_bonus_vehicle_array) select 0) + (GVAR(sm_bonus_vehicle_array) select 1) + (GVAR(mt_bonus_vehicle_array) select 0) + (GVAR(mt_bonus_vehicle_array) select 1);
-#endif
+GVAR(heli_wreck_lift_types) = GVAR(sm_bonus_vehicle_array) + GVAR(mt_bonus_vehicle_array) + ["Su25_TK_EP1","L39_TK_EP1","Mi24_D_TK_EP1","Mi17_TK_EP1","UH1H_TK_EP1"];
 {GVAR(heli_wreck_lift_types) set [_forEachIndex, toUpper _x]} forEach GVAR(heli_wreck_lift_types);
 
 // internal

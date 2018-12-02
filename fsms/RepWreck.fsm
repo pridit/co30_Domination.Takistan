@@ -194,6 +194,7 @@ class FSM
       name = "Unlock_Vehicle";
       init = "d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n
        "_new_vec lock false;" \n
+       "_new_vec setVariable [""D_VEC_SIDE"", 2, true];" \n
        "_new_vec execFSM ""fsms\Wreckmarker.fsm"";" \n
        "if (!(""TT"" in d_version)) then {" \n
        "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true];" \n

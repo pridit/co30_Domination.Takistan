@@ -49,7 +49,7 @@ while {(speed _vehicle) > 0.1} do {
         if (_velz > 1) then {_vehicle setvelocity [_xv/1.3,_yv/1.3,0]} else {_vehicle setvelocity [_xv/1.2, _yv/1.2, velocity _vehicle select 2]};
     };
 
-    if (!isDedicated) then {
+    if (!isDedicated && {!isNil "_zv"}) then {
         _tv = abs(_xv) + abs(_yv) + abs(_zv);
         _dr = if (_tv > 2) then {1/_tv} else {1};
         _smoke setDropInterval _dr * 1.5;

@@ -6,7 +6,7 @@ class FSM
     class Start
     {
       name = "Start";
-      init = "private [""_vehicle"", ""_mname"", ""_sav_pos"", ""_type_name"", ""_marker"", ""_i"", ""_element"",""_timenow"",""_rantime"", ""_timedelete"", ""_thedesmarker"", ""_base"", ""_startpos_vec""];" \n
+      init = "private [""_vehicle"", ""_mname"", ""_sav_pos"", ""_type_name"", ""_marker"", ""_i"", ""_element"",""_timenow"",""_rantime"", ""_timedelete"", ""_thedesmarker"", ""_base"", ""_startpos_vec"", ""_wreckdel""];" \n
        "" \n
        "_vehicle = _this;" \n
        "_startpos_vec = position _vehicle;" \n
@@ -256,17 +256,15 @@ class FSM
       init = "_mname = str(_vehicle);" \n
        "_sav_pos = [position _vehicle select 0,position _vehicle select 1,position _vehicle select 2];" \n
        "_type_name = [typeOf (_vehicle),0] call d_fnc_GetDisplayName;" \n
+       "_types = X_JIPH getVariable ""d_lift_types"";" \n
        "_d_wreck_marker = X_JIPH getVariable ""d_wreck_marker"";" \n
-       "if (""TT"" in d_version) then {" \n
-       "	_pside = switch (_vehicle getVariable ""D_VEC_SIDE"") do {case 1: {east};case 2: {west};default {civilian};};" \n
-       "	[""d_w_m_c"", [_mname,_sav_pos,_type_name,_pside]] call d_fnc_NetCallEventToClients;" \n
-       "	_d_wreck_marker set [count _d_wreck_marker,  [_mname,_sav_pos,_type_name,_pside]];" \n
-       "} else {" \n
-       "	[""d_w_m_c"", [_mname,_sav_pos,_type_name]] call d_fnc_NetCallEventToClients;" \n
-       "	_d_wreck_marker set [count _d_wreck_marker,  [_mname,_sav_pos,_type_name]];" \n
-       "};" \n
+       "_pside = switch (_vehicle getVariable ""D_VEC_SIDE"") do {case 1: {""ColorRed""};case 2: {""ColorBlue""};default {""ColorBlue""};};" \n
+       "[""d_w_m_c"", [_mname,_sav_pos,_type_name,_pside]] call d_fnc_NetCallEventToClients;" \n
+       "_d_wreck_marker set [count _d_wreck_marker,  [_mname,_sav_pos,_type_name,_pside]];" \n
        "X_JIPH setVariable [""d_wreck_marker"",_d_wreck_marker,true];" \n
-       "_timedelete = if (d_WreckDeleteTime != -1) then {time + d_WreckDeleteTime} else {time + 1e+011};" \n
+       "if ((_vehicle getVariable ""D_VEC_SIDE"") == 1) then {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""EnemyWreck"",[""1"","""",_type_name,[]],[""2"","""",_mname,[]],true];};" \n
+       "_wreckdel = _vehicle getVariable ""d_WreckDeleteTime"";" \n
+       "_timedelete = if (!isNil ""_wreckdel"" && {_wreckdel != -1}) then {time + _wreckdel} else {time + 1e+011};" \n
        "" \n
        "";
       precondition = "";

@@ -4343,6 +4343,9 @@
       <Key ID="STR_DOM_MISSIONSTRING_1449">
         <Original>Side Target: %1</Original>
       </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1450">
+        <Original>We have detected a salvageable %1, capture the wreck before the enemy does.</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

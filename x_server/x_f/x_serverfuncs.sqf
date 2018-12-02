@@ -178,25 +178,13 @@ if (GVAR(with_ai) && {__RankedVer}) then {
     };
 };
 
-#ifndef __ACE__
 FUNC(GetWreck) = {
-    private ["_no","_rep_station","_types"];
-    PARAMS_2(_rep_station,_types);
-    _no = nearestObjects [_rep_station, _types, 8];
+    private ["_no","_rep_station"];
+    PARAMS_1(_rep_station);
+    _no = nearestObjects [_rep_station, ["Air"], 8];
     if (count _no == 0) exitWith {objNull};
     if (damage (_no select 0) >= 1) then {_no select 0} else {objNull}
 };
-#else
-FUNC(GetWreck) = {
-    private ["_no","_rep_station","_types","_ret"];
-    PARAMS_2(_rep_station,_types);
-    _no = nearestObjects [_rep_station, _types, 8];
-    if (count _no == 0) exitWith {objNull};
-    _ret = objNull;
-    if (damage (_no select 0) >= 1) then {_ret = _no select 0} else {_isv = (_no select 0) call ace_v_alive;if (!isNil "_isv") then {if (!_isv) then {_ret = _no select 0}}};
-    _ret
-};
-#endif
 
 FUNC(PlacedObjKilled) = {
     private ["_val", "_ar"];

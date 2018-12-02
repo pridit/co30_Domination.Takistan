@@ -45,6 +45,7 @@ if (GVAR(mainTargetBonus) == 0) then {
     };
     _vehicle setDir _dir;
     _vehicle setPos _endpos;
+    _vehicle setVariable ["D_VEC_SIDE", 2, true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";
     #else
     if (!isNil "_cur_tar_obj" && {!isNull _cur_tar_obj}) then {
@@ -155,6 +156,7 @@ if (GVAR(mainTargetBonus) == 0) then {
     _vehicle setPos _endpos;
     _vehicle setDir _dir;
     _vehicle setVariable [QGVAR(WreckMaxRepair), GVAR(WreckMaxRepair), true];
+    _vehicle setVariable ["D_VEC_SIDE", 2, true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";
     if (!isNull _vehicle2) then {
         _vehicle2 setDir _dir2;

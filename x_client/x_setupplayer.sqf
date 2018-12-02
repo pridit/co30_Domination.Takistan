@@ -287,21 +287,6 @@ if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0})
     [QGVAR(farp_e), {if (GVAR(eng_can_repfuel)) then {_this addAction [(localize "STR_DOM_MISSIONSTRING_513") call FUNC(BlueText), "x_client\x_restoreeng.sqf"]}}] call FUNC(NetAddEventToClients);
 };
 [QGVAR(p_o_an), {_this call FUNC(PlacedObjAn)}] call FUNC(NetAddEventToClients);
-#ifdef __TT__
-if (GVAR(WithRevive) == 0) then {
-    [QGVAR(u_k), {format [(localize "STR_DOM_MISSIONSTRING_514"), _this select 0, _this select 1, _this select 2, GVAR(tt_points) select 8] call FUNC(GlobalChat)}] call FUNC(NetAddEventToClients);
-} else {
-    [QGVAR(u_k), {format [(localize "STR_DOM_MISSIONSTRING_515"), _this select 0, _this select 1, _this select 2, GVAR(tt_points) select 8] call FUNC(GlobalChat)}] call FUNC(NetAddEventToClients);
-};
-[QGVAR(vec_killer), {format [(localize "STR_DOM_MISSIONSTRING_516"), _this select 0, _this select 1, _this select 2, GVAR(tt_points) select 7] call FUNC(GlobalChat)}] call FUNC(NetAddEventToClients);
-[QGVAR(r_mark), {if (GVAR(player_side) != (_this select 1)) then {_this spawn {scriptName "spawn_r_mark";waitUntil {((markerPos (_this select 0)) select 0) != 0};deleteMarkerLocal (_this select 0)}}}] call FUNC(NetAddEventToClients);
-[QGVAR(attention), {_this call FUNC(dattention)}] call FUNC(NetAddEventToClients);
-[QGVAR(w_m_c), {
-    if (!isNil {_this select 3} && {!isNil QGVAR(player_side)} && {GVAR(player_side) == _this select 3}) then {
-        [_this select 0, _this select 1,"ICON","ColorBlue",[1,1],format [(localize "STR_DOM_MISSIONSTRING_517"), _this select 2],0,"mil_triangle"] call FUNC(CreateMarkerLocal)
-    }
-}] call FUNC(NetAddEventToClients);
-#else
 [QGVAR(dropansw), {_this call FUNC(dropansw)}] call FUNC(NetAddEventSTO);
 [QGVAR(n_jf), {if (GVAR(WithJumpFlags) == 1) then {_this execVM "x_client\x_newflagclient.sqf"}}] call FUNC(NetAddEventToClients);
 [QGVAR(jet_sf), {_this call FUNC(jet_service_facNet)}] call FUNC(NetAddEventToClients);
@@ -310,8 +295,7 @@ if (GVAR(WithRevive) == 0) then {
 [QGVAR(s_b_client), {__XJIPGetVar(GVAR(searchbody)) setVariable [QGVAR(search_id), __XJIPGetVar(GVAR(searchbody)) addAction [(localize "STR_DOM_MISSIONSTRING_518"), "x_client\x_searchbody.sqf"]]}] call FUNC(NetAddEventToClients);
 [QGVAR(rem_sb_id), {if (!isNil {__XJIPGetVar(GVAR(searchbody)) getVariable QGVAR(search_id)}) then {__XJIPGetVar(GVAR(searchbody)) removeAction (__XJIPGetVar(GVAR(searchbody)) getVariable QGVAR(search_id))}}] call FUNC(NetAddEventToClients);
 [QGVAR(intel_upd), {_this call FUNC(intel_updNet)}] call FUNC(NetAddEventToClients);
-[QGVAR(w_m_c), {[_this select 0, _this select 1,"ICON","ColorBlue",[1,1],format [(localize "STR_DOM_MISSIONSTRING_517"), _this select 2],0,"mil_triangle"] call FUNC(CreateMarkerLocal)}] call FUNC(NetAddEventToClients);
-#endif
+[QGVAR(w_m_c), {[_this select 0, _this select 1,"ICON",_this select 3,[1,1],format [(localize "STR_DOM_MISSIONSTRING_517"), _this select 2],0,"mil_triangle"] call FUNC(CreateMarkerLocal)}] call FUNC(NetAddEventToClients);
 [QGVAR(smsg), {(localize "STR_DOM_MISSIONSTRING_519") call FUNC(HQChat)}] call FUNC(NetAddEventToClients);
 
 [QGVAR(mqhtn), {[format [(localize "STR_DOM_MISSIONSTRING_520"), GVAR(MHQDisableNearMT), _this], "HQ"] call FUNC(HintChatMsg)}] call FUNC(NetAddEventToClients);
@@ -320,10 +304,6 @@ if (GVAR(WithRevive) == 0) then {
 
 [QGVAR(grpswmsg), {((_this select 1) + " " + localize "STR_DOM_MISSIONSTRING_1432") call FUNC(GlobalChat)}] call FUNC(NetAddEventSTO);
 [QGVAR(grpswmsgn), {((_this select 1) + " " + localize "STR_DOM_MISSIONSTRING_1433") call FUNC(GlobalChat)}] call FUNC(NetAddEventSTO);
-
-#ifdef __TOH__
-[2, QGVAR(setVideoPIPTar), {_this call FUNC(setVideoPipTarget)}] call FUNC(NetAddEvent);
-#endif
 
 if (GVAR(domdatabase)) then {
     [QGVAR(sendps), {_this call FUNC(CreatePStatsDialog)}] call FUNC(NetAddEventSTO);
@@ -474,13 +454,7 @@ if (GVAR(MissionType) != 2) then {
 
 {
     if (typeName _x == "ARRAY") then {
-#ifdef __TT__
-        if (GVAR(player_side) == (_x select 3)) then {
-#endif
-        [_x select 0, _x select 1,"ICON","ColorBlue",[1,1],format [(localize "STR_DOM_MISSIONSTRING_517"), _x select 2],0,"mil_triangle"] call FUNC(CreateMarkerLocal);
-#ifdef __TT__
-        };
-#endif
+        [_x select 0, _x select 1,"ICON",_x select 3,[1,1],format [(localize "STR_DOM_MISSIONSTRING_517"), _x select 2],0,"mil_triangle"] call FUNC(CreateMarkerLocal);
     };
 } forEach __XJIPGetVar(GVAR(wreck_marker));
 
