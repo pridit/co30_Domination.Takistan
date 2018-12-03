@@ -1,7 +1,7 @@
 // by Xeno
 #define THIS_FILE "x_helilift_wreck.sqf"
 #include "x_setup.sqf"
-private ["_vehicle", "_nearest", "_id", "_pos", "_nobjects", "_dummy", "_alt", "_nx", "_ny", "_px", "_py", "_npos", "_fuelloss"];
+private ["_vehicle", "_nearest", "_id", "_pos", "_nobjects", "_dummy", "_alt", "_nx", "_ny", "_px", "_py", "_npos", "_fuelloss", "_marp"];
 
 if (!X_Client) exitWith {};
 
@@ -36,10 +36,15 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
                 };
             };
             if (!isNull _nearest) then {
-                if (_nearest isKindOf "CAManBase") then {
-                    _nearest = objNull;
-                } else {
-                    if ((damage _nearest < 1) || {!((toUpper (typeof _nearest)) in _possible_types)}) then {_nearest = objNull};
+                _marp = GV(_nearest,GVAR(WreckMaxRepair));
+                if (isNil "_marp") then {_marp = GVAR(WreckMaxRepair)};
+                if (
+                    _nearest isKindOf "CAManBase" ||
+                    {_marp == 0} ||
+                    {(damage _nearest < 1)} ||
+                    {!((toUpper (typeof _nearest)) in _possible_types)}
+                ) then {
+                     _nearest = objNull;
                 };
             };
             sleep 0.1;
