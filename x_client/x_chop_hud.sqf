@@ -98,7 +98,7 @@ while {GVAR(player_in_vec)} do {
                 if (isNil {GV(_vec,GVAR(Vehicle_Attached))}) then {_vec setVariable [QGVAR(Vehicle_Attached), false]};
                 _search_height = 0;
                 _lift_height = 0;
-                _possible_types = GV(_vec,GVAR(lift_types));
+                _possible_types = GV(_vec,GVAR(lift_types)) + GVAR(lift_types_custom);
                 __TRACE_2("","_vec","_possible_types");
                 if (_chopttype == 1) then {
                     _search_height = 70;
