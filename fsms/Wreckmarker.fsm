@@ -160,8 +160,7 @@ class FSM
        "	_thedesmarker = """";" \n
        "	deleteMarker _desmarker;" \n
        "};	" \n
-       "" \n
-       "_vehicle setVariable [""d_WreckMaxRepair"", (_vehicle getVariable ""d_WreckMaxRepair"") - 1, true];";
+       "";
       precondition = "";
       class Links
       {

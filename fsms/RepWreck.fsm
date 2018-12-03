@@ -153,7 +153,7 @@ class FSM
        "_type_name = [_type,0] call d_fnc_GetDisplayName;" \n
        "if (!isNil ""_sidevar"") then {_new_vec setVariable [""D_VEC_SIDE"", _sidevar]};" \n
        "if (isNil ""_maxrep"") then {_maxrep = d_WreckMaxRepair};" \n
-       "_new_vec setVariable [""d_WreckMaxRepair"", _maxrep, true];" \n
+       "_new_vec setVariable [""d_WreckMaxRepair"", (_maxrep - 1), true];" \n
        "" \n
        "d_wreck_cur_ar set [count d_wreck_cur_ar, _new_vec];" \n
        "" \n

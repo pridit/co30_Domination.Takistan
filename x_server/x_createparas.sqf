@@ -189,7 +189,7 @@ for "_i" from 1 to _number_vehicles do {
     
     _vehicle flyInHeight 100;
     _vehicle setVariable [QGVAR(WreckDeleteTime), 3600, true];
-    _vehicle setVariable [QGVAR(WreckMaxRepair), 2, true];
+    _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
     _vehicle setVariable ["D_VEC_SIDE", 1, true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";
     [_vgrp,_vehicle,_attackpoint,_heliendpoint, _delveccrew] spawn _make_jump;
