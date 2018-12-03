@@ -8,21 +8,6 @@ PARAMS_2(_type,_number);
 
 _wp_behave = "AWARE";
 
-if (isNil QUOTE(FUNC(addToClean))) then {
-    FUNC(addToClean) = {
-        private "_vec";
-        PARAMS_1(_vec);
-        __addDead(_vec)
-#ifdef __TT__
-        _vec addMPEventHandler ["MPkilled", {if (isServer) then {[[30, 10, 5, 1],_this select 1, _this select 0] call FUNC(AddKills)}}];
-#endif
-        if (GVAR(with_ai) && {__RankedVer}) then {
-            _vec addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [8,_this select 1]] call FUNC(NetCallEventCTS)}}];
-        };
-        if (GVAR(LockAir) == 0) then {_vec lock true};
-    };
-};
-
 _initial_type = _type;
 
 while {true} do {
@@ -108,7 +93,7 @@ while {true} do {
         _vehicle flyInHeight 200;
 
         _vehicle setVariable [QGVAR(WreckDeleteTime), 3600, true];
-        _vehicle setVariable [QGVAR(WreckMaxRepair), 2, true];
+        _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
         _vehicle setVariable ["D_VEC_SIDE", 1, true];
         _vehicle execFSM "fsms\Wreckmarker.fsm";
         if (!GVAR(banti_airdown)) then {_vehicle spawn FUNC(AirMarkerMove)};
