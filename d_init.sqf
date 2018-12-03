@@ -150,18 +150,7 @@ if (X_Client) then {
 
     __cppfln(FUNC(getsidemissionclient),x_missions\x_getsidemissionclient.sqf);
     __cppfln(FUNC(initvec),x_client\x_initvec.sqf);
-    
-    if (!GVAR(with_ranked)) then {
-        switch (true) do {
-            case (__OAVer): {__cppfln(FUNC(weaponcargo),x_client\x_weaponcargo_oa.sqf)};
-            case (__COVer): {__cppfln(FUNC(weaponcargo),x_client\x_weaponcargo.sqf)};
-        };
-    } else {
-        switch (true) do {
-            case (__OAVer): {__cppfln(FUNC(weaponcargo),x_client\x_weaponcargor_oa.sqf)};
-            case (__COVer): {__cppfln(FUNC(weaponcargo),x_client\x_weaponcargor.sqf)};
-        };
-    };
+    __cppfln(FUNC(weaponcargo),x_client\x_weaponcargo_oa.sqf);
     
     bis_fnc_halo = compile preprocessFileLineNumbers "AAHALO\Scripts\fn_halo.sqf";
 };

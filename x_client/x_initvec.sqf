@@ -65,20 +65,10 @@ _vec setVariable [QGVAR(vcheck), true];
 
 if (_d_vec < 10) exitWith {
     _car = [];
-#ifndef __TT__
     __pvecs;
-#else
-    __pvecss(west);
-#endif
     if (count _car > 0) then {
         __mNsSetVar [_car select 0, _vec];
         if (!alive _vec) exitWith {};
-#ifdef __ACE__
-        if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifdef __TT__
-        if (GVAR(player_side) == west) then {
-#endif
         _mt = _car select 5;
         if (!isNil {GV(_vec,GVAR(MHQ_Deployed))} && {GV(_vec,GVAR(MHQ_Deployed))}) then {
             _mt = format [(localize "STR_DOM_MISSIONSTRING_261"), _mt];
@@ -88,358 +78,87 @@ if (_d_vec < 10) exitWith {
         };
         __vecmarker;
         _vec setVariable [QGVAR(marker_text), _car select 5];
-#ifdef __TT__
-        };
-#endif
         __vecname;
     };
     if (!alive _vec) exitWith {};
-#ifdef __ACE__
-    if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifdef __TT__
-    if (GVAR(player_side) == west) then {
-#endif
     _vec addAction [(localize "STR_DOM_MISSIONSTRING_262") call FUNC(GreyText),"x_client\x_vecdialog.sqf",_d_vec,-1,false];
-#ifdef __TT__
-    };
-#endif
     _vec setVariable [QGVAR(vec_type), "MHQ"];
-#ifdef __TT__
-    _vec addEventHandler ["getin", {_this call FUNC(checkdriver)}];
-    __sidew;
-#endif
     _vec setAmmoCargo 0;
 };
 
 if (_d_vec < 20) exitWith {
     _car = [];
-#ifndef __TT__
     __pvecs;
-#else
-    __pvecss(west);
-#endif
     if (count _car > 0) then {
         __mNsSetVar [_car select 0, _vec];
         if (!alive _vec) exitWith {};
-#ifdef __TT__
-        if (GVAR(player_side) == west) then {
-#endif
         _mt = _car select 5;
         __vecmarker;
-#ifdef __TT__
-        };
-#endif
         __vecname;
     };
     if (!alive _vec) exitWith {};
-#ifdef __ACE__
-    if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifdef __TT__
-    __sidew;
-    __checkenterer;
-#endif
     _vec setAmmoCargo 0;
 };
 
 if (_d_vec < 30) exitWith {
     _car = [];
-#ifndef __TT__
     __pvecs;
-#else
-    __pvecss(west);
-#endif
     if (count _car > 0) then {
         __mNsSetVar [_car select 0, _vec];
         if (!alive _vec) exitWith {};
-#ifdef __ACE__
-        if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifdef __TT__
-        if (GVAR(player_side) == west) then {
-#endif
         _mt = _car select 5;
         __vecmarker;
-#ifdef __TT__
-        };
-#endif
         __vecname;
     };
     if (!alive _vec) exitWith {};
-#ifdef __ACE__
-    if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifdef __TT__
-    __sidew;
-    __checkenterer;
-#endif
     _vec setAmmoCargo 0;
 };
 
 if (_d_vec < 40) exitWith {
     _car = [];
-#ifndef __TT__
     __pvecs;
-#else
-    __pvecss(west);
-#endif
     if (count _car > 0) then {
         __mNsSetVar [_car select 0, _vec];
         if (!alive _vec) exitWith {};
-#ifdef __ACE__
-        if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifdef __TT__
-        if (GVAR(player_side) == west) then {
-#endif
         _mt = _car select 5;
         __vecmarker;
-#ifdef __TT__
-        };
-#endif
         __vecname;
     };
     if (!alive _vec) exitWith {};
-#ifdef __ACE__
-    if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifndef __TT__
     if (GVAR(with_ai) || {GVAR(with_ai_features) == 0} || {GVAR(string_player) in GVAR(is_engineer)}) then {
-#else
-    if (GVAR(player_side) == west && {GVAR(string_player) in GVAR(is_engineer)}) then {
-#endif
         __staticl;
     } else {
         _vec addEventHandler ["getin", {_this call FUNC(checktrucktrans)}];
     };
     _vec setVariable [QGVAR(vec_type), "Engineer"];
-#ifdef __TT__
-    __sidew;
-#endif
     _vec setAmmoCargo 0;
 };
 
 if (_d_vec < 50) exitWith {
     _car = [];
-#ifndef __TT__
     __pvecs;
-#else
-    __pvecss(west);
-#endif
     if (count _car > 0) then {
         __mNsSetVar [_car select 0, _vec];
         if (!alive _vec) exitWith {};
-#ifdef __ACE__
-        if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifdef __TT__
-        if (GVAR(player_side) == west) then {
-#endif
         _mt = _car select 5;
         __vecmarker;
-#ifdef __TT__
-        };
-#endif
         __vecname;
     };
     if (!alive _vec) exitWith {};
-#ifdef __ACE__
-    if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {};
-#endif
-#ifdef __TT__
-    __sidew;
-    __checkenterer;
-#endif
     _vec setAmmoCargo 0;
 };
-
-#ifdef __TT__
-if (_d_vec < 110) exitWith {
-    _car = [];
-    __pvecss(east);
-    _eeit = false;
-    if (count _car > 0) then {
-        __mNsSetVar [_car select 0, _vec];
-        if (!alive _vec) exitWith {};
-        if (__ACEVer) then {
-            if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) then {_eeit = true};
-        };
-        if (_eeit) exitWith {};
-        if (GVAR(player_side) == east) then {
-            _mt = _car select 5;
-            if (!isNil {GV(_vec,GVAR(MHQ_Deployed))} && {GV(_vec,GVAR(MHQ_Deployed))}) then {
-                _mt = format [(localize "STR_DOM_MISSIONSTRING_261"), _mt];
-            };
-            if (str(markerPos (_car select 2)) != "[0,0,0]") then {
-                (_car select 2) setMarkerTextLocal _mt;
-            };
-            __vecmarker;
-            _vec setVariable [QGVAR(marker_text), _car select 5];
-        };
-        __vecname;
-    };
-    if (!alive _vec || {_eeit}) exitWith {};
-    if (GVAR(player_side) == east) then {
-        _vec addAction [(localize "STR_DOM_MISSIONSTRING_262") call FUNC(GreyText),"x_client\x_vecdialog.sqf",_d_vec,-1,false];
-    };
-    _vec setVariable [QGVAR(vec_type), "MHQ"];
-    __sidee;
-    _vec addEventHandler ["getin", {_this call FUNC(checkdriver)}];
-    _vec setAmmoCargo 0;
-};
-
-if (_d_vec < 120) exitWith {
-    _car = [];
-    __pvecss(east);
-    _eeit = false;
-    if (count _car > 0) then {
-        __mNsSetVar [_car select 0, _vec];
-        if (!alive _vec) exitWith {};
-        if (__ACEVer) then {
-            if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) then {_eeit = true};
-        };
-        if (_eeit) exitWith {};
-        if (GVAR(player_side) == east) then {
-            _mt = _car select 5;
-            __vecmarker;
-        };
-        __vecname;
-    };
-    if (!alive _vec || {_eeit}) exitWith {};
-    __sidee;
-    __checkenterer;
-    _vec setAmmoCargo 0;
-};
-
-if (_d_vec < 130) exitWith {
-    _car = [];
-    __pvecss(east);
-    _eeit = false;
-    if (count _car > 0) then {
-        __mNsSetVar [_car select 0, _vec];
-        if (!alive _vec) exitWith {};
-        if (__ACEVer) then {
-            if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) then {_eeit = true};
-        };
-        if (_eeit) exitWith {};
-        if (GVAR(player_side) == east) then {
-            _mt = _car select 5;
-            __vecmarker;
-        };
-        __vecname;
-    };
-    if (!alive _vec || {_eeit}) exitWith {};
-    __sidee;
-    __checkenterer;
-    _vec setAmmoCargo 0;
-};
-
-if (_d_vec < 140) exitWith {
-    _car = [];
-    __pvecss(east);
-    _eeit = false;
-    if (count _car > 0) then {
-        __mNsSetVar [_car select 0, _vec];
-        if (!alive _vec) exitWith {};
-        if (__ACEVer) then {
-            if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) then {_eeit = true};
-        };
-        if (_eeit) exitWith {};
-        if (GVAR(player_side) == east) then {
-            _mt = _car select 5;
-            __vecmarker;
-        };
-        __vecname;
-    };
-    if (!alive _vec || {_eeit}) exitWith {};
-    if (GVAR(player_side) == east && {GVAR(string_player) in GVAR(is_engineer)}) then {
-        __staticl;
-    };
-    _vec setVariable [QGVAR(vec_type), "Engineer"];
-    __sidee;
-    _vec addEventHandler ["getin", {_this call FUNC(checktrucktrans)}];
-    _vec setAmmoCargo 0;
-};
-
-if (_d_vec < 150) exitWith {
-    _car = [];
-    __pvecss(east);
-    _eeit = false;
-    if (count _car > 0) then {
-        __mNsSetVar [_car select 0, _vec];
-        if (!alive _vec) exitWith {};
-        if (__ACEVer) then {
-            if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) then {_eeit = true};
-        };
-        if (_eeit) exitWith {};
-        if (GVAR(player_side) == east) then {
-            _mt = _car select 5;
-            __vecmarker;
-        };
-        __vecname;
-    };
-    if (!alive _vec || {_eeit}) exitWith {};
-    __sidee;
-    __checkenterer;
-    _vec setAmmoCargo 0;
-};
-#endif
 
 if (_d_vec < 400) exitWith {
     _car = [];
-#ifndef __TT__
     {if ((_x select 3) == _d_vec) exitWith {_car = _x}} forEach GVAR(choppers);
-#else
-    {if ((_x select 3) == _d_vec) exitWith {_car = _x}} forEach GVAR(choppers_west);
-#endif
     if (count _car > 0) then {
         if (!alive _vec) exitWith {};
         __mNsSetVar [_car select 0, _vec];
         __chopname;
-#ifdef __TT__
-        if (GVAR(player_side) == west) then {
-#endif
         __chopmarker;
-#ifdef __TT__
-        };
-#endif
     };
     if (!alive _vec) exitWith {};
-#ifdef __TT__
-    if (GVAR(player_side) == west) then {
-#endif
     __addchopm;
-#ifdef __TT__
-    };
-    __sidew;
-#endif
     __chopset;
-#ifdef __TT__
-    if (GVAR(player_side) == west) then {
-#endif
     if !(__ACEVer) then {__halo};
-#ifdef __TT__
-    };
-#endif
 };
-
-#ifdef __TT__
-if (_d_vec < 500) exitWith {
-    _car = [];
-    {if ((_x select 3) == _d_vec) exitWith {_car = _x}} forEach GVAR(choppers_east);
-    if (count _car > 0) then {
-        if (!alive _vec) exitWith {};
-        __mNsSetVar [_car select 0, _vec];
-        __chopname;
-        if (GVAR(player_side) == east) then {__chopmarker};
-    };
-    if (!alive _vec) exitWith {};
-    if (GVAR(player_side) == east) then {__addchopm};
-    __chopset;
-    if (GVAR(player_side) == east) then {
-        if !(__ACEVer) then {__halo};
-    };
-    __sidee;
-};
-#endif
