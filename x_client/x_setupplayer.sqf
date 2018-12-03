@@ -1511,7 +1511,7 @@ FUNC(CreateDomUserMenu) = {
     
     GVAR(DomUserMenu) set [count GVAR(DomUserMenu), ["-", [0], "", -1, [["expression", ""]], "1", "1"]];
     
-    if (GVAR(player_can_call_drop) > 0 && {!((vehicle player) isKindOf "BIS_Steerable_Parachute")} && {!((vehicle player) isKindOf "ParachuteBase")}) then {
+    if (!((vehicle player) isKindOf "BIS_Steerable_Parachute") && {!((vehicle player) isKindOf "ParachuteBase")}) then {
         GVAR(DomUserMenu) set [count GVAR(DomUserMenu),
             [localize "STR_DOM_MISSIONSTRING_230", [call _fnc_inc_num], "", -5, [["expression", "2 call d_fnc_DomCommandingMenuExec"]], "1", "1"]
         ];
