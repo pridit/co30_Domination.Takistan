@@ -218,6 +218,5 @@ if (!isNil QGVAR(player_stats)) then {
     format [localize "STR_DOM_MISSIONSTRING_1440", GVAR(player_stats) select 2, (GVAR(player_stats) select 1) call FUNC(ConvertTime), GVAR(player_stats) select 0] call FUNC(GlobalChat);
 };
 sleep 7;
-123123 cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch"], "PLAIN"];
 xr_phd_invulnerable = false;
 __pSetVar ["ace_w_allow_dam", nil];
