@@ -719,14 +719,8 @@ if (GVAR(WithBackpack)) then {
     [_pos, [0, 0, 0, false], ["NONE", "PRESENT", true], ["primaryWeapon player != d_prim_weap_player && primaryWeapon player != ' ' && !dialog","call {d_prim_weap_player = primaryWeapon player;_id = player getVariable 'd_pbp_id';if (_id != -9999 && count (player getVariable 'd_player_backpack') == 0) then {player removeAction _id;player setVariable ['d_pbp_id', -9999]};if ((player getVariable 'd_pbp_id' == -9999) && count (player getVariable 'd_player_backpack') == 0 && d_prim_weap_player != '' && d_prim_weap_player != ' ') then {player setVariable ['d_pbp_id', player addAction [format [localize 'STR_DOM_MISSIONSTRING_155', [d_prim_weap_player,1] call d_fnc_GetDisplayName] call d_fnc_GreyText, 'x_client\x_backpack.sqf',[],-1,false]]}}",""]] call FUNC(CreateTrigger);
 };
 
-#ifndef __TT__
 GVAR(base_trigger) = createTrigger["EmptyDetector" ,GVAR(base_array) select 0];
 GVAR(base_trigger) setTriggerArea [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true];
-#else
-_dbase_a = if (GVAR(player_side) == west) then {GVAR(base_array) select 0} else {GVAR(base_array) select 1};
-GVAR(base_trigger) = createTrigger["EmptyDetector" ,_dbase_a select 0];
-GVAR(base_trigger) setTriggerArea [_dbase_a select 1, _dbase_a select 2, _dbase_a select 3, true];
-#endif
 GVAR(base_trigger) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
 GVAR(base_trigger) setTriggerStatements["this", "", ""];
 
@@ -736,14 +730,8 @@ if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai
     GVAR(eng_can_repfuel) = true;
 
     if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
-#ifndef __TT__
         GVAR(engineer_trigger) = createTrigger["EmptyDetector" ,GVAR(base_array) select 0];
         GVAR(engineer_trigger) setTriggerArea [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true];
-#else
-        _dbase_a = if (playerSide == west) then {GVAR(base_array) select 0} else {GVAR(base_array) select 1};
-        GVAR(engineer_trigger) = createTrigger["EmptyDetector" ,_dbase_a select 0];
-        GVAR(engineer_trigger) setTriggerArea [_dbase_a select 1, _dbase_a select 2, _dbase_a select 3, true];
-#endif
         GVAR(engineer_trigger) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
         GVAR(engineer_trigger) setTriggerStatements["!d_eng_can_repfuel && {player in thislist}", "d_eng_can_repfuel = true;(localize 'STR_DOM_MISSIONSTRING_340') call d_fnc_GlobalChat", ""];
     };
@@ -773,7 +761,7 @@ if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai
 
 GVAR(there_are_enemies_atbase) = false;
 GVAR(enemies_near_base) = false;
-#ifndef __TT__
+
 // Enemy at base
 if (isNil QGVAR(with_carrier)) then {
     "enemy_base" setMarkerPosLocal (GVAR(base_array) select 0);
@@ -781,7 +769,6 @@ if (isNil QGVAR(with_carrier)) then {
     [GVAR(base_array) select 0, [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "[0] call d_fnc_BaseEnemies;'enemy_base' setMarkerSizeLocal [d_base_array select 1,d_base_array select 2];d_there_are_enemies_atbase = true", "[1] call d_fnc_BaseEnemies;'enemy_base' setMarkerSizeLocal [0,0];d_there_are_enemies_atbase = false"]] call FUNC(CreateTrigger);
     [GVAR(base_array) select 0, [(GVAR(base_array) select 1) + 300, (GVAR(base_array) select 2) + 300, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "hint (localize 'STR_DOM_MISSIONSTRING_1409');d_enemies_near_base = true", "d_enemies_near_base = false"]] call FUNC(CreateTrigger);
 };
-#endif
 
 GVAR(player_can_build_mgnest) = false;
 if (GVAR(with_mgnest) && {GVAR(string_player) in GVAR(can_use_mgnests)}) then {
@@ -834,7 +821,6 @@ if (!isNil QGVAR(action_menus_vehicle) && {count GVAR(action_menus_vehicle) > 0}
     execVM "x_client\x_vecmenus.sqf";
 };
 
-#ifndef __TT__
 if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
     if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
         if (__XJIPGetVar(GVAR(jet_serviceH)) && {!__XJIPGetVar(GVAR(jet_s_reb))}) then {
@@ -878,90 +864,25 @@ _fac setDir _dir
         };
     };
 };
-#endif
 
 if (GVAR(WithJumpFlags) == 0) then {GVAR(ParaAtBase) = 1};
 
 _tactionar = [(localize "STR_DOM_MISSIONSTRING_533") call FUNC(GreyText),"x_client\x_teleport.sqf"];
-#ifndef __TT__
 if (GVAR(WithMHQTeleport) == 0) then {
     GVAR(FLAG_BASE) addAction _tactionar;
 };
 if (GVAR(with_ai) || {(GVAR(ParaAtBase) == 0)}) then {
     GVAR(FLAG_BASE) addaction [(localize "STR_DOM_MISSIONSTRING_296") call FUNC(GreyText),"AAHALO\x_paraj.sqf"];
 };
-#else
-if (GVAR(WithMHQTeleport) == 0) then {
-    (if (GVAR(own_side) == "WEST") then {GVAR(WFLAG_BASE)} else {GVAR(EFLAG_BASE)}) addAction _tactionar;
-};
-#endif
 
 if (GVAR(ParaAtBase) == 1) then {
     _s = QGVAR(Teleporter);
     _sn = (localize "STR_DOM_MISSIONSTRING_534");
-#ifndef __TT__
     _s setMarkerTextLocal _sn;
-#else
-    if (GVAR(own_side) == "WEST") then {
-        _s setMarkerTextLocal _sn;
-    } else {
-        QGVAR(teleporter_1) setMarkerTextLocal _sn;
-    };
-#endif
 };
-
-#ifdef __ACE__
-if !(__TTVer) then {
-    {
-        _element = _x;
-        _box = (_element select 0) createVehicleLocal (_element select 1);
-        _box setDir (_element select 2);
-        _box setPos (_element select 1);
-        player reveal _box;
-        [_box, _element select 1, _element select 2, _element select 0] spawn {
-            scriptName "spawn_ACE_boxes";
-            private ["_box","_boxname","_pos","_dir"];
-            PARAMS_4(_box,_pos,_dir,_boxname);
-            while {true} do {
-                sleep 1500 + random 500;
-                if (!isNull _box) then {deleteVehicle _box};
-                _box = _boxname createVehicleLocal _pos;
-                _box setDir _dir;
-                _box setPos _pos;
-                player reveal _box;
-            };
-        };
-    } forEach GVAR(ace_boxes);
-} else {
-    _element = GVAR(ace_boxes) select (switch (GVAR(player_side)) do {case east: {1};case west: {0};});
-    _box = (_element select 0) createVehicleLocal (_element select 1);
-    _box setDir (_element select 2);
-    _box setPos (_element select 1);
-    player reveal _box;
-    [_box, _element select 1, _element select 2, _element select 0] spawn {
-        scriptName "spawn_ACE_boxes2";
-        private ["_box","_boxname","_pos","_dir"];
-        PARAMS_4(_box,_pos,_dir,_boxname);
-        while {true} do {
-            sleep 1500 + random 500;
-            if (!isNull _box) then {deleteVehicle _box};
-            _box = _boxname createVehicleLocal _pos;
-            _box setDir _dir;
-            _box setPos _pos;
-            player reveal _box;
-        };
-    };
-};
-GVAR(ace_boxes) = nil;
-GVAR(pos_ace_boxes) = nil;
-#endif
 
 if (GVAR(with_ranked)) then {
-#ifndef __ACE__
     player addEventHandler ["handleHeal", {_this call FUNC(HandleHeal)}];
-#else
-    if (GVAR(string_player) in GVAR(is_medic)) then {execVM "x_client\x_mediccheck.sqf"};
-#endif
 };
 
 if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
@@ -982,20 +903,7 @@ if (isMultiplayer) then {
     };
 };
 
-#ifdef __TT__
-if (GVAR(player_side) == east) then {
-    QGVAR(arti_target) setMarkerAlphaLocal 0;
-    QGVAR(arti_target2) setMarkerTextLocal (localize "STR_DOM_MISSIONSTRING_536");
-} else {
-    QGVAR(arti_target2) setMarkerAlphaLocal 0;
-    QGVAR(arti_target) setMarkerTextLocal (localize "STR_DOM_MISSIONSTRING_536");
-};
-#endif
-
-#ifndef __TOH__
-// brrr, sqs
 [] exec "\ca\modules\Clouds\data\scripts\BIS_CloudSystem.sqs";
-#endif
 
 if (GVAR(LimitedWeapons)) then {
     GVAR(poss_weapons) = [];
