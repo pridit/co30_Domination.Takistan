@@ -5,7 +5,6 @@
 if (!isNil "KEGs_SPECTATINGON") exitWith {};
 if (!(serverCommandAvailable "#shutdown") && {isMultiplayer}) exitWith {
     [QGVAR(p_f_b_k), [player, GVAR(name_pl), 3]] call FUNC(NetCallEventCTS);
-    GVAR(commandingMenuIniting) = false;
 };
 KEGs_SPECTATINGON = true;
 
@@ -173,7 +172,6 @@ if (typeName _seagull != "string") then {
 GVAR(do_ma_update_n) = true;
 
 createDialog "rscSpectate";
-GVAR(commandingMenuIniting) = false;
 _disp = (findDisplay 55001);
 _disp displaySetEventHandler ["KeyDown", "[""KeyDown"", _this] call spectate_events"];
 _disp displaySetEventHandler ["KeyUp", "[""KeyUp"", _this] call spectate_events"];

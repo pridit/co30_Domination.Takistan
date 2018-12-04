@@ -10,8 +10,6 @@ disableSerialization;
 
 createDialog "XD_StatusDialog";
 
-GVAR(commandingMenuIniting) = false;
-
 _XD_display = __uiGetVar(X_STATUS_DIALOG);
 
 _mmexit = false;

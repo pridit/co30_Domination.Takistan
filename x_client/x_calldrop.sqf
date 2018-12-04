@@ -1,31 +1,22 @@
 // by Xeno
 #define THIS_FILE "x_calldrop.sqf"
 #include "x_setup.sqf"
-if (!X_Client) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (!X_Client) exitWith {};
 private ["_array","_control","_display","_oldpos","_exitIt"];
 
-if (!alive player) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
-if (vehicle player == player && {position player select 2 > 10}) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (!alive player) exitWith {};
+if (vehicle player == player && {position player select 2 > 10}) exitWith {};
 
 if (!__XJIPGetVar(para_available)) exitWith {
     (localize "STR_DOM_MISSIONSTRING_163") call FUNC(HQChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if (GVAR(with_ranked) && {score player < (GVAR(ranked_a) select 16)}) exitWith {
     (format [(localize "STR_DOM_MISSIONSTRING_164"), score player, GVAR(ranked_a) select 16]) call FUNC(HQChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if ((GVAR(with_ai) || {GVAR(with_ai_features) == 0}) && {__XJIPGetVar(GVAR(drop_blocked))}) exitWith {
     (localize "STR_DOM_MISSIONSTRING_165") call FUNC(HQChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if (GVAR(with_ai)|| {GVAR(with_ai_features) == 0}) then {
@@ -38,7 +29,6 @@ GVAR(x_drop_type) = "";
 _oldpos = getPosASL GVAR(X_DropZone);
 disableSerialization;
 createDialog "XD_AirDropDialog";
-GVAR(commandingMenuIniting) = false;
 #define CTRL(A) (_display displayCtrl A)
 _display = __uiGetVar(D_DROP_DIALOG);
 _array = GVAR(x_drop_array) select 0;

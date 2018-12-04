@@ -3,13 +3,6 @@
 #include "x_setup.sqf"
 private ["_ok","_oldpos","_exitj"];
 
-if (!alive player) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
-if (vehicle player == player && {position player select 2 > 10}) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
-
 disableSerialization;
 
 if (count _this > 2) then {
@@ -34,23 +27,16 @@ _arti_markername = switch (_ari_num) do {
 }; 
 
 if !(X_JIPH getVariable _ariavailstr) exitWith {
-#ifndef _TT__
     _str = _firstsecondstr + (localize "STR_DOM_MISSIONSTRING_145");
-#else
-    _str = (localize "STR_DOM_MISSIONSTRING_146");
-#endif
     _str call FUNC(HQChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if (GVAR(with_ranked) && {score player < (GVAR(ranked_a) select 2)}) exitWith {
     (format [(localize "STR_DOM_MISSIONSTRING_147"), score player, GVAR(ranked_a) select 2]) call FUNC(HQChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if ((GVAR(with_ai) || {GVAR(with_ai_features) == 0}) && {__XJIPGetVar(GVAR(ari_blocked))}) exitWith {
     (localize "STR_DOM_MISSIONSTRING_148") call FUNC(HQChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if (GVAR(with_ai) || GVAR(with_ai_features) == 0) then {
@@ -68,7 +54,6 @@ GVAR(ARTI_HELPER) = switch (_ari_num) do {
 GVAR(ARTI_MARKER_HELPER) = _arti_markername;
 _oldpos = getPosASL _ari_target;
 createDialog "XD_ArtilleryDialog";
-GVAR(commandingMenuIniting) = false;
 
 waitUntil {GVAR(ari_type) != "" || {!GVAR(arti_dialog_open)} || {!alive player} || {__pGetVar(xr_pluncon)}};
 

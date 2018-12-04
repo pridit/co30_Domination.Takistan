@@ -3,23 +3,18 @@
 #include "x_setup.sqf"
 private ["_nos", "_notruck", "_vt", "_helper1", "_helper2", "_helper3", "_helper4", "_mt", "_helper", "_farptype", "_farp", "_exitit"];
 
-if (__pGetVar(GVAR(isinaction))) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (__pGetVar(GVAR(isinaction))) exitWith {};
 
 if (player distance GVAR(name_flag_base) < 30) exitWith {
     (localize "STR_DOM_MISSIONSTRING_246") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if ((player call FUNC(GetHeight)) > 5) exitWith {
     (localize "STR_DOM_MISSIONSTRING_241") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if (count __pGetVar(GVAR(farp_pos)) > 0) exitWith {
     (localize "STR_DOM_MISSIONSTRING_242") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 _nos = (position player) nearEntities ["Truck", 20];
@@ -34,7 +29,6 @@ if (count _nos > 0) then {
 
 if (_notruck) exitWith {
     (localize "STR_DOM_MISSIONSTRING_243") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 _d_farp_pos = player modeltoworld [0,8,0];
@@ -42,12 +36,10 @@ _d_farp_pos set [2,0];
 
 if (surfaceIsWater [_d_farp_pos select 0, _d_farp_pos select 1]) exitWith {
     (localize "STR_DOM_MISSIONSTRING_244") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if (GVAR(with_ranked) && {score player < (GVAR(ranked_a) select 20)}) exitWith {
     (format [(localize "STR_DOM_MISSIONSTRING_245"), score player, GVAR(ranked_a) select 20]) call FUNC(HQChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 _helper1 = GVAR(HeliHEmpty) createVehicleLocal [_d_farp_pos select 0, (_d_farp_pos select 1) + 4, 0];
@@ -63,9 +55,7 @@ if ((abs (((getPosASL _helper1) select 2) - ((getPosASL _helper2) select 2)) > 2
 
 for "_mt" from 1 to 4 do {call compile format ["deleteVehicle _helper%1;", _mt]};
 
-if (_exit_it) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (_exit_it) exitWith {};
 
 __pSetVar [QGVAR(isinaction), true];
 
@@ -74,7 +64,6 @@ if (GVAR(with_ranked)) then {[QGVAR(pas), [player, (GVAR(ranked_a) select 20) * 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 3;
 waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic"};
-GVAR(commandingMenuIniting) = false;
 if (!alive player) exitWith {
     (localize "STR_DOM_MISSIONSTRING_247") call FUNC(GlobalChat);
     __pSetVar [QGVAR(isinaction), false];

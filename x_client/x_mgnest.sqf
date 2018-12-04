@@ -3,24 +3,19 @@
 #include "x_setup.sqf"
 private ["_dir_to_set","_m_name","_marker","_d_mgnest_pos","_exit_it"];
 
-if (__pGetVar(GVAR(isinaction))) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (__pGetVar(GVAR(isinaction))) exitWith {};
 
 if (player distance GVAR(name_flag_base) < 30) exitWith {
     (localize "STR_DOM_MISSIONSTRING_292") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if ((player call FUNC(GetHeight)) > 5) exitWith {
     (localize "STR_DOM_MISSIONSTRING_241") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 _d_mgnest_pos = __pGetVar(GVAR(mgnest_pos));
 if (count _d_mgnest_pos > 0) exitWith {
     (localize "STR_DOM_MISSIONSTRING_289") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 _d_mgnest_pos = player modeltoworld [0,2,0];
@@ -28,7 +23,6 @@ _d_mgnest_pos set [2,0];
 
 if (surfaceIsWater [_d_mgnest_pos select 0, _d_mgnest_pos select 1]) exitWith {
     (localize "STR_DOM_MISSIONSTRING_290") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 _exit_it = false;
@@ -39,9 +33,7 @@ if (GVAR(with_ranked)) then {
     };
 };
 
-if (_exit_it) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (_exit_it) exitWith {};
 
 _helper1 = GVAR(HeliHEmpty) createVehicleLocal [_d_mgnest_pos select 0, (_d_mgnest_pos select 1) + 4, 0];
 _helper2 = GVAR(HeliHEmpty) createVehicleLocal [_d_mgnest_pos select 0, (_d_mgnest_pos select 1) - 4, 0];
@@ -56,9 +48,7 @@ if ((abs (((getPosASL _helper1) select 2) - ((getPosASL _helper2) select 2)) > 2
 
 for "_mt" from 1 to 4 do {call compile format ["deleteVehicle _helper%1;", _mt]};
 
-if (_exit_it) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (_exit_it) exitWith {};
 
 __pSetVar [QGVAR(isinaction), true];
 
@@ -67,7 +57,6 @@ if (GVAR(with_ranked)) then {[QGVAR(pas), [player, (GVAR(ranked_a) select 14) * 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 3;
 waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic"};
-GVAR(commandingMenuIniting) = false;
 if (!alive player) exitWith {
     (localize "STR_DOM_MISSIONSTRING_293") call FUNC(GlobalChat);
     __pSetVar [QGVAR(isinaction), false];

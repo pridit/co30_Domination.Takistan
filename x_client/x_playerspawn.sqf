@@ -112,7 +112,6 @@ if (_rtype == 0) then { // player died
     };
 } else { // _rtype = 1, player has respawned
     __pSetVar [QGVAR(alivetimestart), time];
-    GVAR(commandingMenuIniting) = false;
     player removeAllEventHandlers "handleDamage";
     if (GVAR(WithRevive) == 1) then {
         player addEventHandler ["handleDamage", {_this call FUNC(playerHD)}];

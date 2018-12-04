@@ -1710,9 +1710,6 @@ FUNCXR(ClientHD) = {
                 };
             };
             [_isInVec] spawn FUNCXR(isInVec);
-            if (commandingMenu != "") then {
-                showCommandingMenu "";
-            };
         };
     };
     _ret

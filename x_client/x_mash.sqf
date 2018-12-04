@@ -3,18 +3,14 @@
 #include "x_setup.sqf"
 private ["_dir_to_set","_m_name","_marker","_d_medtent", "_exit_it"];
 
-if (__pGetVar(GVAR(isinaction))) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (__pGetVar(GVAR(isinaction))) exitWith {};
 
 if (player distance GVAR(name_flag_base) < 30) exitWith {
     (localize "STR_DOM_MISSIONSTRING_283") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 if ((player call FUNC(GetHeight)) > 5) exitWith {
     (localize "STR_DOM_MISSIONSTRING_241") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 _d_medtent = __pGetVar(GVAR(medtent));
@@ -25,7 +21,6 @@ _d_medtent set [2,0];
 
 if (surfaceIsWater [_d_medtent select 0, _d_medtent select 1]) exitWith {
     (localize "STR_DOM_MISSIONSTRING_282") call FUNC(GlobalChat);
-    GVAR(commandingMenuIniting) = false;
 };
 
 _helper1 = GVAR(HeliHEmpty) createVehicleLocal [_d_medtent select 0, (_d_medtent select 1) + 4, 0];
@@ -41,16 +36,13 @@ if ((abs (((getPosASL _helper1) select 2) - ((getPosASL _helper2) select 2)) > 2
 
 for "_mt" from 1 to 4 do {call compile format ["deleteVehicle _helper%1;", _mt]};
 
-if (_exit_it) exitWith {
-    GVAR(commandingMenuIniting) = false;
-};
+if (_exit_it) exitWith {};
 
 __pSetVar [QGVAR(isinaction), true];
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 3;
 waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic"};
-GVAR(commandingMenuIniting) = false;
 if (!alive player) exitWith {
     (localize "STR_DOM_MISSIONSTRING_284") call FUNC(GlobalChat);
     __pSetVar [QGVAR(isinaction), false];
