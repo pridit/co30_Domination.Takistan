@@ -88,10 +88,8 @@ while {true} do {
                 _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddPlaneKillPoints)}}];
             };
         };
-        
-        [_vehicle] call FUNC(addToClean);
+    
         _vehicle flyInHeight 200;
-
         _vehicle setVariable [QGVAR(WreckDeleteTime), 3600, true];
         _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
         _vehicle setVariable ["D_VEC_SIDE", 1, true];
