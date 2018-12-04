@@ -71,7 +71,6 @@ if (GVAR(x_drop_type) != "") then {
     if (GVAR(with_ranked)) then {[QGVAR(pas), [player, (GVAR(ranked_a) select 16) * -1]] call FUNC(NetCallEventCTS)};
     [QGVAR(x_dr_t), [GVAR(x_drop_type), markerPos QGVAR(drop_zone), player]] call FUNC(NetCallEventCTS);
 } else {
-    (localize "STR_DOM_MISSIONSTRING_168") call FUNC(HQChat);
     GVAR(x_dropzone) setPosASL _oldpos;
     QGVAR(drop_zone) setMarkerPos _oldpos;
 };
