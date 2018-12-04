@@ -158,7 +158,9 @@ if (_d_vec < 400) exitWith {
         __chopmarker;
     };
     if (!alive _vec) exitWith {};
-    __addchopm;
-    __chopset;
+    if (_vec isKindOf "Air") then {
+        __addchopm;
+        __chopset;
+    };
     if !(__ACEVer) then {__halo};
 };
