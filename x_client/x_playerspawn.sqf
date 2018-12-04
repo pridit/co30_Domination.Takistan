@@ -3,6 +3,8 @@
 #define THIS_FILE "x_playerspawn.sqf"
 #include "x_setup.sqf"
 #define __prma _p removeAction _id
+#define __adddrop __pSetVar [#d_dropaction, _p addAction [(localize "STR_DOM_MISSIONSTRING_230") call FUNC(GreyText), "x_client\x_calldrop.sqf",[],-1,false]]
+#define __addstatus [#d_statusaction, _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-1,false]]
 #define __addbp __pSetVar [#d_pbp_id, _p addAction [_s call FUNC(GreyText), "x_client\x_backpack.sqf",[],-1,false]]
 
 private ["_rtype", "_p", "_oabackpackmags", "_oabackpackweaps", "_ubp", "_ubackp", "_hasruck", "_ruckmags", "_ruckweapons", "_backwep", "_ident", "_id", "_types", "_type", "_ar", "_hh", "_primw", "_muzzles", "_bp", "_mags", "_mcount", "_i", "_weaps", "_s", "_action"];
@@ -185,6 +187,10 @@ if (_rtype == 0) then { // player died
             if (__pGetVar(GVAR(pbp_id)) == -9999) then {__addbp};
         };
     };
+    
+    __adddrop;
+    __addstatus;
+    
     if (!isNil QGVAR(action_menus_type) && {count GVAR(action_menus_type) > 0}) then {
         {
             _types = _x select 0;

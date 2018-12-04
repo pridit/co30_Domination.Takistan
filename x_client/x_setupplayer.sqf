@@ -599,6 +599,8 @@ diag_log ["Internal D Version:",__DOM_NVER_STR2__];
 
 __pSetVar [QGVAR(trench), objNull];
 __pSetVar [QGVAR(trenchid), -9999];
+__pSetVar [QGVAR(dropaction), _p addAction [(localize "STR_DOM_MISSIONSTRING_230") call FUNC(GreyText), "x_client\x_calldrop.sqf",[],-1,false]];
+__pSetVar [QGVAR(showstatus), _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-1,false]];
 if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
     if (GVAR(with_ai)) then {
         execVM "x_client\x_recruitsetup.sqf";
