@@ -84,7 +84,7 @@ GVARXR(cpr_time_add) = 300;
 // selfheals, how often a player can heal himself (0 = disabled)
 GVARXR(selfheals) = 1;
 // if selfheals is enabled then if damage player >= 0.3 and <= 0.7 the action shows up
-GVARXR(selfheals_minmaxdam) = [0.3, 0.7];
+GVARXR(selfheals_minmaxdam) = [0.2, 0.8];
 
 // uncon units cry (like babies :D)
 GVARXR(withSounds) = true;
