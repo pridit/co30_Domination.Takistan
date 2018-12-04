@@ -143,26 +143,7 @@ class FSM
        "			};" \n
        "			d_admin_idd = -9999;" \n
        "		};" \n
-       "		if (_vec call d_fnc_isVecLocked) then {" \n
-       "			d_admin_idd = _vec addAction [(localize ""STR_DOM_MISSIONSTRING_1418"") call d_fnc_BlueText,""x_client\x_lockc.sqf"",1,-1,false];" \n
-       "			d_adm_currentvec_lockstate = true;" \n
-       "		} else {" \n
-       "			d_admin_idd = _vec addAction [(localize ""STR_DOM_MISSIONSTRING_1419"") call d_fnc_BlueText,""x_client\x_lockc.sqf"",0,-1,false];" \n
-       "			d_adm_currentvec_lockstate = false;" \n
-       "		};" \n
        "		d_adm_currentvec = _vec;" \n
-       "	} else {" \n
-       "		if (d_adm_currentvec_lockstate && {!(_vec call d_fnc_isVecLocked)}) then {" \n
-       "			d_adm_currentvec removeAction d_admin_idd;" \n
-       "			d_admin_idd = _vec addAction [(localize ""STR_DOM_MISSIONSTRING_1419"") call d_fnc_BlueText,""x_client\x_lockc.sqf"",0,-1,false];" \n
-       "			d_adm_currentvec_lockstate = false;" \n
-       "		} else {" \n
-       "			if (!d_adm_currentvec_lockstate && {(_vec call d_fnc_isVecLocked)}) then {" \n
-       "				d_adm_currentvec removeAction d_admin_idd;" \n
-       "				d_admin_idd = _vec addAction [(localize ""STR_DOM_MISSIONSTRING_1418"") call d_fnc_BlueText,""x_client\x_lockc.sqf"",1,-1,false];" \n
-       "				d_adm_currentvec_lockstate = true;" \n
-       "			};" \n
-       "		};" \n
        "	};" \n
        "} else {" \n
        "	if (d_admin_idd != -9999) then {" \n
