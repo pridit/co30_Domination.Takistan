@@ -450,10 +450,10 @@ QGVAR(island_marker) setMarkerAlphaLocal 0;
 
 if (!isDedicated) then {
     #ifndef __TT__
-    [QGVAR(wreck_service), getPosASL GVAR(wreck_rep),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_1"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(aircraft_service), getPosASL GVAR(jet_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_2"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(chopper_service), getPosASL GVAR(chopper_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_3"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(vehicle_service), getPosASL GVAR(vecre_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_4"),0,"n_service"] call FUNC(CreateMarkerLocal);
+    // [QGVAR(wreck_service), getPosASL GVAR(wreck_rep),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_1"),0,"n_service"] call FUNC(CreateMarkerLocal);
+    // [QGVAR(aircraft_service), getPosASL GVAR(jet_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_2"),0,"n_service"] call FUNC(CreateMarkerLocal);
+    // [QGVAR(chopper_service), getPosASL GVAR(chopper_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_3"),0,"n_service"] call FUNC(CreateMarkerLocal);
+    // [QGVAR(vehicle_service), getPosASL GVAR(vecre_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_4"),0,"n_service"] call FUNC(CreateMarkerLocal);
     if (isNil QGVAR(with_carrier)) then {
         ["Ammobox Reload", getPosASL GVAR(AMMOLOAD),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_5"),0,"Depot"] call FUNC(CreateMarkerLocal);
     };

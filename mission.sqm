@@ -1,2916 +1,4700 @@
 version=11;
 class Mission
 {
-    addOns[]=
-    {
-        "CA_Modules_ARTY",
-        "camisc3",
-        "takistan",
-        "cacharacters_e",
-        "CAAir_E_UH60M",
-        "caair_e_ch_47f",
-        "CAWheeled_E_stryker",
-        "CAWheeled_E",
-        "camisc_e_wf",
-        "camisc_e",
-        "CAAir_E_AH6J",
-        "CAAir_E_UH1H_EP1",
-        "ca_modules_functions",
-        "CAAir_BAF",
-        "CAWheeled_E_ATV",
-        "cacharacters2",
-        "CAAir2_MV22",
-        "caair_e"
-    };
-    addOnsAuto[]=
-    {
-        "cacharacters_e",
-        "CA_Modules_ARTY",
-        "ca_modules_functions",
-        "caair_e_ch_47f",
-        "CAAir_E_UH1H_EP1",
-        "CAAir_E_UH60M",
-        "CAWheeled_E_stryker",
-        "camisc_e",
-        "CAWheeled_E",
-        "camisc3",
-        "CAAir_E_AH6J",
-        "CAAir_BAF",
-        "CAWheeled_E_ATV",
-        "camisc_e_wf",
-        "CAAir2_MV22",
-        "caair_e",
-        "takistan"
-    };
-    randomSeed=6464821;
-    class Intel
-    {
-        briefingName="co40 Domination OA! West [2.80]";
-        briefingDescription="Originally by Xeno";
-        startWeather=0;
-        forecastWeather=0;
-        year=2007;
-        month=6;
-        day=6;
-        hour=0;
-        minute=0;
-    };
-    class Groups
-    {
-        items=30;
-        class Item0
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={8246.4863,296.04001,2159.0791};
-                    azimut=-822.49847;
-                    special="NONE";
-                    id=10;
-                    side="WEST";
-                    vehicle="US_Delta_Force_Air_Controller_EP1";
-                    player="PLAYER COMMANDER";
-                    leader=1;
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="RESCUE";
-                    init="this setGroupid [""Artillery 1""];";
-                    description="First Artillery Operator and Rescue";
-                };
-            };
-        };
-        class Item1
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={8247.6006,296.04001,2156.8311};
-                    azimut=-121.62238;
-                    special="NONE";
-                    id=11;
-                    side="WEST";
-                    vehicle="US_Delta_Force_Air_Controller_EP1";
-                    player="PLAY CDG";
-                    leader=1;
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="RESCUE2";
-                    init="this setGroupid [""Artillery 2""];";
-                    description="Second Artillery Operator and Rescue";
-                };
-            };
-        };
-        class Item2
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=8;
-                class Item0
-                {
-                    position[]={8255.6494,296.04001,2127.5129};
-                    azimut=-111.47668;
-                    special="NONE";
-                    id=13;
-                    side="WEST";
-                    vehicle="US_Soldier_SL_EP1";
-                    player="PLAY CDG";
-                    leader=1;
-                    skill=0.60000002;
-                    text="alpha_1";
-                    init="this setGroupid [""Alpha""];";
-                    description="Team Alpha Leader";
-                };
-                class Item1
-                {
-                    position[]={8261.416,296.04001,2122.0442};
-                    azimut=-111.47668;
-                    special="NONE";
-                    id=14;
-                    side="WEST";
-                    vehicle="US_Soldier_Marksman_EP1";
-                    player="PLAY CDG";
-                    skill=0.46666661;
-                    text="alpha_2";
-                    init="this setGroupid [""Alpha""];";
-                    description="Team Alpha Sniper";
-                };
-                class Item2
-                {
-                    position[]={8259.541,296.04001,2127.1904};
-                    azimut=-111.47668;
-                    special="NONE";
-                    id=16;
-                    side="WEST";
-                    vehicle="US_Soldier_AT_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="alpha_4";
-                    init="this setGroupid [""Alpha""];";
-                    description="Team Alpha AT Soldier";
-                };
-                class Item3
-                {
-                    position[]={8258.8164,296.04001,2129.053};
-                    azimut=-111.47668;
-                    special="NONE";
-                    id=17;
-                    side="WEST";
-                    vehicle="US_Soldier_GL_EP1";
-                    player="PLAY CDG";
-                    skill=0.2;
-                    text="alpha_5";
-                    init="this setGroupid [""Alpha""];";
-                    description="Team Alpha GL Soldier";
-                };
-                class Item4
-                {
-                    position[]={8257.7139,296.04001,2131.8469};
-                    azimut=-111.47668;
-                    special="NONE";
-                    id=18;
-                    side="WEST";
-                    vehicle="US_Soldier_Medic_EP1";
-                    player="PLAY CDG";
-                    skill=0.46666661;
-                    text="alpha_6";
-                    init="this setGroupid [""Alpha""];";
-                    description="Team Alpha Medic";
-                };
-                class Item5
-                {
-                    position[]={8256.9805,296.04001,2133.7068};
-                    azimut=-111.47668;
-                    special="NONE";
-                    id=19;
-                    side="WEST";
-                    vehicle="US_Soldier_MG_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="alpha_7";
-                    init="this setGroupid [""Alpha""];";
-                    description="Team Alpha MG Gunner";
-                };
-                class Item6
-                {
-                    position[]={8256.248,296.04001,2135.563};
-                    azimut=-111.47668;
-                    special="NONE";
-                    id=20;
-                    side="WEST";
-                    vehicle="US_Soldier_AT_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="alpha_8";
-                    init="this setGroupid [""Alpha""];";
-                    description="Team Alpha AT Soldier";
-                };
-                class Item7
-                {
-                    position[]={8260.2783,296.04001,2125.3311};
-                    azimut=-111.47668;
-                    special="NONE";
-                    id=15;
-                    side="WEST";
-                    vehicle="US_Soldier_MG_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="alpha_3";
-                    init="this setGroupid [""Alpha""];";
-                    description="Team Alpha MG Gunner";
-                };
-            };
-        };
-        class Item3
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=8;
-                class Item0
-                {
-                    position[]={8248.1582,296.04001,2145.5786};
-                    azimut=-111.94968;
-                    special="NONE";
-                    id=21;
-                    side="WEST";
-                    vehicle="US_Delta_Force_TL_EP1";
-                    player="PLAY CDG";
-                    leader=1;
-                    skill=0.60000002;
-                    text="bravo_1";
-                    init="this setGroupid [""Bravo""];";
-                    description="Team Bravo Leader";
-                };
-                class Item1
-                {
-                    position[]={8253.9961,296.04001,2141.0347};
-                    azimut=-111.94968;
-                    special="NONE";
-                    id=22;
-                    side="WEST";
-                    vehicle="US_Delta_Force_EP1";
-                    player="PLAY CDG";
-                    skill=0.46666661;
-                    text="bravo_2";
-                    init="this setGroupid [""Bravo""];";
-                    description="Team Bravo Operator";
-                };
-                class Item2
-                {
-                    position[]={8252.0547,296.04001,2145.2834};
-                    azimut=-111.94968;
-                    special="NONE";
-                    id=24;
-                    side="WEST";
-                    vehicle="US_Delta_Force_MG_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="bravo_4";
-                    init="this setGroupid [""Bravo""];";
-                    description="Team Bravo MG Gunner";
-                };
-                class Item3
-                {
-                    position[]={8251.3096,296.04001,2147.1472};
-                    azimut=-111.94968;
-                    special="NONE";
-                    id=25;
-                    side="WEST";
-                    vehicle="US_Delta_Force_Marksman_EP1";
-                    player="PLAY CDG";
-                    skill=0.2;
-                    text="bravo_5";
-                    init="this setGroupid [""Bravo""];";
-                    description="Team Bravo Sniper";
-                };
-                class Item4
-                {
-                    position[]={8250.1895,296.04001,2149.9233};
-                    azimut=-111.94968;
-                    special="NONE";
-                    id=26;
-                    side="WEST";
-                    vehicle="US_Delta_Force_Medic_EP1";
-                    player="PLAY CDG";
-                    skill=0.46666661;
-                    text="bravo_6";
-                    init="this setGroupid [""Bravo""];";
-                    description="Team Bravo Medic";
-                };
-                class Item5
-                {
-                    position[]={8249.4375,296.04001,2151.7786};
-                    azimut=-111.94968;
-                    special="NONE";
-                    id=27;
-                    side="WEST";
-                    vehicle="US_Delta_Force_Assault_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="bravo_7";
-                    init="this setGroupid [""Bravo""];";
-                    description="Team Bravo Attack Grenadier";
-                };
-                class Item6
-                {
-                    position[]={8248.6904,296.04001,2153.6355};
-                    azimut=-111.94968;
-                    special="NONE";
-                    id=28;
-                    side="WEST";
-                    vehicle="US_Delta_Force_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="bravo_8";
-                    init="this setGroupid [""Bravo""];";
-                    description="Team Bravo Demolitions";
-                };
-                class Item7
-                {
-                    position[]={8252.7969,296.04001,2143.4321};
-                    azimut=-111.94968;
-                    special="NONE";
-                    id=23;
-                    side="WEST";
-                    vehicle="US_Delta_Force_Assault_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="bravo_3";
-                    init="this setGroupid [""Bravo""];";
-                    description="Team Bravo Grenadier";
-                };
-            };
-        };
-        class Item4
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=8;
-                class Item0
-                {
-                    position[]={8265.2031,296.04001,2132.6321};
-                    azimut=-114.11268;
-                    special="NONE";
-                    id=29;
-                    side="WEST";
-                    vehicle="US_Soldier_SL_EP1";
-                    player="PLAY CDG";
-                    leader=1;
-                    skill=0.60000002;
-                    text="charlie_1";
-                    init="this setGroupid [""Charlie""];";
-                    description="Team Charlie Leader";
-                };
-                class Item1
-                {
-                    position[]={8270.9736,296.04001,2127.9856};
-                    azimut=-114.11268;
-                    special="NONE";
-                    id=30;
-                    side="WEST";
-                    vehicle="US_Soldier_Marksman_EP1";
-                    player="PLAY CDG";
-                    skill=0.46666661;
-                    text="charlie_2";
-                    init="this setGroupid [""Charlie""];";
-                    description="Team Charlie Sniper";
-                };
-                class Item2
-                {
-                    position[]={8269.7178,296.04001,2130.8499};
-                    azimut=-114.11268;
-                    special="NONE";
-                    id=32;
-                    side="WEST";
-                    vehicle="US_Soldier_AT_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="charlie_4";
-                    init="this setGroupid [""Charlie""];";
-                    description="Team Charlie AT Soldier";
-                };
-                class Item3
-                {
-                    position[]={8268.5615,296.04001,2133.2959};
-                    azimut=-114.11268;
-                    special="NONE";
-                    id=33;
-                    side="WEST";
-                    vehicle="US_Soldier_EP1";
-                    player="PLAY CDG";
-                    skill=0.2;
-                    text="charlie_5";
-                    init="this setGroupid [""Charlie""];";
-                    description="Team Charlie Soldier";
-                };
-                class Item4
-                {
-                    position[]={8267.6729,296.04001,2135.4167};
-                    azimut=-114.11268;
-                    special="NONE";
-                    id=34;
-                    side="WEST";
-                    vehicle="US_Soldier_Medic_EP1";
-                    player="PLAY CDG";
-                    skill=0.46666661;
-                    text="charlie_6";
-                    init="this setGroupid [""Charlie""];";
-                    description="Team Charlie Medic";
-                };
-                class Item5
-                {
-                    position[]={8266.8564,296.04001,2137.2388};
-                    azimut=-114.11268;
-                    special="NONE";
-                    id=35;
-                    side="WEST";
-                    vehicle="US_Soldier_MG_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="charlie_7";
-                    init="this setGroupid [""Charlie""];";
-                    description="Team Charlie MG Gunner";
-                };
-                class Item6
-                {
-                    position[]={8266.04,296.04001,2139.0601};
-                    azimut=-114.11268;
-                    special="NONE";
-                    id=36;
-                    side="WEST";
-                    vehicle="US_Soldier_AT_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="charlie_8";
-                    init="this setGroupid [""Charlie""];";
-                    description="Team Charlie AT Soldier";
-                };
-                class Item7
-                {
-                    position[]={8265.2158,296.04001,2141.1099};
-                    azimut=-114.11268;
-                    special="NONE";
-                    id=31;
-                    side="WEST";
-                    vehicle="US_Soldier_MG_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="charlie_3";
-                    init="this setGroupid [""Charlie""];";
-                    description="Team Charlie MG Gunner";
-                };
-            };
-        };
-        class Item5
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=6;
-                class Item0
-                {
-                    position[]={8256.667,296.04001,2151.3682};
-                    azimut=-101.87837;
-                    special="NONE";
-                    id=6;
-                    side="WEST";
-                    vehicle="US_Soldier_Engineer_EP1";
-                    player="PLAY CDG";
-                    leader=1;
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="delta_1";
-                    init="this setGroupid [""Delta""];";
-                    description="Team Delta Engineer Leader";
-                };
-                class Item1
-                {
-                    position[]={8261.291,296.04001,2148.9888};
-                    azimut=-101.87837;
-                    special="NONE";
-                    id=7;
-                    side="WEST";
-                    vehicle="US_Soldier_Engineer_EP1";
-                    player="PLAY CDG";
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="delta_2";
-                    init="this setGroupid [""Delta""];";
-                    description="Team Delta Engineer";
-                };
-                class Item2
-                {
-                    position[]={8259.7637,296.04001,2152.6218};
-                    azimut=-101.87837;
-                    special="NONE";
-                    id=8;
-                    side="WEST";
-                    vehicle="US_Soldier_Engineer_EP1";
-                    player="PLAY CDG";
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="delta_3";
-                    init="this setGroupid [""Delta""];";
-                    description="Team Delta Engineer";
-                };
-                class Item3
-                {
-                    position[]={8258.2324,296.04001,2156.0779};
-                    azimut=-101.87837;
-                    special="NONE";
-                    id=9;
-                    side="WEST";
-                    vehicle="US_Soldier_Engineer_EP1";
-                    player="PLAY CDG";
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="delta_4";
-                    init="this setGroupid [""Delta""];";
-                    description="Team Delta Engineer";
-                };
-                class Item4
-                {
-                    position[]={8261.5039,296.04001,2155.8064};
-                    azimut=-101.87837;
-                    special="NONE";
-                    id=116;
-                    side="WEST";
-                    vehicle="US_Soldier_Engineer_EP1";
-                    player="PLAY CDG";
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="delta_6";
-                    init="this setGroupid [""Delta""];";
-                    description="Team Delta Engineer";
-                };
-                class Item5
-                {
-                    position[]={8263.377,296.04001,2152.126};
-                    azimut=-101.87837;
-                    special="NONE";
-                    id=115;
-                    side="WEST";
-                    vehicle="US_Soldier_Engineer_EP1";
-                    player="PLAY CDG";
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="delta_5";
-                    init="this setGroupid [""Delta""];";
-                    description="Team Delta Engineer";
-                };
-            };
-        };
-        class Item6
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={7835.2749,323.36591,2448.0249};
-                    special="NONE";
-                    id=58;
-                    side="LOGIC";
-                    vehicle="Logic";
-                    leader=1;
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    text="Server";
-                    init="this enableSimulation false";
-                };
-            };
-        };
-        class Item7
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={8106.813,326.0303,2465.3989};
-                    id=85;
-                    side="LOGIC";
-                    vehicle="BIS_ARTY_Logic";
-                    leader=1;
-                    lock="UNLOCKED";
-                    skill=0.60000002;
-                    init="this enableSimulation false";
-                };
-            };
-        };
-        class Item8
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={1962.5389,144.04671,11770.04};
-                    id=86;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_0";
-                };
-            };
-        };
-        class Item9
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={3145.8689,60.526951,9886.7188};
-                    id=87;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_1";
-                };
-            };
-        };
-        class Item10
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={6314.1392,59.947498,11210.14};
-                    id=88;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_2";
-                };
-            };
-        };
-        class Item11
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={5728.1411,82.431488,8983.8203};
-                    id=89;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_3";
-                };
-            };
-        };
-        class Item12
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={10114.68,128.0224,11322.03};
-                    id=90;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_4";
-                };
-            };
-        };
-        class Item13
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={12300.93,145.03999,10437.8};
-                    id=91;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_5";
-                };
-            };
-        };
-        class Item14
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={10532.29,260.90579,6403.9238};
-                    id=92;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_6";
-                };
-            };
-        };
-        class Item15
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={9151.2207,205.4196,6742.5298};
-                    id=93;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_7";
-                };
-            };
-        };
-        class Item16
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={5958.0078,126.3279,7313.1802};
-                    id=94;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_8";
-                };
-            };
-        };
-        class Item17
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={5195.3101,144.8828,6153.9302};
-                    id=95;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_9";
-                };
-            };
-        };
-        class Item18
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={3673.469,232.3963,4345.3828};
-                    id=96;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_10";
-                };
-            };
-        };
-        class Item19
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={1544.731,218.59109,3629.969};
-                    id=97;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_11";
-                };
-            };
-        };
-        class Item20
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={600.64917,241.666,2845.7849};
-                    id=98;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_12";
-                };
-            };
-        };
-        class Item21
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={8914.9443,265.74881,5323.2842};
-                    id=99;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_13";
-                };
-            };
-        };
-        class Item22
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={4461.2788,342.9884,682.01093};
-                    id=100;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_14";
-                };
-            };
-        };
-        class Item23
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={10449.01,357.5513,2374.9919};
-                    id=101;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_15";
-                };
-            };
-        };
-        class Item24
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={1995.271,366.6322,354.4057};
-                    id=102;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_16";
-                };
-            };
-        };
-        class Item25
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={2035.774,275.02969,7683.772};
-                    id=103;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_17";
-                };
-            };
-        };
-        class Item26
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={11513.48,271.68869,8322.7451};
-                    id=104;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_18";
-                };
-            };
-        };
-        class Item27
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={1534.807,234.304,5736.2041};
-                    id=105;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_19";
-                };
-            };
-        };
-        class Item28
-        {
-            side="LOGIC";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={2536.5759,194.1306,5068.5029};
-                    id=106;
-                    side="LOGIC";
-                    vehicle="LocationLogicCity";
-                    leader=1;
-                    skill=0.60000002;
-                    text="d_target_20";
-                };
-            };
-        };
-        class Item29
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=8;
-                class Item0
-                {
-                    position[]={8250.8135,296.04373,2164.8313};
-                    azimut=-112.90843;
-                    special="NONE";
-                    id=107;
-                    side="WEST";
-                    vehicle="US_Soldier_SL_EP1";
-                    player="PLAY CDG";
-                    leader=1;
-                    skill=0.60000002;
-                    text="echo_1";
-                    init="this setGroupid [""Echo""];";
-                    description="Team Echo Leader";
-                };
-                class Item1
-                {
-                    position[]={8256.4834,296.04001,2160.0637};
-                    azimut=-112.90843;
-                    special="NONE";
-                    id=108;
-                    side="WEST";
-                    vehicle="US_Soldier_Marksman_EP1";
-                    player="PLAY CDG";
-                    skill=0.46666661;
-                    text="echo_2";
-                    init="this setGroupid [""Echo""];";
-                    description="Team Echo Sniper";
-                };
-                class Item2
-                {
-                    position[]={8255.2842,296.04074,2162.9529};
-                    azimut=-112.90843;
-                    special="NONE";
-                    id=110;
-                    side="WEST";
-                    vehicle="US_Soldier_AT_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="echo_4";
-                    init="this setGroupid [""Echo""];";
-                    description="Team Echo AT Soldier";
-                };
-                class Item3
-                {
-                    position[]={8254.1855,296.04468,2165.4231};
-                    azimut=-112.90843;
-                    special="NONE";
-                    id=111;
-                    side="WEST";
-                    vehicle="US_Soldier_EP1";
-                    player="PLAY CDG";
-                    skill=0.2;
-                    text="echo_5";
-                    init="this setGroupid [""Echo""];";
-                    description="Team Echo Soldier";
-                };
-                class Item4
-                {
-                    position[]={8253.3398,296.0481,2167.562};
-                    azimut=-112.90843;
-                    special="NONE";
-                    id=112;
-                    side="WEST";
-                    vehicle="US_Soldier_Medic_EP1";
-                    player="PLAY CDG";
-                    skill=0.46666661;
-                    text="echo_6";
-                    init="this setGroupid [""Echo""];";
-                    description="Team Echo Medic";
-                };
-                class Item5
-                {
-                    position[]={8252.5635,296.05103,2169.4014};
-                    azimut=-112.90843;
-                    special="NONE";
-                    id=113;
-                    side="WEST";
-                    vehicle="US_Soldier_MG_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="echo_7";
-                    init="this setGroupid [""Echo""];";
-                    description="Team Echo MG Gunner";
-                };
-                class Item6
-                {
-                    position[]={8251.7822,296.05399,2171.2385};
-                    azimut=-112.90843;
-                    special="NONE";
-                    id=114;
-                    side="WEST";
-                    vehicle="US_Soldier_AT_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="echo_8";
-                    init="this setGroupid [""Echo""];";
-                    description="Team Echo AT Soldier";
-                };
-                class Item7
-                {
-                    position[]={8251.0068,296.05728,2173.3074};
-                    azimut=-112.90843;
-                    special="NONE";
-                    id=109;
-                    side="WEST";
-                    vehicle="US_Soldier_MG_EP1";
-                    player="PLAY CDG";
-                    skill=0.33333331;
-                    text="echo_3";
-                    init="this setGroupid [""Echo""];";
-                    description="Team Echo MG Gunner";
-                };
-            };
-        };
-    };
-    class Vehicles
-    {
-        items=75;
-        class Item0
-        {
-            position[]={8330.8545,296.04001,2045.4362};
-            azimut=-28.504801;
-            id=0;
-            side="EMPTY";
-            vehicle="CH_47F_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="ch1";
-        };
-        class Item1
-        {
-            position[]={8302.1074,296.04001,2029.6564};
-            azimut=-28.504801;
-            id=1;
-            side="EMPTY";
-            vehicle="UH1H_TK_GUE_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="ch2";
-        };
-        class Item2
-        {
-            position[]={8290.248,296.04001,1976.9323};
-            azimut=-28.504801;
-            id=2;
-            side="EMPTY";
-            vehicle="UH60M_MEV_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="ch4";
-        };
-        class Item3
-        {
-            position[]={8145.5713,296.04001,2097.8762};
-            azimut=95.502777;
-            id=3;
-            side="EMPTY";
-            vehicle="M1133_MEV_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="xvec1";
-        };
-        class Item4
-        {
-            position[]={8152.9844,296.04001,2102.1301};
-            azimut=95.502777;
-            id=4;
-            side="EMPTY";
-            vehicle="M1133_MEV_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="xvec2";
-        };
-        class Item5
-        {
-            position[]={8275.6055,296.04001,2108.3738};
-            id=5;
-            side="EMPTY";
-            vehicle="FlagCarrierUNO_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="D_FLAG_BASE";
-        };
-        class Item6
-        {
-            position[]={8121.874,296.04001,2033.1115};
-            azimut=150.84669;
-            special="NONE";
-            id=12;
-            side="EMPTY";
-            vehicle="MASH_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="MEDIC_TENT1";
-        };
-        class Item7
-        {
-            position[]={8075.4639,296.04001,2060.686};
-            azimut=95.5028;
-            special="NONE";
-            id=37;
-            side="EMPTY";
-            vehicle="MtvrRepair_DES_EP1";
-            skill=0.33333331;
-            text="xvec3";
-        };
-        class Item8
-        {
-            position[]={8082.6509,296.04001,2064.5996};
-            azimut=95.5028;
-            special="NONE";
-            id=38;
-            side="EMPTY";
-            vehicle="MtvrRepair_DES_EP1";
-            skill=0.33333331;
-            text="xvec7";
-        };
-        class Item9
-        {
-            position[]={8104.104,296.04001,2076.4216};
-            azimut=95.5028;
-            special="NONE";
-            id=39;
-            side="EMPTY";
-            vehicle="MtvrReammo_DES_EP1";
-            skill=0.33333331;
-            text="xvec5";
-        };
-        class Item10
-        {
-            position[]={8124.894,296.04001,2087.7087};
-            azimut=95.5028;
-            special="NONE";
-            id=40;
-            side="EMPTY";
-            vehicle="MtvrSupply_DES_EP1";
-            skill=0.33333331;
-            text="xvec6";
-        };
-        class Item11
-        {
-            position[]={8090.0156,296.04001,2068.5225};
-            azimut=95.5028;
-            special="NONE";
-            id=41;
-            side="EMPTY";
-            vehicle="MtvrRefuel_DES_EP1";
-            skill=0.33333331;
-            text="xvec4";
-        };
-        class Item12
-        {
-            position[]={8097.6865,296.04001,2072.5923};
-            azimut=95.5028;
-            special="NONE";
-            id=42;
-            side="EMPTY";
-            vehicle="MtvrRefuel_DES_EP1";
-            skill=0.33333331;
-            text="xvec8";
-        };
-        class Item13
-        {
-            position[]={8111.6851,296.04001,2080.3101};
-            azimut=95.5028;
-            special="NONE";
-            id=43;
-            side="EMPTY";
-            vehicle="MtvrReammo_DES_EP1";
-            skill=0.33333331;
-            text="xvec9";
-        };
-        class Item14
-        {
-            position[]={8118.5254,296.04001,2084.1641};
-            azimut=95.5028;
-            special="NONE";
-            id=44;
-            side="EMPTY";
-            vehicle="MtvrSupply_DES_EP1";
-            skill=0.33333331;
-            text="xvec10";
-        };
-        class Item15
-        {
-            position[]={8062.0908,296.04001,2052.6492};
-            azimut=95.5028;
-            special="NONE";
-            id=45;
-            side="EMPTY";
-            vehicle="MTVR_DES_EP1";
-            skill=0.33333331;
-            text="xvec11";
-        };
-        class Item16
-        {
-            position[]={8068.4634,296.03955,2056.5884};
-            azimut=95.5028;
-            special="NONE";
-            id=46;
-            side="EMPTY";
-            vehicle="MTVR_DES_EP1";
-            skill=0.33333331;
-            text="xvec12";
-        };
-        class Item17
-        {
-            position[]={8113.6001,301.00952,2022.5081};
-            azimut=61.637417;
-            special="NONE";
-            id=47;
-            side="EMPTY";
-            vehicle="HMMWV_Ambulance_DES_EP1";
-            skill=0.33333331;
-            text="xmedvec";
-        };
-        class Item18
-        {
-            position[]={8313.4414,296.04001,2110.5054};
-            azimut=-486.10483;
-            special="NONE";
-            id=48;
-            side="EMPTY";
-            vehicle="MASH_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="MEDIC_TENT2";
-        };
-        class Item19
-        {
-            position[]={8281.1943,296.04001,2119.9597};
-            azimut=-483.46899;
-            special="NONE";
-            id=49;
-            side="EMPTY";
-            vehicle="Land_HBarrier5";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="WALL1";
-        };
-        class Item20
-        {
-            position[]={7917.1553,296.29001,1783.7784};
-            azimut=-25.143749;
-            special="NONE";
-            id=50;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="d_wreck_rep";
-        };
-        class Item21
-        {
-            position[]={7914.1841,304.23074,2281.2275};
-            special="NONE";
-            id=51;
-            side="EMPTY";
-            vehicle="HeliHEmpty";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="camstart";
-        };
-        class Item22
-        {
-            position[]={8221.1572,296.04001,2109.7805};
-            azimut=-28.3703;
-            special="NONE";
-            id=52;
-            side="EMPTY";
-            vehicle="HeliHRescue";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="D_AMMOLOAD";
-        };
-        class Item23
-        {
-            position[]={8330.6152,296.04001,2046.1075};
-            azimut=-28.504801;
-            special="NONE";
-            id=53;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-        };
-        class Item24
-        {
-            position[]={8301.5518,296.04001,2030.3434};
-            azimut=-28.504801;
-            special="NONE";
-            id=54;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-        };
-        class Item25
-        {
-            position[]={8289.791,296.04001,1977.5883};
-            azimut=-28.504801;
-            special="NONE";
-            id=55;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-        };
-        class Item26
-        {
-            position[]={8075.7944,296.11749,1879.0673};
-            azimut=-28.3703;
-            special="NONE";
-            id=56;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="d_chopper_trigger";
-        };
-        class Item27
-        {
-            position[]={8184.3462,296.04001,2122.3718};
-            azimut=329.84064;
-            special="NONE";
-            id=57;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="d_vecre_trigger";
-        };
-        class Item28
-        {
-            position[]={7740.9893,296.04001,1724.4056};
-            azimut=-29.438829;
-            special="NONE";
-            id=59;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item29
-        {
-            position[]={7739.291,296.04001,1723.4397};
-            azimut=-29.438829;
-            special="NONE";
-            id=60;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item30
-        {
-            position[]={7737.5942,296.04001,1722.5017};
-            azimut=-29.438829;
-            special="NONE";
-            id=61;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item31
-        {
-            position[]={7735.895,296.04001,1721.5347};
-            azimut=-29.438829;
-            special="NONE";
-            id=62;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item32
-        {
-            position[]={7734.3472,296.04001,1720.6597};
-            azimut=-29.438829;
-            special="NONE";
-            id=63;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item33
-        {
-            position[]={7732.6465,296.04001,1719.6947};
-            azimut=-29.438829;
-            special="NONE";
-            id=64;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item34
-        {
-            position[]={7730.9482,296.04001,1718.7567};
-            azimut=-29.438829;
-            special="NONE";
-            id=65;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item35
-        {
-            position[]={7729.2534,296.04001,1717.7906};
-            azimut=-29.438829;
-            special="NONE";
-            id=66;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item36
-        {
-            position[]={7727.5991,296.04001,1716.8397};
-            azimut=-29.438829;
-            special="NONE";
-            id=67;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item37
-        {
-            position[]={7725.8984,296.04001,1715.8727};
-            azimut=-29.438829;
-            special="NONE";
-            id=68;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item38
-        {
-            position[]={7724.2021,296.04001,1714.9347};
-            azimut=-29.438829;
-            special="NONE";
-            id=69;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item39
-        {
-            position[]={7722.5024,296.04001,1713.9686};
-            azimut=-29.438829;
-            special="NONE";
-            id=70;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item40
-        {
-            position[]={7720.8491,296.04001,1713.0177};
-            azimut=-29.438829;
-            special="NONE";
-            id=71;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item41
-        {
-            position[]={7719.1494,296.04001,1712.0526};
-            azimut=-29.438829;
-            special="NONE";
-            id=72;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item42
-        {
-            position[]={7717.4512,296.04001,1711.1146};
-            azimut=-29.438829;
-            special="NONE";
-            id=73;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item43
-        {
-            position[]={7715.7524,296.04001,1710.1477};
-            azimut=-29.438829;
-            special="NONE";
-            id=74;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item44
-        {
-            position[]={7714.1514,296.04001,1709.2477};
-            azimut=-29.438829;
-            special="NONE";
-            id=75;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item45
-        {
-            position[]={7712.4521,296.04001,1708.2816};
-            azimut=-29.438829;
-            special="NONE";
-            id=76;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item46
-        {
-            position[]={7710.7563,296.04001,1707.3427};
-            azimut=-29.438829;
-            special="NONE";
-            id=77;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item47
-        {
-            position[]={7709.0562,296.04001,1706.3777};
-            azimut=-29.438829;
-            special="NONE";
-            id=78;
-            side="EMPTY";
-            vehicle="Land_BagFenceLong";
-            leader=1;
-            skill=0.60000002;
-        };
-        class Item48
-        {
-            position[]={15228.88,422.71991,648.35718};
-            id=79;
-            side="EMPTY";
-            vehicle="HeliHEmpty";
-            skill=0.60000002;
-            text="X_JIPH";
-        };
-        class Item49
-        {
-            position[]={8071.8125,293.88727,2111.4526};
-            id=80;
-            side="EMPTY";
-            vehicle="HeliHEmpty";
-            skill=0.60000002;
-            text="d_AISPAWN";
-        };
-        class Item50
-        {
-            position[]={8349.9688,296.04001,2011.5402};
-            azimut=-28.504801;
-            id=81;
-            side="EMPTY";
-            vehicle="CH_47F_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="ch5";
-        };
-        class Item51
-        {
-            position[]={8177.314,296.04001,2020.4795};
-            azimut=151.92;
-            id=82;
-            side="EMPTY";
-            vehicle="MH6J_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="ch6";
-        };
-        class Item52
-        {
-            position[]={8150.8574,296.04001,2005.5135};
-            azimut=151.92;
-            special="NONE";
-            id=83;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-        };
-        class Item53
-        {
-            position[]={8177.3296,296.04001,2020.3043};
-            azimut=151.92;
-            special="NONE";
-            id=84;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-        };
-        class Item54
-        {
-            position[]={8150.6162,296.04001,2005.6116};
-            azimut=151.92038;
-            id=117;
-            side="EMPTY";
-            vehicle="MH6J_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="ch7";
-        };
-        class Item55
-        {
-            position[]={8320.5488,296.04001,1996.4105};
-            azimut=-28.504801;
-            special="NONE";
-            id=118;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-        };
-        class Item56
-        {
-            position[]={8349.1504,296.04001,2012.2112};
-            azimut=-28.504801;
-            special="NONE";
-            id=119;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-        };
-        class Item57
-        {
-            position[]={8322.0254,296.04001,1993.4172};
-            azimut=-28.504801;
-            id=120;
-            side="EMPTY";
-            vehicle="BAF_Merlin_HC3_D";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="ch8";
-            init="this setPos [getPos this select 0, getPos this select 1,1.5];";
-        };
-        class Item58
-        {
-            position[]={8288.7031,296.04001,2108.5813};
-            azimut=-483.46899;
-            special="NONE";
-            id=121;
-            side="EMPTY";
-            vehicle="Land_HBarrier5";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="WALL1_1";
-        };
-        class Item59
-        {
-            position[]={8262.9102,296.04001,2113.3611};
-            azimut=-211.61121;
-            special="NONE";
-            id=122;
-            side="EMPTY";
-            vehicle="Land_HBarrier5";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="WALL2_1";
-        };
-        class Item60
-        {
-            position[]={8265.8301,296.04001,2100.967};
-            azimut=-121.5187;
-            special="NONE";
-            id=123;
-            side="EMPTY";
-            vehicle="Land_HBarrier5";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="WALL3_1";
-        };
-        class Item61
-        {
-            position[]={8278.2705,296.04001,2123.3093};
-            azimut=-211.61121;
-            special="NONE";
-            id=124;
-            side="EMPTY";
-            vehicle="Land_HBarrier5";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="WALL2_2";
-        };
-        class Item62
-        {
-            position[]={8286.084,296.04001,2112.4446};
-            azimut=-483.46899;
-            special="NONE";
-            id=125;
-            side="EMPTY";
-            vehicle="Land_HBarrier5";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="WALL1_1_1";
-        };
-        class Item63
-        {
-            position[]={8268.6025,296.04001,2096.364};
-            azimut=-121.5187;
-            special="NONE";
-            id=126;
-            side="EMPTY";
-            vehicle="Land_HBarrier5";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="WALL3_1_1";
-        };
-        class Item64
-        {
-            position[]={8264.6504,296.04001,2096.6206};
-            azimut=240.513;
-            id=127;
-            side="EMPTY";
-            vehicle="ATV_US_EP1";
-            leader=1;
-            skill=0.60000002;
-            text="atv3";
-        };
-        class Item65
-        {
-            position[]={8261.9336,296.04001,2101.2935};
-            azimut=-122.395;
-            id=128;
-            side="EMPTY";
-            vehicle="ATV_US_EP1";
-            leader=1;
-            skill=0.60000002;
-            text="atv1";
-        };
-        class Item66
-        {
-            position[]={8263.377,296.04001,2098.9053};
-            azimut=-122.395;
-            id=129;
-            side="EMPTY";
-            vehicle="ATV_US_EP1";
-            leader=1;
-            skill=0.60000002;
-            text="atv2";
-        };
-        class Item67
-        {
-            position[]={8166.7798,296.2879,2115.0308};
-            azimut=-28.10817;
-            special="NONE";
-            id=130;
-            side="EMPTY";
-            vehicle="US_WarfareBLightFactory_base_EP1";
-            skill=0.33333331;
-            text="AMMOBUILDING_1";
-        };
-        class Item68
-        {
-            position[]={8203.2451,296.03479,2139.1335};
-            azimut=513.61084;
-            special="NONE";
-            id=131;
-            side="EMPTY";
-            vehicle="HMMWV_DES_EP1";
-            skill=0.33333331;
-        };
-        class Item69
-        {
-            position[]={8198.4893,296.04001,2136.8616};
-            azimut=513.61084;
-            special="NONE";
-            id=132;
-            side="EMPTY";
-            vehicle="HMMWV_DES_EP1";
-            skill=0.33333331;
-        };
-        class Item70
-        {
-            position[]={8272.2676,296.04001,2010.9838};
-            azimut=-28.504801;
-            id=133;
-            side="EMPTY";
-            vehicle="UH1H_TK_GUE_EP1";
-            lock="UNLOCKED";
-            skill=0.60000002;
-            text="ch3";
-        };
-        class Item71
-        {
-            position[]={8271.8105,296.04001,2011.5277};
-            azimut=-28.504801;
-            special="NONE";
-            id=134;
-            side="EMPTY";
-            vehicle="HeliH";
-            lock="UNLOCKED";
-            skill=0.60000002;
-        };
-        class Item72
-        {
-            position[]={8263.9258,296.03531,1798.4956};
-            azimut=-27.133801;
-            id=135;
-            side="EMPTY";
-            vehicle="MV22";
-            skill=0.60000002;
-            text="ch9";
-        };
-        class Item73
-        {
-            position[]={8273.5742,296.04001,2122.3438};
-            azimut=120.597;
-            id=136;
-            side="EMPTY";
-            vehicle="Sign_Checkpoint";
-            skill=0.60000002;
-            init="this setObjectTexture [0, ""pics\release4.jpg""]; this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
-        };
-        class Item74
-        {
-            position[]={8113.3369,296.04001,1997.1855};
-            azimut=151.92;
-            special="NONE";
-            id=137;
-            side="EMPTY";
-            vehicle="C130J_US_EP1";
-            skill=0.33333331;
-            text="c130";
-        };
-    };
-    class Markers
-    {
-        items=130;
-        class Item0
-        {
-            position[]={12779.68,158.9151,13160.88};
-            name="respawn_west";
-            type="Empty";
-        };
-        class Item1
-        {
-            position[]={12779.7,158.9165,13160.85};
-            name="respawn_east";
-            type="Empty";
-        };
-        class Item2
-        {
-            position[]={12779.68,158.91611,13160.84};
-            name="respawn_guerrila";
-            type="Empty";
-        };
-        class Item3
-        {
-            position[]={8272.1738,296.04001,2108.6531};
-            name="base_spawn_1";
-            type="Empty";
-        };
-        class Item4
-        {
-            position[]={15299.32,760.44208,3318.634};
-            name="legend1";
-            text="Mobile Respawn";
-            type="HQ";
-            colorName="ColorYellow";
-        };
-        class Item5
-        {
-            position[]={15291.9,689.11768,2853.3291};
-            name="legend2";
-            text="Chopper";
-            type="n_air";
-            colorName="ColorWhite";
-        };
-        class Item6
-        {
-            position[]={8311.6934,296.04001,1919.7904};
-            name="enemy_base";
-            markerType="RECTANGLE";
-            type="Empty";
-            colorName="ColorRed";
-            fillName="FDiagonal";
-            a=0;
-            b=0;
-            angle=-119.2025;
-        };
-        class Item7
-        {
-            position[]={8172.9844,296.04001,1937.7537};
-            name="Start";
-            text="Start";
-            type="hd_start";
-            colorName="ColorYellow";
-        };
-        class Item8
-        {
-            position[]={6746.3838,273.4809,6435.2178};
-            name="xr_center";
-            type="Empty";
-        };
-        class Item9
-        {
-            position[]={15289.02,591.23657,2383.519};
-            name="legendr3";
-            text="Truck";
-            type="n_support";
-            colorName="ColorGreen";
-        };
-        class Item10
-        {
-            position[]={15283.84,524.08661,1890.823};
-            name="fmarkerlegend";
-            text="Teleporter / Parajump";
-            type="mil_flag";
-            colorName="ColorYellow";
-        };
-        class Item11
-        {
-            position[]={8030.5835,296.04001,1865.1179};
-            name="d_base_marker";
-            markerType="RECTANGLE";
-            type="Empty";
-            a=430;
-            b=200;
-            angle=-30.463919;
-        };
-        class Item12
-        {
-            position[]={8112.0552,296.04001,1726.4094};
-            name="d_base_radar_pos";
-            type="Empty";
-        };
-        class Item13
-        {
-            position[]={7854.0762,296.04001,1606.6644};
-            name="d_base_anti_air2";
-            type="Empty";
-        };
-        class Item14
-        {
-            position[]={8361.0176,296.04001,1874.6584};
-            name="d_base_anti_air1";
-            type="Empty";
-        };
-        class Item15
-        {
-            position[]={6462.3628,303.0759,6381.6909};
-            name="d_island_marker";
-            markerType="RECTANGLE";
-            type="Empty";
-            a=6200;
-            b=6200;
-        };
-        class Item16
-        {
-            position[]={7736.0601,296.04001,1698.3796};
-            name="d_base_jet_fac";
-            type="Empty";
-            angle=-29.6738;
-        };
-        class Item17
-        {
-            position[]={7943.6602,296.04001,1798.7804};
-            name="d_base_wreck_fac";
-            type="Empty";
-            angle=-121.01;
-        };
-        class Item18
-        {
-            position[]={8102.2324,296.04001,1892.5072};
-            name="d_base_chopper_fac";
-            type="Empty";
-            angle=-121.01;
-        };
-        class Item19
-        {
-            position[]={8270.9873,296.04001,2105.2361};
-            name="d_player_ammobox_pos";
-            type="Empty";
-            angle=151.92087;
-        };
-        class Item20
-        {
-            position[]={6482.771,317.80161,6325.1348};
-            name="d_isledefense_marker";
-            text="4";
-            markerType="RECTANGLE";
-            type="Empty";
-            a=6000;
-            b=6000;
-        };
-        class Item21
-        {
-            position[]={8206.5674,296.04001,2036.2288};
-            name="d_bonus_air_positions_1";
-            type="Empty";
-            angle=150.0743;
-        };
-        class Item22
-        {
-            position[]={8221.5742,296.0372,1779.5};
-            name="d_bonus_air_positions_2";
-            type="Empty";
-            angle=-27.133801;
-        };
-        class Item23
-        {
-            position[]={7414.4111,284.72,1698.291};
-            name="d_bonus_create_pos";
-            type="Empty";
-            angle=150.07401;
-        };
-        class Item24
-        {
-            position[]={7747.2974,297.86548,1833.5187};
-            name="d_bonus_vec_positions_1";
-            type="Empty";
-            angle=62.37434;
-        };
-        class Item25
-        {
-            position[]={7775.79,297.51547,1828.7998};
-            name="d_bonus_vec_positions_2";
-            type="Empty";
-            angle=62.374298;
-        };
-        class Item26
-        {
-            position[]={7759.9395,297.20731,1818.1195};
-            name="d_bonus_vec_positions_3";
-            type="Empty";
-            angle=62.374298;
-        };
-        class Item27
-        {
-            position[]={7793.6172,296.80624,1822.7162};
-            name="d_bonus_vec_positions_4";
-            type="Empty";
-            angle=62.374298;
-        };
-        class Item28
-        {
-            position[]={7810.875,296.7139,1829.9292};
-            name="d_bonus_vec_positions_5";
-            type="Empty";
-            angle=62.374298;
-        };
-        class Item29
-        {
-            position[]={7820.8726,296.33667,1827.408};
-            name="d_bonus_vec_positions_6";
-            type="Empty";
-            angle=62.374298;
-        };
-        class Item30
-        {
-            position[]={7766.5166,298.59384,1847.624};
-            name="d_bonus_vec_positions_7";
-            type="Empty";
-            angle=62.374298;
-        };
-        class Item31
-        {
-            position[]={8093.1846,294.13864,2121.1196};
-            name="d_pos_aihut";
-            type="Empty";
-            angle=108.73965;
-        };
-        class Item32
-        {
-            position[]={8036.3701,472.2883,6174.79};
-            name="d_sm_0";
-            type="Empty";
-        };
-        class Item33
-        {
-            position[]={4099.9302,531.36749,11785.6};
-            name="d_sm_1";
-            type="Empty";
-            angle=85;
-        };
-        class Item34
-        {
-            position[]={4111.7798,536.73578,12188.6};
-            name="d_sm_1_1";
-            type="Empty";
-        };
-        class Item35
-        {
-            position[]={4005.4099,253.7366,6913.9902};
-            name="d_sm_10";
-            type="Empty";
-        };
-        class Item36
-        {
-            position[]={4023.5601,180.5838,6910.6401};
-            name="d_sm_10_1";
-            type="Empty";
-        };
-        class Item37
-        {
-            position[]={12262.3,159.1675,4803.0498};
-            name="d_sm_11";
-            type="Empty";
-        };
-        class Item38
-        {
-            position[]={4630.23,425.24979,12310};
-            name="d_sm_12";
-            type="Empty";
-            angle=180;
-        };
-        class Item39
-        {
-            position[]={4673.1299,580.57922,12293.8};
-            name="d_sm_12_1";
-            type="Empty";
-        };
-        class Item40
-        {
-            position[]={803.36102,386.67929,10478.5};
-            name="d_sm_13";
-            type="Empty";
-            angle=190;
-        };
-        class Item41
-        {
-            position[]={847.56299,582.93628,10473.5};
-            name="d_sm_13_1";
-            type="Empty";
-        };
-        class Item42
-        {
-            position[]={2264.76,536.33478,8591.3096};
-            name="d_sm_14";
-            type="Empty";
-        };
-        class Item43
-        {
-            position[]={2241.8101,549.06458,8565.5303};
-            name="d_sm_14_1";
-            type="Empty";
-        };
-        class Item44
-        {
-            position[]={4003.52,446.9967,6911.9502};
-            name="d_sm_15";
-            type="Empty";
-        };
-        class Item45
-        {
-            position[]={10477.6,513.86517,7517.2402};
-            name="d_sm_16";
-            type="Empty";
-        };
-        class Item46
-        {
-            position[]={10467.4,506.93329,7485.8701};
-            name="d_sm_16_1";
-            type="Empty";
-        };
-        class Item47
-        {
-            position[]={5054.5498,370.1348,6886.71};
-            name="d_sm_17";
-            type="Empty";
-        };
-        class Item48
-        {
-            position[]={5051.02,491.44958,6900.9302};
-            name="d_sm_17_1";
-            type="Empty";
-        };
-        class Item49
-        {
-            position[]={3758.49,478.0668,10887.2};
-            name="d_sm_18";
-            type="Empty";
-        };
-        class Item50
-        {
-            position[]={3746.24,534.49249,10864.5};
-            name="d_sm_18_1";
-            type="Empty";
-        };
-        class Item51
-        {
-            position[]={2156.6399,541.37738,431.39401};
-            name="d_sm_19";
-            type="Empty";
-            angle=34;
-        };
-        class Item52
-        {
-            position[]={2044.99,481.24359,7698.4399};
-            name="d_sm_19_1";
-            type="Empty";
-        };
-        class Item53
-        {
-            position[]={5802.5698,83.120728,11293.5};
-            name="d_sm_2";
-            type="Empty";
-            angle=314.75269;
-        };
-        class Item54
-        {
-            position[]={5760.4199,552.86713,11326.9};
-            name="d_sm_2_1";
-            type="Empty";
-        };
-        class Item55
-        {
-            position[]={2093.99,420.16681,11685.4};
-            name="d_sm_20";
-            type="Empty";
-            angle=140;
-        };
-        class Item56
-        {
-            position[]={10833.5,464.28781,6304.3198};
-            name="d_sm_20_1";
-            type="Empty";
-        };
-        class Item57
-        {
-            position[]={9793.8604,293.74149,11158.9};
-            name="d_sm_21";
-            type="Empty";
-            angle=182;
-        };
-        class Item58
-        {
-            position[]={573.26202,525.45813,2835.7};
-            name="d_sm_21_1";
-            type="Empty";
-        };
-        class Item59
-        {
-            position[]={2224.6899,444.60281,7741.98};
-            name="d_sm_22";
-            type="Empty";
-            angle=82;
-        };
-        class Item60
-        {
-            position[]={12283.1,603.86652,10428.3};
-            name="d_sm_22_1";
-            type="Empty";
-        };
-        class Item61
-        {
-            position[]={688.84698,454.98489,7477.5801};
-            name="d_sm_23";
-            type="Empty";
-        };
-        class Item62
-        {
-            position[]={3790.3,567.86462,8941.1904};
-            name="d_sm_24";
-            type="Empty";
-            angle=300;
-        };
-        class Item63
-        {
-            position[]={2016.3199,486.01721,10699.2};
-            name="d_sm_25";
-            type="Empty";
-        };
-        class Item64
-        {
-            position[]={1028.05,343.2305,7141.3799};
-            name="d_sm_26";
-            type="Empty";
-        };
-        class Item65
-        {
-            position[]={1622.09,461.2973,2341.54};
-            name="d_sm_27";
-            type="Empty";
-        };
-        class Item66
-        {
-            position[]={8663.1602,493.26199,9925.8799};
-            name="d_sm_28";
-            type="Empty";
-        };
-        class Item67
-        {
-            position[]={8679.6797,599.28601,9967.21};
-            name="d_sm_28_1";
-            type="Empty";
-        };
-        class Item68
-        {
-            position[]={11637.4,638.95679,9225.6797};
-            name="d_sm_29";
-            type="Empty";
-        };
-        class Item69
-        {
-            position[]={11637.4,481.5708,9225.6797};
-            name="d_sm_29_1";
-            type="Empty";
-            angle=80;
-        };
-        class Item70
-        {
-            position[]={11636.1,423.6593,9256.3301};
-            name="d_sm_29_2";
-            type="Empty";
-            angle=80;
-        };
-        class Item71
-        {
-            position[]={11680.2,348.0593,9243.5898};
-            name="d_sm_29_3";
-            type="Empty";
-            angle=163;
-        };
-        class Item72
-        {
-            position[]={11682.1,289.89679,9197.3301};
-            name="d_sm_29_4";
-            type="Empty";
-            angle=169;
-        };
-        class Item73
-        {
-            position[]={11659.4,337.09451,9183.29};
-            name="d_sm_29_5";
-            type="Empty";
-            angle=178;
-        };
-        class Item74
-        {
-            position[]={11686,423.80621,9156.4902};
-            name="d_sm_29_6";
-            type="Empty";
-            angle=175;
-        };
-        class Item75
-        {
-            position[]={9430.1201,375.29581,4718.1899};
-            name="d_sm_3";
-            type="Empty";
-            angle=172;
-        };
-        class Item76
-        {
-            position[]={9445.4902,590.66632,4702.1099};
-            name="d_sm_3_1";
-            type="Empty";
-        };
-        class Item77
-        {
-            position[]={9432.8096,441.1069,4673.5};
-            name="d_sm_3_2";
-            type="Empty";
-        };
-        class Item78
-        {
-            position[]={1179.4399,507.75809,7422.9199};
-            name="d_sm_30";
-            type="Empty";
-        };
-        class Item79
-        {
-            position[]={10527,543.38428,10989.8};
-            name="d_sm_31";
-            type="Empty";
-        };
-        class Item80
-        {
-            position[]={10527,543.38428,10989.8};
-            name="d_sm_31_1";
-            type="Empty";
-            angle=295;
-        };
-        class Item81
-        {
-            position[]={10502.5,427.09601,11002.5};
-            name="d_sm_31_2";
-            type="Empty";
-            angle=311;
-        };
-        class Item82
-        {
-            position[]={10488,333.30042,10963.6};
-            name="d_sm_31_3";
-            type="Empty";
-            angle=227;
-        };
-        class Item83
-        {
-            position[]={10480.9,285.95969,10999.9};
-            name="d_sm_31_4";
-            type="Empty";
-            angle=216;
-        };
-        class Item84
-        {
-            position[]={10573.1,378.20099,10965.7};
-            name="d_sm_31_5";
-            type="Empty";
-            angle=144;
-        };
-        class Item85
-        {
-            position[]={10562.3,338.13919,10921.5};
-            name="d_sm_31_6";
-            type="Empty";
-            angle=220;
-        };
-        class Item86
-        {
-            position[]={8248.5498,448.0466,7783.1299};
-            name="d_sm_32";
-            type="Empty";
-        };
-        class Item87
-        {
-            position[]={8283.4004,544.35309,7785.0498};
-            name="d_sm_32_1";
-            type="Empty";
-        };
-        class Item88
-        {
-            position[]={8294.1602,610.89148,7750.21};
-            name="d_sm_32_2";
-            type="Empty";
-        };
-        class Item89
-        {
-            position[]={8262.4502,500.32999,7730.3999};
-            name="d_sm_32_3";
-            type="Empty";
-        };
-        class Item90
-        {
-            position[]={8231.7803,423.3252,7741.3701};
-            name="d_sm_32_4";
-            type="Empty";
-        };
-        class Item91
-        {
-            position[]={8197.7695,372.42401,7784.8999};
-            name="d_sm_32_5";
-            type="Empty";
-        };
-        class Item92
-        {
-            position[]={6091.8301,407.48059,1160.42};
-            name="d_sm_33";
-            type="Empty";
-        };
-        class Item93
-        {
-            position[]={6110.48,597.67987,1142.65};
-            name="d_sm_33_1";
-            type="Empty";
-        };
-        class Item94
-        {
-            position[]={6056.48,460.76959,1176.8};
-            name="d_sm_33_2";
-            type="Empty";
-        };
-        class Item95
-        {
-            position[]={6008.4702,369.83221,1170.24};
-            name="d_sm_33_3";
-            type="Empty";
-        };
-        class Item96
-        {
-            position[]={6023.4102,339.4567,1209.14};
-            name="d_sm_33_4";
-            type="Empty";
-        };
-        class Item97
-        {
-            position[]={6101.7598,297.14761,1206.12};
-            name="d_sm_33_5";
-            type="Empty";
-        };
-        class Item98
-        {
-            position[]={6166.8599,353.92319,5623.8501};
-            name="d_sm_36";
-            type="Empty";
-        };
-        class Item99
-        {
-            position[]={6188.98,493.48499,5644.1299};
-            name="d_sm_36_1";
-            type="Empty";
-        };
-        class Item100
-        {
-            position[]={6164.2598,595.79828,5688.6699};
-            name="d_sm_36_2";
-            type="Empty";
-        };
-        class Item101
-        {
-            position[]={6107.5498,636.76251,5660.7402};
-            name="d_sm_36_3";
-            type="Empty";
-        };
-        class Item102
-        {
-            position[]={6123.3701,580.44812,5614.48};
-            name="d_sm_36_4";
-            type="Empty";
-        };
-        class Item103
-        {
-            position[]={6117.23,408.67239,5555.6602};
-            name="d_sm_36_5";
-            type="Empty";
-        };
-        class Item104
-        {
-            position[]={9418.0801,499.7063,10004};
-            name="d_sm_4";
-            type="Empty";
-            angle=210;
-        };
-        class Item105
-        {
-            position[]={9395.7598,571.24902,10003.9};
-            name="d_sm_4_1";
-            type="Empty";
-        };
-        class Item106
-        {
-            position[]={9406.75,529.01801,10035};
-            name="d_sm_4_2";
-            type="Empty";
-        };
-        class Item107
-        {
-            position[]={8817.3496,131.4991,7138.3901};
-            name="d_sm_40";
-            type="Empty";
-        };
-        class Item108
-        {
-            position[]={6849.8701,632.33313,12312.2};
-            name="d_sm_41";
-            type="Empty";
-        };
-        class Item109
-        {
-            position[]={2135.8799,576.32178,10716.5};
-            name="d_sm_42";
-            type="Empty";
-        };
-        class Item110
-        {
-            position[]={8407.9404,111.2063,12438.6};
-            name="d_sm_44";
-            type="Empty";
-            angle=60;
-        };
-        class Item111
-        {
-            position[]={8467.4805,96.190941,12467.7};
-            name="d_sm_44_1";
-            type="Empty";
-        };
-        class Item112
-        {
-            position[]={4546.1401,252.3428,9396.79};
-            name="d_sm_46";
-            type="Empty";
-        };
-        class Item113
-        {
-            position[]={3289.8401,74.346863,11254.8};
-            name="d_sm_47";
-            type="Empty";
-        };
-        class Item114
-        {
-            position[]={2811.6899,208.3784,5931.73};
-            name="d_sm_49";
-            type="Empty";
-        };
-        class Item115
-        {
-            position[]={5037.5601,366.8212,6886.4902};
-            name="d_sm_5";
-            type="Empty";
-            angle=120;
-        };
-        class Item116
-        {
-            position[]={5532.2798,401.19641,11980.4};
-            name="d_sm_50";
-            type="Empty";
-        };
-        class Item117
-        {
-            position[]={1233.62,145.3436,2201.47};
-            name="d_sm_51";
-            type="Empty";
-        };
-        class Item118
-        {
-            position[]={10362.6,408.59229,8646.7305};
-            name="d_sm_52";
-            type="Empty";
-        };
-        class Item119
-        {
-            position[]={6582.6899,479.63309,6785.7402};
-            name="d_sm_6";
-            type="Empty";
-        };
-        class Item120
-        {
-            position[]={6578.1299,646.96118,6827.25};
-            name="d_sm_6_1";
-            type="Empty";
-        };
-        class Item121
-        {
-            position[]={6574.29,511.47989,6856.23};
-            name="d_sm_6_2";
-            type="Empty";
-        };
-        class Item122
-        {
-            position[]={1513.83,207.75211,8747.3604};
-            name="d_sm_7";
-            type="Empty";
-            angle=65;
-        };
-        class Item123
-        {
-            position[]={300.60901,343.1777,386.54099};
-            name="d_sm_8";
-            type="Empty";
-        };
-        class Item124
-        {
-            position[]={5843.75,509.64459,11336.1};
-            name="d_sm_9";
-            type="Empty";
-            angle=320;
-        };
-        class Item125
-        {
-            position[]={5755.54,658.67181,11334.7};
-            name="d_sm_9_1";
-            type="Empty";
-        };
-        class Item126
-        {
-            position[]={5793.1401,569.67023,11357.5};
-            name="d_sm_9_2";
-            type="Empty";
-        };
-        class Item127
-        {
-            position[]={5800.1401,471.67291,11296.1};
-            name="d_sm_9_3";
-            type="Empty";
-        };
-        class Item128
-        {
-            position[]={14036.12,166.6824,13515.29};
-            name="xr_playerparkmarker";
-            type="Empty";
-        };
-        class Item129
-        {
-            position[]={8180.4268,296.04001,1752.3551};
-            name="d_bonus_air_positions_3";
-            type="Empty";
-            angle=-27.133801;
-        };
-    };
-    class Sensors
-    {
-        items=3;
-        class Item0
-        {
-            position[]={8075.8267,296.10568,1878.9163};
-            a=5;
-            b=5;
-            angle=-88.504807;
-            activationBy="ANY";
-            repeating=1;
-            interruptable=1;
-            age="UNKNOWN";
-            expCond="!(X_JIPH getVariable ""d_chopper_serviceH"") && (""Helicopter"" countType thislist  > 0) && count (thislist unitsBelowHeight 1) > 0";
-            expActiv="0 = [thislist] spawn x_reload;";
-            class Effects
-            {
-            };
-        };
-        class Item1
-        {
-            position[]={8184.3726,296.04001,2122.3821};
-            a=5;
-            b=5;
-            angle=129.76685;
-            activationBy="ANY";
-            repeating=1;
-            interruptable=1;
-            age="UNKNOWN";
-            expCond="(""LandVehicle"" countType thislist  > 0) && count (thislist unitsBelowHeight 1) > 0";
-            expActiv="0 = [thislist] spawn x_reload;";
-            class Effects
-            {
-            };
-        };
-        class Item2
-        {
-            position[]={7719.519,296.04001,1724.4996};
-            a=15;
-            b=19;
-            angle=-119.874;
-            rectangular=1;
-            activationBy="ANY";
-            repeating=1;
-            interruptable=1;
-            age="UNKNOWN";
-            name="d_jet_trigger";
-            expCond="!(X_JIPH getVariable ""d_jet_serviceH"") && (""Plane"" countType thislist  > 0) && count (thislist unitsBelowHeight 1) > 0 && (speed (thislist select 0) < 10)";
-            expActiv="0 = [thislist] spawn x_reload;";
-            class Effects
-            {
-            };
-        };
-    };
+	addOns[]=
+	{
+		"CA_Modules_ARTY",
+		"camisc3",
+		"takistan",
+		"cacharacters_e",
+		"CAAir_E_UH60M",
+		"caair_e_ch_47f",
+		"CAWheeled_E_stryker",
+		"CAWheeled_E",
+		"camisc_e_wf",
+		"camisc_e",
+		"CAAir_E_AH6J",
+		"CAAir_E_UH1H_EP1",
+		"ca_modules_functions",
+		"CAAir_BAF",
+		"CAWheeled_E_ATV",
+		"cacharacters2",
+		"CAAir2_MV22",
+		"caair_e",
+		"caweapons",
+		"caweapons_warfare_weapons",
+		"ca_baf",
+		"warfarebuildings",
+		"cawheeled_d_baf",
+		"camp_armory_misc_loudspeakers"
+	};
+	addOnsAuto[]=
+	{
+		"cacharacters_e",
+		"CA_Modules_ARTY",
+		"ca_modules_functions",
+		"caweapons",
+		"caweapons_warfare_weapons",
+		"caair_e_ch_47f",
+		"CAAir_E_UH1H_EP1",
+		"CAAir_E_UH60M",
+		"CAWheeled_E_stryker",
+		"camisc_e",
+		"CAWheeled_E",
+		"camisc3",
+		"CAAir_E_AH6J",
+		"CAAir_BAF",
+		"CAWheeled_E_ATV",
+		"camisc_e_wf",
+		"CAAir2_MV22",
+		"caair_e",
+		"ca_baf",
+		"warfarebuildings",
+		"cawheeled_d_baf",
+		"camp_armory_misc_loudspeakers",
+		"takistan"
+	};
+	randomSeed=6464821;
+	class Intel
+	{
+		briefingName="co40 Domination OA! West [2.80]";
+		briefingDescription="Originally by Xeno";
+		startWeather=0;
+		forecastWeather=0;
+		year=2007;
+		month=6;
+		day=6;
+		hour=0;
+		minute=0;
+	};
+	class Groups
+	{
+		items=38;
+		class Item0
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8256.5859,296.04001,2135.8635};
+					azimut=-211.92961;
+					special="NONE";
+					id=10;
+					side="WEST";
+					vehicle="US_Delta_Force_Air_Controller_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="RESCUE";
+					init="removeallweapons this;";
+					description="First Artillery Operator and Rescue";
+				};
+			};
+		};
+		class Item1
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8256.9629,296.04001,2135.293};
+					azimut=-211.92961;
+					special="NONE";
+					id=11;
+					side="WEST";
+					vehicle="US_Delta_Force_Air_Controller_EP1";
+					player="PLAY CDG";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="RESCUE2";
+					init="removeallweapons this;";
+					description="Second Artillery Operator and Rescue";
+				};
+			};
+		};
+		class Item2
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=8;
+				class Item0
+				{
+					position[]={8257.668,296.04001,2134.2214};
+					azimut=-211.92947;
+					special="NONE";
+					id=13;
+					side="WEST";
+					vehicle="US_Soldier_SL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+					text="alpha_1";
+					init="this setGroupid [""Alpha""];";
+					description="Team Alpha Leader";
+				};
+				class Item1
+				{
+					position[]={8261.915,296.04001,2137.0081};
+					azimut=-211.92978;
+					special="NONE";
+					id=14;
+					side="WEST";
+					vehicle="US_Soldier_Marksman_EP1";
+					player="PLAY CDG";
+					skill=0.46666661;
+					text="alpha_2";
+					init="removeallweapons this;";
+					description="Team Alpha Sniper";
+				};
+				class Item2
+				{
+					position[]={8260.8936,296.04001,2136.2595};
+					azimut=-211.92978;
+					special="NONE";
+					id=16;
+					side="WEST";
+					vehicle="US_Soldier_AT_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="alpha_4";
+					init="removeallweapons this;";
+					description="Team Alpha AT Soldier";
+				};
+				class Item3
+				{
+					position[]={8260.3779,296.04001,2135.8616};
+					azimut=-211.92961;
+					special="NONE";
+					id=17;
+					side="WEST";
+					vehicle="US_Soldier_GL_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+					text="alpha_5";
+					init="removeallweapons this;";
+					description="Team Alpha GL Soldier";
+				};
+				class Item4
+				{
+					position[]={8259.7588,296.04001,2135.4465};
+					azimut=-211.92978;
+					special="NONE";
+					id=18;
+					side="WEST";
+					vehicle="US_Soldier_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.46666661;
+					text="alpha_6";
+					init="removeallweapons this;";
+					description="Team Alpha Medic";
+				};
+				class Item5
+				{
+					position[]={8259.0615,296.04001,2135.1006};
+					azimut=-211.92978;
+					special="NONE";
+					id=19;
+					side="WEST";
+					vehicle="US_Soldier_MG_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="alpha_7";
+					init="removeallweapons this;";
+					description="Team Alpha MG Gunner";
+				};
+				class Item6
+				{
+					position[]={8258.2871,296.04001,2134.6287};
+					azimut=-211.92978;
+					special="NONE";
+					id=20;
+					side="WEST";
+					vehicle="US_Soldier_AT_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="alpha_8";
+					init="removeallweapons this;";
+					description="Team Alpha AT Soldier";
+				};
+				class Item7
+				{
+					position[]={8261.4004,296.04001,2136.6338};
+					azimut=-211.92978;
+					special="NONE";
+					id=15;
+					side="WEST";
+					vehicle="US_Soldier_MG_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="alpha_3";
+					init="removeallweapons this;";
+					description="Team Alpha MG Gunner";
+				};
+			};
+		};
+		class Item3
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=8;
+				class Item0
+				{
+					position[]={8257.2881,296.04001,2134.7278};
+					azimut=-211.92961;
+					special="NONE";
+					id=21;
+					side="WEST";
+					vehicle="US_Delta_Force_TL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+					text="bravo_1";
+					init="removeallweapons this;";
+					description="Team Bravo Leader";
+				};
+				class Item1
+				{
+					position[]={8261.4951,296.04001,2137.5867};
+					azimut=-211.92961;
+					special="NONE";
+					id=22;
+					side="WEST";
+					vehicle="US_Delta_Force_EP1";
+					player="PLAY CDG";
+					skill=0.46666661;
+					text="bravo_2";
+					init="removeallweapons this;";
+					description="Team Bravo Operator";
+				};
+				class Item2
+				{
+					position[]={8260.4551,296.04001,2136.8164};
+					azimut=-211.92961;
+					special="NONE";
+					id=24;
+					side="WEST";
+					vehicle="US_Delta_Force_MG_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="bravo_4";
+					init="removeallweapons this;";
+					description="Team Bravo MG Gunner";
+				};
+				class Item3
+				{
+					position[]={8259.9678,296.04001,2136.4385};
+					azimut=-211.92961;
+					special="NONE";
+					id=25;
+					side="WEST";
+					vehicle="US_Delta_Force_Marksman_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+					text="bravo_5";
+					init="removeallweapons this;";
+					description="Team Bravo Sniper";
+				};
+				class Item4
+				{
+					position[]={8259.4033,296.04001,2136.0369};
+					azimut=-211.92961;
+					special="NONE";
+					id=26;
+					side="WEST";
+					vehicle="US_Delta_Force_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.46666661;
+					text="bravo_6";
+					init="removeallweapons this;";
+					description="Team Bravo Medic";
+				};
+				class Item5
+				{
+					position[]={8258.7227,296.04001,2135.6062};
+					azimut=-211.92961;
+					special="NONE";
+					id=27;
+					side="WEST";
+					vehicle="US_Delta_Force_Assault_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="bravo_7";
+					init="removeallweapons this;";
+					description="Team Bravo Attack Grenadier";
+				};
+				class Item6
+				{
+					position[]={8257.9512,296.04001,2135.1694};
+					azimut=-211.92961;
+					special="NONE";
+					id=28;
+					side="WEST";
+					vehicle="US_Delta_Force_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="bravo_8";
+					init="removeallweapons this;";
+					description="Team Bravo Demolitions";
+				};
+				class Item7
+				{
+					position[]={8261.0391,296.04001,2137.1953};
+					azimut=-211.92961;
+					special="NONE";
+					id=23;
+					side="WEST";
+					vehicle="US_Delta_Force_Assault_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="bravo_3";
+					init="removeallweapons this;";
+					description="Team Bravo Grenadier";
+				};
+			};
+		};
+		class Item4
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=8;
+				class Item0
+				{
+					position[]={8257.6221,296.04001,2135.7468};
+					azimut=-211.92961;
+					special="NONE";
+					id=29;
+					side="WEST";
+					vehicle="US_Soldier_SL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+					text="charlie_1";
+					init="removeallweapons this;";
+					description="Team Charlie Leader";
+				};
+				class Item1
+				{
+					position[]={8261.627,296.04001,2138.4827};
+					azimut=-211.92961;
+					special="NONE";
+					id=30;
+					side="WEST";
+					vehicle="US_Soldier_Marksman_EP1";
+					player="PLAY CDG";
+					skill=0.46666661;
+					text="charlie_2";
+					init="removeallweapons this;";
+					description="Team Charlie Sniper";
+				};
+				class Item2
+				{
+					position[]={8261.0439,296.04001,2138.1311};
+					azimut=-211.92961;
+					special="NONE";
+					id=32;
+					side="WEST";
+					vehicle="US_Soldier_AT_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="charlie_4";
+					init="removeallweapons this;";
+					description="Team Charlie AT Soldier";
+				};
+				class Item3
+				{
+					position[]={8260.5801,296.04001,2137.7449};
+					azimut=-211.92961;
+					special="NONE";
+					id=33;
+					side="WEST";
+					vehicle="US_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+					text="charlie_5";
+					init="removeallweapons this;";
+					description="Team Charlie Soldier";
+				};
+				class Item4
+				{
+					position[]={8260.0156,296.04001,2137.3496};
+					azimut=-211.92961;
+					special="NONE";
+					id=34;
+					side="WEST";
+					vehicle="US_Soldier_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.46666661;
+					text="charlie_6";
+					init="removeallweapons this;";
+					description="Team Charlie Medic";
+				};
+				class Item5
+				{
+					position[]={8259.5352,296.04001,2136.9778};
+					azimut=-211.92961;
+					special="NONE";
+					id=35;
+					side="WEST";
+					vehicle="US_Soldier_MG_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="charlie_7";
+					init="removeallweapons this;";
+					description="Team Charlie MG Gunner";
+				};
+				class Item6
+				{
+					position[]={8258.9766,296.04001,2136.5793};
+					azimut=-211.92961;
+					special="NONE";
+					id=36;
+					side="WEST";
+					vehicle="US_Soldier_AT_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="charlie_8";
+					init="removeallweapons this;";
+					description="Team Charlie AT Soldier";
+				};
+				class Item7
+				{
+					position[]={8258.3496,296.04001,2136.1563};
+					azimut=-211.92961;
+					special="NONE";
+					id=31;
+					side="WEST";
+					vehicle="US_Soldier_MG_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="charlie_3";
+					init="removeallweapons this;";
+					description="Team Charlie MG Gunner";
+				};
+			};
+		};
+		class Item5
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={8257.2656,296.04001,2136.3367};
+					azimut=-211.92961;
+					special="NONE";
+					id=6;
+					side="WEST";
+					vehicle="US_Soldier_Engineer_EP1";
+					player="PLAY CDG";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="delta_1";
+					init="removeallweapons this;";
+					description="Team Delta Engineer Leader";
+				};
+				class Item1
+				{
+					position[]={8260.166,296.04001,2138.3586};
+					azimut=-211.92961;
+					special="NONE";
+					id=7;
+					side="WEST";
+					vehicle="US_Soldier_Engineer_EP1";
+					player="PLAY CDG";
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="delta_2";
+					init="removeallweapons this;";
+					description="Team Delta Engineer";
+				};
+				class Item2
+				{
+					position[]={8259.1299,296.04001,2137.5369};
+					azimut=-211.92961;
+					special="NONE";
+					id=8;
+					side="WEST";
+					vehicle="US_Soldier_Engineer_EP1";
+					player="PLAY CDG";
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="delta_3";
+					init="removeallweapons this;";
+					description="Team Delta Engineer";
+				};
+				class Item3
+				{
+					position[]={8257.9033,296.04001,2136.7051};
+					azimut=-211.92961;
+					special="NONE";
+					id=9;
+					side="WEST";
+					vehicle="US_Soldier_Engineer_EP1";
+					player="PLAY CDG";
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="delta_4";
+					init="removeallweapons this;";
+					description="Team Delta Engineer";
+				};
+				class Item4
+				{
+					position[]={8258.5889,296.04001,2137.1504};
+					azimut=-211.92961;
+					special="NONE";
+					id=116;
+					side="WEST";
+					vehicle="US_Soldier_Engineer_EP1";
+					player="PLAY CDG";
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="delta_6";
+					init="removeallweapons this;";
+					description="Team Delta Engineer";
+				};
+				class Item5
+				{
+					position[]={8259.5693,296.04001,2137.9204};
+					azimut=-211.92961;
+					special="NONE";
+					id=115;
+					side="WEST";
+					vehicle="US_Soldier_Engineer_EP1";
+					player="PLAY CDG";
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="delta_5";
+					init="removeallweapons this;";
+					description="Team Delta Engineer";
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={7835.2749,323.36591,2448.0249};
+					special="NONE";
+					id=58;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="Server";
+					init="this enableSimulation false";
+				};
+			};
+		};
+		class Item7
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8106.813,326.0303,2465.3989};
+					id=85;
+					side="LOGIC";
+					vehicle="BIS_ARTY_Logic";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					init="this enableSimulation false";
+				};
+			};
+		};
+		class Item8
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1962.5389,144.04671,11770.04};
+					id=86;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_0";
+				};
+			};
+		};
+		class Item9
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3145.8689,60.526951,9886.7188};
+					id=87;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_1";
+				};
+			};
+		};
+		class Item10
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6314.1392,59.947498,11210.14};
+					id=88;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_2";
+				};
+			};
+		};
+		class Item11
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5728.1411,82.431488,8983.8203};
+					id=89;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_3";
+				};
+			};
+		};
+		class Item12
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={10114.68,128.0224,11322.03};
+					id=90;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_4";
+				};
+			};
+		};
+		class Item13
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={12300.93,145.03999,10437.8};
+					id=91;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_5";
+				};
+			};
+		};
+		class Item14
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={10532.29,260.90579,6403.9238};
+					id=92;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_6";
+				};
+			};
+		};
+		class Item15
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={9151.2207,205.4196,6742.5298};
+					id=93;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_7";
+				};
+			};
+		};
+		class Item16
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5958.0078,126.3279,7313.1802};
+					id=94;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_8";
+				};
+			};
+		};
+		class Item17
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5195.3101,144.8828,6153.9302};
+					id=95;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_9";
+				};
+			};
+		};
+		class Item18
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3673.469,232.3963,4345.3828};
+					id=96;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_10";
+				};
+			};
+		};
+		class Item19
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1544.731,218.59109,3629.969};
+					id=97;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_11";
+				};
+			};
+		};
+		class Item20
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={600.64917,241.666,2845.7849};
+					id=98;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_12";
+				};
+			};
+		};
+		class Item21
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8914.9443,265.74881,5323.2842};
+					id=99;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_13";
+				};
+			};
+		};
+		class Item22
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4461.2788,342.9884,682.01093};
+					id=100;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_14";
+				};
+			};
+		};
+		class Item23
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={10449.01,357.5513,2374.9919};
+					id=101;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_15";
+				};
+			};
+		};
+		class Item24
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1995.271,366.6322,354.4057};
+					id=102;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_16";
+				};
+			};
+		};
+		class Item25
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2035.774,275.02969,7683.772};
+					id=103;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_17";
+				};
+			};
+		};
+		class Item26
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={11513.48,271.68869,8322.7451};
+					id=104;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_18";
+				};
+			};
+		};
+		class Item27
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1534.807,234.304,5736.2041};
+					id=105;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_19";
+				};
+			};
+		};
+		class Item28
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2536.5759,194.1306,5068.5029};
+					id=106;
+					side="LOGIC";
+					vehicle="LocationLogicCity";
+					leader=1;
+					skill=0.60000002;
+					text="d_target_20";
+				};
+			};
+		};
+		class Item29
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=8;
+				class Item0
+				{
+					position[]={8256.2266,296.04001,2136.4231};
+					azimut=-211.92961;
+					special="NONE";
+					id=107;
+					side="WEST";
+					vehicle="US_Soldier_SL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+					text="echo_1";
+					init="removeallweapons this;";
+					description="Team Echo Leader";
+				};
+				class Item1
+				{
+					position[]={8260.1221,296.04001,2139.4583};
+					azimut=-211.92961;
+					special="NONE";
+					id=108;
+					side="WEST";
+					vehicle="US_Soldier_Marksman_EP1";
+					player="PLAY CDG";
+					skill=0.46666661;
+					text="echo_2";
+					init="removeallweapons this;";
+					description="Team Echo Sniper";
+				};
+				class Item2
+				{
+					position[]={8259.585,296.04001,2139.0376};
+					azimut=-211.92961;
+					special="NONE";
+					id=110;
+					side="WEST";
+					vehicle="US_Soldier_AT_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="echo_4";
+					init="removeallweapons this;";
+					description="Team Echo AT Soldier";
+				};
+				class Item3
+				{
+					position[]={8259.0791,296.04001,2138.6621};
+					azimut=-211.92961;
+					special="NONE";
+					id=111;
+					side="WEST";
+					vehicle="US_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+					text="echo_5";
+					init="removeallweapons this;";
+					description="Team Echo Soldier";
+				};
+				class Item4
+				{
+					position[]={8258.5781,296.04001,2138.2673};
+					azimut=-211.92961;
+					special="NONE";
+					id=112;
+					side="WEST";
+					vehicle="US_Soldier_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.46666661;
+					text="echo_6";
+					init="removeallweapons this;";
+					description="Team Echo Medic";
+				};
+				class Item5
+				{
+					position[]={8258.1816,296.04001,2137.6887};
+					azimut=-211.92961;
+					special="NONE";
+					id=113;
+					side="WEST";
+					vehicle="US_Soldier_MG_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="echo_7";
+					init="removeallweapons this;";
+					description="Team Echo MG Gunner";
+				};
+				class Item6
+				{
+					position[]={8257.5742,296.04001,2137.2542};
+					azimut=-211.92961;
+					special="NONE";
+					id=114;
+					side="WEST";
+					vehicle="US_Soldier_AT_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="echo_8";
+					init="removeallweapons this;";
+					description="Team Echo AT Soldier";
+				};
+				class Item7
+				{
+					position[]={8256.9141,296.04001,2136.8259};
+					azimut=-211.92961;
+					special="NONE";
+					id=109;
+					side="WEST";
+					vehicle="US_Soldier_MG_EP1";
+					player="PLAY CDG";
+					skill=0.33333331;
+					text="echo_3";
+					init="removeallweapons this;";
+					description="Team Echo MG Gunner";
+				};
+			};
+		};
+		class Item30
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8509.3633,300.64771,1964.4951};
+					azimut=71.050476;
+					special="NONE";
+					id=145;
+					side="WEST";
+					vehicle="M2StaticMG";
+					leader=1;
+					lock="LOCKED";
+					rank="COLONEL";
+					skill=1;
+					init="this setPos [getPos this select 0, getPos this select 1, 2.7];this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+				};
+			};
+		};
+		class Item31
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8505.1787,300.56024,1978.0142};
+					azimut=71.967987;
+					special="NONE";
+					id=146;
+					side="WEST";
+					vehicle="M2StaticMG";
+					leader=1;
+					lock="LOCKED";
+					rank="COLONEL";
+					skill=1;
+					init="this setPos [getPos this select 0, getPos this select 1, 2.7];this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+				};
+			};
+		};
+		class Item32
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8206.501,295.24503,2183.2881};
+					azimut=-22.902;
+					special="NONE";
+					id=147;
+					side="WEST";
+					vehicle="M2StaticMG";
+					leader=1;
+					lock="LOCKED";
+					rank="COLONEL";
+					skill=1;
+					init="this setPos [getPos this select 0, getPos this select 1, 2.7];this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+				};
+			};
+		};
+		class Item33
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8222.623,295.4689,2189.1279};
+					azimut=-22.6943;
+					special="NONE";
+					id=148;
+					side="WEST";
+					vehicle="M2StaticMG";
+					leader=1;
+					lock="LOCKED";
+					rank="COLONEL";
+					skill=1;
+					init="this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+				};
+			};
+		};
+		class Item34
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8204.1016,295.19159,2188.5029};
+					azimut=-20.655001;
+					special="NONE";
+					id=149;
+					side="WEST";
+					vehicle="TOW_TriPod";
+					leader=1;
+					lock="LOCKED";
+					rank="COLONEL";
+					skill=1;
+					init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+				};
+			};
+		};
+		class Item35
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8510.4941,300.93723,1980.2399};
+					azimut=71.794685;
+					special="NONE";
+					id=151;
+					side="WEST";
+					vehicle="TOW_TriPod";
+					leader=1;
+					lock="LOCKED";
+					rank="COLONEL";
+					skill=1;
+					init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+				};
+			};
+		};
+		class Item36
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8514.6191,300.98093,1966.8081};
+					azimut=70.025978;
+					special="NONE";
+					id=153;
+					side="WEST";
+					vehicle="TOW_TriPod";
+					leader=1;
+					lock="LOCKED";
+					rank="COLONEL";
+					skill=1;
+					init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+				};
+			};
+		};
+		class Item37
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8220.1592,295.41696,2194.5239};
+					azimut=-20.655001;
+					special="NONE";
+					id=155;
+					side="WEST";
+					vehicle="TOW_TriPod";
+					leader=1;
+					lock="LOCKED";
+					rank="COLONEL";
+					skill=1;
+					init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=251;
+		class Item0
+		{
+			position[]={8330.8545,296.04001,2045.4362};
+			azimut=-28.504801;
+			id=0;
+			side="EMPTY";
+			vehicle="CH_47F_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="ch1";
+		};
+		class Item1
+		{
+			position[]={8302.1074,296.04001,2029.6564};
+			azimut=-28.504801;
+			id=1;
+			side="EMPTY";
+			vehicle="UH1H_TK_GUE_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="ch2";
+		};
+		class Item2
+		{
+			position[]={8290.248,296.04001,1976.9323};
+			azimut=-28.504801;
+			id=2;
+			side="EMPTY";
+			vehicle="UH60M_MEV_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="ch4";
+		};
+		class Item3
+		{
+			position[]={8193.1592,296.04001,2124.2239};
+			azimut=106.61813;
+			id=3;
+			side="EMPTY";
+			vehicle="M1133_MEV_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="xvec1";
+		};
+		class Item4
+		{
+			position[]={8200.9502,296.04001,2128.4214};
+			azimut=106.61813;
+			id=4;
+			side="EMPTY";
+			vehicle="M1133_MEV_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="xvec2";
+		};
+		class Item5
+		{
+			position[]={8275.6055,296.04001,2108.3738};
+			id=5;
+			side="EMPTY";
+			vehicle="FlagCarrierUNO_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="D_FLAG_BASE";
+		};
+		class Item6
+		{
+			position[]={8121.874,296.04001,2033.1115};
+			azimut=150.84669;
+			special="NONE";
+			id=12;
+			side="EMPTY";
+			vehicle="MASH_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="MEDIC_TENT1";
+		};
+		class Item7
+		{
+			position[]={8090.4941,296.04001,2068.5408};
+			azimut=95.5028;
+			special="NONE";
+			id=37;
+			side="EMPTY";
+			vehicle="MtvrRepair_DES_EP1";
+			skill=0.33333331;
+			text="xvec3";
+		};
+		class Item8
+		{
+			position[]={8097.6812,296.04001,2072.4543};
+			azimut=95.5028;
+			special="NONE";
+			id=38;
+			side="EMPTY";
+			vehicle="MtvrRepair_DES_EP1";
+			skill=0.33333331;
+			text="xvec7";
+		};
+		class Item9
+		{
+			position[]={8119.1343,296.04001,2084.2764};
+			azimut=95.5028;
+			special="NONE";
+			id=39;
+			side="EMPTY";
+			vehicle="MtvrReammo_DES_EP1";
+			skill=0.33333331;
+			text="xvec5";
+		};
+		class Item10
+		{
+			position[]={8139.9243,296.04001,2095.5635};
+			azimut=95.5028;
+			special="NONE";
+			id=40;
+			side="EMPTY";
+			vehicle="MtvrSupply_DES_EP1";
+			skill=0.33333331;
+			text="xvec6";
+		};
+		class Item11
+		{
+			position[]={8105.0459,296.04001,2076.3772};
+			azimut=95.5028;
+			special="NONE";
+			id=41;
+			side="EMPTY";
+			vehicle="MtvrRefuel_DES_EP1";
+			skill=0.33333331;
+			text="xvec4";
+		};
+		class Item12
+		{
+			position[]={8112.7168,296.04001,2080.447};
+			azimut=95.5028;
+			special="NONE";
+			id=42;
+			side="EMPTY";
+			vehicle="MtvrRefuel_DES_EP1";
+			skill=0.33333331;
+			text="xvec8";
+		};
+		class Item13
+		{
+			position[]={8126.7153,296.04001,2088.1648};
+			azimut=95.5028;
+			special="NONE";
+			id=43;
+			side="EMPTY";
+			vehicle="MtvrReammo_DES_EP1";
+			skill=0.33333331;
+			text="xvec9";
+		};
+		class Item14
+		{
+			position[]={8133.5557,296.04001,2092.0188};
+			azimut=95.5028;
+			special="NONE";
+			id=44;
+			side="EMPTY";
+			vehicle="MtvrSupply_DES_EP1";
+			skill=0.33333331;
+			text="xvec10";
+		};
+		class Item15
+		{
+			position[]={8077.1211,296.04001,2060.5039};
+			azimut=95.5028;
+			special="NONE";
+			id=45;
+			side="EMPTY";
+			vehicle="MTVR_DES_EP1";
+			skill=0.33333331;
+			text="xvec11";
+		};
+		class Item16
+		{
+			position[]={8083.4937,296.04001,2064.4431};
+			azimut=95.5028;
+			special="NONE";
+			id=46;
+			side="EMPTY";
+			vehicle="MTVR_DES_EP1";
+			skill=0.33333331;
+			text="xvec12";
+		};
+		class Item17
+		{
+			position[]={8113.6001,301.00952,2022.5081};
+			azimut=61.637417;
+			special="NONE";
+			id=47;
+			side="EMPTY";
+			vehicle="HMMWV_Ambulance_DES_EP1";
+			skill=0.33333331;
+			text="xmedvec";
+		};
+		class Item18
+		{
+			position[]={8304.8975,296.04001,2102.9675};
+			azimut=-391.79071;
+			special="NONE";
+			id=48;
+			side="EMPTY";
+			vehicle="MASH_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="MEDIC_TENT2";
+		};
+		class Item19
+		{
+			position[]={8281.1943,296.04001,2119.9597};
+			azimut=-483.46899;
+			special="NONE";
+			id=49;
+			side="EMPTY";
+			vehicle="Land_HBarrier5";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="WALL1";
+		};
+		class Item20
+		{
+			position[]={7917.1553,296.29001,1783.7784};
+			azimut=-25.143749;
+			special="NONE";
+			id=50;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="d_wreck_rep";
+		};
+		class Item21
+		{
+			position[]={7914.1841,304.23074,2281.2275};
+			special="NONE";
+			id=51;
+			side="EMPTY";
+			vehicle="HeliHEmpty";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="camstart";
+		};
+		class Item22
+		{
+			position[]={8221.1572,296.04001,2109.7805};
+			azimut=-28.3703;
+			special="NONE";
+			id=52;
+			side="EMPTY";
+			vehicle="HeliHRescue";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="D_AMMOLOAD";
+		};
+		class Item23
+		{
+			position[]={8330.6152,296.04001,2046.1075};
+			azimut=-28.504801;
+			special="NONE";
+			id=53;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+		};
+		class Item24
+		{
+			position[]={8301.5518,296.04001,2030.3434};
+			azimut=-28.504801;
+			special="NONE";
+			id=54;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+		};
+		class Item25
+		{
+			position[]={8289.791,296.04001,1977.5883};
+			azimut=-28.504801;
+			special="NONE";
+			id=55;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+		};
+		class Item26
+		{
+			position[]={8075.7944,296.11749,1879.0673};
+			azimut=-28.3703;
+			special="NONE";
+			id=56;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="d_chopper_trigger";
+		};
+		class Item27
+		{
+			position[]={8005.0728,296.04001,1966.7808};
+			azimut=329.84064;
+			special="NONE";
+			id=57;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="d_vecre_trigger";
+		};
+		class Item28
+		{
+			position[]={7740.9893,296.04001,1724.4056};
+			azimut=-29.438829;
+			special="NONE";
+			id=59;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item29
+		{
+			position[]={7739.291,296.04001,1723.4397};
+			azimut=-29.438829;
+			special="NONE";
+			id=60;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item30
+		{
+			position[]={7737.5942,296.04001,1722.5017};
+			azimut=-29.438829;
+			special="NONE";
+			id=61;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item31
+		{
+			position[]={7735.895,296.04001,1721.5347};
+			azimut=-29.438829;
+			special="NONE";
+			id=62;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item32
+		{
+			position[]={7734.3472,296.04001,1720.6597};
+			azimut=-29.438829;
+			special="NONE";
+			id=63;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item33
+		{
+			position[]={7732.6465,296.04001,1719.6947};
+			azimut=-29.438829;
+			special="NONE";
+			id=64;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item34
+		{
+			position[]={7730.9482,296.04001,1718.7567};
+			azimut=-29.438829;
+			special="NONE";
+			id=65;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item35
+		{
+			position[]={7729.2534,296.04001,1717.7906};
+			azimut=-29.438829;
+			special="NONE";
+			id=66;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item36
+		{
+			position[]={7727.5991,296.04001,1716.8397};
+			azimut=-29.438829;
+			special="NONE";
+			id=67;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item37
+		{
+			position[]={7725.8984,296.04001,1715.8727};
+			azimut=-29.438829;
+			special="NONE";
+			id=68;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item38
+		{
+			position[]={7724.2021,296.04001,1714.9347};
+			azimut=-29.438829;
+			special="NONE";
+			id=69;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item39
+		{
+			position[]={7722.5024,296.04001,1713.9686};
+			azimut=-29.438829;
+			special="NONE";
+			id=70;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item40
+		{
+			position[]={7720.8491,296.04001,1713.0177};
+			azimut=-29.438829;
+			special="NONE";
+			id=71;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item41
+		{
+			position[]={7719.1494,296.04001,1712.0526};
+			azimut=-29.438829;
+			special="NONE";
+			id=72;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item42
+		{
+			position[]={7717.4512,296.04001,1711.1146};
+			azimut=-29.438829;
+			special="NONE";
+			id=73;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item43
+		{
+			position[]={7715.7524,296.04001,1710.1477};
+			azimut=-29.438829;
+			special="NONE";
+			id=74;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item44
+		{
+			position[]={7714.1514,296.04001,1709.2477};
+			azimut=-29.438829;
+			special="NONE";
+			id=75;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item45
+		{
+			position[]={7712.4521,296.04001,1708.2816};
+			azimut=-29.438829;
+			special="NONE";
+			id=76;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item46
+		{
+			position[]={7710.7563,296.04001,1707.3427};
+			azimut=-29.438829;
+			special="NONE";
+			id=77;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item47
+		{
+			position[]={7709.0562,296.04001,1706.3777};
+			azimut=-29.438829;
+			special="NONE";
+			id=78;
+			side="EMPTY";
+			vehicle="Land_BagFenceLong";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item48
+		{
+			position[]={15228.88,422.71991,648.35718};
+			id=79;
+			side="EMPTY";
+			vehicle="HeliHEmpty";
+			skill=0.60000002;
+			text="X_JIPH";
+		};
+		class Item49
+		{
+			position[]={8071.8125,293.88727,2111.4526};
+			id=80;
+			side="EMPTY";
+			vehicle="HeliHEmpty";
+			skill=0.60000002;
+			text="d_AISPAWN";
+		};
+		class Item50
+		{
+			position[]={8349.9688,296.04001,2011.5402};
+			azimut=-28.504801;
+			id=81;
+			side="EMPTY";
+			vehicle="CH_47F_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="ch5";
+		};
+		class Item51
+		{
+			position[]={8177.314,296.04001,2020.4795};
+			azimut=151.92;
+			id=82;
+			side="EMPTY";
+			vehicle="MH6J_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="ch6";
+		};
+		class Item52
+		{
+			position[]={8150.8574,296.04001,2005.5135};
+			azimut=151.92;
+			special="NONE";
+			id=83;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+		};
+		class Item53
+		{
+			position[]={8177.3296,296.04001,2020.3043};
+			azimut=151.92;
+			special="NONE";
+			id=84;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+		};
+		class Item54
+		{
+			position[]={8150.6162,296.04001,2005.6116};
+			azimut=151.92038;
+			id=117;
+			side="EMPTY";
+			vehicle="MH6J_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="ch7";
+		};
+		class Item55
+		{
+			position[]={8320.5488,296.04001,1996.4105};
+			azimut=-28.504801;
+			special="NONE";
+			id=118;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+		};
+		class Item56
+		{
+			position[]={8349.1504,296.04001,2012.2112};
+			azimut=-28.504801;
+			special="NONE";
+			id=119;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+		};
+		class Item57
+		{
+			position[]={8322.0254,296.04001,1993.4172};
+			azimut=-28.504801;
+			id=120;
+			side="EMPTY";
+			vehicle="BAF_Merlin_HC3_D";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="ch8";
+			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
+		};
+		class Item58
+		{
+			position[]={8288.7031,296.04001,2108.5813};
+			azimut=-483.46899;
+			special="NONE";
+			id=121;
+			side="EMPTY";
+			vehicle="Land_HBarrier5";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="WALL1_1";
+		};
+		class Item59
+		{
+			position[]={8262.9102,296.04001,2113.3611};
+			azimut=-211.61121;
+			special="NONE";
+			id=122;
+			side="EMPTY";
+			vehicle="Land_HBarrier5";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="WALL2_1";
+		};
+		class Item60
+		{
+			position[]={8265.9365,296.04001,2100.7344};
+			azimut=-121.5187;
+			special="NONE";
+			id=123;
+			side="EMPTY";
+			vehicle="Land_HBarrier5";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="WALL3_1";
+		};
+		class Item61
+		{
+			position[]={8278.2705,296.04001,2123.3093};
+			azimut=-211.61121;
+			special="NONE";
+			id=124;
+			side="EMPTY";
+			vehicle="Land_HBarrier5";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="WALL2_2";
+		};
+		class Item62
+		{
+			position[]={8286.084,296.04001,2112.4446};
+			azimut=-483.46899;
+			special="NONE";
+			id=125;
+			side="EMPTY";
+			vehicle="Land_HBarrier5";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="WALL1_1_1";
+		};
+		class Item63
+		{
+			position[]={8268.6025,296.04001,2096.364};
+			azimut=-121.5187;
+			special="NONE";
+			id=126;
+			side="EMPTY";
+			vehicle="Land_HBarrier5";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="WALL3_1_1";
+		};
+		class Item64
+		{
+			position[]={8263.8975,296.04001,2097.4143};
+			azimut=-155.355;
+			id=127;
+			side="EMPTY";
+			vehicle="ATV_US_EP1";
+			leader=1;
+			skill=0.60000002;
+			text="atv3";
+		};
+		class Item65
+		{
+			position[]={8260.8301,296.04001,2102.5088};
+			azimut=-155.355;
+			id=128;
+			side="EMPTY";
+			vehicle="ATV_US_EP1";
+			leader=1;
+			skill=0.60000002;
+			text="atv1";
+		};
+		class Item66
+		{
+			position[]={8262.3525,296.04001,2100.0115};
+			azimut=-155.355;
+			id=129;
+			side="EMPTY";
+			vehicle="ATV_US_EP1";
+			leader=1;
+			skill=0.60000002;
+			text="atv2";
+		};
+		class Item67
+		{
+			position[]={7979.5845,296.04001,1955.2095};
+			azimut=-28.10817;
+			special="NONE";
+			id=130;
+			side="EMPTY";
+			vehicle="US_WarfareBLightFactory_base_EP1";
+			skill=0.33333331;
+			text="AMMOBUILDING_1";
+		};
+		class Item68
+		{
+			position[]={8211.4336,295.55359,2168.52};
+			azimut=406.88443;
+			special="NONE";
+			id=131;
+			side="EMPTY";
+			vehicle="HMMWV_DES_EP1";
+			skill=0.33333331;
+		};
+		class Item69
+		{
+			position[]={8213.5459,295.73068,2162.3103};
+			azimut=406.88443;
+			special="NONE";
+			id=132;
+			side="EMPTY";
+			vehicle="HMMWV_DES_EP1";
+			skill=0.33333331;
+		};
+		class Item70
+		{
+			position[]={8272.2676,296.04001,2010.9838};
+			azimut=-28.504801;
+			id=133;
+			side="EMPTY";
+			vehicle="UH1H_TK_GUE_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="ch3";
+		};
+		class Item71
+		{
+			position[]={8271.8105,296.04001,2011.5277};
+			azimut=-28.504801;
+			special="NONE";
+			id=134;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+		};
+		class Item72
+		{
+			position[]={8263.9258,296.03531,1798.4956};
+			azimut=-27.133801;
+			id=135;
+			side="EMPTY";
+			vehicle="MV22";
+			skill=0.60000002;
+			text="ch9";
+		};
+		class Item73
+		{
+			position[]={8273.1367,296.04001,2123.0935};
+			azimut=120.597;
+			id=136;
+			side="EMPTY";
+			vehicle="Sign_Checkpoint";
+			skill=0.60000002;
+			init="this setObjectTexture [0, ""pics\release4.jpg""]; this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
+		};
+		class Item74
+		{
+			position[]={8112.3994,296.04001,1999.6111};
+			azimut=151.92;
+			special="NONE";
+			id=137;
+			side="EMPTY";
+			vehicle="C130J_US_EP1";
+			skill=0.33333331;
+			text="c130";
+		};
+		class Item75
+		{
+			position[]={8507.7881,300.53854,1964.0615};
+			azimut=251.05048;
+			id=138;
+			side="EMPTY";
+			vehicle="Land_Fort_Watchtower_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			init="this addEventHandler [""HandleDamage"", {false}]; ";
+		};
+		class Item76
+		{
+			position[]={8503.5811,300.42865,1977.5807};
+			azimut=251.96797;
+			id=139;
+			side="EMPTY";
+			vehicle="Land_Fort_Watchtower_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			init="this addEventHandler [""HandleDamage"", {false}]; ";
+		};
+		class Item77
+		{
+			position[]={8222.9844,295.47931,2187.665};
+			azimut=160.039;
+			id=140;
+			side="EMPTY";
+			vehicle="Land_Fort_Watchtower_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			init="this addEventHandler [""HandleDamage"", {false}];";
+		};
+		class Item78
+		{
+			position[]={8206.9219,295.26044,2181.7607};
+			azimut=159.90601;
+			id=141;
+			side="EMPTY";
+			vehicle="Land_Fort_Watchtower_EP1";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			init="this addEventHandler [""HandleDamage"", {false}];";
+		};
+		class Item79
+		{
+			position[]={8224.3516,295.53632,2179.6433};
+			azimut=-359.629;
+			special="NONE";
+			id=142;
+			side="EMPTY";
+			vehicle="FlagCarrierNATO_EP1";
+			leader=1;
+			skill=0.46666664;
+			description="Rescue Operator";
+		};
+		class Item80
+		{
+			position[]={8226.1895,295.58344,2180.1741};
+			azimut=-359.629;
+			special="NONE";
+			id=143;
+			side="EMPTY";
+			vehicle="FlagCarrierUSA_EP1";
+			leader=1;
+			skill=0.46666664;
+			description="Rescue Operator";
+		};
+		class Item81
+		{
+			position[]={8228.1221,295.64664,2180.7058};
+			azimut=-359.629;
+			special="NONE";
+			id=144;
+			side="EMPTY";
+			vehicle="FlagCarrierBAF";
+			leader=1;
+			skill=0.46666664;
+			description="Rescue Operator";
+		};
+		class Item82
+		{
+			position[]={8204.3115,295.20694,2189.3887};
+			azimut=-199.439;
+			id=150;
+			side="EMPTY";
+			vehicle="Land_fortified_nest_small";
+			skill=0.60000002;
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+		};
+		class Item83
+		{
+			position[]={8511.3623,301.00232,1979.9933};
+			azimut=-106.98923;
+			id=152;
+			side="EMPTY";
+			vehicle="Land_fortified_nest_small";
+			skill=0.60000002;
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+		};
+		class Item84
+		{
+			position[]={8515.5068,301.00296,1966.5875};
+			azimut=-108.75803;
+			id=154;
+			side="EMPTY";
+			vehicle="Land_fortified_nest_small";
+			skill=0.60000002;
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+		};
+		class Item85
+		{
+			position[]={8220.3691,295.44446,2195.4097};
+			azimut=-199.439;
+			id=156;
+			side="EMPTY";
+			vehicle="Land_fortified_nest_small";
+			skill=0.60000002;
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+		};
+		class Item86
+		{
+			position[]={8229.5186,295.69666,2183.6345};
+			azimut=160.59599;
+			id=157;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item87
+		{
+			position[]={8244.3047,296.09872,2188.8015};
+			azimut=160.59599;
+			id=158;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item88
+		{
+			position[]={8259.1572,296.23538,2193.8665};
+			azimut=160.59599;
+			id=159;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item89
+		{
+			position[]={8268.5752,296.32184,2197.1497};
+			azimut=161.04565;
+			id=160;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item90
+		{
+			position[]={8281.0693,296.35022,2193.8171};
+			azimut=234.56076;
+			id=161;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item91
+		{
+			position[]={8290.124,296.14304,2181.0339};
+			azimut=234.56076;
+			id=162;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item92
+		{
+			position[]={8299.0947,296.04001,2168.1584};
+			azimut=234.56076;
+			id=163;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item93
+		{
+			position[]={8308.0713,296.04001,2155.3167};
+			azimut=234.56076;
+			id=164;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item94
+		{
+			position[]={8317.042,296.04001,2142.4412};
+			azimut=234.56076;
+			id=165;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item95
+		{
+			position[]={8326.1582,296.04001,2129.7542};
+			azimut=234.56076;
+			id=166;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item96
+		{
+			position[]={8330.9229,296.04001,2122.657};
+			azimut=234.56076;
+			id=167;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item97
+		{
+			position[]={8342.6738,296.04001,2116.3948};
+			azimut=181.1519;
+			id=168;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item98
+		{
+			position[]={8358.3398,296.04001,2115.9509};
+			azimut=181.1519;
+			id=169;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item99
+		{
+			position[]={8374.0117,296.04001,2115.4714};
+			azimut=181.1519;
+			id=170;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item100
+		{
+			position[]={8389.6699,296.12201,2114.9373};
+			azimut=181.1519;
+			id=171;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item101
+		{
+			position[]={8405.3027,296.70779,2114.4524};
+			azimut=181.1519;
+			id=172;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item102
+		{
+			position[]={8417.0547,296.91855,2108.1189};
+			azimut=232.45547;
+			id=173;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item103
+		{
+			position[]={8426.5039,296.80478,2095.6135};
+			azimut=232.45547;
+			id=174;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item104
+		{
+			position[]={8435.9102,296.89743,2083.0911};
+			azimut=232.45547;
+			id=175;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item105
+		{
+			position[]={8445.2988,297.36188,2070.5251};
+			azimut=232.45547;
+			id=176;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item106
+		{
+			position[]={8454.6953,297.94495,2058.0188};
+			azimut=232.45547;
+			id=177;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item107
+		{
+			position[]={8464.2129,298.51334,2045.4479};
+			azimut=232.45547;
+			id=178;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item108
+		{
+			position[]={8473.6211,298.99731,2032.9263};
+			azimut=232.45547;
+			id=179;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item109
+		{
+			position[]={8483.0078,299.32449,2020.3604};
+			azimut=232.45547;
+			id=180;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item110
+		{
+			position[]={8491.502,299.65085,2008.9473};
+			azimut=233.78175;
+			id=181;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item111
+		{
+			position[]={8498.293,299.91266,1998.0352};
+			azimut=237.46156;
+			id=182;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item112
+		{
+			position[]={8503.0957,300.2868,1988.0818};
+			azimut=246.49722;
+			id=183;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item113
+		{
+			position[]={8510.457,300.64871,1955.0222};
+			azimut=272.55167;
+			id=184;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item114
+		{
+			position[]={8509.6367,301.38669,1939.3718};
+			azimut=272.55167;
+			id=185;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item115
+		{
+			position[]={8508.7617,302.79669,1923.7349};
+			azimut=272.55167;
+			id=186;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item116
+		{
+			position[]={8507.8594,303.47977,1908.0752};
+			azimut=272.55167;
+			id=187;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item117
+		{
+			position[]={8506.9785,303.94644,1892.457};
+			azimut=272.55167;
+			id=188;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item118
+		{
+			position[]={8500.6855,304.12589,1882.9272};
+			azimut=329.46204;
+			id=189;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item119
+		{
+			position[]={8487.2461,303.13882,1875.0229};
+			azimut=329.46204;
+			id=190;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item120
+		{
+			position[]={8473.6699,301.10928,1867.2166};
+			azimut=329.46204;
+			id=191;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item121
+		{
+			position[]={8460.0449,299.10815,1859.4268};
+			azimut=329.46204;
+			id=192;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item122
+		{
+			position[]={8446.4902,297.7774,1851.6367};
+			azimut=329.46204;
+			id=193;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item123
+		{
+			position[]={8432.9961,296.91669,1843.6387};
+			azimut=329.46204;
+			id=194;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item124
+		{
+			position[]={8419.4199,296.76221,1835.832};
+			azimut=329.46204;
+			id=195;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item125
+		{
+			position[]={8405.7969,296.91458,1828.042};
+			azimut=329.46204;
+			id=196;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item126
+		{
+			position[]={8392.2363,297.27051,1820.2527};
+			azimut=329.46204;
+			id=197;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item127
+		{
+			position[]={8378.6484,297.81006,1812.0874};
+			azimut=329.46204;
+			id=198;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item128
+		{
+			position[]={8365.0742,298.29282,1804.2808};
+			azimut=329.46204;
+			id=199;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item129
+		{
+			position[]={8351.4512,298.38501,1796.4902};
+			azimut=329.46204;
+			id=200;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item130
+		{
+			position[]={8337.8887,297.93948,1788.7007};
+			azimut=329.46204;
+			id=201;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item131
+		{
+			position[]={8324.4023,297.02176,1780.7019};
+			azimut=329.46204;
+			id=202;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item132
+		{
+			position[]={8310.8242,295.89661,1772.8955};
+			azimut=329.46204;
+			id=203;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item133
+		{
+			position[]={8297.2021,295.05197,1765.1057};
+			azimut=329.46204;
+			id=204;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item134
+		{
+			position[]={8283.6416,294.65146,1757.3159};
+			azimut=329.46204;
+			id=205;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item135
+		{
+			position[]={8270.0957,294.73462,1749.4082};
+			azimut=329.46204;
+			id=206;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item136
+		{
+			position[]={8256.5195,295.04034,1741.6016};
+			azimut=329.46204;
+			id=207;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item137
+		{
+			position[]={8242.8955,295.33215,1733.8118};
+			azimut=329.46204;
+			id=208;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item138
+		{
+			position[]={8229.3398,295.68301,1726.0215};
+			azimut=329.46204;
+			id=209;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item139
+		{
+			position[]={8215.8477,296.09579,1718.0234};
+			azimut=329.46204;
+			id=210;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item140
+		{
+			position[]={8202.2715,296.51984,1710.2173};
+			azimut=329.46204;
+			id=211;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item141
+		{
+			position[]={8188.6475,296.92407,1702.4272};
+			azimut=329.46204;
+			id=212;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item142
+		{
+			position[]={8175.1494,297.47467,1694.5259};
+			azimut=329.46204;
+			id=213;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item143
+		{
+			position[]={8161.5732,298.07928,1686.7195};
+			azimut=329.46204;
+			id=214;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item144
+		{
+			position[]={8147.9492,298.60913,1678.9297};
+			azimut=329.46204;
+			id=215;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item145
+		{
+			position[]={8134.3936,299.03827,1671.1396};
+			azimut=329.46204;
+			id=216;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item146
+		{
+			position[]={8120.9014,299.43927,1663.1416};
+			azimut=329.46204;
+			id=217;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item147
+		{
+			position[]={8107.3252,299.6781,1655.335};
+			azimut=329.46204;
+			id=218;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item148
+		{
+			position[]={8093.7012,299.85587,1647.5449};
+			azimut=329.46204;
+			id=219;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item149
+		{
+			position[]={8080.1143,300.22226,1639.866};
+			azimut=329.46204;
+			id=220;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item150
+		{
+			position[]={8066.5381,300.62872,1632.0596};
+			azimut=329.46204;
+			id=221;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item151
+		{
+			position[]={8052.9141,300.76828,1624.2695};
+			azimut=329.46204;
+			id=222;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item152
+		{
+			position[]={8039.3584,300.4516,1616.4795};
+			azimut=329.46204;
+			id=223;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item153
+		{
+			position[]={8025.8662,299.79169,1608.4814};
+			azimut=329.46204;
+			id=224;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item154
+		{
+			position[]={8012.29,299.52521,1600.675};
+			azimut=329.46204;
+			id=225;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item155
+		{
+			position[]={7998.666,299.39673,1592.885};
+			azimut=329.46204;
+			id=226;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item156
+		{
+			position[]={7985.2031,299.03189,1584.7671};
+			azimut=329.46204;
+			id=227;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item157
+		{
+			position[]={7971.627,298.27255,1576.9607};
+			azimut=329.46204;
+			id=228;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item158
+		{
+			position[]={7958.0029,297.41245,1569.1709};
+			azimut=329.46204;
+			id=229;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item159
+		{
+			position[]={7944.4473,296.61642,1561.3809};
+			azimut=329.46204;
+			id=230;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item160
+		{
+			position[]={7930.9551,295.83279,1553.3828};
+			azimut=329.46204;
+			id=231;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item161
+		{
+			position[]={7917.3789,295.16373,1545.5762};
+			azimut=329.46204;
+			id=232;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item162
+		{
+			position[]={7903.7549,295.513,1537.7861};
+			azimut=329.46204;
+			id=233;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item163
+		{
+			position[]={7891.6084,296.78723,1534.2397};
+			azimut=359.77188;
+			id=234;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item164
+		{
+			position[]={7875.9492,298.0451,1534.3521};
+			azimut=359.77188;
+			id=235;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item165
+		{
+			position[]={7860.2544,298.84872,1534.5029};
+			azimut=359.77188;
+			id=236;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item166
+		{
+			position[]={7844.6191,298.91763,1534.6194};
+			azimut=359.77188;
+			id=237;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item167
+		{
+			position[]={7828.9375,298.37482,1534.5225};
+			azimut=359.77188;
+			id=238;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item168
+		{
+			position[]={7813.2788,297.59286,1534.6353};
+			azimut=359.77188;
+			id=239;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item169
+		{
+			position[]={7797.5864,297.48035,1534.7852};
+			azimut=359.77188;
+			id=240;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item170
+		{
+			position[]={7781.9023,298.3804,1534.7178};
+			azimut=359.77188;
+			id=241;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item171
+		{
+			position[]={7766.2075,299.01843,1534.8687};
+			azimut=359.77188;
+			id=242;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item172
+		{
+			position[]={7750.5723,298.4458,1534.9849};
+			azimut=359.77188;
+			id=243;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item173
+		{
+			position[]={7734.8906,296.95047,1534.8882};
+			azimut=359.77188;
+			id=244;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item174
+		{
+			position[]={7719.2319,295.97574,1535.001};
+			azimut=359.77188;
+			id=245;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item175
+		{
+			position[]={7703.5396,296.00742,1535.1509};
+			azimut=359.77188;
+			id=246;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item176
+		{
+			position[]={7693.7554,296.03467,1540.5605};
+			azimut=419.09363;
+			id=247;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item177
+		{
+			position[]={7685.876,295.80756,1554.135};
+			azimut=419.09363;
+			id=248;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item178
+		{
+			position[]={7677.999,295.34967,1567.6426};
+			azimut=419.09363;
+			id=249;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item179
+		{
+			position[]={7669.9155,295.13321,1581.0801};
+			azimut=419.09363;
+			id=250;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item180
+		{
+			position[]={7662.0225,295.01535,1594.6042};
+			azimut=419.09363;
+			id=251;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item181
+		{
+			position[]={7654.1436,294.63614,1608.177};
+			azimut=419.09363;
+			id=252;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item182
+		{
+			position[]={7646.1963,294.53534,1621.6155};
+			azimut=419.09363;
+			id=253;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item183
+		{
+			position[]={7638.3193,294.81647,1635.123};
+			azimut=419.09363;
+			id=254;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item184
+		{
+			position[]={7630.2358,294.91144,1648.5605};
+			azimut=419.09363;
+			id=255;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item185
+		{
+			position[]={7624.6992,295.00293,1660.6641};
+			azimut=431.99918;
+			id=256;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item186
+		{
+			position[]={7623.9854,295.17844,1669.3267};
+			azimut=455.37149;
+			id=257;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item187
+		{
+			position[]={7626.3774,295.23599,1677.7256};
+			azimut=473.28296;
+			id=258;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item188
+		{
+			position[]={7645.3164,295.12891,1720.937};
+			azimut=473.28296;
+			id=259;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item189
+		{
+			position[]={7651.6626,294.1626,1735.2283};
+			azimut=473.28296;
+			id=260;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item190
+		{
+			position[]={7657.8267,292.99692,1749.647};
+			azimut=473.28296;
+			id=261;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item191
+		{
+			position[]={7661.4707,292.35709,1757.8762};
+			azimut=473.28296;
+			id=262;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item192
+		{
+			position[]={7632.5415,295.50177,1692.1445};
+			azimut=473.28296;
+			id=263;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item193
+		{
+			position[]={7638.8945,295.40955,1706.4573};
+			azimut=473.28296;
+			id=264;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item194
+		{
+			position[]={7863.1187,297.09622,1871.6946};
+			azimut=511.00314;
+			id=265;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item195
+		{
+			position[]={7876.8813,297.13785,1879.1157};
+			azimut=511.00314;
+			id=266;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item196
+		{
+			position[]={7890.5796,296.82346,1886.75};
+			azimut=511.00314;
+			id=267;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item197
+		{
+			position[]={7904.3599,296.66953,1894.1855};
+			azimut=511.00314;
+			id=268;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item198
+		{
+			position[]={7918.186,296.54779,1901.6099};
+			azimut=511.00314;
+			id=269;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item199
+		{
+			position[]={7807.8286,297.49982,1841.5522};
+			azimut=511.00314;
+			id=270;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item200
+		{
+			position[]={7821.5918,297.46634,1848.9741};
+			azimut=511.00314;
+			id=271;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item201
+		{
+			position[]={7835.2881,297.37451,1856.6089};
+			azimut=511.00314;
+			id=272;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item202
+		{
+			position[]={7849.0718,297.23291,1864.043};
+			azimut=511.00314;
+			id=273;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item203
+		{
+			position[]={7780.1074,297.31747,1826.5928};
+			azimut=511.00314;
+			id=274;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item204
+		{
+			position[]={7793.8892,297.4451,1834.0276};
+			azimut=511.00314;
+			id=275;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item205
+		{
+			position[]={7752.2603,296.98227,1811.2783};
+			azimut=511.00314;
+			id=276;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item206
+		{
+			position[]={7766.0234,297.16263,1818.7};
+			azimut=511.00314;
+			id=277;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item207
+		{
+			position[]={7724.5391,296.4375,1796.3188};
+			azimut=511.00314;
+			id=278;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item208
+		{
+			position[]={7738.3208,296.7341,1803.7534};
+			azimut=511.00314;
+			id=279;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item209
+		{
+			position[]={7696.7397,294.01651,1781.4658};
+			azimut=511.00314;
+			id=280;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item210
+		{
+			position[]={7710.5215,295.40948,1788.9004};
+			azimut=511.00314;
+			id=281;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item211
+		{
+			position[]={7669.8032,292.24844,1766.6885};
+			azimut=511.00314;
+			id=282;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item212
+		{
+			position[]={7682.5864,292.91342,1773.9797};
+			azimut=511.00314;
+			id=283;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item213
+		{
+			position[]={7937.2949,296.76666,1941.6079};
+			azimut=467.44919;
+			id=284;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item214
+		{
+			position[]={7942.2007,296.43594,1956.5376};
+			azimut=467.44919;
+			id=285;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item215
+		{
+			position[]={7947.1489,296.03217,1971.3955};
+			azimut=467.44919;
+			id=286;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item216
+		{
+			position[]={7952.0112,296.03323,1986.2803};
+			azimut=467.44919;
+			id=287;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item217
+		{
+			position[]={7956.9136,295.94324,2001.1865};
+			azimut=467.44919;
+			id=288;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item218
+		{
+			position[]={7928.2852,296.64233,1914.3149};
+			azimut=467.44919;
+			id=289;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item219
+		{
+			position[]={7932.3193,296.80527,1926.5};
+			azimut=467.44919;
+			id=290;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item220
+		{
+			position[]={8097.6147,296.00589,2082.8904};
+			azimut=511.24222;
+			id=291;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item221
+		{
+			position[]={8111.4092,296.12805,2090.2542};
+			azimut=511.24222;
+			id=292;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item222
+		{
+			position[]={8125.1387,296.04001,2097.8303};
+			azimut=511.24222;
+			id=293;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item223
+		{
+			position[]={8042.2012,295.9361,2052.98};
+			azimut=511.24222;
+			id=294;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item224
+		{
+			position[]={8055.9946,295.94754,2060.3425};
+			azimut=511.24222;
+			id=295;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item225
+		{
+			position[]={8069.7217,296.0231,2067.9211};
+			azimut=511.24222;
+			id=296;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item226
+		{
+			position[]={8083.5376,296.03101,2075.2966};
+			azimut=511.24222;
+			id=297;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item227
+		{
+			position[]={8014.416,295.96277,2038.1357};
+			azimut=511.24222;
+			id=298;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item228
+		{
+			position[]={8028.2251,295.92484,2045.5123};
+			azimut=511.24222;
+			id=299;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item229
+		{
+			position[]={7986.4741,295.87073,2022.7891};
+			azimut=510.64661;
+			id=300;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item230
+		{
+			position[]={8000.1904,295.9722,2030.2964};
+			azimut=510.64661;
+			id=301;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item231
+		{
+			position[]={7965.8623,295.68719,2011.4856};
+			azimut=511.24222;
+			id=302;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item232
+		{
+			position[]={7972.5796,295.74979,2015.1768};
+			azimut=510.64661;
+			id=303;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item233
+		{
+			position[]={8122.021,294.9213,2120.4714};
+			azimut=599.18231;
+			id=304;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item234
+		{
+			position[]={8128.4556,295.7471,2109.5403};
+			azimut=599.18231;
+			id=305;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item235
+		{
+			position[]={8137.9419,294.38632,2139.7996};
+			azimut=508.811;
+			id=306;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item236
+		{
+			position[]={8151.4102,294.36441,2147.7405};
+			azimut=508.811;
+			id=307;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item237
+		{
+			position[]={8124.1987,294.42096,2131.6155};
+			azimut=508.811;
+			id=308;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item238
+		{
+			position[]={8178.9146,294.49619,2160.9128};
+			azimut=514.36279;
+			id=309;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item239
+		{
+			position[]={8193.0889,294.89136,2167.5139};
+			azimut=514.36279;
+			id=310;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item240
+		{
+			position[]={8164.4458,294.26871,2154.0969};
+			azimut=514.36279;
+			id=311;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item241
+		{
+			position[]={8204.7705,295.32184,2173.1001};
+			azimut=515.16278;
+			id=312;
+			side="EMPTY";
+			vehicle="Base_WarfareBBarrier10xTall";
+			skill=0.60000002;
+		};
+		class Item242
+		{
+			position[]={8215.5752,296.01019,2155.9221};
+			azimut=406.88443;
+			special="NONE";
+			id=313;
+			side="EMPTY";
+			vehicle="HMMWV_DES_EP1";
+			skill=0.33333331;
+		};
+		class Item243
+		{
+			position[]={8230.127,295.76727,2168.3491};
+			azimut=-89.801826;
+			special="NONE";
+			id=314;
+			side="EMPTY";
+			vehicle="BAF_Offroad_D";
+			skill=0.46666661;
+		};
+		class Item244
+		{
+			position[]={8265.4404,296.04001,2094.7639};
+			azimut=-155.355;
+			id=315;
+			side="EMPTY";
+			vehicle="ATV_US_EP1";
+			leader=1;
+			skill=0.60000002;
+			text="atv4";
+		};
+		class Item245
+		{
+			position[]={8214.7988,296.28842,2142.7212};
+			azimut=250;
+			special="NONE";
+			id=316;
+			side="EMPTY";
+			vehicle="US_WarfareBLightFactory_base_EP1";
+			skill=0.33333331;
+			text="AMMOBUILDING_1_1";
+		};
+		class Item246
+		{
+			position[]={8232.9492,296.04001,2090.6467};
+			azimut=-155.355;
+			id=317;
+			side="EMPTY";
+			vehicle="Loudspeakers_EP1";
+			leader=1;
+			skill=0.60000002;
+		};
+		class Item247
+		{
+			position[]={8211.5186,295.55453,2168.52};
+			azimut=406.88443;
+			special="NONE";
+			id=318;
+			side="EMPTY";
+			vehicle="HMMWV_DES_EP1";
+			skill=0.33333331;
+		};
+		class Item248
+		{
+			position[]={8213.6309,295.73175,2162.3103};
+			azimut=406.88443;
+			special="NONE";
+			id=319;
+			side="EMPTY";
+			vehicle="HMMWV_DES_EP1";
+			skill=0.33333331;
+		};
+		class Item249
+		{
+			position[]={8215.6602,296.01074,2155.9221};
+			azimut=406.88443;
+			special="NONE";
+			id=320;
+			side="EMPTY";
+			vehicle="HMMWV_DES_EP1";
+			skill=0.33333331;
+		};
+		class Item250
+		{
+			position[]={8228.6084,295.68546,2174.0469};
+			azimut=-89.801826;
+			special="NONE";
+			id=321;
+			side="EMPTY";
+			vehicle="BAF_Offroad_D";
+			skill=0.46666661;
+		};
+	};
+	class Markers
+	{
+		items=126;
+		class Item0
+		{
+			position[]={12779.68,158.9151,13160.88};
+			name="respawn_west";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={12779.7,158.9165,13160.85};
+			name="respawn_east";
+			type="Empty";
+		};
+		class Item2
+		{
+			position[]={12779.68,158.91611,13160.84};
+			name="respawn_guerrila";
+			type="Empty";
+		};
+		class Item3
+		{
+			position[]={8272.1738,296.04001,2108.6531};
+			name="base_spawn_1";
+			type="Empty";
+		};
+		class Item4
+		{
+			position[]={15299.32,760.44208,3318.634};
+			name="legend1";
+			text="Mobile Respawn";
+			type="HQ";
+			colorName="ColorYellow";
+		};
+		class Item5
+		{
+			position[]={15291.9,689.11768,2853.3291};
+			name="legend2";
+			text="Chopper";
+			type="n_air";
+			colorName="ColorWhite";
+		};
+		class Item6
+		{
+			position[]={8311.6934,296.04001,1919.7904};
+			name="enemy_base";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorRed";
+			fillName="FDiagonal";
+			a=0;
+			b=0;
+			angle=-119.2025;
+		};
+		class Item7
+		{
+			position[]={6746.3838,273.4809,6435.2178};
+			name="xr_center";
+			type="Empty";
+		};
+		class Item8
+		{
+			position[]={15289.02,591.23657,2383.519};
+			name="legendr3";
+			text="Truck";
+			type="n_support";
+			colorName="ColorGreen";
+		};
+		class Item9
+		{
+			position[]={15283.84,524.08661,1890.823};
+			name="fmarkerlegend";
+			text="Teleporter / Parajump";
+			type="mil_flag";
+			colorName="ColorYellow";
+		};
+		class Item10
+		{
+			position[]={8032.0171,296.04001,1859.3844};
+			name="d_base_marker";
+			markerType="RECTANGLE";
+			type="Empty";
+			a=430;
+			b=200;
+			angle=-30.463919;
+		};
+		class Item11
+		{
+			position[]={8096.5601,296.04001,1720.2655};
+			name="d_base_radar_pos";
+			type="Empty";
+		};
+		class Item12
+		{
+			position[]={7851.9834,296.03845,1605.269};
+			name="d_base_anti_air2";
+			type="Empty";
+		};
+		class Item13
+		{
+			position[]={8361.0176,296.04001,1874.6584};
+			name="d_base_anti_air1";
+			type="Empty";
+		};
+		class Item14
+		{
+			position[]={6462.3628,303.0759,6381.6909};
+			name="d_island_marker";
+			markerType="RECTANGLE";
+			type="Empty";
+			a=6200;
+			b=6200;
+		};
+		class Item15
+		{
+			position[]={7736.0601,296.04001,1698.3796};
+			name="d_base_jet_fac";
+			type="Empty";
+			angle=-29.6738;
+		};
+		class Item16
+		{
+			position[]={7943.6602,296.04001,1798.7804};
+			name="d_base_wreck_fac";
+			type="Empty";
+			angle=-121.01;
+		};
+		class Item17
+		{
+			position[]={8102.2324,296.04001,1892.5072};
+			name="d_base_chopper_fac";
+			type="Empty";
+			angle=-121.01;
+		};
+		class Item18
+		{
+			position[]={8270.9873,296.04001,2105.2361};
+			name="d_player_ammobox_pos";
+			type="Empty";
+			angle=151.92087;
+		};
+		class Item19
+		{
+			position[]={6482.771,317.80161,6325.1348};
+			name="d_isledefense_marker";
+			text="4";
+			markerType="RECTANGLE";
+			type="Empty";
+			a=6000;
+			b=6000;
+		};
+		class Item20
+		{
+			position[]={8206.5674,296.04001,2036.2288};
+			name="d_bonus_air_positions_1";
+			type="Empty";
+			angle=150.0743;
+		};
+		class Item21
+		{
+			position[]={8221.5742,296.0372,1779.5};
+			name="d_bonus_air_positions_2";
+			type="Empty";
+			angle=-27.133801;
+		};
+		class Item22
+		{
+			position[]={8093.1846,294.13864,2121.1196};
+			name="d_pos_aihut";
+			type="Empty";
+			angle=108.73965;
+		};
+		class Item23
+		{
+			position[]={8036.3701,472.2883,6174.79};
+			name="d_sm_0";
+			type="Empty";
+		};
+		class Item24
+		{
+			position[]={4099.9302,531.36749,11785.6};
+			name="d_sm_1";
+			type="Empty";
+			angle=85;
+		};
+		class Item25
+		{
+			position[]={4111.7798,536.73578,12188.6};
+			name="d_sm_1_1";
+			type="Empty";
+		};
+		class Item26
+		{
+			position[]={4005.4099,253.7366,6913.9902};
+			name="d_sm_10";
+			type="Empty";
+		};
+		class Item27
+		{
+			position[]={4023.5601,180.5838,6910.6401};
+			name="d_sm_10_1";
+			type="Empty";
+		};
+		class Item28
+		{
+			position[]={12262.3,159.1675,4803.0498};
+			name="d_sm_11";
+			type="Empty";
+		};
+		class Item29
+		{
+			position[]={4630.23,425.24979,12310};
+			name="d_sm_12";
+			type="Empty";
+			angle=180;
+		};
+		class Item30
+		{
+			position[]={4673.1299,580.57922,12293.8};
+			name="d_sm_12_1";
+			type="Empty";
+		};
+		class Item31
+		{
+			position[]={803.36102,386.67929,10478.5};
+			name="d_sm_13";
+			type="Empty";
+			angle=190;
+		};
+		class Item32
+		{
+			position[]={847.56299,582.93628,10473.5};
+			name="d_sm_13_1";
+			type="Empty";
+		};
+		class Item33
+		{
+			position[]={2264.76,536.33478,8591.3096};
+			name="d_sm_14";
+			type="Empty";
+		};
+		class Item34
+		{
+			position[]={2241.8101,549.06458,8565.5303};
+			name="d_sm_14_1";
+			type="Empty";
+		};
+		class Item35
+		{
+			position[]={4003.52,446.9967,6911.9502};
+			name="d_sm_15";
+			type="Empty";
+		};
+		class Item36
+		{
+			position[]={10477.6,513.86517,7517.2402};
+			name="d_sm_16";
+			type="Empty";
+		};
+		class Item37
+		{
+			position[]={10467.4,506.93329,7485.8701};
+			name="d_sm_16_1";
+			type="Empty";
+		};
+		class Item38
+		{
+			position[]={5054.5498,370.1348,6886.71};
+			name="d_sm_17";
+			type="Empty";
+		};
+		class Item39
+		{
+			position[]={5051.02,491.44958,6900.9302};
+			name="d_sm_17_1";
+			type="Empty";
+		};
+		class Item40
+		{
+			position[]={3758.49,478.0668,10887.2};
+			name="d_sm_18";
+			type="Empty";
+		};
+		class Item41
+		{
+			position[]={3746.24,534.49249,10864.5};
+			name="d_sm_18_1";
+			type="Empty";
+		};
+		class Item42
+		{
+			position[]={2156.6399,541.37738,431.39401};
+			name="d_sm_19";
+			type="Empty";
+			angle=34;
+		};
+		class Item43
+		{
+			position[]={2044.99,481.24359,7698.4399};
+			name="d_sm_19_1";
+			type="Empty";
+		};
+		class Item44
+		{
+			position[]={5802.5698,83.120728,11293.5};
+			name="d_sm_2";
+			type="Empty";
+			angle=314.75269;
+		};
+		class Item45
+		{
+			position[]={5760.4199,552.86713,11326.9};
+			name="d_sm_2_1";
+			type="Empty";
+		};
+		class Item46
+		{
+			position[]={2093.99,420.16681,11685.4};
+			name="d_sm_20";
+			type="Empty";
+			angle=140;
+		};
+		class Item47
+		{
+			position[]={10833.5,464.28781,6304.3198};
+			name="d_sm_20_1";
+			type="Empty";
+		};
+		class Item48
+		{
+			position[]={9793.8604,293.74149,11158.9};
+			name="d_sm_21";
+			type="Empty";
+			angle=182;
+		};
+		class Item49
+		{
+			position[]={573.26202,525.45813,2835.7};
+			name="d_sm_21_1";
+			type="Empty";
+		};
+		class Item50
+		{
+			position[]={2224.6899,444.60281,7741.98};
+			name="d_sm_22";
+			type="Empty";
+			angle=82;
+		};
+		class Item51
+		{
+			position[]={12283.1,603.86652,10428.3};
+			name="d_sm_22_1";
+			type="Empty";
+		};
+		class Item52
+		{
+			position[]={688.84698,454.98489,7477.5801};
+			name="d_sm_23";
+			type="Empty";
+		};
+		class Item53
+		{
+			position[]={3790.3,567.86462,8941.1904};
+			name="d_sm_24";
+			type="Empty";
+			angle=300;
+		};
+		class Item54
+		{
+			position[]={2016.3199,486.01721,10699.2};
+			name="d_sm_25";
+			type="Empty";
+		};
+		class Item55
+		{
+			position[]={1028.05,343.2305,7141.3799};
+			name="d_sm_26";
+			type="Empty";
+		};
+		class Item56
+		{
+			position[]={1622.09,461.2973,2341.54};
+			name="d_sm_27";
+			type="Empty";
+		};
+		class Item57
+		{
+			position[]={8663.1602,493.26199,9925.8799};
+			name="d_sm_28";
+			type="Empty";
+		};
+		class Item58
+		{
+			position[]={8679.6797,599.28601,9967.21};
+			name="d_sm_28_1";
+			type="Empty";
+		};
+		class Item59
+		{
+			position[]={11637.4,638.95679,9225.6797};
+			name="d_sm_29";
+			type="Empty";
+		};
+		class Item60
+		{
+			position[]={11637.4,481.5708,9225.6797};
+			name="d_sm_29_1";
+			type="Empty";
+			angle=80;
+		};
+		class Item61
+		{
+			position[]={11636.1,423.6593,9256.3301};
+			name="d_sm_29_2";
+			type="Empty";
+			angle=80;
+		};
+		class Item62
+		{
+			position[]={11680.2,348.0593,9243.5898};
+			name="d_sm_29_3";
+			type="Empty";
+			angle=163;
+		};
+		class Item63
+		{
+			position[]={11682.1,289.89679,9197.3301};
+			name="d_sm_29_4";
+			type="Empty";
+			angle=169;
+		};
+		class Item64
+		{
+			position[]={11659.4,337.09451,9183.29};
+			name="d_sm_29_5";
+			type="Empty";
+			angle=178;
+		};
+		class Item65
+		{
+			position[]={11686,423.80621,9156.4902};
+			name="d_sm_29_6";
+			type="Empty";
+			angle=175;
+		};
+		class Item66
+		{
+			position[]={9430.1201,375.29581,4718.1899};
+			name="d_sm_3";
+			type="Empty";
+			angle=172;
+		};
+		class Item67
+		{
+			position[]={9445.4902,590.66632,4702.1099};
+			name="d_sm_3_1";
+			type="Empty";
+		};
+		class Item68
+		{
+			position[]={9432.8096,441.1069,4673.5};
+			name="d_sm_3_2";
+			type="Empty";
+		};
+		class Item69
+		{
+			position[]={1179.4399,507.75809,7422.9199};
+			name="d_sm_30";
+			type="Empty";
+		};
+		class Item70
+		{
+			position[]={10527,543.38428,10989.8};
+			name="d_sm_31";
+			type="Empty";
+		};
+		class Item71
+		{
+			position[]={10527,543.38428,10989.8};
+			name="d_sm_31_1";
+			type="Empty";
+			angle=295;
+		};
+		class Item72
+		{
+			position[]={10502.5,427.09601,11002.5};
+			name="d_sm_31_2";
+			type="Empty";
+			angle=311;
+		};
+		class Item73
+		{
+			position[]={10488,333.30042,10963.6};
+			name="d_sm_31_3";
+			type="Empty";
+			angle=227;
+		};
+		class Item74
+		{
+			position[]={10480.9,285.95969,10999.9};
+			name="d_sm_31_4";
+			type="Empty";
+			angle=216;
+		};
+		class Item75
+		{
+			position[]={10573.1,378.20099,10965.7};
+			name="d_sm_31_5";
+			type="Empty";
+			angle=144;
+		};
+		class Item76
+		{
+			position[]={10562.3,338.13919,10921.5};
+			name="d_sm_31_6";
+			type="Empty";
+			angle=220;
+		};
+		class Item77
+		{
+			position[]={8248.5498,448.0466,7783.1299};
+			name="d_sm_32";
+			type="Empty";
+		};
+		class Item78
+		{
+			position[]={8283.4004,544.35309,7785.0498};
+			name="d_sm_32_1";
+			type="Empty";
+		};
+		class Item79
+		{
+			position[]={8294.1602,610.89148,7750.21};
+			name="d_sm_32_2";
+			type="Empty";
+		};
+		class Item80
+		{
+			position[]={8262.4502,500.32999,7730.3999};
+			name="d_sm_32_3";
+			type="Empty";
+		};
+		class Item81
+		{
+			position[]={8231.7803,423.3252,7741.3701};
+			name="d_sm_32_4";
+			type="Empty";
+		};
+		class Item82
+		{
+			position[]={8197.7695,372.42401,7784.8999};
+			name="d_sm_32_5";
+			type="Empty";
+		};
+		class Item83
+		{
+			position[]={6091.8301,407.48059,1160.42};
+			name="d_sm_33";
+			type="Empty";
+		};
+		class Item84
+		{
+			position[]={6110.48,597.67987,1142.65};
+			name="d_sm_33_1";
+			type="Empty";
+		};
+		class Item85
+		{
+			position[]={6056.48,460.76959,1176.8};
+			name="d_sm_33_2";
+			type="Empty";
+		};
+		class Item86
+		{
+			position[]={6008.4702,369.83221,1170.24};
+			name="d_sm_33_3";
+			type="Empty";
+		};
+		class Item87
+		{
+			position[]={6023.4102,339.4567,1209.14};
+			name="d_sm_33_4";
+			type="Empty";
+		};
+		class Item88
+		{
+			position[]={6101.7598,297.14761,1206.12};
+			name="d_sm_33_5";
+			type="Empty";
+		};
+		class Item89
+		{
+			position[]={6166.8599,353.92319,5623.8501};
+			name="d_sm_36";
+			type="Empty";
+		};
+		class Item90
+		{
+			position[]={6188.98,493.48499,5644.1299};
+			name="d_sm_36_1";
+			type="Empty";
+		};
+		class Item91
+		{
+			position[]={6164.2598,595.79828,5688.6699};
+			name="d_sm_36_2";
+			type="Empty";
+		};
+		class Item92
+		{
+			position[]={6107.5498,636.76251,5660.7402};
+			name="d_sm_36_3";
+			type="Empty";
+		};
+		class Item93
+		{
+			position[]={6123.3701,580.44812,5614.48};
+			name="d_sm_36_4";
+			type="Empty";
+		};
+		class Item94
+		{
+			position[]={6117.23,408.67239,5555.6602};
+			name="d_sm_36_5";
+			type="Empty";
+		};
+		class Item95
+		{
+			position[]={9418.0801,499.7063,10004};
+			name="d_sm_4";
+			type="Empty";
+			angle=210;
+		};
+		class Item96
+		{
+			position[]={9395.7598,571.24902,10003.9};
+			name="d_sm_4_1";
+			type="Empty";
+		};
+		class Item97
+		{
+			position[]={9406.75,529.01801,10035};
+			name="d_sm_4_2";
+			type="Empty";
+		};
+		class Item98
+		{
+			position[]={8817.3496,131.4991,7138.3901};
+			name="d_sm_40";
+			type="Empty";
+		};
+		class Item99
+		{
+			position[]={6849.8701,632.33313,12312.2};
+			name="d_sm_41";
+			type="Empty";
+		};
+		class Item100
+		{
+			position[]={2135.8799,576.32178,10716.5};
+			name="d_sm_42";
+			type="Empty";
+		};
+		class Item101
+		{
+			position[]={8407.9404,111.2063,12438.6};
+			name="d_sm_44";
+			type="Empty";
+			angle=60;
+		};
+		class Item102
+		{
+			position[]={8467.4805,96.190941,12467.7};
+			name="d_sm_44_1";
+			type="Empty";
+		};
+		class Item103
+		{
+			position[]={4546.1401,252.3428,9396.79};
+			name="d_sm_46";
+			type="Empty";
+		};
+		class Item104
+		{
+			position[]={3289.8401,74.346863,11254.8};
+			name="d_sm_47";
+			type="Empty";
+		};
+		class Item105
+		{
+			position[]={2811.6899,208.3784,5931.73};
+			name="d_sm_49";
+			type="Empty";
+		};
+		class Item106
+		{
+			position[]={5037.5601,366.8212,6886.4902};
+			name="d_sm_5";
+			type="Empty";
+			angle=120;
+		};
+		class Item107
+		{
+			position[]={5532.2798,401.19641,11980.4};
+			name="d_sm_50";
+			type="Empty";
+		};
+		class Item108
+		{
+			position[]={1233.62,145.3436,2201.47};
+			name="d_sm_51";
+			type="Empty";
+		};
+		class Item109
+		{
+			position[]={10362.6,408.59229,8646.7305};
+			name="d_sm_52";
+			type="Empty";
+		};
+		class Item110
+		{
+			position[]={6582.6899,479.63309,6785.7402};
+			name="d_sm_6";
+			type="Empty";
+		};
+		class Item111
+		{
+			position[]={6578.1299,646.96118,6827.25};
+			name="d_sm_6_1";
+			type="Empty";
+		};
+		class Item112
+		{
+			position[]={6574.29,511.47989,6856.23};
+			name="d_sm_6_2";
+			type="Empty";
+		};
+		class Item113
+		{
+			position[]={1513.83,207.75211,8747.3604};
+			name="d_sm_7";
+			type="Empty";
+			angle=65;
+		};
+		class Item114
+		{
+			position[]={300.60901,343.1777,386.54099};
+			name="d_sm_8";
+			type="Empty";
+		};
+		class Item115
+		{
+			position[]={5843.75,509.64459,11336.1};
+			name="d_sm_9";
+			type="Empty";
+			angle=320;
+		};
+		class Item116
+		{
+			position[]={5755.54,658.67181,11334.7};
+			name="d_sm_9_1";
+			type="Empty";
+		};
+		class Item117
+		{
+			position[]={5793.1401,569.67023,11357.5};
+			name="d_sm_9_2";
+			type="Empty";
+		};
+		class Item118
+		{
+			position[]={5800.1401,471.67291,11296.1};
+			name="d_sm_9_3";
+			type="Empty";
+		};
+		class Item119
+		{
+			position[]={14036.12,166.6824,13515.29};
+			name="xr_playerparkmarker";
+			type="Empty";
+		};
+		class Item120
+		{
+			position[]={8180.4268,296.04001,1752.3551};
+			name="d_bonus_air_positions_3";
+			type="Empty";
+			angle=-27.133801;
+		};
+		class Item121
+		{
+			position[]={8314.3447,296.04001,1921.9968};
+			name="enemy_base_1";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorRed";
+			fillName="FDiagonal";
+			a=0;
+			b=0;
+			angle=-117.93375;
+		};
+		class Item122
+		{
+			position[]={8005.1509,296.04001,1966.7595};
+			name="marker1";
+			text="Ground Vehicle Service";
+			type="mil_dot";
+			colorName="ColorYellow";
+		};
+		class Item123
+		{
+			position[]={7719.5591,296.04001,1724.6003};
+			name="marker2";
+			text="Jet Service";
+			type="mil_dot";
+			colorName="ColorYellow";
+		};
+		class Item124
+		{
+			position[]={8075.7588,296.04001,1879.0649};
+			name="marker1_1";
+			text="Chopper Service";
+			type="mil_dot";
+			colorName="ColorYellow";
+		};
+		class Item125
+		{
+			position[]={7917.1768,296.04001,1783.9144};
+			name="marker1_2";
+			text="Wreck Repair";
+			type="mil_box";
+			colorName="ColorBrown";
+		};
+	};
+	class Sensors
+	{
+		items=3;
+		class Item0
+		{
+			position[]={8075.8267,296.10568,1878.9163};
+			a=5;
+			b=5;
+			angle=-88.504807;
+			activationBy="ANY";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			expCond="!(X_JIPH getVariable ""d_chopper_serviceH"") && (""Helicopter"" countType thislist  > 0) && count (thislist unitsBelowHeight 1) > 0";
+			expActiv="0 = [thislist] spawn x_reload;";
+			class Effects
+			{
+			};
+		};
+		class Item1
+		{
+			position[]={8005.0991,296.04001,1966.791};
+			a=5;
+			b=5;
+			angle=129.76685;
+			activationBy="ANY";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			expCond="(""LandVehicle"" countType thislist  > 0) && count (thislist unitsBelowHeight 1) > 0";
+			expActiv="0 = [thislist] spawn x_reload;";
+			class Effects
+			{
+			};
+		};
+		class Item2
+		{
+			position[]={7719.519,296.04001,1724.4996};
+			a=15;
+			b=19;
+			angle=-119.874;
+			rectangular=1;
+			activationBy="ANY";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="d_jet_trigger";
+			expCond="!(X_JIPH getVariable ""d_jet_serviceH"") && (""Plane"" countType thislist  > 0) && count (thislist unitsBelowHeight 1) > 0 && (speed (thislist select 0) < 10)";
+			expActiv="0 = [thislist] spawn x_reload;";
+			class Effects
+			{
+			};
+		};
+	};
 };
 class Intro
 {
-    addOns[]=
-    {
-        "takistan"
-    };
-    addOnsAuto[]=
-    {
-        "takistan"
-    };
-    randomSeed=9159841;
-    class Intel
-    {
-        startWeather=0.40000001;
-        forecastWeather=0.40000001;
-        year=2009;
-        day=28;
-        hour=16;
-        minute=20;
-    };
+	addOns[]=
+	{
+		"takistan"
+	};
+	addOnsAuto[]=
+	{
+		"takistan"
+	};
+	randomSeed=9159841;
+	class Intel
+	{
+		startWeather=0.40000001;
+		forecastWeather=0.40000001;
+		year=2009;
+		day=28;
+		hour=16;
+		minute=20;
+	};
 };
 class OutroWin
 {
-    addOns[]=
-    {
-        "takistan"
-    };
-    addOnsAuto[]=
-    {
-        "takistan"
-    };
-    randomSeed=2937899;
-    class Intel
-    {
-        startWeather=0.40000001;
-        forecastWeather=0.40000001;
-        year=2009;
-        day=28;
-        hour=16;
-        minute=20;
-    };
+	addOns[]=
+	{
+		"takistan"
+	};
+	addOnsAuto[]=
+	{
+		"takistan"
+	};
+	randomSeed=2937899;
+	class Intel
+	{
+		startWeather=0.40000001;
+		forecastWeather=0.40000001;
+		year=2009;
+		day=28;
+		hour=16;
+		minute=20;
+	};
 };
 class OutroLoose
 {
-    addOns[]=
-    {
-        "takistan"
-    };
-    addOnsAuto[]=
-    {
-        "takistan"
-    };
-    randomSeed=1128767;
-    class Intel
-    {
-        startWeather=0.40000001;
-        forecastWeather=0.40000001;
-        year=2009;
-        day=28;
-        hour=16;
-        minute=20;
-    };
+	addOns[]=
+	{
+		"takistan"
+	};
+	addOnsAuto[]=
+	{
+		"takistan"
+	};
+	randomSeed=1128767;
+	class Intel
+	{
+		startWeather=0.40000001;
+		forecastWeather=0.40000001;
+		year=2009;
+		day=28;
+		hour=16;
+		minute=20;
+	};
 };
