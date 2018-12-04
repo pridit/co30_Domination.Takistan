@@ -23,12 +23,15 @@ if (_rtype == 0) then { // player died
         setPlayerRespawnTime _trime;
     };
     _p = player;
-#ifdef __OA__
+    
     if (GVAR(WithRevive) == 1) then {
         __pSetVar [QGVAR(is_leader), if (player == leader (group player)) then {group player} else {objNull}];
     };
+    
     __TRACE("removing handleDamage eventhandlers");
+    
     player removeAllEventHandlers "handleDamage";
+    
     _oabackpackmags = [[],[]];
     _oabackpackweaps = [[],[]];
     _ubp = unitBackpack _p;
@@ -41,30 +44,13 @@ if (_rtype == 0) then { // player died
     __pSetVar [QGVAR(respawn_oabackpackmags), _oabackpackmags];
     __pSetVar [QGVAR(respawn_oabackpackweaps), _oabackpackweaps];
     __pSetVar [QGVAR(respawn_ubackp), _ubackp];
-#endif
 
-#ifdef __ACE__
-    _hasruck = false;
-    _ruckmags = [];
-    _ruckweapons = [];
-    if (_p call ace_sys_ruck_fnc_hasRuck) then {
-        _ruckmags = __pGetVar(ACE_RuckMagContents);
-        _hasruck = true;
-        _ruckweapons = __pGetVar(ACE_RuckWepContents);
-    };
-    _backwep = __pGetVar(ACE_weapononback);
-    _ident = __pGetVar(ACE_Identity);
-    __pSetVar [QGVAR(respawn_hasruck), _hasruck];
-    __pSetVar [QGVAR(respawn_ruckmags), _ruckmags];
-    __pSetVar [QGVAR(respawn_ruckweapons), _ruckweapons];
-    __pSetVar [QGVAR(respawn_backwep), _backwep];
-    __pSetVar [QGVAR(respawn_ident), _ident];
-#endif
     if (GVAR(weapon_respawn)) then {
         __pSetVar [QGVAR(respawn_weapons), weapons player];
         __pSetVar [QGVAR(respawn_magazines), magazines player];
         __pSetVar [QGVAR(respawn_items), items player];
     };
+    
     if (GVAR(WithBackpack)) then {
         _id = __pGetVar(GVAR(pbp_id));
         if (_id != -9999) then {
@@ -72,6 +58,7 @@ if (_rtype == 0) then { // player died
             __pSetVar [QGVAR(pbp_id), -9999];
         };
     };
+    
     if (!isNil QGVAR(action_menus_type) && {count GVAR(action_menus_type) > 0}) then {
         {
             _types = _x select 0;
@@ -120,9 +107,7 @@ if (_rtype == 0) then { // player died
     };
     xr_phd_invulnerable = true;
     __pSetVar ["ace_w_allow_dam", false];
-#ifdef __OA__
     removeBackpack player;
-#endif
     _p = player;
     if (GVAR(weapon_respawn)) then {
         removeAllItems _p;
@@ -157,19 +142,12 @@ if (_rtype == 0) then { // player died
         if (GVAR(WithBackpack) && {count __pGetVar(GVAR(custom_backpack)) > 0}) then {
             __pSetVar [QGVAR(player_backpack), [__pGetVar(GVAR(custom_backpack)) select 0, __pGetVar(GVAR(custom_backpack)) select 1]];
         };
-#ifdef __ACE__
-        if (!isNil QGVAR(custom_ruckbkw) && {typeName GVAR(custom_ruckbkw) == "STRING"}) then {_backwep = GVAR(custom_ruckbkw)};
-        if (!isNil QGVAR(custom_ruckmag) && {typeName GVAR(custom_ruckmag) == "ARRAY"}) then {_ruckmags = GVAR(custom_ruckmag)};
-        if (!isNil QGVAR(custom_ruckwep) && {typeName GVAR(custom_ruckwep) == "ARRAY"}) then {_ruckweapons = GVAR(custom_ruckwep)};
-        if (__pGetVar(GVAR(earwear)) && {!(_p hasWeapon "ACE_Earplugs")}) then {_p addWeapon "ACE_Earplugs"}
-#endif
         _primw = primaryWeapon _p;
         if (_primw != "") then {
             _p selectWeapon _primw;
             _muzzles = getArray(configFile>>"cfgWeapons" >> _primw >> "muzzles");
             _p selectWeapon (_muzzles select 0);
         };
-#ifdef __OA__
         _ubackp = __pGetVar(GVAR(respawn_ubackp));
         if (_ubackp != "") then {
             if (!isNull (unitBackpack _p)) then {removeBackpack _p};
@@ -190,24 +168,10 @@ if (_rtype == 0) then { // player died
                 {_bp addWeaponCargoGlobal [_x, _mcount select _forEachIndex]} forEach _weaps;
             };
         };
-#endif
     };
     "RadialBlur" ppEffectAdjust [0.0, 0.0, 0.0, 0.0];
     "RadialBlur" ppEffectCommit 0;
     "RadialBlur" ppEffectEnable false;
-#ifdef __ACE__
-    _hasruck = __pGetVar(GVAR(respawn_hasruck));
-    if (_hasruck) then {
-        _ruckmags = __pGetVar(GVAR(respawn_ruckmags));
-        _ruckweapons = __pGetVar(GVAR(respawn_ruckweapons));
-        if (!isNil "_ruckmags") then {__pSetVar ["ACE_RuckMagContents", _ruckmags]};
-        if (!isNil "_ruckweapons") then {__pSetVar ["ACE_RuckWepContents", _ruckweapons]};
-    };
-    _backwep = __pGetVar(GVAR(respawn_backwep));
-    if (!isNil "_backwep" && {(typeName _backwep) == "STRING"}) then {__pSetVar ["ACE_weapononback", _backwep]}};
-    ACE_MvmtFV = 0;ACE_FireFV = 0;ACE_WoundFV = 0;ACE_FV = 0;
-    ACE_Heartbeat = [0,20];ACE_Blackout = 0;ACE_Breathing = 0;
-#endif
 
     if ((GVAR(with_ai) || {GVAR(with_ai_features) == 0}) && {rating _p < 20000}) then {_p addRating 20000};
     if (GVAR(WithBackpack)) then {
@@ -259,9 +223,7 @@ if (_rtype == 0) then { // player died
         deleteVehicle ((_this select 1) select 1);
     };
     
-#ifndef __ACE__
     if (_p hasWeapon "NVGoggles" && {sunOrMoon == 0}) then {_p action ["NVGoggles",_p]};
-#endif
     0 spawn {
         scriptName "spawn_x_playerspawn_ident";
         private "_ident";
@@ -269,13 +231,6 @@ if (_rtype == 0) then { // player died
         sleep 5;
         xr_phd_invulnerable = false;
         __pSetVar ["ace_w_allow_dam", nil];
-#ifdef __ACE__
-        _ident = __pGetVar(GVAR(respawn_ident));
-        if (_ident != "") then {
-            if (isClass(configFile >> "CfgWeapons" >> _ident) && {!(player hasWeapon _ident)}) then {player addWeapon _ident};
-            [player, _ident] execFSM '\x\ace\addons\sys_goggles\use_glasses.fsm';
-        };
-#endif
     };
     if (GVAR(WithRevive) == 1 && {!isNull __pGetVar(GVAR(is_leader))}) then {
         [QGVAR(grpl), [__pGetVar(GVAR(is_leader)), player]] call FUNC(NetCallEventSTO);

@@ -592,36 +592,8 @@ __pSetVar [QGVAR(isinaction), false];
 
 __cppfln(FUNC(spawn_mash),x_client\x_mash.sqf);
 __cppfln(FUNC(spawn_mgnest),x_client\x_mgnest.sqf);
-
-//__cppfln(FUNC(3DCredits),scripts\fn_3dcredits.sqf);
 __cppfln(FUNC(DirIndicator),scripts\fn_dirindicator.sqf);
 __cppfln(FUNC(Sandstorm),scripts\fn_sandstorm.sqf);
-
-/* 3D credits don't work anyway currently
-#ifndef __TT__
-[(localize "STR_DOM_MISSIONSTRING_524") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_525") + "</t>", position GVAR(vecre_trigger), 30, 0] spawn FUNC(3DCredits);
-[(localize "STR_DOM_MISSIONSTRING_526") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_527") + "</t>", position GVAR(jet_trigger), 30, 0] spawn FUNC(3DCredits);
-[(localize "STR_DOM_MISSIONSTRING_528") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_529") + "</t>", position GVAR(chopper_trigger), 30, 0] spawn FUNC(3DCredits);
-[(localize "STR_DOM_MISSIONSTRING_0") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_530") + "</t>", position GVAR(wreck_rep), 30, 0] spawn FUNC(3DCredits);
-if (isNil QGVAR(with_carrier)) then {
-    [(localize "STR_DOM_MISSIONSTRING_531") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_532") + "</t>", position GVAR(AMMOLOAD), 30, 0] spawn FUNC(3DCredits);
-};
-#else
-if (GVAR(player_side) == west) then {
-    [(localize "STR_DOM_MISSIONSTRING_524") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_525") + "</t>", position GVAR(vecre_trigger), 30, 0] spawn FUNC(3DCredits);
-    [(localize "STR_DOM_MISSIONSTRING_526") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_527") + "</t>", position GVAR(jet_trigger), 30, 0] spawn FUNC(3DCredits);
-    [(localize "STR_DOM_MISSIONSTRING_528") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_529") + "</t>", position GVAR(chopper_trigger), 30, 0] spawn FUNC(3DCredits);
-    [(localize "STR_DOM_MISSIONSTRING_0") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_530") + "</t>", position GVAR(wreck_rep), 30, 0] spawn FUNC(3DCredits);
-    [(localize "STR_DOM_MISSIONSTRING_531") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_532") + "</t>", position GVAR(AMMOLOAD), 30, 0] spawn FUNC(3DCredits);
-} else {
-    [(localize "STR_DOM_MISSIONSTRING_524") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_525") + "</t>", position GVAR(vecre_trigger2), 30, 0] spawn FUNC(3DCredits);
-    [(localize "STR_DOM_MISSIONSTRING_526") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_527") + "</t>", position GVAR(jet_trigger2), 30, 0] spawn FUNC(3DCredits);
-    [(localize "STR_DOM_MISSIONSTRING_528") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_529") + "</t>", position GVAR(chopper_triggerR), 30, 0] spawn FUNC(3DCredits);
-    [(localize "STR_DOM_MISSIONSTRING_0") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_530") + "</t>", position GVAR(wreck_rep2), 30, 0] spawn FUNC(3DCredits);
-    [(localize "STR_DOM_MISSIONSTRING_531") + "<br/><t size='0.6'>" + (localize "STR_DOM_MISSIONSTRING_532") + "</t>", position GVAR(AMMOLOAD2), 30, 0] spawn FUNC(3DCredits);
-};
-#endif
-*/
 
 diag_log ["Internal D Version:",__DOM_NVER_STR2__];
 
