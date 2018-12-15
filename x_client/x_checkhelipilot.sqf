@@ -12,13 +12,7 @@ _vehicle = _listin select 0;
 _position = _listin select 1;
 
 if (_position == "driver" && {_enterer == player}) then {
-    if (_no_lift == 0) then {
-        if (GVAR(chophud_on)) then {
-            __pSetVar [QGVAR(hud_id), _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_176") call FUNC(GreyText), "x_client\x_sethud.sqf",0,-1,false]];
-        } else {
-            __pSetVar [QGVAR(hud_id), _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_177") call FUNC(GreyText), "x_client\x_sethud.sqf",1,-1,false]];
-        };
-        
+    if (_no_lift == 0) then {        
         [_vehicle] execVM "x_client\x_helilift.sqf";
     };
 };
