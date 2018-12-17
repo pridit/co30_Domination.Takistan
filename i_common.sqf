@@ -48,45 +48,16 @@ GVAR(doRespawnGroups) =
 #endif
 
 // WEST, EAST or GUER for own side, setup in x_setup.sqf
-#ifdef __OWN_SIDE_WEST__
 GVAR(own_side) = "WEST";
 GVAR(enemy_side) = "EAST";
-#endif
-#ifdef __OWN_SIDE_EAST__
-GVAR(own_side) = "EAST";
-GVAR(enemy_side) = "WEST";
-#endif
-#ifdef __OWN_SIDE_GUER__
-GVAR(own_side) = "GUER";
-GVAR(enemy_side) = "EAST";
-#endif
-#ifdef __TT__
-GVAR(enemy_side) = "GUER";
-GVAR(own_side) = "WEST";
-#endif
 
 // setup in x_setup.sqf
 GVAR(version) = [];
 #define __adddv(dtype) GVAR(version) set [count GVAR(version), #dtype]
-#ifdef __OA__
 __adddv(OA);
 GVAR(COVer) = false;
-#endif
-#ifdef __CO__
-__adddv(CO);
-GVAR(COVer) = true;
-#endif
 if (GVAR(with_ai)) then {__adddv(AI)};
-#ifdef __TT__
-__adddv(TT);
-#endif
-#ifdef __ACE__
-__adddv(ACE);
-if (GVAR(WithWounds) == 0) then {
-    __adddv(WOUNDS);
-    GVAR(WithRevive) = 1;
-};
-#endif
+
 if (GVAR(with_ranked)) then {__adddv(RANKED)};
 if (GVAR(WithRevive) == 0) then {__adddv(REVIVE)};
 
@@ -169,94 +140,19 @@ if (!GVAR(dom4)) then {
 // } forEach GVAR(target_names);
 #endif
 
-GVAR(side_enemy) = switch (GVAR(enemy_side)) do {
-    case "EAST": {east};
-    case "WEST": {west};
-    case "GUER": {resistance};
-};
+GVAR(side_enemy) = west;
+GVAR(side_player) = west;
+GVAR(ai_enemy_sides) = [east];
 
-GVAR(side_player) =
-#ifdef __OWN_SIDE_EAST__
-    east;
-#endif
-#ifdef __OWN_SIDE_WEST__
-    west;
-#endif
-#ifdef __OWN_SIDE_GUER__
-    resistance;
-#endif
-#ifdef __TT__
-    west;
-#endif
+GVAR(side_player_str) = "west";
+GVAR(own_side_trigger) = "WEST";
 
-GVAR(side_player_str) =
-#ifdef __OWN_SIDE_EAST__
-    "east";
-#endif
-#ifdef __OWN_SIDE_WEST__
-    "west";
-#endif
-#ifdef __OWN_SIDE_GUER__
-    "guerrila";
-#endif
-#ifdef __TT__
-    "west";
-#endif
-
-GVAR(own_side_trigger) =
-#ifdef __OWN_SIDE_EAST__
-    "EAST";
-#endif
-#ifdef __OWN_SIDE_WEST__
-    "WEST";
-#endif
-#ifdef __OWN_SIDE_GUER__
-    "GUER";
-#endif
-#ifdef __TT__
-    "WEST";
-#endif
-
-GVAR(ai_enemy_sides) =
-#ifdef __OWN_SIDE_EAST__
-    [west];
-#endif
-#ifdef __OWN_SIDE_WEST__
-    [east];
-#endif
-#ifdef __OWN_SIDE_GUER__
-    [east];
-#endif
-#ifdef __TT__
-    [east,west];
-#endif
-
-#ifdef __OA__
 GVAR(rep_truck_west) = "MtvrRepair_DES_EP1";
 GVAR(rep_truck_east) = "UralRepair_TK_EP1";
-#endif
-#ifdef __CO__
-GVAR(rep_truck_west) = "MtvrRepair";
-GVAR(rep_truck_east) = "KamazRepair";
-#endif
 
-#ifndef __TT__
 GVAR(rep_truck) = if (GVAR(enemy_side) == "EAST") then {GVAR(rep_truck_west)} else {GVAR(rep_truck_east)};
-#endif
 
-GVAR(version_string) =
-#ifdef __OWN_SIDE_EAST__
-    "East";
-#endif
-#ifdef __OWN_SIDE_WEST__
-    "West";
-#endif
-#ifdef __OWN_SIDE_GUER__
-    "Guer";
-#endif
-#ifdef __TT__
-    "Two Teams";
-#endif
+GVAR(version_string) = "West";
 
 //default flag GUER
 #ifdef __OWN_SIDE_WEST__
@@ -270,25 +166,7 @@ switch (true) do {
 #endif
 
 if (GVAR(with_mgnest)) then {
-    GVAR(mg_nest) = 
-#ifdef __OWN_SIDE_GUER__
-    "GUE_WarfareBMGNest_PK";
-#endif
-#ifdef __OWN_SIDE_EAST__
-    switch (true) do {
-        case (__OAVer): {"WarfareBMGNest_PK_TK_EP1"};
-        case (__COVer): {"RU_WarfareBMGNest_PK"};
-    };
-#endif
-#ifdef __OWN_SIDE_WEST__
-    switch (true) do {
-        case (__OAVer): {"WarfareBMGNest_M240_US_EP1"};
-        case (__COVer): {"USMC_WarfareBMGNest_M240"};
-    };
-#endif
-#ifdef __TT__
-    "";
-#endif
+    GVAR(mg_nest) = "WarfareBMGNest_M240_US_EP1";
 };
 
 GVAR(sm_bonus_vehicle_array) = (
@@ -324,28 +202,6 @@ GVAR(sm_bonus_vehicle_array) = (
                     ["Su34","Ka52","Ka52Black","Mi24_P","Mi24_V","Su39","T72_RU","2S6M_Tunguska","T90"]
                 };
             }
-        };
-    }
-#endif
-#ifdef __TT__
-    switch (true) do {
-        case (__OAVer): {
-            [
-                ["A10_US_EP1","AH64D_EP1","AH6J_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1","M6_EP1"],
-                ["Su25_TK_EP1","L39_TK_EP1","Mi24_D_TK_EP1","T72_TK_EP1","T55_TK_EP1","ZSU_TK_EP1"]
-            ]
-        };
-        case (__ACEVer): {
-            [
-                ["A10","AH1Z","UH1Y","AV8B","AV8B2", "F35B", "M1A2_TUSK_MG","M1A1", "AH64D", "ACE_Stryker_MGS_Slat" ,"ACE_Stryker_TOW","ACE_Stryker_TOW_MG","ACE_AH6_GAU19","ACE_AH6","ACE_AH1W_AGM_W","ACE_AH1W_AGM_D","ACE_M2A2_W","ACE_M2A2_D","ACE_M6A1_W","ACE_M6A1_D","ACE_AH1Z_AGM_D","ACE_AH1Z_AGM_AGM_D","ACE_AH1Z_AGM_AGM_W","ACE_M1A1HC_DESERT"],
-                ["Su34","Ka52","Ka52Black","Mi24_P","Mi24_V","Su39","T72_RU","2S6M_Tunguska","T90","ACE_T72B_RU","ACE_T72BA_RU","ACE_Su27_CAP","ACE_Su27_CAS","ACE_Su27_CASP"]
-            ]
-        };
-        case (__COVer): {
-            [
-                ["A10","AH1Z","UH1Y","AV8B","AV8B2", "F35B", "M1A2_TUSK_MG","M1A1","AH64D"],
-                ["Su34","Ka52","Ka52Black","Mi24_P","Mi24_V","Su39","T72_RU","2S6M_Tunguska","T90"]
-            ]
         };
     }
 #endif
@@ -389,28 +245,6 @@ switch (GVAR(own_side)) do {
                 ["BMP3","BTR90","GAZ_Vodnik","GAZ_Vodnik_HMG","UAZ_AGS30_RU"]
             };
         };
-    };
-};
-#endif
-#ifdef __TT__
-switch (true) do {
-    case (__OAVer): {
-        [
-            ["M1126_ICV_M2_EP1","M1126_ICV_mk19_EP1","M1128_MGS_EP1","M1129_MC_EP1","M1135_ATGMV_EP1","M2A2_EP1","M2A3_EP1","HMMWV_M1151_M2_DES_EP1","HMMWV_M1151_M2_DES_EP1","HMMWV_M998_crows_M2_DES_EP1","HMMWV_M998_crows_MK19_DES_EP1","HMMWV_M998A2_SOV_DES_EP1","HMMWV_MK19_DES_EP1","HMMWV_TOW_DES_EP1","HMMWV_M1151_M2_CZ_DES_EP1","LandRover_Special_CZ_EP1"],
-            ["BMP2_TK_EP1","BRDM2_ATGM_TK_EP1","BRDM2_TK_EP1","BTR60_TK_EP1","M113_TK_EP1","LandRover_MG_TK_EP1","LandRover_SPG9_TK_EP1","UAZ_AGS30_TK_EP1","UAZ_MG_TK_EP1","Ural_ZU23_TK_EP1"]
-        ]
-    };
-    case (__ACEVer): {
-        [
-            ["AAV","LAV25","HMMWV_M2","HMMWV_MK19","HMMWV_TOW","HMMWV_Avenger", "ACE_Stryker_ICV_M2", "ACE_Stryker_ICV_M2_SLAT","ACE_Stryker_ICV_MK19","ACE_Stryker_ICV_MK19_SLAT","ACE_Stryker_RV","ACE_M113A3","ACE_Vulcan","ACE_HMMWV_GMV","ACE_HMMWV_GMV_MK19"],
-            ["BMP3","BTR90","GAZ_Vodnik","GAZ_Vodnik_HMG","UAZ_AGS30_RU","ACE_BMP2D_RU","ACE_BRDM2_ATGM_RU","ACE_BRDM2_RU","ACE_Ural_ZU23_RU","ACE_BRDM2_SA9_RU","ACE_Offroad_SPG9_INS"]
-        ]
-    };
-    case (__COVer): {
-        [
-            ["AAV","LAV25","HMMWV_M2","HMMWV_MK19","HMMWV_TOW","HMMWV_Avenger"],
-            ["BMP3","BTR90","GAZ_Vodnik","GAZ_Vodnik_HMG","UAZ_AGS30_RU"]
-        ]
     };
 };
 #endif
@@ -535,45 +369,16 @@ GVAR(objectID2) = objNull;
 
 if (isServer) then {
     MEDIC_TENT1 addEventHandler ["handleDamage", {0}];
-    AMMOBUILDING addEventHandler ["handleDamage", {0}];
     MEDIC_TENT2 addEventHandler ["handleDamage", {0}];
-    #ifndef __TT__
     WALL1 addEventHandler ["handleDamage", {0}];
     WALL2 addEventHandler ["handleDamage", {0}];
     WALL3 addEventHandler ["handleDamage", {0}];
-    #else
-    AMMOBUILDING2 addEventHandler ["handleDamage", {0}];
-    #endif
 };
 
-#ifndef __TT__
-GVAR(player_entities) =  switch (true) do {
-    case (__OAVer): {
-        ["RESCUE","RESCUE2","alpha_1","alpha_2","alpha_3","alpha_4","alpha_5","alpha_6","alpha_7","alpha_8","bravo_1","bravo_2","bravo_3","bravo_4","bravo_5","bravo_6","bravo_7","bravo_8","charlie_1","charlie_2","charlie_3","charlie_4","charlie_5","charlie_6","charlie_7","charlie_8","delta_1","delta_2","delta_3","delta_4","delta_5","delta_6","echo_1","echo_2","echo_3","echo_4","echo_5","echo_6","echo_7","echo_8"]
-    };
-    case (__ACEVer): {
-        ["RESCUE","RESCUE2","alpha_1","alpha_2","alpha_3","alpha_4","alpha_5","alpha_6","alpha_7","alpha_8","bravo_1","bravo_2","bravo_4","bravo_5","bravo_6","bravo_7","bravo_8","charlie_1","charlie_2","charlie_4","charlie_5","charlie_6","charlie_7","charlie_8","delta_1","delta_2","delta_3","delta_4","delta_5","echo_1","echo_2","echo_4","echo_5","echo_6","echo_7","echo_8","pilot_1","pilot_2","pilot_3","pilot_4"]
-    };
-    case (__COVer): {
-        ["RESCUE","RESCUE2","alpha_1","alpha_2","alpha_3","alpha_4","alpha_5","alpha_6","alpha_7","alpha_8","bravo_1","bravo_2","bravo_3","bravo_4","bravo_5","bravo_6","bravo_7","bravo_8","charlie_1","charlie_2","charlie_3","charlie_4","charlie_5","charlie_6","charlie_7","charlie_8","delta_1","delta_2","delta_3","delta_4","delta_5","delta_6","echo_1","echo_2","echo_3","echo_4","echo_5","echo_6","echo_7","echo_8"]
-    };
-};
-#else
-GVAR(entities_tt_west) = ["RESCUE","west_1","west_2","west_3","west_4","west_5","west_6","west_7","west_8","west_9","west_10","west_11","west_12","west_13","west_14","west_15","west_16","west_17","west_18","west_19"];
-GVAR(entities_tt_east) = ["RESCUE2","east_1","east_2","east_3","east_4","east_5","east_6","east_7","east_8","east_9","east_10","east_11","east_12","east_13","east_14","east_15","east_16","east_17","east_18","east_19"];
-#endif
+GVAR(player_entities) = ["RESCUE","RESCUE2","alpha_1","alpha_2","alpha_3","alpha_4","alpha_5","alpha_6","alpha_7","alpha_8","bravo_1","bravo_2","bravo_3","bravo_4","bravo_5","bravo_6","bravo_7","bravo_8","charlie_1","charlie_2","charlie_3","charlie_4","charlie_5","charlie_6","charlie_7","charlie_8","delta_1","delta_2","delta_3","delta_4","delta_5","delta_6","echo_1","echo_2","echo_3","echo_4","echo_5","echo_6","echo_7","echo_8"];
+
 if (!isDedicated) then {
-    GVAR(player_roles) = switch (true) do {
-        case (__OAVer): {
-            ["PLT LD","PLT SGT","SL","SN","MG","AT","GL","CM","AR","AM","TL","OP","GL","MG","MM","CM","GL","DS","SL","SN","AR","AT","RM","CM","MG","AT","EN","EN","EN","EN","EN","EN","SL","SN","AR","AT","RM","CM","MG","AT"]
-        };
-        case (__ACEVer): {
-            ["PLT LD","PLT SGT","SL","SN","MG","AT","GL","CM","AR","AM","TL","OP","MG","MM","CM","GL","DS","SL","SN","AR","AT","RM","CM","AT","EN","EN","EN","EN","EN","SL","SN","AT","RM","CM","MG","AT","PL","PL","PL","PL"]
-        };
-        case (__COVer): {
-            ["PLT LD","PLT SGT","SL","SN","MG","AT","GL","CM","AR","AM","TL","OP","GL","MG","MM","CM","GL","DS","SL","SN","AR","AT","RM","CM","MG","AT","EN","EN","EN","EN","EN","EN","SL","SN","AR","AT","RM","CM","MG","AT"]
-        };
-    };
+    GVAR(player_roles) = ["PLT LD","PLT SGT","SL","SN","MG","AT","GL","CM","AR","AM","TL","OP","GL","MG","MM","CM","GL","DS","SL","SN","AR","AT","RM","CM","MG","AT","EN","EN","EN","EN","EN","EN","SL","SN","AR","AT","RM","CM","MG","AT"];
 };
 
 // position base, a,b, for the enemy at base trigger and marker
@@ -601,20 +406,6 @@ GVAR(base_array) = [
 ];
 #endif
 
-#ifdef __TT__
-GVAR(tt_points) = [
-    30, // points for the main target winner team
-    7, // points if draw (main target)
-    15, // points for destroying main target radio tower
-    5, // points for main target mission
-    10, // points for sidemission
-    5, // points for capturing a camp (main target)
-    10, // points that get subtracted when loosing a mt camp again
-    4, // points for destroying a vehicle of the other team
-    2 // points for killing a member of the other team
-];
-#endif
-
 // position of radar and anti air at own base
 #ifdef __DEFAULT__
 _mpos = markerPos QGVAR(base_radar_pos);
@@ -634,39 +425,15 @@ if (GVAR(sub_kill_points) != 0) then {
     GVAR(sub_kill_points) = GVAR(sub_kill_points) * -1;
 };
 
-#ifdef __OA__
 GVAR(WarfareAircraftFactory_East) = "TK_WarfareBAircraftFactory_EP1";
 GVAR(WarfareAircraftFactory_West) = "US_WarfareBAircraftFactory_EP1";
 GVAR(WarfareAircraftFactory_Guer) = "TK_GUE_WarfareBAircraftFactory_EP1";
-#endif
-#ifdef __CO__
-GVAR(WarfareAircraftFactory_East) = "RU_WarfareBAircraftFactory";
-GVAR(WarfareAircraftFactory_West) = "USMC_WarfareBAircraftFactory";
-GVAR(WarfareAircraftFactory_Guer) = "GUE_WarfareBAircraftFactory";
-#endif
 
-#ifdef __OA__
 GVAR(illum_tower) = "Land_Ind_IlluminantTower";
 GVAR(wcamp) = "Land_fortified_nest_big_EP1";
-#endif
-#ifdef __CO__
-GVAR(illum_tower) = "Land_telek1";
-GVAR(wcamp) = "WarfareBCamp";
-#endif
 
-#ifdef __OA__
 GVAR(ProtectionZone) = "ProtectionZone_Ep1";
-#endif
-#ifdef __CO__
-GVAR(ProtectionZone) = "ProtectionZone_Ep1";
-#endif
 
-GVAR(mash) =
-#ifdef __CO__
-"Mash";
-#endif
-#ifdef __OA__
-"MASH_EP1";
-#endif
+GVAR(mash) = "MASH_EP1";
 
 GVAR(dropped_box_marker) = "mil_marker";

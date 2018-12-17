@@ -1076,58 +1076,5 @@ FUNC(squadmgmtlbchanged) = {
     };
 };
 
-if (GVAR(domdatabase)) then {
-    FUNC(requestPlayerStats) = {
-        if (isNil QGVAR(pstatsreceived)) then {GVAR(pstatsreceived) = true};
-        if (!GVAR(pstatsreceived)) exitWith {
-            (localize "STR_DOM_MISSIONSTRING_1441") call FUNC(GlobalChat);
-        };
-        GVAR(pstatsreceived) = false;
-        (localize "STR_DOM_MISSIONSTRING_1442") call FUNC(GlobalChat);
-        [QGVAR(reqps), player] call FUNC(NetCallEventCTS);
-        0 spawn {
-            scriptName "spawn_d_fnc_requestPlayerStats";
-            private ["_timeend"];
-            _timeend = time + 30;
-            waitUntil {time > _timeend || {GVAR(pstatsreceived)}};
-            if (!GVAR(pstatsreceived) && {time > _timeend}) then {
-                (localize "STR_DOM_MISSIONSTRING_1443") call FUNC(GlobalChat);
-            };
-            GVAR(pstatsreceived) = true;
-        };
-    };
     
-    FUNC(CreatePStatsDialog) = {
-        private ["_pstats", "_disp"];
-        GVAR(pstatsreceived) = true;
-        if (!alive player) exitWith {};
-        _pstats = _this select 1;
-        __TRACE_1("CreatePStatsDialog","_pstats")
-        (localize "STR_DOM_MISSIONSTRING_1444") call FUNC(GlobalChat);
-        createDialog "XD_PlayerStatsDialog";
-        
-        _disp = __uiGetVar(D_PSTATS_DLG);
-        CTRL(1200) ctrlSetText (name player);
-        CTRL(1201) ctrlSetText (getPlayerUID player);
-        if (!isNil QGVAR(server_name)) then {
-            CTRL(1202) ctrlSetText GVAR(server_name);
-        } else {
-            CTRL(1202) ctrlSetText ("<" + (localize "STR_DOM_MISSIONSTRING_1445") + ">");
-        };
-        CTRL(1203) ctrlSetText str(_pstats select 14);
-        CTRL(1204) ctrlSetText ((_pstats select 15) call FUNC(ConvertTime));
-        CTRL(1215) ctrlSetText str(_pstats select 17);
-        CTRL(1205) ctrlSetText str(_pstats select 19);
-        CTRL(1206) ctrlSetText str(_pstats select 20);
-        CTRL(1207) ctrlSetText str(_pstats select 21);
-        CTRL(1208) ctrlSetText str(_pstats select 22);
-        CTRL(1209) ctrlSetText str(_pstats select 23);
-        CTRL(1210) ctrlSetText str(_pstats select 24);
-        CTRL(1211) ctrlSetText str(_pstats select 25);
-        CTRL(1212) ctrlSetText str(_pstats select 26);
-        CTRL(1213) ctrlSetText str(_pstats select 27);
-        CTRL(1214) ctrlSetText str(_pstats select 29);
-        
-        // TODO: add sidemissions to player stats (treat it somehow, but how...)
-    };
 };

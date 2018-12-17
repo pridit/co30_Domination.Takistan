@@ -71,17 +71,7 @@ if (!alive player) exitWith {
 
 _dir_to_set = getdir player;
 
-#ifndef __CO__
-_farptype = switch (GVAR(player_side)) do {
-    case west: {"US_WarfareBVehicleServicePoint_Base_EP1"};
-    case east: {"TK_WarfareBVehicleServicePoint_Base_EP1"};
-};
-#else
-_farptype = switch (GVAR(player_side)) do {
-    case west: {"USMC_WarfareBVehicleServicePoint"};
-    case east: {"RU_WarfareBVehicleServicePoint"};
-};
-#endif
+_farptype = "US_WarfareBVehicleServicePoint_Base_EP1";
 
 _farp = createVehicle [_farptype, _d_farp_pos, [], 0, "NONE"];
 _farp setdir _dir_to_set;

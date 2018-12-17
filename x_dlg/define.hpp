@@ -99,17 +99,10 @@ class RscButton {
     colorShadow[] = {0, 1, 0, 0};
     colorBorder[] = {0, 1, 0, 0};
     font = FontM;
-#ifndef __TOH__
     soundEnter[] = {"\ca\ui\data\sound\mouse2", 0.2, 1};
     soundPush[] = {"\ca\ui\data\sound\new1", 0.2, 1};
     soundClick[] = {"\ca\ui\data\sound\mouse3", 0.2, 1};
     soundEscape[] = {"\ca\ui\data\sound\mouse1", 0.2, 1};
-#else
-    soundEnter[] = {"\HSim\UI_H\data\sound\onover",0.09,1};
-    soundPush[] = {"\HSim\UI_H\data\sound\new1",0.0,0};
-    soundClick[] = {"\HSim\UI_H\data\sound\onclick",0.07,1};
-    soundEscape[] = {"\HSim\UI_H\data\sound\onescape",0.09,1};
-#endif
     sizeEx = 0.02;
     offsetX=0;
     offsetY=0;
@@ -803,17 +796,10 @@ class XD_ButtonBase {
     size = 0.03921;
     sizeEx = 0.03921;
     text = "";
-#ifndef __TOH__
     soundEnter[] = {"\ca\ui\data\sound\mouse2", 0.2, 1};
     soundPush[] = {"\ca\ui\data\sound\new1", 0.2, 1};
     soundClick[] = {"\ca\ui\data\sound\mouse3", 0.2, 1};
     soundEscape[] = {"\ca\ui\data\sound\mouse1", 0.2, 1};
-#else
-    soundEnter[] = {"\HSim\UI_H\data\sound\onover",0.09,1};
-    soundPush[] = {"\HSim\UI_H\data\sound\new1",0.0,0};
-    soundClick[] = {"\HSim\UI_H\data\sound\onclick",0.07,1};
-    soundEscape[] = {"\HSim\UI_H\data\sound\onescape",0.09,1};
-#endif
     action = "";
     class AttributesImage {
         font = "Zeppelin32";
@@ -842,17 +828,10 @@ class XD_LinkButtonBase {
     colorShadow[] = {1, 1, 1, 0};
     colorBorder[] = {1, 1, 1, 0};
     borderSize = 0;
-#ifndef __TOH__
     soundEnter[] = {"\ca\ui\data\sound\mouse2", 0.2, 1};
     soundPush[] = {"\ca\ui\data\sound\new1", 0.2, 1};
     soundClick[] = {"\ca\ui\data\sound\mouse3", 0.2, 1};
     soundEscape[] = {"\ca\ui\data\sound\mouse1", 0.2, 1};
-#else
-    soundEnter[] = {"\HSim\UI_H\data\sound\onover",0.09,1};
-    soundPush[] = {"\HSim\UI_H\data\sound\new1",0.0,0};
-    soundClick[] = {"\HSim\UI_H\data\sound\onclick",0.07,1};
-    soundEscape[] = {"\HSim\UI_H\data\sound\onescape",0.09,1};
-#endif
     x = 0.06; y = 0.11;
     w = 0.15; h = 0.1;
     text = "";

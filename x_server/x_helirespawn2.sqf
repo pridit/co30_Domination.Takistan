@@ -74,11 +74,7 @@ while {true} do {
             _vehicle = objNull;
             _vehicle = createVehicle [_vec_a select 6, _vec_a select 4, [], 0, "NONE"];
             _vehicle setdir (_vec_a select 5);
-#ifndef __CARRIER__
             _vehicle setpos (_vec_a select 4);
-#else
-            _vehicle setPosASL [(_vec_a select 4) select 0, (_vec_a select 4) select 1, 15.9];
-#endif
             
             _vehicle setVariable [QGVAR(vec_islocked), _isitlocked];
             if (_isitlocked) then {_vehicle lock true};
@@ -92,14 +88,6 @@ while {true} do {
             _vehicle setVariable [QGVAR(vec), _number_v, true];
             [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
             _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(fuelCheck)}}];
-            
-#ifdef __TT__
-            if (_number_v < 400) then {
-                _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(checkveckillwest)}}];
-            } else {
-                _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(checkveckilleast)}}];
-            };
-#endif
         };
     } forEach _heli_array;
     sleep 20 + random 5;
