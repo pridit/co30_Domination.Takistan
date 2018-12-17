@@ -145,5 +145,3 @@ call compile (toString _reducegrdefar);
 // };
 
 // [[0,0,0], [0, 0, 0, false], ["NONE", "PRESENT", false], ["call d_fnc_startServerScripts;false", "", ""]] call FUNC(CreateTrigger);
-
-__ccppfln(x_servercustomcode.sqf);

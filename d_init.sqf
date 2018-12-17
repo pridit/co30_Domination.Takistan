@@ -480,6 +480,4 @@ if (!isMultiplayer && {!isDedicated}) then {
     GVAR(player_store) setVariable ["", GVAR(player_stuff)];
 };
 
-#include "x_commoncustomcode.sqf";
-
 diag_log [diag_frameno, diag_ticktime, time, "Dom d_init.sqf processed"];

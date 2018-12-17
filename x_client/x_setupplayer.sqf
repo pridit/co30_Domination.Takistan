@@ -1414,8 +1414,6 @@ FUNC(startClientScripts) = {
 
 [_pos, [0, 0, 0, false], ["NONE", "PRESENT", false], ["call d_fnc_startClientScripts;false", "", ""]] call FUNC(CreateTrigger);
 
-__ccppfln(x_clientcustomcode.sqf);
-
 if (isMultiplayer) then {execVM "x_client\x_intro.sqf"};
 
 deleteVehicle GVAR(client_init_trig);
