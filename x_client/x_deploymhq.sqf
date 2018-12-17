@@ -8,11 +8,6 @@ if (!alive player) exitWith {};
 if (isNil QGVAR(curvec_dialog)) exitWith {};
 if (isNull GVAR(curvec_dialog)) exitWith {};
 if (!alive GVAR(curvec_dialog)) exitWith {};
-#ifdef __ACE__
-if (!(if (!isNil {GV(GVAR(curvec_dialog),ace_canmove)}) then {GVAR(curvec_dialog) call ace_v_alive} else {true})) exitWith {
-    (localize "STR_DOM_MISSIONSTRING_211") call FUNC(GlobalChat)
-};
-#endif
 
 _isthere = true;
 _nmhq = nearestObject [player, "LandVehicle"];

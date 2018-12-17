@@ -11,11 +11,6 @@ disableSerialization;
 PARAMS_2(_vec,_caller);
 
 if (!alive _vec) exitWith {};
-#ifdef __ACE__
-if (!(if (!isNil {GV(_vec,ace_canmove)}) then {_vec call ace_v_alive} else {true})) exitWith {
-    (localize "STR_DOM_MISSIONSTRING_211") call FUNC(GlobalChat)
-};
-#endif
 
 GVAR(curvec_dialog) = _vec;
 

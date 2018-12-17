@@ -60,17 +60,6 @@ FUNC(GetConfigGroup) = {
     _ret
 };
 
-#ifdef __ACE__
-FUNC(GetAltTankStatus) = {
-    private ["_c", "_s"];
-    _c = GV2(_this,"ace_canmove");
-    if (isNil "_c") then {_c = true};
-    _s = GV2(_this,"ace_canshoot");
-    if (isNil "_s") then {_s = true};
-    (!_s && {!_c})
-};
-#endif
-
 // direction from one object to another
 // parameters: object1, object2
 // example: _dir = [tank1, apc1] call FUNC(DirToObj);

@@ -24,8 +24,6 @@ if (isClass (configFile >> "CfgPatches" >> "dayz")) exitWith {
     endMission "LOSER";
 };
 
-GVAR(ace_enabled) = isClass (configFile >> "CfgPatches" >> "ace_main");
-
 GVAR(with_dlc) =
 #ifdef __DLC__
     true;
@@ -65,7 +63,6 @@ GVAR(v_marker_dirs) = (GVAR(v_marker_dirs) == 0);
 
 GVAR(with_mgnest) = (GVAR(with_mgnest) == 0);
 GVAR(with_medtent) = (GVAR(with_medtent) == 0);
-GVAR(WithAcre) = (GVAR(WithAcre) == 0);
 GVAR(with_ai) = (GVAR(with_ai) == 0);
 
 GVAR(random_sm_array) = (GVAR(random_sm_array) == 0);

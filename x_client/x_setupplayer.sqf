@@ -37,9 +37,6 @@ FUNC(GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
 FUNC(RedText) = {"<t color='#f0ff0000'>" + _this + "</t>"};
 FUNC(BlueText) = {"<t color='#f07f7f00'>" + _this + "</t>"}; //olive
 
-#ifdef __ACE__
-if (GVAR(WoundsRevTime) != -1) then {ace_wounds_prevtime = GVAR(WoundsRevTime)};
-#endif
 
 __pSetVar ["BIS_noCoreConversations", true];
 
@@ -76,10 +73,6 @@ if (side (group player) != GVAR(player_side)) then {
 
 if (GVAR(WithRevive) == 1) then {
     __pSetVar ["xr_pluncon", false];
-    
-    #ifdef __ACE__
-    if (GVAR(WithWounds) == 1) then {
-    #endif
     
     #define __shots ["shotBullet","shotShell","shotRocket","shotMissile","shotTimeBomb","shotMine"]
     xr_bscreens = ["xr_ScreenBlood1", "xr_ScreenBlood2","xr_ScreenBlood3"];
@@ -118,10 +111,6 @@ if (GVAR(WithRevive) == 1) then {
     };
     player removeAllEventHandlers "handleDamage";
     player addEventHandler ["handleDamage", {_this call FUNC(playerHD)}];
-    
-    #ifdef __ACE__
-    };
-    #endif
 };
 
 if (GVAR(with_ranked)) then {GVAR(sm_p_pos) = nil};
@@ -279,9 +268,6 @@ if (__XJIPGetVar(GVAR(the_end))) exitWith {
 if (GVAR(with_ranked)) then {
     [QGVAR(pho), {(format [(localize "STR_DOM_MISSIONSTRING_288"), GVAR(ranked_a) select 17]) call FUNC(HQChat)}] call FUNC(NetAddEventSTO);
 };
-#ifdef __ACE__
-[QGVAR(haha), {_this call FUNC(DHaha)}] call FUNC(NetAddEventSTO);
-#endif
 [2, QGVAR(p_o_r), {deleteMarkerLocal (_this select 1)}] call FUNC(NetAddEvent);
 if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
     [QGVAR(farp_e), {if (GVAR(eng_can_repfuel)) then {_this addAction [(localize "STR_DOM_MISSIONSTRING_513") call FUNC(BlueText), "x_client\x_restoreeng.sqf"]}}] call FUNC(NetAddEventToClients);
@@ -471,15 +457,6 @@ if (GVAR(MissionType) != 2) then {
             _text = format [(localize "STR_DOM_MISSIONSTRING_297"), [GVAR(jumpflag_vec),0] call FUNC(GetDisplayName)];
             _x addAction [_text call FUNC(BlueText),"x_client\x_bike.sqf",[GVAR(jumpflag_vec),1]];
         };
-#ifdef __ACE__
-        if (GVAR(jumpflag_vec) == "") then {
-            _box = "ACE_RuckBox" createVehicleLocal _pos;
-            clearMagazineCargo _box;
-            clearWeaponCargo _box;
-            _box addweaponcargo ["ACE_ParachutePack",10];
-            _box allowDamage false;
-        };
-#endif
     } forEach __XJIPGetVar(jump_flags);
 };
 
@@ -522,9 +499,7 @@ if (!("Binocular_Vector" in _weapop) && {!("Laserdesignator" in _weapop)}) then 
 };
 __paddweap(ItemGPS);
 
-#ifndef __ACE__
 if (sunOrMoon == 0) then {_p action ["NVGoggles",_p]};
-#endif
 
 __cppfln(FUNC(x_playerspawn),x_client\x_playerspawn.sqf);
 
@@ -961,33 +936,6 @@ if (GVAR(MissionType) != 2) then {
 
 player addEventHandler ["fired", {_this call FUNC(ParaExploitHandler)}];
 
-#ifdef __ACE__
-if ("ACE_Earplugs" in items player) then {
-    __pSetVar [QGVAR(earwear), true];
-} else {
-    __pSetVar [QGVAR(earwear), false];
-};
-0 spawn {
-    scriptName "spawn_ACE_earwear";
-    while {true} do {
-        if (alive player) then {
-            if (!__pGetVar(GVAR(earwear))) then {
-                if (__pGetVar(ACE_EarWear) || {"ACE_Earplugs" in items player}) then {
-                    __pSetVar [QGVAR(earwear), true];
-                };
-            } else {
-                if (__pGetVar(GVAR(earwear))) then {
-                    if (!__pGetVar(ACE_EarWear) && {!("ACE_Earplugs" in items player)}) then {
-                        __pSetVar [QGVAR(earwear), false];
-                    };
-                };
-            };
-        };
-        sleep 0.5;
-    };
-};
-#endif
-
 if (isNil QGVAR(with_carrier)) then {
     __pSetVar [QGVAR(p_f_b), 0];
     
@@ -1131,7 +1079,6 @@ __ccppfln(x_client\x_playerammobox.sqf);
     };
 };
 
-#ifndef __ACE__
 if (!isClass (configFile >> "CfgPatches" >> "ace_main")) then {
     GVAR(mag_check_open) = false;
     __pSetVar [QGVAR(lastgdfcheck), -1];
@@ -1258,17 +1205,9 @@ FUNC(MouseWheelRec) = {
 };
 
 (findDisplay 46) displayAddEventHandler ["MouseZChanged", "_this call d_fnc_MouseWheelRec"];
-#endif
-
-#ifndef __ACE__
 if (GVAR(WithRevive) == 0) then {
     __ccppfln(x_revive.sqf);
 };
-#else
-if (GVAR(WithRevive) == 0 && {GVAR(WithWounds) == 1}) then {
-    __ccppfln(x_revive.sqf);
-};
-#endif
 
 #ifdef __TOH__
 GVAR(CurPIPVideoTarget) = objNull;

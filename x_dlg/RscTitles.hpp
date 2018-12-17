@@ -726,7 +726,6 @@ class GVAR(rscDynamicText) {
     };
 };
 
-#ifndef __ACE__
 class GVAR(rscCrewText) {
     idd = -1;
     movingEnable = 1;
@@ -758,7 +757,6 @@ class GVAR(rscCrewText) {
         };
     };
 };
-#endif
 
 class GVAR(RscText) {
     access = 0;

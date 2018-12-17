@@ -82,12 +82,7 @@ while {true} do {
         };
         
         _empty = _vehicle call FUNC(GetVehicleEmpty);
-        
-#ifdef __ACE__
-        _aliveve = if (!isNil {_vehicle getVariable "ace_canmove"}) then {_vehicle call ace_v_alive} else {alive _vehicle};
-#else
         _aliveve = alive _vehicle;
-#endif
 
         if (_empty && {!_disabled} && {_aliveve} && {(_vehicle call FUNC(OutOfBounds))}) then {
             _outb = _vehicle getVariable QGVAR(OUT_OF_SPACE);

@@ -14,12 +14,3 @@ if (GVAR(jumpflag_vec) == "") then {
 } else {
     _flag addAction [(format [(localize "STR_DOM_MISSIONSTRING_297"),[GVAR(jumpflag_vec),0] call FUNC(GetDisplayName)]) call FUNC(BlueText),"x_client\x_bike.sqf",[GVAR(jumpflag_vec),1]];
 };
-
-#ifdef __ACE__
-if (GVAR(jumpflag_vec) == "") then {
-    _box = "ACE_RuckBox" createVehicleLocal (position _flag);
-    clearMagazineCargo _box;
-    clearWeaponCargo _box;
-    _box addweaponcargo ["ACE_ParachutePack",10];
-};
-#endif

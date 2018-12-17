@@ -89,14 +89,12 @@ class Params {
         texts[] = {"10","20","30"};
     };
     
-#ifndef __ACE__
     class GVAR(OverrideBISEffects) {
         title = "$STR_DOM_MISSIONSTRING_1166";
         values[] = {0,1};
         default = 0;
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
-#endif
     
     class GVAR(max_truck_cargo) {
         title = "$STR_DOM_MISSIONSTRING_1195";
@@ -337,14 +335,12 @@ class GVAR(show_player_marker) {
         texts[] = {"mil_dot","Man","mil_circle","mil_box","mil_triangle"};
     };
 
-#ifndef __ACE__
     class GVAR(BlockSpacebarScanning) {
         title = "$STR_DOM_MISSIONSTRING_1168";
         values[] = {0,1};
         default = 1;
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
-#endif
     
     class GVAR(params_dummy_line_8) {
         title = "---------------------------- Client -------------------------------";
@@ -826,85 +822,6 @@ class GVAR(show_player_marker) {
         default = 500;
         texts[] = {"$STR_DOM_MISSIONSTRING_1065","$STR_DOM_MISSIONSTRING_1059","$STR_DOM_MISSIONSTRING_1026","$STR_DOM_MISSIONSTRING_1028","$STR_DOM_MISSIONSTRING_1030","$STR_DOM_MISSIONSTRING_1034","$STR_DOM_MISSIONSTRING_1137"};
     };
-    
-#ifdef __ACE__
-    class GVAR(params_dummy_line_21) {
-        title = "----------------------------- ACE ---------------------------------";
-        values[] = {-99999};
-        default = -99999;
-        texts[] = {""};
-    };
-    
-    class GVAR(WithWounds) {
-        title = "$STR_DOM_MISSIONSTRING_1144";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1145","$STR_DOM_MISSIONSTRING_1058"};
-    };
-    
-    class GVAR(WoundsRevTime) {
-        title = "$STR_DOM_MISSIONSTRING_1146";
-        values[] = {60,120,300,600,1200,-1};
-        default = 300;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1012","$STR_DOM_MISSIONSTRING_1013","$STR_DOM_MISSIONSTRING_1016","$STR_DOM_MISSIONSTRING_1017","$STR_DOM_MISSIONSTRING_1018","$STR_DOM_MISSIONSTRING_1147"};
-    };
-    
-    class GVAR(wounds_no_ai) {
-        title = "$STR_DOM_MISSIONSTRING_1148";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
-    class GVAR(no_rpunish) {
-        title = "$STR_DOM_MISSIONSTRING_1149";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
-    class GVAR(IFAK_Capacity) {
-        title = "$STR_DOM_MISSIONSTRING_1150";
-        values[] = {2,4,6,8,10};
-        default = 2;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1151","$STR_DOM_MISSIONSTRING_1152","$STR_DOM_MISSIONSTRING_1153","$STR_DOM_MISSIONSTRING_1154","$STR_DOM_MISSIONSTRING_1155"};
-    };
-    
-    class GVAR(ace_vec_weaponcheck) {
-        title = "$STR_DOM_MISSIONSTRING_1427";
-        values[] = {0,1};
-        default = 0;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-#endif
-    
-    class GVAR(params_dummy_line_22) {
-        title = "------------------------------ ACRE -------------------------------";
-        values[] = {-99999};
-        default = -99999;
-        texts[] = {""};
-    };
-    
-    class GVAR(WithAcre) {
-        title = "$STR_DOM_MISSIONSTRING_1042";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-
-    class GVAR(AcreSignalLoss) {
-        title = "$STR_DOM_MISSIONSTRING_1043";
-        values[] = {100,75,50,25,0};
-        default = 50;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1044","$STR_DOM_MISSIONSTRING_1045","$STR_DOM_MISSIONSTRING_1046","$STR_DOM_MISSIONSTRING_1047","$STR_DOM_MISSIONSTRING_1048"};
-    };
-    
-    class GVAR(AcreRadioOnBackWorks) {
-        title = "$STR_DOM_MISSIONSTRING_1049";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1050","$STR_DOM_MISSIONSTRING_1051"};
-    };
 };
 
 #include "x_dlg\define.hpp"
@@ -936,9 +853,7 @@ class CfgSounds {
     class Funk {name="Funk";sound[]={"\sounds\funk.ogg",db,1.0};titles[] = {};};
     class Ari {name="Ari";sound[]={"\sounds\ari.ogg",db,1.0};titles[] = {};};
     class DThunder {name="DThunder";sound[]={"\sounds\thundershort2.ogg",db-25,1.0};titles[] = {};};
-#ifndef __ACE__
     class DPara {name="DPara";sound[]={"\sounds\para.ogg",db-10,1.0};titles[] = {};};
-#endif
     class IncomingChallenge2 {name="IncomingC2";sound[]={"\sounds\incoming_challenge.wss",db,1.0};titles[] = {};};
     class Notebook {name="Notebook";sound[]={"\sounds\notebook.wss",db-15,1.0};titles[] = {};};
     class Ui_cc {name="Ui_cc";sound[]={"\sounds\ui_cc.wss",db,1.0};titles[] = {};};

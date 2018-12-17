@@ -8,10 +8,6 @@ _aid = _this select 2;
 
 if !(local _caller) exitWith {};
 
-#ifdef __ACE__
-if (GVAR(objectID2) isKindOf "Tank" || {GVAR(objectID2) isKindOf "Wheeled_APC"}) exitWith {hint (localize "STR_DOM_MISSIONSTRING_322")};
-#endif
-
 _rep_count = switch (true) do {
     case (GVAR(objectID2) isKindOf "Air"): {0.1};
     case (GVAR(objectID2) isKindOf "Tank"): {0.2};

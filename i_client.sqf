@@ -35,24 +35,6 @@ _mpos set [2,0];
 GVAR(player_ammobox_pos) set [count GVAR(player_ammobox_pos), [_mpos, markerDir QGVAR(player_ammobox_pos_e)]];
 #endif
 
-#ifdef __ACE__
-if !(__TTVer) then {
-    _mpos = markerPos QGVAR(ace_player_RuckBox);
-    _mpos set [2,0];
-    GVAR(ace_boxes) = [["ACE_RuckBox_West", _mpos, markerDir QGVAR(ace_player_RuckBox)]];
-    _mpos = markerPos QGVAR(ace_player_HuntIRBox);
-    _mpos set [2,0];
-    GVAR(ace_boxes) set [count GVAR(ace_boxes), ["ACE_HuntIRBox", _mpos, markerDir QGVAR(ace_player_HuntIRBox)]];
-} else {
-    _mpos = markerPos QGVAR(ace_player_RuckBox_West);
-    _mpos set [2,0];
-    GVAR(ace_boxes) = [["ACE_RuckBox_West", _mpos, markerDir QGVAR(ace_player_RuckBox_West)]];
-    _mpos = markerPos QGVAR(ace_player_RuckBox_East);
-    _mpos set [2,0];
-    GVAR(ace_boxes) set [count GVAR(ace_boxes), ["ACE_RuckBox_East", _mpos, markerDir QGVAR(ace_player_RuckBox_East)]];
-};
-#endif
-
 // this vehicle will be created if you use the "Create XXX" at a mobile respawn (old "Create Motorcycle") or at a jump flag
 // IMPORTANT !!!! for ranked version !!!!
 // if there is more than one vehicle defined in the array the vehicle will be selected by player rank

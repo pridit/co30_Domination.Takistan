@@ -43,8 +43,4 @@ if (call FUNC(checkSHC)) then {
         };
     }];
     _vehicle setDamage 0;
-#ifdef __ACE__
-    _lvec = createVehicle ["TowingTractor", _poss, [], 0, "NONE"];
-    __addDead(_lvec)
-#endif
 };

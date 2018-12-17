@@ -252,9 +252,6 @@ FUNC(makevgroup) = {
         switch (true) do {
             case (_vehicle isKindOf "Tank"): {
                 if !((toUpper _vehiclename) in GVAR(heli_wreck_lift_types)) then {
-                    #ifdef __ACE__
-                    __addRemoveVehi(_vehicle)
-                    #endif
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
                     __addDead(_vehicle)
                 };
@@ -265,9 +262,6 @@ FUNC(makevgroup) = {
             };
             case (_vehicle isKindOf "Wheeled_APC"): {
                 if !((toUpper _vehiclename) in GVAR(heli_wreck_lift_types)) then {
-                    #ifdef __ACE__
-                    __addRemoveVehi(_vehicle)
-                    #endif
                     __addDead(_vehicle)
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
                 };
@@ -278,9 +272,6 @@ FUNC(makevgroup) = {
             };
             case (_vehicle isKindOf "Car"): {
                 if !((toUpper _vehiclename) in GVAR(heli_wreck_lift_types)) then {
-                    #ifdef __ACE__
-                    __addRemoveVehi(_vehicle)
-                    #endif
                     __addDead(_vehicle)
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
                 };

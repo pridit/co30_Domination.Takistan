@@ -1386,9 +1386,6 @@ FUNCXR(uncon) = {
     _remactions = false;
     _nextcrytime = time + 10 + (random 15);
     while {alive player && {__pGetVar(GVARXR(pluncon))}} do {
-        if (d_ace_enabled && {[player] call ACE_fnc_isBurning}) then {
-            ["ace_sys_wounds_burnoff", player] call CBA_fnc_globalEvent;
-        };
         if (GVARXR(withSounds) && {time >= _nextcrytime}) then {
             _nus3 = (floor (random 20)) + 11;
             [QGVARXR(say3d), [player, "Hit" + str(_nus3)]] call d_fnc_NetCallEventToClients;
@@ -1519,9 +1516,6 @@ FUNCXR(uncon) = {
     };
     call FUNCXR(joingr);
     __TRACE("uncon end");
-    if (d_WithAcre) then {
-        [false] call acre_api_fnc_setSpectator;
-    };
 };
 
 FUNCXR(veckick) = {
@@ -1700,14 +1694,6 @@ FUNCXR(ClientHD) = {
             } else {
                 _isInVec = true;
                 moveOut player;
-            };
-            if (d_WithAcre) then {
-                [true] call acre_api_fnc_setSpectator;
-            };
-            if (d_ace_enabled) then {
-                if ([player] call ACE_fnc_isBurning) then {
-                    ["ace_sys_wounds_burnoff", player] call CBA_fnc_globalEvent;
-                };
             };
             [_isInVec] spawn FUNCXR(isInVec);
         };

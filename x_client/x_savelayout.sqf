@@ -12,10 +12,4 @@ __pSetVar [QGVAR(custom_backpack), if (count __pGetVar(GVAR(player_backpack)) > 
     []
 }];
 
-#ifdef __ACE__
-GVAR(custom_ruckbkw) = __pGetVar(ACE_weapononback);
-GVAR(custom_ruckmag) = __pGetVar(ACE_RuckMagContents);
-GVAR(custom_ruckwep) = __pGetVar(ACE_RuckWepContents);
-#endif
-
 (localize "STR_DOM_MISSIONSTRING_342") call FUNC(GlobalChat);

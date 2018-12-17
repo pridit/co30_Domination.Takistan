@@ -245,9 +245,6 @@ FUNC(TKKickCheck) = {
             [QGVAR(tk_an), [_pna, _numtk]] call FUNC(NetCallEventToClients);
             [QGVAR(em), [_tk]] call FUNC(NetCallEventSTO);
         };
-        #ifdef __ACE__
-        [QGVAR(haha), [_tk]] call FUNC(NetCallEventSTO);
-        #endif
     };
 };
 

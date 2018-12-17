@@ -50,11 +50,7 @@ class XD_ParajumpDialog {
             h = 0.1;
             colorBackground[] = {1, 1, 1, 0};
             XCTextBlack;
-    #ifndef __ACE__
             text = "$STR_DOM_MISSIONSTRING_1268";
-    #else
-            text = "$STR_DOM_MISSIONSTRING_1269";
-    #endif
         };
         class XD_ArtiMapText3 : XC_RscText {
             x = 0.12;
@@ -63,11 +59,7 @@ class XD_ParajumpDialog {
             h = 0.1;
             colorBackground[] = {1, 1, 1, 0};
             XCTextBlack;
-    #ifndef __ACE__
             text = "$STR_DOM_MISSIONSTRING_1270";
-    #else
-            text = "$STR_DOM_MISSIONSTRING_1271";
-    #endif
         };
         class XD_Map : XD_RscMapControl {
             colorBackground[] = {0.9, 0.9, 0.9, 0.9};

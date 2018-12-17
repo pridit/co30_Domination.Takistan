@@ -270,11 +270,7 @@ class Sentences {
     };
     #endif
     class NewJumpFlag {
-        #ifndef __ACE__
         text = "$STR_DOM_MISSIONSTRING_1381";
-        #else
-        text = "$STR_DOM_MISSIONSTRING_1382";
-        #endif
         speech[] = {};
         class Arguments {};
     };

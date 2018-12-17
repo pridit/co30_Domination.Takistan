@@ -21,7 +21,6 @@ _obj_jump = player;
 if (vehicle player == player) exitWith {};
 
 _obj_jump setvelocity [0,0,0];
-#ifndef __ACE__
 _obj_jump action["EJECT",vehicle _obj_jump];
 if (vehicle _obj_jump isKindOf "ParachuteBase") then {
     _vec = vehicle _obj_jump;
@@ -29,9 +28,6 @@ if (vehicle _obj_jump isKindOf "ParachuteBase") then {
     deleteVehicle _vec;
 };
 [player, player call FUNC(GetHeight)] spawn bis_fnc_halo;
-#else
-[_uh60p, player] execVM "x\ace\addons\sys_eject\jumpout.sqf";
-#endif
 
 sleep 3;
 

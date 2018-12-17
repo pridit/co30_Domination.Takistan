@@ -2,7 +2,6 @@
 #include "x_setup.sqf"
 
 if ((GVAR(string_player) in GVAR(is_engineer)) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
-    #ifndef __ACE__
     FUNC(sfunc) = {
         private "_objs";
         if (vehicle player == player) then {
@@ -19,24 +18,6 @@ if ((GVAR(string_player) in GVAR(is_engineer)) || {GVAR(with_ai)} || {GVAR(with_
             false
         }
     };
-    #else
-    FUNC(sfunc) = {
-        private "_objs";
-        if (vehicle player == player && {(player call ace_sys_ruck_fnc_hasRuck)}) then {
-            _objs = (position player) nearEntities [["LandVehicle","Air"], 7];
-            if (count _objs > 0) then {
-                GVAR(objectID2) = _objs select 0;
-                if (alive GVAR(objectID2)) then {
-                    (damage GVAR(objectID2) > 0.05 || fuel GVAR(objectID2) < 1)
-                } else {
-                    false
-                }
-            }
-        } else {
-            false
-        }
-    };
-    #endif
     FUNC(ffunc) = {
         private ["_l","_vUp","_winkel"];
         if (vehicle player == player) then {
@@ -353,35 +334,6 @@ FUNC(ParaExploitHandler) = {
         player addMagazine (_this select 5);
     };
 };
-
-#ifdef __ACE__
-FUNC(DHaha) = {
-    scriptName "d_fnc_DHaha";
-    private ["_endtime", "_oldident"];
-    _endtime = __pGetVar(GVAR(HAHA_END));
-    if (isNil "_endtime") then {_endtime = -1};
-    if (time < _endtime) exitWith {
-        _endtime = _endtime + 600;
-        __pSetVar [QGVAR(HAHA_END), _endtime];
-    };
-    _endtime = time + 600;
-    __pSetVar [QGVAR(HAHA_END), _endtime];
-    _oldident = __pGetVar(ACE_Identity);
-    ["ace_sys_goggles_setident2", [player, "ACE_GlassesHaHa"]] call CBA_fnc_globalEvent;
-    [_oldident] spawn {
-        scriptName "d_fnc_DHahaSpawn2";
-        private ["_oldident"];
-        PARAMS_1(_oldident);
-        while {time < __pGetVar(GVAR(HAHA_END))} do {
-            if (alive player && {__pGetVar(ACE_Identity) != "ACE_GlassesHaHa"}) then {
-                ["ace_sys_goggles_setident2", [player, "ACE_GlassesHaHa"]] call CBA_fnc_globalEvent;
-            };
-            sleep 1;
-        };
-        ["ace_sys_goggles_setident2", [player, _oldident]] call CBA_fnc_globalEvent;
-    };
-};
-#endif
 
 FUNC(LightObj) = {
     private "_light";

@@ -1,47 +1,7 @@
-#ifdef __ACE__
-// override for ACE. ACE 2 has it's own backpack/ruck feature
-GVAR(WithBackpack) = false;
-
-if (GVAR(WithWounds) == 0) then {
-    if (isServer) then {
-        ace_sys_wounds_enabled = true; publicVariable "ace_sys_wounds_enabled";
-    };
-    
-    if (GVAR(wounds_no_ai) == 1) then {ace_sys_wounds_noai = true};
-    
-    ACE_IFAK_Capacity = GVAR(IFAK_Capacity);
-    
-    if (!isDedicated) then {
-        if (GVAR(no_rpunish) == 0) then {
-            ace_sys_wounds_no_rpunish = true;
-        };
-    };
-};
-if (GVAR(ace_vec_weaponcheck) != 0) then {
-    if (isNil "ace_sys_eject_fnc_weaponCheckEnabled") then {
-        0 spawn {
-            scriptName "spawn_ACEnoWeaponCheck";
-            waitUntil {!isNil "ace_sys_eject_fnc_weaponCheckEnabled"};
-            ace_sys_eject_fnc_weaponCheckEnabled = {false};
-        };
-    } else {
-        ace_sys_eject_fnc_weaponCheckEnabled = {false};
-    };
-};
-#endif
-
 setViewDistance GVAR(InitialViewDistance);
-
-if (GVAR(WithAcre)) then {
-    [GVAR(AcreSignalLoss) / 100] call acre_api_fnc_setLossModelScale; // there is /100 as conversion from %, because propper value is from 0.0 to 1.0, but "description.ext" does not support float numbers, so value in params is percentual
-    if (GVAR(AcreRadioOnBackWorks) == 1) then {
-        ["onBack", true] call acre_api_fnc_toggleAceFeatureCompat
-    };
-};
 
 // this will remove setVehicleInits in BIS effects and should fix sky in fire bug
 // probably breaks addons like WarFX, dunno, I'm not using it
-#ifndef __ACE__
 if (GVAR(OverrideBISEffects) == 0) then {
     0 spawn {
         scriptName "spawn_OverrideBISEffects";
@@ -63,7 +23,6 @@ if (GVAR(OverrideBISEffects) == 0) then {
         };
     };
 };
-#endif
 
 GVAR(number_targets_h) = GVAR(MainTargets);
 
@@ -130,32 +89,6 @@ if (GVAR(WithWounds) == 0) then {
 #endif
 if (GVAR(with_ranked)) then {__adddv(RANKED)};
 if (GVAR(WithRevive) == 0) then {__adddv(REVIVE)};
-
-#ifdef __ACE__
-if (GVAR(WithWounds) == 0) then {
-    ace_sys_wounds_enabled = true; publicVariable "ace_sys_wounds_enabled";
-    if (GVAR(wounds_no_ai) == 1) then {ace_sys_wounds_noai = true};
-} else {
-    ace_w_no_handledamage = true;
-    publicVariable "ace_w_no_handledamage";
-    if (!isDedicated) then {
-        0 spawn {
-            scriptName "spawn_removeACEHDEH";
-            waitUntil {!isNull player};
-            _eh = __pGetVar(ace_w_eh);
-            if (!isNil "_eh") then {
-                player removeEventHandler ["handleDamage", _eh];
-            };
-            player setVariable ["ace_w_eh", 0];
-        };
-        0 spawn {
-            scriptName "spawn_RemoveACESetUnitDam";
-            waitUntil {!isNil "ace_w_setunitdam"};
-            ace_w_setunitdam = {};
-        };
-    };
-};
-#endif
 
 if (!GVAR(dom4)) then {
     GVAR(last_target_idx) = -1;

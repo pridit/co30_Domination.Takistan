@@ -48,17 +48,4 @@ if !(__ACEVer) then {
 
 GVAR(player_ammobox_pos) = nil;
 
-#ifndef __ACE__
-// no other support except creating one.
-// means the box is not filled after x minutes again
-if (GVAR(WithAcre)) then {
-    _acbpos = _box modelToWorld [5,0,0];
-    _acbpos set [2,0];
-    _acbox = "ACRE_RadioBox" createVehicleLocal _acbpos;
-    _acbox setDir (direction _box);
-    _acbox allowDamage false;
-    player reveal _acbox;
-};
-#endif
-
 [_box,_box_array] execFSM "fsms\PlayerAmmobox.fsm";

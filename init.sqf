@@ -34,17 +34,6 @@ enableSaving [false,false];
 enableTeamSwitch false;
 
 if (isServer) then {
-#ifdef __ACE__
-    ace_sys_aitalk_enabled = true;
-    publicVariable "ace_sys_aitalk_enabled";
-    ace_sys_aitalk_radio_enabled = true;
-    publicVariable "ace_sys_aitalk_radio_enabled";
-    ace_sys_tracking_markers_enabled = false;
-    publicVariable "ace_sys_tracking_markers_enabled";
-    ace_sys_repair_default_tyres = true;
-    publicVariable "ace_sys_repair_default_tyres";
-#endif
-
     //GVAR(domdatabase) = ("Arma2Net.Unmanaged" callExtension "DomDatabase ['Init','DomDatabase','Dom.db']") == "[]";
     GVAR(domdatabase) = false;
     publicVariable QGVAR(domdatabase);

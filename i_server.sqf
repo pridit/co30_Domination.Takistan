@@ -463,45 +463,23 @@ GVAR(veh_a_G) =
 switch (GVAR(WithLessArmor)) do {
     case 0: {
         GVAR(vehicle_numbers_guard) = [
-#ifndef __ACE__
             [[1,0], 1], // tanks
             [[1,0], 1], // apc (bmp)
             [[1,1], 1], // apc2 (brdm)
             [[1,1], 1], // jeep with mg (uaz mg)
             [[1,0], 1] // jeep with gl (uaz grenade)
-#else
-            [[1,0], 1], // tanks
-            [[1,0], 1], // apc (bmp)
-            [[1,0], 1], // apc2 (brdm)
-            [[1,1], 1], // jeep with mg (uaz mg)
-            [[1,1], 1] // jeep with gl (uaz grenade)
-#endif
         ];
         GVAR(vehicle_numbers_guard_static) = [
-#ifndef __ACE__
             [[1,1], 1], // tanks
             [[1,1], 1], // apc (bmp)
             [[2,1], 1] // aa (shilka)
-#else
-            [[1,1], 1], // tanks
-            [[1,1], 1], // apc (bmp)
-            [[2,1], 1] // aa (shilka)
-#endif
         ];
         GVAR(vehicle_numbers_patrol) = [
-#ifndef __ACE__
             [[1,1], 1], // tanks
             [[1,1], 1], // apc (bmp)
             [[1,1], 1], // apc2 (brdm)
             [[2,1], 1], // jeep with mg (uaz mg)
             [[2,1], 1] // jeep with gl (uaz grenade)
-#else
-            [[1,1], 1], // tanks
-            [[1,1], 1], // apc (bmp)
-            [[1,1], 1], // apc2 (brdm)
-            [[2,1], 1], // jeep with mg (uaz mg)
-            [[2,1], 1] // jeep with gl (uaz grenade)
-#endif
         ];
 
         // allmost the same like above
@@ -516,91 +494,45 @@ switch (GVAR(WithLessArmor)) do {
 #endif
         ];
         GVAR(footunits_patrol) = [
-#ifndef __ACE__
             [5,3], // basic groups
             [5,3] // specop groups
-#else
-            [4,3], // basic groups
-            [5,3] // specop groups
-#endif
         ];
         GVAR(footunits_guard_static) = [
-#ifndef __ACE__
             [1,1], // basic groups
             [1,0] // specop groups
-#else
-            [1,1], // basic groups
-            [1,0] // specop groups
-#endif
         ];
         GVAR(footunits_attack) = [
-#ifndef __ACE__
             [3,1], // basic groups
             [2,1] // specop groups
-#else
-            [2,1], // basic groups
-            [2,0] // specop groups
-#endif
         ];
         GVAR(vehicle_numbers_attack) = [
-#ifndef __ACE__
             [[1,1], 1], // tanks
             [[1,1], 1], // apc (bmp)
             [[1,1], 1], // apc2 (brdm)
             [[2,1], 1], // jeep with mg (uaz mg)
             [[2,1], 1], // jeep with gl (uaz grenade)
             [[1,1], 1] // Shilka/AA
-#else
-            [[1,1], 1], // tanks
-            [[1,1], 1], // apc (bmp)
-            [[1,1], 1], // apc2 (brdm)
-            [[2,1], 1], // jeep with mg (uaz mg)
-            [[2,1], 1], // jeep with gl (uaz grenade)
-            [[1,1], 1] // Shilka/AA
-#endif
         ];
     };
     case 1: {
         GVAR(vehicle_numbers_guard) = [
-#ifndef __ACE__
             [[1,0], 1], // tanks
             [[1,0], 1], // apc (bmp)
             [[1,0], 1], // apc2 (brdm)
             [[1,1], 1], // jeep with mg (uaz mg)
             [[1,1], 1] // jeep with gl (uaz grenade)
-#else
-            [[1,0], 1], // tanks
-            [[1,0], 1], // apc (bmp)
-            [[1,0], 1], // apc2 (brdm)
-            [[1,1], 1], // jeep with mg (uaz mg)
-            [[1,1], 1] // jeep with gl (uaz grenade)
-#endif
         ];
         GVAR(vehicle_numbers_guard_static) = [
-#ifndef __ACE__
             [[1,0], 1], // tanks
             [[1,0], 1], // apc (bmp)
             [[1,0], 1] // aa (shilka)
-#else
-            [[1,0], 1], // tanks
-            [[1,0], 1], // apc (bmp)
-            [[1,0], 1] // aa (shilka)
-#endif
         ];
         GVAR(vehicle_numbers_patrol) = [
-#ifndef __ACE__
             [[1,0], 1], // tanks
             [[1,0], 1], // apc (bmp)
             [[1,0], 1], // apc2 (brdm)
             [[1,1], 1], // jeep with mg (uaz mg)
             [[1,1], 1] // jeep with gl (uaz grenade)
-#else
-            [[1,0], 1], // tanks
-            [[1,0], 1], // apc (bmp)
-            [[1,0], 1], // apc2 (brdm)
-            [[1,1], 1], // jeep with mg (uaz mg)
-            [[1,1], 1] // jeep with gl (uaz grenade)
-#endif
         ];
 
         // allmost the same like above
@@ -615,91 +547,45 @@ switch (GVAR(WithLessArmor)) do {
 #endif
         ];
         GVAR(footunits_patrol) = [
-#ifndef __ACE__
             [8,3], // basic groups
             [8,3] // specop groups
-#else
-            [8,3], // basic groups
-            [8,3] // specop groups
-#endif
         ];
         GVAR(footunits_guard_static) = [
-#ifndef __ACE__
             [3,1], // basic groups
             [2,1] // specop groups
-#else
-            [3,1], // basic groups
-            [2,1] // specop groups
-#endif
         ];
         GVAR(footunits_attack) = [
-#ifndef __ACE__
             [3,1], // basic groups
             [2,1] // specop groups
-#else
-            [2,1], // basic groups
-            [2,0] // specop groups
-#endif
         ];
         GVAR(vehicle_numbers_attack) = [
-#ifndef __ACE__
             [[1,0], 1], // tanks
             [[1,0], 1], // apc (bmp)
             [[1,0], 1], // apc2 (brdm)
             [[1,1], 1], // jeep with mg (uaz mg)
             [[1,1], 1], // jeep with gl (uaz grenade)
             [[1,0], 1] // Shilka/AA
-#else
-            [[1,0], 1], // tanks
-            [[1,0], 1], // apc (bmp)
-            [[1,0], 1], // apc2 (brdm)
-            [[1,1], 1], // jeep with mg (uaz mg)
-            [[1,1], 1], // jeep with gl (uaz grenade)
-            [[1,0], 1] // Shilka/AA
-#endif
         ];
     };
     case 2: {
         GVAR(vehicle_numbers_guard) = [
-#ifndef __ACE__
             [[0,0], 1], // tanks
             [[0,0], 1], // apc (bmp)
             [[0,0], 1], // apc2 (brdm)
             [[2,1], 1], // jeep with mg (uaz mg)
             [[2,1], 1] // jeep with gl (uaz grenade)
-#else
-            [[0,0], 1], // tanks
-            [[0,0], 1], // apc (bmp)
-            [[0,0], 1], // apc2 (brdm)
-            [[2,1], 1], // jeep with mg (uaz mg)
-            [[2,1], 1] // jeep with gl (uaz grenade)
-#endif
         ];
         GVAR(vehicle_numbers_guard_static) = [
-#ifndef __ACE__
             [[0,0], 1], // tanks
             [[0,0], 1], // apc (bmp)
             [[0,0], 1] // aa (shilka)
-#else
-            [[0,0], 1], // tanks
-            [[0,0], 1], // apc (bmp)
-            [[0,0], 1] // aa (shilka)
-#endif
         ];
         GVAR(vehicle_numbers_patrol) = [
-#ifndef __ACE__
             [[0,0], 1], // tanks
             [[0,0], 1], // apc (bmp)
             [[0,0], 1], // apc2 (brdm)
             [[2,1], 1], // jeep with mg (uaz mg)
             [[2,1], 1] // jeep with gl (uaz grenade)
-#else
-            [[0,0], 1], // tanks
-            [[0,0], 1], // apc (bmp)
-            [[0,0], 1], // apc2 (brdm)
-            [[2,1], 1], // jeep with mg (uaz mg)
-            [[2,1], 1] // jeep with gl (uaz grenade)
-#endif
         ];
 
         // allmost the same like above
@@ -714,48 +600,24 @@ switch (GVAR(WithLessArmor)) do {
 #endif
         ];
         GVAR(footunits_patrol) = [
-#ifndef __ACE__
             [8,3], // basic groups
             [6,3] // specop groups
-#else
-            [8,3], // basic groups
-            [6,3] // specop groups
-#endif
         ];
         GVAR(footunits_guard_static) = [
-#ifndef __ACE__
             [4,1], // basic groups
             [3,1] // specop groups
-#else
-            [4,1], // basic groups
-            [3,1] // specop groups
-#endif
         ];
         GVAR(footunits_attack) = [
-#ifndef __ACE__
             [6,1], // basic groups
             [6,1] // specop groups
-#else
-            [6,1], // basic groups
-            [6,0] // specop groups
-#endif
         ];
         GVAR(vehicle_numbers_attack) = [
-#ifndef __ACE__
             [[0,0], 1], // tanks
             [[0,0], 1], // apc (bmp)
             [[0,0], 1], // apc2 (brdm)
             [[2,1], 1], // jeep with mg (uaz mg)
             [[2,1], 1], // jeep with gl (uaz grenade)
             [[1,0], 1] // Shilka/AA
-#else
-            [[0,0], 1], // tanks
-            [[0,0], 1], // apc (bmp)
-            [[0,0], 1], // apc2 (brdm)
-            [[2,1], 1], // jeep with mg (uaz mg)
-            [[2,1], 1], // jeep with gl (uaz grenade)
-            [[1,0], 1] // Shilka/AA
-#endif
         ];
     };
 };

@@ -35,9 +35,6 @@ if (GVAR(HALOWaitTime) > 0) then {
 };
 if (_do_exit) exitWith {};
 
-#ifdef __ACE__
-if !(player hasWeapon "ACE_ParachutePack") exitWith {(localize "STR_DOM_MISSIONSTRING_66") call FUNC(HQChat)};
-#endif
 GVAR(global_jump_pos) = [];
 createDialog "XD_ParajumpDialog";
 

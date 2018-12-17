@@ -126,10 +126,8 @@ __str (localize "STR_DOM_MISSIONSTRING_409") + (if (GVAR(WithBaseAttack) == 0) _
 
 __str (localize "STR_DOM_MISSIONSTRING_410") + (if (GVAR(WithWinterWeather) == 0) __tyn);
 
-#ifndef __ACE__
 __str (localize "STR_DOM_MISSIONSTRING_411") + (if (GVAR(OverrideBISEffects) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_412") + (if (GVAR(BloodDirtScreen) == 0) __tyn);
-#endif
 
 __str (localize "STR_DOM_MISSIONSTRING_413") + (if (GVAR(BlockSpacebarScanning) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_414") + (if (GVAR(show_playernames) == 0) __tyn);
@@ -178,11 +176,6 @@ __str (localize "STR_DOM_MISSIONSTRING_429") + (if (GVAR(weather) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_430") + (if (GVAR(with_mgnest)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_431") + (if (GVAR(with_medtent)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_432") + (if (GVAR(weapon_respawn)) __tyn);
-__str (localize "STR_DOM_MISSIONSTRING_433") + (if (GVAR(WithAcre)) __tyn);
-if (GVAR(WithAcre)) then {
-    __str (localize "STR_DOM_MISSIONSTRING_434") + str(GVAR(AcreSignalLoss)) + "%" + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_435") + (if (GVAR(AcreRadioOnBackWorks) == 1) __tyn);
-};
 if (GVAR(with_ai)) then {__str (localize "STR_DOM_MISSIONSTRING_436") + str(GVAR(max_ai)) + "\n"};
 __str (localize "STR_DOM_MISSIONSTRING_437") + str(GVAR(sub_tk_points)) + "\n";
 if (GVAR(with_ranked)) then {

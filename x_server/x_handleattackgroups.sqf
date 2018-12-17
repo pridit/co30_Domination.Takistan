@@ -16,12 +16,7 @@ _allunits = [];
 
 sleep 1.2123;
 
-_numdown =
-    #ifndef __ACE__
-        5;
-    #else
-        3;
-    #endif
+_numdown = 5;
 
 while {!__XJIPGetVar(GVAR(mt_radio_down))} do {
     __MPCheck;

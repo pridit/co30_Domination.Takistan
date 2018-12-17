@@ -43,7 +43,6 @@ _vec addAction[(localize "STR_DOM_MISSIONSTRING_256") call FUNC(GreyText),"scrip
 _vec addAction[(localize "STR_DOM_MISSIONSTRING_257") call FUNC(RedText),"scripts\unload_static.sqf",_d_vec,-1,false]
 
 #define __addchopm _vec addAction [(localize "STR_DOM_MISSIONSTRING_258") call FUNC(GreyText),"x_client\x_vecdialog.sqf",[],-1,false]
-#define __addstatus _vec addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-1,false,true,"","vehicle player != player"]
 
 #define __halo _vec addAction [(localize "STR_DOM_MISSIONSTRING_259") call FUNC(GreyText),"x_client\x_halo.sqf",[],-1,false,true,"","vehicle player != player && {((vehicle player) call d_fnc_GetHeight) > 50}"]
 
@@ -165,5 +164,4 @@ if (_d_vec < 400) exitWith {
         __chopset;
     };
     if !(__ACEVer) then {__halo};
-    __addstatus;
 };

@@ -43,10 +43,6 @@ if (GVAR(BlockSpacebarScanning) == 0) then {
     (findDisplay 46) displayAddEventHandler ["KeyDown", "_this call X_KeyboardHandlerKeyDown"];
 };
 
-#ifdef __ACE__
-if (true) exitWith {};
-#endif
-
 // 0 = over head, 1 = cursor target
 x_show_pname_hud = (GVAR(playernames_state) > 0 && GVAR(show_playernames) == 0);
 

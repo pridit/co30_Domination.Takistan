@@ -296,9 +296,6 @@ if (isNil "x_ranked_weapons") then {
                             _ar = GV2(GVAR(misc_store),_x);
                             {
                                 _ar set [count _ar, toUpper(_x select 0)];
-                                if (GVAR(WithAcre)) then {
-                                    _ar set [count _ar, "ACRE_PRC119"];
-                                };
                             } forEach _typear;
                         } forEach ["PRIVATE","CORPORAL","SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"];
                     };
@@ -521,9 +518,6 @@ if (isNil "x_ranked_weapons") then {
                 __amc(IR_Strobe_Target,3)
                 __amc(IR_Strobe_Marker,3)
                 __amc(IRStrobe,3)
-            };
-            if (GVAR(WithAcre)) then {
-                __awc(ACRE_PRC119,1)
             };
         };
         sleep 2.32;
