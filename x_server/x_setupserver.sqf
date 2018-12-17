@@ -33,12 +33,6 @@ GVAR(last_bonus_vec) = "";
 // check mr
 __cppfln(FUNC(checktransport),x_server\x_checktransport.sqf);
 
-[
-    ['A10_US_EP1'],
-    ['UH1Y'],
-    ['AH64D_EP1']
-] execVM "x_server\x_getbonus.sqf";
-
 if (GVAR(with_ai)) then {execVM "x_server\x_delaiserv.sqf"};
 
 if (GVAR(MissionType) in [0,2]) then {

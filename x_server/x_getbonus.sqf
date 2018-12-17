@@ -1,22 +1,26 @@
 // by Xeno
 #define THIS_FILE "x_getbonus.sqf"
 #include "x_setup.sqf"
-private ["_vehicle_array", "_chance", "_btype", "_vec_type", "_vecclass", "_d_bonus_create_pos", "_d_bonus_air_positions", "_d_bonus_vec_positions", "_d_bap_counter", "_d_bvp_counter", "_btype_e", "_btype_w", "_bonus_num_e", "_vec_typex", "_bonus_num_w", "_d_bonus_create_pos2", "_vec_type2", "_d_bonus_air_positions2", "_d_bonus_vec_positions2", "_d_bvp_counter2", "_d_bap_counter2", "_vehicle", "_endpos", "_dir", "_vehicle2", "_endpos2", "_dir2","_airval"];
-
+private ["_vehicle_array", "_vehicle", "_number_v", "_object", "_chance", "_btype", "_vec_type", "_vecclass", "_d_bonus_create_pos", "_d_bonus_air_positions", "_d_bonus_vec_positions", "_d_bap_counter", "_d_bvp_counter", "_btype_e", "_btype_w", "_bonus_num_e", "_vec_typex", "_bonus_num_w", "_d_bonus_create_pos2", "_vec_type2", "_d_bonus_air_positions2", "_d_bonus_vec_positions2", "_d_bvp_counter2", "_d_bap_counter2", "_vehicle", "_endpos", "_dir", "_vehicle2", "_endpos2", "_dir2","_airval"];
 if (!isServer) exitWith {};
 
 _vehicle_array = [];
 {
-    _vec_a = _x;
-    _a10 = _vec_a select 0;
-    _vehicle_array set [count _vehicle_array, [_a10]];
+    _vehicle = _x select 0;
+    _number_v = _x select 1;
+    _object = _x select 2;
+    _vehicle_array set [count _vehicle_array, [_vehicle,_number_v,_object]];
+    
+    _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
+    _vehicle setVariable [QGVAR(vec), _number_v, true];
 } forEach _this;
 _this = nil;
 
 {
-    _vec_a = _x;
-    _a10 = _vec_a select 0;
-    _vecclass = toUpper (getText(configFile >> "CfgVehicles" >> _a10 >> "vehicleClass"));
+    _vehicle = _x select 0;
+    _number_v = _x select 1;
+    _object = _x select 2;
+    _vecclass = toUpper (getText(configFile >> "CfgVehicles" >> _object >> "vehicleClass"));
 
     _d_bonus_create_pos = GVAR(bonus_create_pos);
     _d_bonus_air_positions = GVAR(bonus_air_positions);
@@ -26,7 +30,7 @@ _this = nil;
 
     sleep 1.012;
 
-    _vehicle = createVehicle [_a10, _d_bonus_create_pos, [], 0, "NONE"];
+    _vehicle = createVehicle [_object, _d_bonus_create_pos, [], 0, "NONE"];
     _endpos = [];
     _dir = 0;
 
@@ -44,6 +48,8 @@ _this = nil;
 
     _vehicle setDir _dir;
     _vehicle setPos _endpos;
+    _vehicle setVariable [QGVAR(vec), _number_v, true];
+    [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
     _vehicle setVariable ["D_VEC_SIDE", 2, true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";
 } forEach _vehicle_array;

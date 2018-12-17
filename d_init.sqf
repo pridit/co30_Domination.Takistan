@@ -421,6 +421,12 @@ if (isServer) then {
         [xvec1,0],[xvec2,1],[xmedvec,10],[xvec3,20],[xvec4,21],[xvec5,22], [xvec7,23],
         [xvec8,24], [xvec9,25], [xvec6,30], [xvec10,31], [xvec11,40], [xvec12,41]
     ] execVM "x_server\x_vrespawn2.sqf";
+    
+    [
+        [d_bonus_air_positions_1, 350, 'A10_US_EP1'],
+        [d_bonus_air_positions_2, 351, 'UH1Y'],
+        [d_bonus_air_positions_3, 352, 'AH64D_EP1']
+    ] execVM "x_server\x_getbonus.sqf";
 
     if (!isNil "boat1") then {
         execFSM "fsms\Boatrespawn.fsm";
