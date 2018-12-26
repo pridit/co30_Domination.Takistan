@@ -14,10 +14,6 @@ _killedfriendly = (side (group _killer) == side (group _killed));
 
 __addDeadAI(_killed)
 
-if (GVAR(with_ranked) && {!_killedfriendly} && {GVAR(sub_kill_points) != 0}) then {
-    _killed addScore GVAR(sub_kill_points);
-};
-
 if (GVAR(with_ai)) then {
     if (!isNull _killer && {!isPlayer _killer} && {side (group _killer) == side (group _killed)} && {vehicle _killed != vehicle _killer}) then {
         _leader_killer = leader _killer;
@@ -40,8 +36,4 @@ if (!isNull _killer && {isPlayer _killer} && {vehicle _killer != vehicle _killed
     _namek = if (isNil "_par") then {"Unknown"} else {_par select 6};
     [_namek, _namep, _killer] call FUNC(TKKickCheck);
     [QGVAR(unit_tk), [_namep,_namek]] call FUNC(NetCallEventToClients);
-};
-
-if (GVAR(domdatabase)) then {
-    _killed call FUNC(PAddUnconKilledPoints);
 };

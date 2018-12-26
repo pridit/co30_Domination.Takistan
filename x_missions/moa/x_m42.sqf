@@ -26,15 +26,8 @@ if (call FUNC(checkSHC)) then {
     };
     _sm_vehicle setVariable ["BIS_noCoreConversations", true];
     __addDeadAI(_sm_vehicle)
-    if (GVAR(domdatabase)) then {
-        _sm_vehicle addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-    };
-#ifndef __TT__
     _sm_vehicle addEventHandler ["killed", {_this call FUNC(KilledSMTarget500)}];
     removeAllWeapons _sm_vehicle;
-#else
-    _sm_vehicle addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal)}];
-#endif
     sleep 2.123;
     ["specops", 3, "basic", 2, _poss, 200,true] spawn FUNC(CreateInf);
     sleep 2.123;
@@ -42,7 +35,5 @@ if (call FUNC(checkSHC)) then {
     _leadero setRank "COLONEL";
     _ogroup setbehaviour "AWARE";
     _leadero disableAI "MOVE";
-#ifndef __TT__
     [_sm_vehicle] execVM "x_missions\common\x_sidearrest.sqf";
-#endif
 };

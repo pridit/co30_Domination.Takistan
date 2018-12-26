@@ -41,38 +41,11 @@ if (!isDedicated) then {
     private ["_killer", "_killed", "_par", "_par1", "_namep", "_namek", "_killedfriendly"];
     PARAMS_2(_killer,_killed);
     _killer addScore 1;
-    #ifdef __TT__
-    _par1 = d_player_store getVariable (getPlayerUID _killed);
-    _namep = if (isNil "_par1") then {"Unknown"} else {_par1 select 6};
-    _par = d_player_store getVariable (getPlayerUID _killer);
-    _namek = if (isNil "_par") then {"Unknown"} else {_par select 6};
-    _sidegrpk = side (group _killer);
-    switch (_sidegrpk) do {
-        case west: {
-            d_points_west = d_points_west + (d_tt_points select 8);
-            ["d_u_k", [_namek, _namep, "WEST"]] call d_fnc_NetCallEvent;
-        };
-        case east: {
-            d_points_east = d_points_east + (d_tt_points select 8);
-            ["d_u_k", [_namek, _namep, "EAST"]] call d_fnc_NetCallEvent;
-        };
-    };
-    if (d_domdatabase) then {
-        _par set [20, (_par select 20) + 1];
-    };
-    #else
-    if (d_domdatabase) then {
-        _par1 set [29, (_par1 select 29) + 1];
-    };
     [QGVARXR(m_msg), [_killer, _killed]] call d_fnc_NetCallEventToClients;
-    #endif
 }] call d_fnc_NetAddEventCTS;
 [1, QGVARXR(subpoint), {
     scriptName "ehxr_subpoint";
     (_this select 0) addScore (d_sub_tk_points * -1);
-    if (d_domdatabase) then {
-        (_this select 0) call d_fnc_PAddTeamKillPoints;
-    };
 }] call d_fnc_NetAddEvent;
 
 if (d_sub_kill_points != 0) then {
@@ -244,12 +217,8 @@ FUNCXR(dorevive) = {
     if (alive player && {alive __pGetVar(GVARXR(cursorTarget))}) then {
         if (GVARXR(pl_can_revive)) then {
             if (GVARXR(help_bonus) > 0 && {GVARXR(max_lives) != -1}) then {
-                if (!d_with_ranked) then {
-                    hintSilent format [(localize "STR_DOM_MISSIONSTRING_915"), GVARXR(help_bonus)];
-                } else {
-                    hintSilent format [(localize "STR_DOM_MISSIONSTRING_916"), GVARXR(help_bonus), d_ranked_a select 21];
-                    ["d_pas", [player, d_ranked_a select 21]] call d_fnc_NetCallEventCTS;
-                };
+                hintSilent format [(localize "STR_DOM_MISSIONSTRING_916"), GVARXR(help_bonus), d_ranked_a select 21];
+                ["d_pas", [player, d_ranked_a select 21]] call d_fnc_NetCallEventCTS;
                 _lives = __pGetVar(GVARXR(lives));
                 _lives = _lives + GVARXR(help_bonus);
                 __TRACE_1("dorevive","_lives");

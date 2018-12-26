@@ -11,8 +11,6 @@ _ran_pos = _posi_array select _ran;
 
 _posi_array = nil;
 
-if (GVAR(with_ranked)) then {GVAR(sm_p_pos) = nil};
-
 _flagtype = switch (GVAR(enemy_side)) do {
     case "WEST": {"FWEST" call FUNC(StoreGet)};
     case "EAST": {"FEAST" call FUNC(StoreGet)};

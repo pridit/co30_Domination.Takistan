@@ -32,15 +32,7 @@ if (isNil QGVAR(server_name)) then {
     __ctrl2(778) ctrlSetText GVAR(server_name);
 };
 
-if (!GVAR(domdatabase)) then {
-    __ctrl2(1010) ctrlShow false;
-};
-
-/*if (isNil QGVAR(player_stats)) then {
-    __ctrl2(779) ctrlShow false;
-} else {
-    __ctrl2(779) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_1435", GVAR(player_stats) select 2, (GVAR(player_stats) select 1) call FUNC(ConvertTime) , GVAR(player_stats) select 0];
-};*/
+__ctrl2(1010) ctrlShow false;
 
 _target_array2 = [];
 _current_target_name = "";

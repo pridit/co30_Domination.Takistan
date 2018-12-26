@@ -32,9 +32,6 @@ if (call FUNC(checkSHC)) then {
     _vehicle = createVehicle [GVAR(sm_chopper), _poss, [], 0, "NONE"];
     _vehicle setDir (markerDir QGVAR(sm_9));
     _vehicle setPos _poss;
-    if (GVAR(domdatabase)) then {
-        _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddChopperKillPoints)}}];
-    };
     _vehicle addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal)}];
     _vehicle lock true;
     sleep 2.123;

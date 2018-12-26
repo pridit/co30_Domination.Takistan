@@ -57,68 +57,57 @@ GVAR(version) = [];
 __adddv(OA);
 GVAR(COVer) = false;
 if (GVAR(with_ai)) then {__adddv(AI)};
-
-if (GVAR(with_ranked)) then {__adddv(RANKED)};
 if (GVAR(WithRevive) == 0) then {__adddv(REVIVE)};
 
-if (!GVAR(dom4)) then {
-    GVAR(last_target_idx) = -1;
-    GVAR(target_names) = [];
-    for "_i" from 0 to 100000 do {
-        _ar = [];
-        _mname = format [QGVAR(target_%1), _i];
-        _dtar = __getMNsVar2(_mname);
-        if (isNil "_dtar") exitWith {
-            GVAR(last_target_idx) = _i - 1;
-        };
-        _dtar enableSimulation false;
-        
-        // please be aware that DOM4only targets must follow after DOM2 targets.
-        // you can't mix them
-        // means, you can't have d_target_2 and d_target_4 DOM2only and d_target_3 DOM4only
-        _check = GV(_dtar,GVAR(dom4only));
-        if (isNil "_check") then {		
-            _name = GV(_dtar,GVAR(cityname));
-            if (!isNil "_name") then {
-                _pos = getPosASL _dtar;
-                _pos set [2, 0];
-                _ar set [count _ar, _pos]; // position CityCenter by logic
-                if (isServer) then {
-                    _dtar setDir 0;
-                };
-                _ar set [count _ar, _name]; // name village/city
-                _radius = GV(_dtar,GVAR(cityradius));
-                _ar set [count _ar, if (isNil "_radius") then {300} else {_radius}];
-            } else {
-                _nlocs = nearestLocations [getPosASL _dtar, ["NameCityCapital","NameCity","NameVillage"], 1000];
-                if (count _nlocs > 0) then {
-                    _nl = nearestLocations [locationPosition (_nlocs select 0), ["CityCenter"], 1000];
-                    _pos = if (count _nl > 0) then {
-                        locationPosition (_nl select 0)
-                    } else {
-                        locationPosition (_nlocs select 0)
-                    };
-                    _pos set [2, 0];
-                    _ar set [count _ar, _pos]; // position CityCenter
-                    if (isServer) then {
-                        _dtar setDir 0;
-                        _dtar setPos _pos;
-                    };
-                    _name = text (_nlocs select 0);
-                    _ar set [count _ar, _name]; // name village/city
-                    _radius = GV(_dtar,GVAR(cityradius));
-                    _ar set [count _ar, if (isNil "_radius") then {300} else {_radius}];
-                    _dtar setVariable [QGVAR(cityname), _name];
-                } else {
-                    hint ("No city found near target location " + _mname);
-                };
-            };
-        };
-        __TRACE_1("All targets found","_ar")
-        GVAR(target_names) set [count GVAR(target_names), _ar];
+GVAR(last_target_idx) = -1;
+GVAR(target_names) = [];
+
+for "_i" from 0 to 100000 do {
+    _ar = [];
+    _mname = format [QGVAR(target_%1), _i];
+    _dtar = __getMNsVar2(_mname);
+    if (isNil "_dtar") exitWith {
+        GVAR(last_target_idx) = _i - 1;
     };
-} else {
-#include "x_buildtargets.sqf"
+    _dtar enableSimulation false;
+
+    _name = GV(_dtar,GVAR(cityname));
+    if (!isNil "_name") then {
+        _pos = getPosASL _dtar;
+        _pos set [2, 0];
+        _ar set [count _ar, _pos]; // position CityCenter by logic
+        if (isServer) then {
+            _dtar setDir 0;
+        };
+        _ar set [count _ar, _name]; // name village/city
+        _radius = GV(_dtar,GVAR(cityradius));
+        _ar set [count _ar, if (isNil "_radius") then {300} else {_radius}];
+    } else {
+        _nlocs = nearestLocations [getPosASL _dtar, ["NameCityCapital","NameCity","NameVillage"], 1000];
+        if (count _nlocs > 0) then {
+            _nl = nearestLocations [locationPosition (_nlocs select 0), ["CityCenter"], 1000];
+            _pos = if (count _nl > 0) then {
+                locationPosition (_nl select 0)
+            } else {
+                locationPosition (_nlocs select 0)
+            };
+            _pos set [2, 0];
+            _ar set [count _ar, _pos]; // position CityCenter
+            if (isServer) then {
+                _dtar setDir 0;
+                _dtar setPos _pos;
+            };
+            _name = text (_nlocs select 0);
+            _ar set [count _ar, _name]; // name village/city
+            _radius = GV(_dtar,GVAR(cityradius));
+            _ar set [count _ar, if (isNil "_radius") then {300} else {_radius}];
+            _dtar setVariable [QGVAR(cityname), _name];
+        } else {
+            hint ("No city found near target location " + _mname);
+        };
+    };
+    __TRACE_1("All targets found","_ar")
+    GVAR(target_names) set [count GVAR(target_names), _ar];
 };
 
 #ifdef __DEBUG__
@@ -176,14 +165,7 @@ GVAR(sm_bonus_vehicle_array) = (
         case "WEST": {
             switch (true) do {
                 case (__OAVer): {
-                    if (__ACEVer) then {
-                        ["A10_US_EP1","AH64D_EP1","AH6J_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1","M6_EP1","ACE_M1A1HC_DESERT","ACE_M1A1HC_TUSK_DESERT","ACE_M1A1HC_TUSK_CSAMM_DESERT","ACE_M1A1HA_TUSK_CSAMM_DESERT","UH60M_EP1"]
-                    } else {
-                        ["A10_US_EP1","AH64D_EP1","AH6J_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1","M6_EP1","UH60M_EP1","UH1Y"]
-                    };
-                };
-                case (__ACEVer): {
-                    ["A10","AH1Z","UH1Y","AV8B","AV8B2", "F35B", "M1A2_TUSK_MG","M1A1", "AH64D", "ACE_Stryker_MGS_Slat" ,"ACE_Stryker_TOW","ACE_Stryker_TOW_MG","ACE_AH6_GAU19","ACE_AH6","ACE_AH1W_AGM_W","ACE_AH1W_AGM_D","ACE_M2A2_W","ACE_M2A2_D","ACE_M6A1_W","ACE_M6A1_D","ACE_AH1Z_AGM_D","ACE_AH1Z_AGM_AGM_D","ACE_AH1Z_AGM_AGM_W","ACE_M1A1HC_DESERT"]
+                    ["A10_US_EP1","AH64D_EP1","AH6J_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1","M6_EP1","UH60M_EP1","UH1Y"]
                 };
                 case (__COVer): {
                     ["A10","AH1Z","UH1Y","AV8B","AV8B2", "F35B", "M1A2_TUSK_MG","M1A1","AH64D"]
@@ -195,9 +177,6 @@ GVAR(sm_bonus_vehicle_array) = (
                 case (__OAVer): {
                     ["Su25_TK_EP1","L39_TK_EP1","Mi24_D_TK_EP1","T72_TK_EP1","T55_TK_EP1","ZSU_TK_EP1"]
                 };
-                case (__ACEVer): {
-                    ["Su34","Ka52","Ka52Black","Mi24_P","Mi24_V","Su39","T72_RU","2S6M_Tunguska","T90","ACE_T72B_RU","ACE_T72BA_RU","ACE_Su27_CAP","ACE_Su27_CAS","ACE_Su27_CASP"]
-                };
                 case (__COVer): {
                     ["Su34","Ka52","Ka52Black","Mi24_P","Mi24_V","Su39","T72_RU","2S6M_Tunguska","T90"]
                 };
@@ -206,15 +185,6 @@ GVAR(sm_bonus_vehicle_array) = (
     }
 #endif
 );
-#ifdef __DEFAULT__
-if (GVAR(with_dlc)) then {
-    if (GVAR(own_side) == "WEST") then {
-        if (!(__ACEVer) && __OAVer) then {
-            GVAR(sm_bonus_vehicle_array) = GVAR(sm_bonus_vehicle_array) + ["BAF_FV510_D","BAF_Jackal2_GMG_D","BAF_Jackal2_L2A1_D","BAF_Apache_AH1_D","AW159_Lynx_BAF","Ka60_GL_PMC","BRDM2_Desert_ACR","Dingo_DST_ACR","Dingo_GL_DST_ACR","Pandur2_ACR","L159_ACR","L39_2_ACR","Mi24_D_CZ_ACR","BMP2_Des_ACR","T72_ACR"];
-        };
-    };
-};
-#endif
 
 GVAR(mt_bonus_vehicle_array) =
 #ifdef __DEFAULT__
@@ -224,9 +194,6 @@ switch (GVAR(own_side)) do {
         switch (true) do {
             case (__OAVer): {
                 ["M1126_ICV_M2_EP1","M1126_ICV_mk19_EP1","M1128_MGS_EP1","M1129_MC_EP1","M1135_ATGMV_EP1","M2A2_EP1","M2A3_EP1","HMMWV_M1151_M2_DES_EP1","HMMWV_M1151_M2_DES_EP1","HMMWV_M998_crows_M2_DES_EP1","HMMWV_M998_crows_MK19_DES_EP1","HMMWV_M998A2_SOV_DES_EP1","HMMWV_MK19_DES_EP1","HMMWV_TOW_DES_EP1","HMMWV_M1151_M2_CZ_DES_EP1","LandRover_Special_CZ_EP1"]
-            };
-            case (__ACEVer): {
-                ["AAV","LAV25","HMMWV_M2","HMMWV_MK19","HMMWV_TOW","HMMWV_Avenger", "ACE_Stryker_ICV_M2", "ACE_Stryker_ICV_M2_SLAT","ACE_Stryker_ICV_MK19","ACE_Stryker_ICV_MK19_SLAT","ACE_Stryker_RV","ACE_M113A3","ACE_Vulcan","ACE_HMMWV_GMV","ACE_HMMWV_GMV_MK19"]
             };
             case (__COVer): {
                 ["AAV","LAV25","HMMWV_M2","HMMWV_MK19","HMMWV_TOW","HMMWV_Avenger"]
@@ -238,21 +205,9 @@ switch (GVAR(own_side)) do {
             case (__OAVer): {
                 ["BMP2_TK_EP1","BRDM2_ATGM_TK_EP1","BRDM2_TK_EP1","BTR60_TK_EP1","M113_TK_EP1","LandRover_MG_TK_EP1","LandRover_SPG9_TK_EP1","UAZ_AGS30_TK_EP1","UAZ_MG_TK_EP1","Ural_ZU23_TK_EP1"]
             };
-            case (__ACEVer): {
-                ["BMP3","BTR90","GAZ_Vodnik","GAZ_Vodnik_HMG","UAZ_AGS30_RU","ACE_BMP2D_RU","ACE_BRDM2_ATGM_RU","ACE_BRDM2_RU","ACE_Ural_ZU23_RU","ACE_BRDM2_SA9_RU","ACE_Offroad_SPG9_INS"]
-            };
             case (__COVer): {
                 ["BMP3","BTR90","GAZ_Vodnik","GAZ_Vodnik_HMG","UAZ_AGS30_RU"]
             };
-        };
-    };
-};
-#endif
-#ifdef __DEFAULT__
-if (GVAR(with_dlc)) then {
-    if (GVAR(own_side) == "WEST") then {
-        if (!(__ACEVer) && {__OAVer}) then {
-            GVAR(mt_bonus_vehicle_array) = GVAR(mt_bonus_vehicle_array) + ["ArmoredSUV_PMC","M1114_AGS_ACR","M1114_DSK_ACR"];
         };
     };
 };
@@ -280,9 +235,6 @@ GVAR(aircraft_facs) = [];
 GVAR(x_drop_array) =
 #ifdef __OWN_SIDE_GUER__
     switch (true) do {
-        case (__ACEVer): {
-            [[(localize "STR_DOM_MISSIONSTRING_18"), "M119"], [(localize "STR_DOM_MISSIONSTRING_19"),"HMMWV"], [(localize "STR_DOM_MISSIONSTRING_20"), "USBasicAmmunitionBox"]]
-        };
         case (__OAVer): {
             [[(localize "STR_DOM_MISSIONSTRING_18"), "D30_TK_GUE_EP1"], [(localize "STR_DOM_MISSIONSTRING_21"),"Pickup_PK_TK_GUE_EP1"], [(localize "STR_DOM_MISSIONSTRING_20"), "USBasicAmmunitionBox"]]
         };
@@ -293,9 +245,6 @@ GVAR(x_drop_array) =
 #endif
 #ifdef __OWN_SIDE_WEST__
     switch (true) do {
-        case (__ACEVer): {
-            [[(localize "STR_DOM_MISSIONSTRING_18"), "M119"], [(localize "STR_DOM_MISSIONSTRING_19"),"HMMWV"], [(localize "STR_DOM_MISSIONSTRING_20"), "USBasicAmmunitionBox"]]
-        };
         case (__OAVer): {
             [[(localize "STR_DOM_MISSIONSTRING_18"), "M119_US_EP1"], [(localize "STR_DOM_MISSIONSTRING_19"),"HMMWV_M1035_DES_EP1"], [(localize "STR_DOM_MISSIONSTRING_20"), "USBasicAmmunitionBox_EP1"]]
         };
@@ -306,9 +255,6 @@ GVAR(x_drop_array) =
 #endif
 #ifdef __OWN_SIDE_EAST__
     switch (true) do {
-        case (__ACEVer): {
-            [[(localize "STR_DOM_MISSIONSTRING_18"), "D30_RU"], [(localize "STR_DOM_MISSIONSTRING_22"),"UAZ_RU"], [(localize "STR_DOM_MISSIONSTRING_20"), "RUBasicAmmunitionBox"]]
-        };
         case (__OAVer): {
             [[(localize "STR_DOM_MISSIONSTRING_18"), "D30_TK_EP1"], [(localize "STR_DOM_MISSIONSTRING_22"),"UAZ_Unarmed_TK_EP1"], [(localize "STR_DOM_MISSIONSTRING_20"), "TKBasicAmmunitionBox_EP1"]]
         };

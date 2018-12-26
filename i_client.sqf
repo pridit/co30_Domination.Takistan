@@ -17,7 +17,6 @@ GVAR(uids_for_reserved_slots) = [];
 GVAR(p_marker) = (getArray (missionConfigFile >> "Params" >> QGVAR(MarkerTypeL) >> "texts")) select GVAR(MarkerTypeL);
 
 // position of the player ammobox at base (created only on the players computer, refilled every 20 minutes)
-#ifdef __DEFAULT__
 _mpos = markerPos QGVAR(player_ammobox_pos);
 if (isNil QGVAR(with_carrier)) then {
     _mpos set [2,0];
@@ -25,15 +24,6 @@ if (isNil QGVAR(with_carrier)) then {
     _mpos set [2,15.9];
 };
 GVAR(player_ammobox_pos) = [_mpos, markerDir QGVAR(player_ammobox_pos)];
-#endif
-#ifdef __TT__
-_mpos = markerPos QGVAR(player_ammobox_pos_w);
-_mpos set [2,0];
-GVAR(player_ammobox_pos) = [[_mpos, markerDir QGVAR(player_ammobox_pos_w)]];
-_mpos = markerPos QGVAR(player_ammobox_pos_e);
-_mpos set [2,0];
-GVAR(player_ammobox_pos) set [count GVAR(player_ammobox_pos), [_mpos, markerDir QGVAR(player_ammobox_pos_e)]];
-#endif
 
 // this vehicle will be created if you use the "Create XXX" at a mobile respawn (old "Create Motorcycle") or at a jump flag
 // IMPORTANT !!!! for ranked version !!!!
@@ -48,9 +38,6 @@ switch (true) do {
     case (__OAVer): {
         ["ATV_US_EP1","M1030_US_DES_EP1"]
     };
-    case (__ACEVer): {
-        ["MMT_USMC","M1030","ACE_ATV_Honda"]
-    };
     case (__COVer): {
         ["MMT_USMC","M1030"]
     };
@@ -61,16 +48,10 @@ switch (true) do {
     case (__OAVer): {
         ["TT650_TK_EP1","Old_bike_TK_INS_EP1"]
     };
-    case (__ACEVer): {
-        ["MMT_Civ","ACE_ATV_HondaR"]
-    };
     case (__COVer): {
         ["MMT_Civ","TT650_Civ"]
     };
 };
-#endif
-#ifdef __TT__
-[];
 #endif
 
 // if the array is empty, anybody can fly,
@@ -100,12 +81,6 @@ GVAR(check_ammo_load_vecs) = switch (true) do {
     case (__COVer): {["BTR90_HQ","Mi17_Ins"]};
 };
 #endif
-#ifdef __TT__
-GVAR(check_ammo_load_vecs) = switch (true) do {
-    case (__OAVer): {["M1133_MEV_EP1","UH60M_EP1","CH_47F_EP1","BMP2_HQ_TK_EP1","Mi17_TK_EP1"]};
-    case (__COVer): {["LAV25_HQ","MH60S","BTR90_HQ","Mi17_Ins"]};
-};
-#endif
 
 GVAR(weapon_respawn) = true;
 
@@ -115,7 +90,6 @@ if (GVAR(with_ai)) then {
 
 // points needed to get a specific rank
 // gets even used in the unranked versions, though it's just cosmetic there
-#ifndef __TT__
 GVAR(points_needed) = [
     20, // Corporal
     50, // Sergeant
@@ -124,59 +98,6 @@ GVAR(points_needed) = [
     180, // Major
     250 // Colonel
 ];
-#else
-GVAR(points_needed) = [
-    50, // Corporal
-    150, // Sergeant
-    300, // Lieutenant
-    500, // Captain
-    750, // Major
-    1200 // Colonel
-];
-#endif
-
-if (GVAR(with_ranked)) then {
-    GVAR(ranked_a) = [
-        20, // points that an engineer must have to repair/refuel a vehicle
-        [3,2,1,0], // points engineers get for repairing an air vehicle, tank, car, other
-#ifndef __TT__
-        10, // points an artillery operator needs for a strike
-#else
-        1,
-#endif
-        3, // points in the AI version for recruiting one soldier
-        10, // points a player needs for an AAHALO parajump
-#ifndef __TT__
-        10, // points that get subtracted for creating a vehicle at a MHQ
-#else
-        1,
-#endif
-        20, // points needed to create a vehicle at a MHQ
-        3, // points a medic gets if someone heals at his Mash
-        ["Sergeant","Lieutenant","Captain","Major"], // Ranks needed to drive different vehicles, starting with: kindof wheeled APC, kindof Tank, kindof Helicopter (except the inital 4 helis), Plane
-        30, // points that get added if a player is xxx m in range of a main target when it gets cleared
-        400, // range the player has to be in to get the main target extra points
-        10, // points that get added if a player is xxx m in range of a sidemission when the sidemission is resolved
-        200, // range the player has to be in to get the sidemission extra points
-        20, // points needed for an egineer to rebuild the support buildings at base
-        10, // points needed to build a mg nest
-        5, // points needed in AI Ranked to call in an airtaxi
-        20, // points needed to call in an air drop
-        4, // points a medic gets when he heals another unit
-        1, // points that a player gets when transporting others
-        20, // points needed for activating satellite view
-        20, // points needed to build a FARP (engineer)
-        2 // points a player gets for reviving another player
-    ];
-
-    // distance a player has to transport others to get points
-    GVAR(transport_distance) = 500;
-
-    // rank needed to fly the wreck lift chopper
-    GVAR(wreck_lift_rank) = "CAPTAIN";
-} else {
-    GVAR(ranked_a) = [];
-};
 
 GVAR(graslayer_index) = if (GVAR(GrasAtStart) == 1) then {0} else {1};
 
@@ -289,16 +210,12 @@ GVAR(can_call_drop_ar) = [];
 _armor = if (GVAR(LockArmored) == 1) then {
     switch (true) do {
         case (__OAVer): {["M1A2_US_TUSK_MG_EP1","M1A1_US_DES_EP1","M1126_ICV_M2_EP1","M1126_ICV_mk19_EP1","M1128_MGS_EP1","M1135_ATGMV_EP1","M2A2_EP1","M2A3_EP1","M6_EP1"]};
-        case (__ACEVer): {
-            ["ACE_Stryker_ICV_M2","ACE_Stryker_ICV_M2_SLAT","ACE_Stryker_ICV_MK19","ACE_Stryker_ICV_MK19_SLAT","ACE_Stryker_RV","ACE_Stryker_MGS","ACE_Stryker_MGS_Slat","ACE_Stryker_TOW","ACE_Stryker_TOW_MG","ACE_M2A2_D","ACE_M2A2_W","ACE_M6A1_D","ACE_M6A1_W","ACE_Vulcan"]
-        };
         case (__COVer): {["AAV","LAV25","MLRS"]};
     };
 } else {[]};
 _car = if (GVAR(LockCars) == 1) then {
     switch (true) do {
         case (__OAVer): {["HMMWV_Avenger_DES_EP1","HMMWV_M1151_M2_DES_EP1","HMMWV_M998_crows_M2_DES_EP1","HMMWV_M1151_M2_CZ_DES_EP1","LandRover_Special_CZ_EP1","HMMWV_M998_crows_MK19_DES_EP1","HMMWV_MK19_DES_EP1","HMMWV_TOW_DES_EP1","M119_US_EP1"]};
-        case (__ACEVer): {["HMMWV_Avenger","HMMWV_M2","HMMWV_Armored","HMMWV_MK19","HMMWV_TOW","ACE_HMMWV_GMV","ACE_HMMWV_GMV_MK19","M119"]};
         case (__COVer): {["HMMWV_Avenger","HMMWV_M2","HMMWV_Armored","HMMWV_MK19","HMMWV_TOW","M119"]};
     };
 } else {[]};
@@ -307,14 +224,12 @@ _car = if (GVAR(LockCars) == 1) then {
 _armor = if (GVAR(LockArmored) == 1) then {
     switch (true) do {
         case (__OAVer): {["T72_TK_EP1","T55_TK_EP1","T34_TK_EP1","BMP2_HQ_TK_EP1","BMP2_TK_EP1","M113_TK_EP1","BRDM2_ATGM_TK_EP1","BRDM2_TK_EP1","BTR60_TK_EP1","ZSU_TK_EP1","Ural_ZU23_TK_EP1","GRAD_TK_EP1"]};
-        case (__ACEVer): {["BMP3","BTR90","BTR90_HQ","GAZ_Vodnik","GAZ_Vodnik_HMG"]};
         case (__COVer): {["BMP3","BTR90","BTR90_HQ","GAZ_Vodnik","GAZ_Vodnik_HMG"]};
     };
 } else {[]};
 _car = if (GVAR(LockCars) == 1) then {
     switch (true) do {
         case (__OAVer): {["UAZ_MG_TK_EP1","BTR40_MG_TK_INS_EP1","LandRover_MG_TK_INS_EP1","LandRover_MG_TK_EP1","UAZ_AGS30_TK_EP1","LandRover_SPG9_TK_INS_EP1","LandRover_SPG9_TK_EP1","D30_TK_EP1","D30_TK_INS_EP1"]};
-        case (__ACEVer): {["UAZ_RU","UAZ_AGS30_RU","D30_RU"]};
         case (__COVer): {["UAZ_RU","UAZ_AGS30_RU","D30_RU"]};
     };
 } else {[]};
@@ -344,9 +259,6 @@ switch (true) do {
     case (__OAVer): {
         ["BMP2_HQ_TK_EP1","M113Ambul_TK_EP1","UralSupply_TK_EP1","UralRepair_TK_EP1","UralRefuel_TK_EP1","UralReammo_TK_EP1","V3S_Open_TK_EP1","V3S_TK_EP1","UAZ_Unarmed_TK_EP1","D30_TK_EP1"]
     };
-    case (__ACEVer): {
-        ["BTR90_HQ","GAZ_Vodnik_MedEvac","WarfareSalvageTruck_RU","KamazRepair","KamazRefuel","KamazReammo","ACE_KamazReammo","ACE_KamazRefuel","ACE_KamazRepair","Kamaz","KamazOpen","UAZ_RU"]
-    };
     case (__COVer): {
         ["BTR90_HQ","GAZ_Vodnik_MedEvac","WarfareSalvageTruck_RU","KamazRepair","KamazRefuel","KamazReammo","Kamaz","KamazOpen","UAZ_RU"]
     };
@@ -356,9 +268,6 @@ switch (true) do {
 switch (true) do {
     case (__OAVer): {
         ["M1133_MEV_EP1","HMMWV_DES_EP1","HMMWV_M1035_DES_EP1","MTVR_DES_EP1","HMMWV_Ambulance_DES_EP1","MtvrReammo_DES_EP1","MtvrRefuel_DES_EP1","MtvrRepair_DES_EP1","LandRover_CZ_EP1","HMMWV_Ambulance_CZ_DES_EP1","MtvrSupply_DES_EP1","M119_US_EP1"]
-    };
-    case (__ACEVer): {
-        ["LAV25_HQ","HMMWV","HMMWV_Armored","MTVR","HMMWV_Ambulance","MtvrReammo","MtvrRefuel","MtvrRepair","ACE_MTVRRepair","ACE_MTVRReammo","ACE_MTVRRefuel"]
     };
     case (__COVer): {
         ["LAV25_HQ","HMMWV","HMMWV_Armored","MTVR","HMMWV_Ambulance","MtvrReammo","MtvrRefuel","MtvrRepair"]
@@ -372,9 +281,6 @@ switch (true) do {
 switch (true) do {
     case (__OAVer): {
         ["M1133_MEV_EP1","HMMWV_DES_EP1","HMMWV_M1035_DES_EP1","MTVR_DES_EP1","HMMWV_Ambulance_DES_EP1","MtvrReammo_DES_EP1","MtvrRefuel_DES_EP1","MtvrRepair_DES_EP1","LandRover_CZ_EP1","HMMWV_Ambulance_CZ_DES_EP1","MtvrSupply_DES_EP1","M119_US_EP1","BMP2_HQ_TK_EP1","M113Ambul_TK_EP1","UralSupply_TK_EP1","UralRepair_TK_EP1","UralRefuel_TK_EP1","UralReammo_TK_EP1","V3S_Open_TK_EP1","V3S_TK_EP1","UAZ_Unarmed_TK_EP1","D30_TK_EP1"]
-    };
-    case (__ACEVer): {
-        ["BTR90_HQ","GAZ_Vodnik_MedEvac","WarfareSalvageTruck_RU","KamazRepair","KamazRefuel","KamazReammo","ACE_KamazReammo","ACE_KamazRefuel","ACE_KamazRepair","Kamaz","KamazOpen","UAZ_RU","LAV25_HQ","HMMWV","HMMWV_Armored","MTVR","HMMWV_Ambulance","MtvrReammo","MtvrRefuel","MtvrRepair","ACE_MTVRRepair","ACE_MTVRReammo","ACE_MTVRRefuel","M119"]
     };
     case (__COVer): {
         ["BTR90_HQ","GAZ_Vodnik_MedEvac","WarfareSalvageTruck_RU","KamazRepair","KamazRefuel","KamazReammo","Kamaz","KamazOpen","UAZ_RU","LAV25_HQ","HMMWV","HMMWV_Armored","MTVR","HMMWV_Ambulance","MtvrReammo","MtvrRefuel","MtvrRepair","M119"]

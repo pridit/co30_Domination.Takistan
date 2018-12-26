@@ -94,9 +94,6 @@ if (GVAR(WithRevive) == 1) then {
         if (GVAR(no_teamkill) == 0 && {isPlayer _injurer} && {_injurer != _unit} && {_part == ""} && {_dam >= 0.5} && {side (group _injurer) == side (group _unit)} && {getText (configFile >> "CfgAmmo" >> _ammo >> "simulation") in __shots}) exitWith {
             hint format [(localize "STR_DOM_MISSIONSTRING_497"), name _injurer];
             [QGVAR(unit_tkr), [_unit,_injurer]] call FUNC(NetCallEventCTS);
-            if (d_domdatabase) then {
-                [QGVAR(ptkkg), _injurer] call FUNC(NetCallEventCTS);
-            };
             0
         };
         _dam = _dam * 0.8;
@@ -111,45 +108,9 @@ if (GVAR(WithRevive) == 1) then {
     player addEventHandler ["handleDamage", {_this call FUNC(playerHD)}];
 };
 
-if (GVAR(with_ranked)) then {GVAR(sm_p_pos) = nil};
-
-#ifdef __TT__
-GVAR(own_side) = if (GVAR(player_side) == east) then {"EAST"} else {"WEST"};
-GVAR(side_player_str) = switch (GVAR(player_side)) do {
-    case west: {"west"};
-    case east: {"east"};
-};
-GVAR(own_side_trigger) = if (GVAR(player_side) == east) then {"EAST"} else {"WEST"};
-
-GVAR(side_player) = GVAR(player_side);
-
-GVAR(rep_truck) = if (GVAR(own_side) == "WEST") then {GVAR(rep_truck_west)} else {GVAR(rep_truck_east)};
-
-GVAR(create_bike) = switch (true) do {
-    case (__OAVer): {if (GVAR(own_side) == "EAST") then {["Old_bike_TK_INS_EP1","Old_bike_TK_INS_EP1"]} else {["ATV_US_EP1","M1030"]}};
-    case (__COVer): {if (GVAR(own_side) == "EAST") then {["MMT_Civ","TT650_Civ"]} else {["MMT_USMC","M1030"]}};
-};
-
-if (GVAR(with_mgnest)) then {
-    GVAR(mg_nest) = switch (true) do {
-        case (__OAVer): {if (GVAR(own_side) == "EAST") then {"WarfareBMGNest_PK_TK_EP1"} else {"WarfareBMGNest_M240_US_EP1"}};
-        case (__COVer): {if (GVAR(own_side) == "EAST") then {"RU_WarfareBMGNest_PK"} else {"USMC_WarfareBMGNest_M240"}};
-    };
-};
-#endif
-
-#ifndef __TT__
 GVAR(name_flag_base) = GVAR(FLAG_BASE);
-#else
-GVAR(name_flag_base) = switch (GVAR(player_side)) do {
-    case west: {GVAR(WFLAG_BASE)};
-    case east: {GVAR(EFLAG_BASE)};
-};
-#endif
-
 GVAR(the_box) = "USBasicWeapons_EP1";
 GVAR(the_base_box) = "USVehicleBox";
-
 GVAR(flag_vec) = objNull;
 
 __ccppfln(x_client\x_f\x_playerfuncs.sqf);
@@ -157,11 +118,7 @@ __ccppfln(x_client\x_f\x_playerfuncs.sqf);
 if (!isServer) then {execVM "x_bikb\kbinit.sqf"};
 
 if (!X_SPE) then {
-#ifndef __TT__
     GVAR(X_DropZone) = __XJIPGetVar(X_DropZone);
-#endif
-    GVAR(AriTarget) = __XJIPGetVar(GVAR(AriTarget));
-    GVAR(AriTarget2) = __XJIPGetVar(GVAR(AriTarget2));
 };
 
 [QGVAR(dummy_marker), [0,0,0],"ICON","ColorBlack",[1,1],"",0,"Empty"] call FUNC(CreateMarkerLocal);
@@ -169,10 +126,8 @@ if (!X_SPE) then {
 QGVAR(arti_target2) setMarkerPosLocal getPosASL GVAR(AriTarget2);
 [QGVAR(arti_target), [0,0,0],"ICON","ColorBlue",[1,1],(localize "STR_DOM_MISSIONSTRING_499"),0,"mil_destroy"] call FUNC(CreateMarkerLocal);
 QGVAR(arti_target) setMarkerPosLocal getPosASL GVAR(AriTarget);
-#ifndef __TT__
 [QGVAR(drop_zone), [0,0,0],"ICON","ColorBlue",[1,1],(localize "STR_DOM_MISSIONSTRING_500"),0,"mil_dot"] call FUNC(CreateMarkerLocal);
 QGVAR(drop_zone) setMarkerPosLocal getPosASL GVAR(X_DropZone);
-#endif
 
 if (__XJIPGetVar(GVAR(the_end))) exitWith {
     endMission "END1";
@@ -194,7 +149,7 @@ if (__XJIPGetVar(GVAR(the_end))) exitWith {
 [2, QGVAR(m_box), {_this call FUNC(create_boxNet)}] call FUNC(NetAddEvent);
 [2, QGVAR(r_box), {_nobjs = nearestObjects [_this, [GVAR(the_box)], 10];if (count _nobjs > 0) then {_box = _nobjs select 0;deleteVehicle _box}}] call FUNC(NetAddEvent);
 [QGVAR(air_box), {_box = GVAR(the_box) createVehicleLocal _this;_box setPos [_this select 0,_this select 1,0];player reveal _box;[_box] call FUNC(weaponcargo);_box addEventHandler ["killed",{deleteVehicle (_this select 0)}]}] call FUNC(NetAddEventToClients);
-[QGVAR(sm_res_client), {playSound "Notebook";GVAR(side_mission_winner) = _this select 0;if (GVAR(with_ranked)) then {GVAR(sm_running) = false}; (_this select 1) execVM "x_missions\x_sidemissionwinner.sqf"}] call FUNC(NetAddEventToClients);
+[QGVAR(sm_res_client), {playSound "Notebook";GVAR(side_mission_winner) = _this select 0; (_this select 1) execVM "x_missions\x_sidemissionwinner.sqf"}] call FUNC(NetAddEventToClients);
 [QGVAR(target_clear), {playSound "fanfare";_this execVM "x_client\x_target_clear_client.sqf"}] call FUNC(NetAddEventToClients);
 [QGVAR(update_target), {execVM "x_client\x_createnexttargetclient.sqf"}] call FUNC(NetAddEventToClients);
 [QGVAR(up_m), {[true] spawn FUNC(getsidemissionclient)}] call FUNC(NetAddEventToClients);
@@ -263,9 +218,6 @@ if (__XJIPGetVar(GVAR(the_end))) exitWith {
     };
 #endif
 }] call FUNC(NetAddEvent);
-if (GVAR(with_ranked)) then {
-    [QGVAR(pho), {(format [(localize "STR_DOM_MISSIONSTRING_288"), GVAR(ranked_a) select 17]) call FUNC(HQChat)}] call FUNC(NetAddEventSTO);
-};
 [2, QGVAR(p_o_r), {deleteMarkerLocal (_this select 1)}] call FUNC(NetAddEvent);
 if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
     [QGVAR(farp_e), {if (GVAR(eng_can_repfuel)) then {_this addAction [(localize "STR_DOM_MISSIONSTRING_513") call FUNC(BlueText), "x_client\x_restoreeng.sqf"]}}] call FUNC(NetAddEventToClients);
@@ -288,27 +240,6 @@ if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0})
 
 [QGVAR(grpswmsg), {((_this select 1) + " " + localize "STR_DOM_MISSIONSTRING_1432") call FUNC(GlobalChat)}] call FUNC(NetAddEventSTO);
 [QGVAR(grpswmsgn), {((_this select 1) + " " + localize "STR_DOM_MISSIONSTRING_1433") call FUNC(GlobalChat)}] call FUNC(NetAddEventSTO);
-
-if (GVAR(domdatabase)) then {
-    [QGVAR(sendps), {_this call FUNC(CreatePStatsDialog)}] call FUNC(NetAddEventSTO);
-};
-
-if (GVAR(dom4)) then {
-    [2, QGVAR(u_old_m), {
-        private ["_mname", "_mcolor"];
-        _mname = format [QGVAR(target_%1), _this select 0];
-        _mcolor = switch (_this select 1) do {
-            case "west": {"ColorBlueFaded25"};
-            case "east": {"ColorRedFaded25"};
-        };
-        _mname setMarkerColorLocal _mcolor;
-        _curtars = __XJIPGetVar(GVAR(current_targets));
-        _mname = format [QGVAR(target_%1), _curtars select 0];
-        _mname setMarkerColorLocal "ColorRedFaded75";
-        _mname = format [QGVAR(target_%1), _curtars select 1];
-        _mname setMarkerColorLocal "ColorBlueFaded75";
-    }] call FUNC(NetAddEvent);
-};
 
 0 spawn {
     scriptName "spawn_playerstuff";
@@ -333,34 +264,6 @@ if (GVAR(dom4)) then {
 };
 
 ["init_vecs", {{_x call FUNC(initvec)} forEach vehicles;["init_vecs"] call FUNC(removePerFrame)},0] call FUNC(addPerFrame);
-
-if (GVAR(with_ranked)) then {
-    // basic rifle at start
-    _weapp = "";
-    _magp = "";
-    switch (GVAR(own_side)) do {
-        case "WEST": {
-#ifdef __CO__
-            _weapp = "M16A4";
-#endif
-#ifdef __OA__
-            _weapp = "M16A2";
-#endif
-            _magp = "30Rnd_556x45_Stanag";
-        };
-        case "EAST": {
-            _weapp = "AK_74";
-            _magp = "30Rnd_545x39_AK";
-        };
-        case "GUER": {
-            _weapp = "M16A4";
-            _magp = "30Rnd_556x45_Stanag";
-        };
-    };
-    removeAllWeapons _p;
-    for "_i" from 1 to 6 do {_p addMagazine _magp};
-    _p addWeapon _weapp;
-};
 
 #define __tctn _target_array = GVAR(target_names) select _res;\
 _current_target_pos = _target_array select 0;\
@@ -508,15 +411,7 @@ if (GVAR(with_ai)) then {
     player addMPEventHandler ["MPKilled", {_this call FUNC(x_checkkill)}];
 } else {
     __cppfln(FUNC(x_dlgopen),x_client\x_open.sqf);
-    if !(__TTVer) then {
-            player addMPEventHandler ["MPKilled", {_this call FUNC(x_checkkill)}];
-    } else {
-        if (GVAR(player_side) == west) then {
-                player addMPEventHandler ["MPKilled", {_this call FUNC(x_checkkillwest)}];
-        } else {
-                player addMPEventHandler ["MPKilled", {_this call FUNC(x_checkkilleast)}];
-        };
-    };
+    player addMPEventHandler ["MPKilled", {_this call FUNC(x_checkkill)}];
 };
 
 xr_use_dom_opendlg = false;
@@ -598,42 +493,24 @@ if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
         };
     };
 
-    if !(__ACEVer) then {
-        GVAR(player_can_call_arti) = 1;
-        GVAR(player_can_call_drop) = 1;
-    } else {
-        [1] execVM "x_client\x_artiradiocheckold.sqf";
-        execVM "x_client\x_dropradiocheckold.sqf";
-    };
+    [1] execVM "x_client\x_artiradiocheckold.sqf";
+    execVM "x_client\x_dropradiocheckold.sqf";
     GVAR(player_can_build_trench) = true;
     _p addRating 20000;
 } else {
     if (GVAR(string_player) in GVAR(can_use_artillery)) then {
-        if !(__ACEVer) then {
-            if (GVAR(string_player) == "RESCUE") then {
-                GVAR(player_can_call_arti) = 1;
-            };
-            if (GVAR(string_player) == "RESCUE2") then {
-                GVAR(player_can_call_arti) = 2;
-            };
-        } else {
-            GVAR(player_can_call_arti) = switch (GVAR(string_player)) do {
-                case "RESCUE": {1};
-                case "RESCUE2": {2};
-                default {0};
-            };
-            if (GVAR(player_can_call_arti) == 0) exitWith {};
-            [GVAR(player_can_call_arti)] execVM "x_client\x_artiradiocheckold.sqf";
+        GVAR(player_can_call_arti) = switch (GVAR(string_player)) do {
+            case "RESCUE": {1};
+            case "RESCUE2": {2};
+            default {0};
         };
+        if (GVAR(player_can_call_arti) == 0) exitWith {};
+        [GVAR(player_can_call_arti)] execVM "x_client\x_artiradiocheckold.sqf";
     } else {
         enableEngineArtillery false;
     };
     if (GVAR(string_player) in GVAR(can_call_drop_ar)) then {
-        if (__ACEVer) then {
-            execVM "x_client\x_dropradiocheckold.sqf";
-        } else {
-            GVAR(player_can_call_drop) = 1;
-        };
+        GVAR(player_can_call_drop) = 1;
     };
     if (GVAR(player_can_call_arti) == 0 && {!(GVAR(string_player) in GVAR(is_engineer))}) then {
         GVAR(player_can_build_trench) = true;
@@ -663,22 +540,12 @@ switch (GVAR(own_side)) do {
 };
 
 #define __rmsmpl _respawn_marker setMarkerPosLocal
-if (__TTVer) then {
-    if (GVAR(player_side) == west) then {
-        __rmsmpl markerPos "base_spawn_1";
-    } else {
-        __rmsmpl markerPos "base_spawn_2";
-    };
+if (!isNil QGVAR(with_carrier)) then {
+    "base_spawn_1" setMarkerPosLocal [markerPos "base_spawn_1" select 0, markerPos "base_spawn_1" select 1, 15.9];
+    __rmsmpl [markerPos "base_spawn_1" select 0, markerPos "base_spawn_1" select 1, 15.9];
 } else {
-    if (!isNil QGVAR(with_carrier)) then {
-        "base_spawn_1" setMarkerPosLocal [markerPos "base_spawn_1" select 0, markerPos "base_spawn_1" select 1, 15.9];
-        __rmsmpl [markerPos "base_spawn_1" select 0, markerPos "base_spawn_1" select 1, 15.9];
-    } else {
-        __rmsmpl markerPos "base_spawn_1";
-    };
+    __rmsmpl markerPos "base_spawn_1";
 };
-
-// if there ever will be a carrier version who knows... if (!isNil QGVAR(with_carrier)) then {"base_spawn_1" setMarkerPosLocal [markerPos "base_spawn_1" select 0, markerPos "base_spawn_1" select 1, 15.9]};
 
 __pSetVar [QGVAR(pbp_id), -9999];
 GVAR(backpack_helper) = [];
@@ -710,8 +577,6 @@ if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai
         GVAR(engineer_trigger) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
         GVAR(engineer_trigger) setTriggerStatements["!d_eng_can_repfuel && {player in thislist}", "d_eng_can_repfuel = true;(localize 'STR_DOM_MISSIONSTRING_340') call d_fnc_GlobalChat", ""];
     };
-    
-    if (GVAR(with_ranked)) then {GVAR(last_base_repair) = -1};
     
     [_pos, [0, 0, 0, false], ["NONE", "PRESENT", true], ["call d_fnc_ffunc", "actionID1=player addAction [(localize 'STR_DOM_MISSIONSTRING_1408') call d_fnc_GreyText, 'scripts\unflipVehicle.sqf',[d_objectID1],-1,false];", "player removeAction actionID1"]] call FUNC(CreateTrigger);
     
@@ -854,10 +719,6 @@ if (GVAR(ParaAtBase) == 1) then {
     _s = QGVAR(Teleporter);
     _sn = (localize "STR_DOM_MISSIONSTRING_534");
     _s setMarkerTextLocal _sn;
-};
-
-if (GVAR(with_ranked)) then {
-    player addEventHandler ["handleHeal", {_this call FUNC(HandleHeal)}];
 };
 
 if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
@@ -1272,10 +1133,6 @@ if (isMultiplayer) then {
 
 __cppfln(FUNC(x_chop_hudsp),x_client\x_chop_hud.sqf);
 __cppfln(FUNC(x_vec_hudsp),x_client\x_vec_hud.sqf);
-if (GVAR(with_ranked)) then {
-    __cppfln(FUNC(x_playervectrans),x_client\x_playervectrans.sqf);
-    __cppfln(FUNC(x_playerveccheck),x_client\x_playerveccheck.sqf);
-};
 
 if (GVAR(MHQDisableNearMT) != 0) then {
     FUNC(mhqCheckNearTarget) = {
@@ -1320,12 +1177,6 @@ FUNC(vehicleScripts) = {
     if (!_isAir && {GVAR(vechud_on) == 0} && {((_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) || {_vec isKindOf "StaticWeapon" && {!(_vec isKindOf "ACE_SpottingScope")} && {!(_vec isKindOf "StaticATWeapon")}})}) then {
         0 spawn FUNC(x_vec_hudsp);
     };
-    if (GVAR(with_ranked)) then {
-        if (_vec isKindOf "Car" || {_vec isKindOf "Helicopter"}) then {
-            0 spawn FUNC(x_playervectrans);
-        };
-        call FUNC(x_playerveccheck);
-    };
     if (!_isAir && {GVAR(MHQDisableNearMT) != 0} && {!GVAR(playerInMHQ)}) then {
         _vt = GV(_vec,GVAR(vec_type));
         if (isNil "_vt") then {_vt = ""};
@@ -1364,7 +1215,7 @@ FUNC(vehicleScripts) = {
 
 player setVariable ["d_p_isadmin", false];
 GVAR(clientScriptsAr) = [false, false];
-if (GVAR(AutoKickTime) == 0 || {GVAR(with_ranked)} || {GVAR(MissionType) == 2}) then {
+if (GVAR(AutoKickTime) == 0 || {GVAR(MissionType) == 2}) then {
     GVAR(clientScriptsAr) set [1, true];
 };
 FUNC(startClientScripts) = {

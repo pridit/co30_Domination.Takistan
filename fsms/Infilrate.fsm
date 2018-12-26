@@ -71,10 +71,6 @@ class FSM
        "_veca = [_start_posh, _cdir, _chopper, _grp] call d_fnc_spawnVehicle;" \n
        "_vehicle = _veca select 0;" \n
        "" \n
-       "if (d_domdatabase) then {" \n
-       "	_vehicle addMPEventHandler [""MPKilled"", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call d_fnc_PAddChopperKillPoints}}];" \n
-       "};" \n
-       "" \n
        "if !((toUpper _chopper) in d_heli_wreck_lift_types) then {d_allunits_add set [count d_allunits_add, _vehicle]};" \n
        "" \n
        "_attack_pos = [position D_FLAG_BASE,800] call d_fnc_GetRanPointCircleOld;" \n

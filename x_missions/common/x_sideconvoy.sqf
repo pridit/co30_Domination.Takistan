@@ -8,13 +8,6 @@ PARAMS_3(_pos_start,_pos_end,_direction);
 
 _crew_member = "";
 
-#ifdef __TT__
-GVAR(sm_points_west) = 0;
-GVAR(sm_points_east) = 0;
-#endif
-
-if (GVAR(with_ranked)) then {GVAR(sm_p_pos) = nil};
-
 GVAR(confvdown) = 0;
 _numconfv = count GVAR(sm_convoy_vehicles);
 _newgroup = [GVAR(side_enemy)] call FUNC(creategroup);
@@ -23,11 +16,7 @@ _vehicles = _reta select 0;
 (_vehicles select 0) lock true;
 _nextpos = (_vehicles select 0) modeltoworld [0, -9, 0];
 _nextpos set [2,0];
-(_vehicles select 0) addEventHandler ["killed", {__INC(GVAR(confvdown));
-    #ifdef __TT__
-    _this call FUNC(AddSMPoints)
-    #endif
-}];
+(_vehicles select 0) addEventHandler ["killed", {__INC(GVAR(confvdown))}];
 
 GVAR(extra_mission_vehicle_remover_array) = [GVAR(extra_mission_vehicle_remover_array), _vehicles] call FUNC(arrayPushStack2);
 GVAR(extra_mission_remover_array) = [GVAR(extra_mission_remover_array), _reta select 1] call FUNC(arrayPushStack);
@@ -80,7 +69,6 @@ while {true} do {
     if ((position (leader _newgroup)) distance _pos_end < 40) exitWith {
         _convoy_reached_dest = true;
     };
-    if (GVAR(with_ranked)) then {[QGVAR(sm_p_pos), position _leader] call FUNC(NetCallEventToClients)};
     if (time > _endtime) exitWith {_convoy_reached_dest = true};
     sleep 5.123;
 };

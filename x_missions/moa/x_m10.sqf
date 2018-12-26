@@ -24,9 +24,6 @@ if (call FUNC(checkSHC)) then {
     _vehicle = objNull;
     _vehicle = createVehicle [GVAR(sm_arty), _poss, [], 0, "NONE"];
     _vehicle setPos _poss;
-    if (GVAR(domdatabase)) then {
-        _vehicle addEventHandler ["Killed", {if (isPlayer (_this select 1)) then {[QGVAR(PACKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-    };
     _vehicle addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal); _this call FUNC(handleDeadVec)}];
     _vehicle lock true;
     sleep 2.21;

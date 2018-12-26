@@ -114,11 +114,7 @@ switch (_sec_kind) do {
         _vehicle setRank "COLONEL";
         _vehicle setSkill 0.3;
         _vehicle disableAI "MOVE";
-        if (GVAR(domdatabase)) then {
-            _vehicle addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-        };
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
-#ifndef __TT__
         _iar = __XJIPGetVar(GVAR(searchintel));
         _sum = 0;
         {if (_x == 1) then {__INC(_sum)}} forEach _iar;
@@ -131,10 +127,6 @@ switch (_sec_kind) do {
             __addDeadAI(_vehicle)
         };
         sleep 0.1;
-#else
-        __addDeadAI(_vehicle)
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
         __vkilled(gov_dead);
         if (GVAR(with_ai) && {__RankedVer}) then {
             _vehicle addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
@@ -164,14 +156,8 @@ switch (_sec_kind) do {
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(radar_down);
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
-        if (GVAR(domdatabase)) then {
-            _vehicle addMPEventHandler ["MPkilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddMTObjKillPoints)}}];
-        };
         sleep 1.0112;
         __specops;
-#ifdef __TT__
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
     };
     case 3: {
         __getPos;
@@ -204,9 +190,6 @@ switch (_sec_kind) do {
         _vehicle addEventHandler ["killed", {
             _this set [count _this, "ammo_down"];
             _this call FUNC(MTSMTargetKilled);
-            if (GVAR(domdatabase)) then {
-                if (isPlayer (_this select 1)) then {[QGVAR(PACKP), _this select 1] call FUNC(NetCallEventCTS)};
-            };
             _this call FUNC(handleDeadVec);
         }];
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
@@ -243,33 +226,11 @@ switch (_sec_kind) do {
         _vehicle setDir (floor random 360);
         _vehicle setPos _poss;
         _vehicle lock true;
-        if (__ACEVer) then {
-            [_vehicle] spawn {
-                scriptName "spawn_x_getmtmissoion_ace1";
-                private "_vehicle";
-                PARAMS_1(_vehicle);
-                waitUntil {sleep 0.311;!(_vehicle call ace_v_alive)};
-                GVAR(side_main_done) = true;
-                if (!isServer) then {
-                    [QGVAR(sSetVar), [QGVAR(side_main_done), true]] call FUNC(NetCallEventCTS);
-                };
-                _s = "apc_down" call FUNC(GetSMTargetMessage);
-                ["sec_kind",0] call FUNC(NetSetJIP);
-                [QGVAR(kbmsg), [17, _s]] call FUNC(NetCallEventCTS);
-                __addDead(_vehicle)
-                sleep 600;
-                _vehicle setDamage 1;
-            };
-        } else {
-            _vehicle addEventHandler ["killed", {
-                _this set [count _this, "apc_down"];
-                _this call FUNC(MTSMTargetKilled);
-                if (GVAR(domdatabase)) then {
-                    if (isPlayer (_this select 1)) then {[QGVAR(PACKP), _this select 1] call FUNC(NetCallEventCTS)};
-                };
-                _this call FUNC(handleDeadVec);
-            }];
-        };
+        _vehicle addEventHandler ["killed", {
+            _this set [count _this, "apc_down"];
+            _this call FUNC(MTSMTargetKilled);
+            _this call FUNC(handleDeadVec);
+        }];
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
@@ -288,17 +249,11 @@ switch (_sec_kind) do {
         _vehicle setDir (floor random 360);
         _vehicle setPos _poss;
         _vehicle lock true;
-        if (GVAR(domdatabase)) then {
-            _vehicle addMPEventHandler ["MPkilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddMTObjKillPoints)}}];
-        };
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(hq_down);
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
-#ifdef __TT__
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
     };
     case 6: {
         __getPos;
@@ -329,9 +284,6 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(light_down);
-        if (GVAR(domdatabase)) then {
-            _vehicle addMPEventHandler ["MPkilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddMTObjKillPoints)}}];
-        };
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
@@ -368,9 +320,6 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(heavy_down);
-        if (GVAR(domdatabase)) then {
-            _vehicle addMPEventHandler ["MPkilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddMTObjKillPoints)}}];
-        };
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __GetEGrp(_newgroup)
@@ -394,9 +343,6 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(artrad_down);
-        if (GVAR(domdatabase)) then {
-            _vehicle addMPEventHandler ["MPkilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddMTObjKillPoints)}}];
-        };
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
@@ -419,9 +365,6 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(airrad_down);
-        if (GVAR(domdatabase)) then {
-            _vehicle addMPEventHandler ["MPkilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddMTObjKillPoints)}}];
-        };
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
@@ -455,9 +398,6 @@ switch (_sec_kind) do {
         _vehicle setRank "COLONEL";
         _vehicle setSkill 0.3;
         _vehicle disableAI "MOVE";
-        if (GVAR(domdatabase)) then {
-            _vehicle addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-        };
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         for "_i" from 1 to 4 do {_vehicle addMagazine "15Rnd_9x19_M9"};
         _vehicle addWeapon "M9";
@@ -512,9 +452,6 @@ switch (_sec_kind) do {
         _vehicle setSkill 0.3;
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         _vehicle disableAI "MOVE";
-        if (GVAR(domdatabase)) then {
-            _vehicle addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-        };
         for "_i" from 1 to 4 do {_vehicle addMagazine "15Rnd_9x19_M9"};
         _vehicle addWeapon "M9";
 #ifndef __TT__

@@ -30,8 +30,6 @@
 #define __XJIPSetVar X_JIPH setVariable
 #define __uiGetVar(uvarname) (uiNamespace getVariable #uvarname)
 #define __AIVer ("AI" in GVAR(version))
-#define __ACEVer ("ACE" in GVAR(version))
-#define __TTVer ("TT" in GVAR(version))
 #define __OAVer ("OA" in GVAR(version))
 #define __COVer ("CO" in GVAR(version))
 #define __RankedVer ("RANKED" in GVAR(version))

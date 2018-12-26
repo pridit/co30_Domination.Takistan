@@ -28,9 +28,6 @@ if (call FUNC(checkSHC)) then {
     };
     _sm_vehicle setVariable ["BIS_noCoreConversations", true];
     __addDeadAI(_sm_vehicle)
-    if (GVAR(domdatabase)) then {
-        _sm_vehicle addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-    };
     _sm_vehicle addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal)}];
     sleep 2.123;
     ["specops", 1, "basic", 0, _newpos, 0,true] call FUNC(CreateInf);

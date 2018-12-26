@@ -38,7 +38,6 @@ if (call FUNC(checkSHC)) then {
             private "_vec";
             PARAMS_2(_vec,_killer);
             __addDead(_vec);
-            if (isPlayer _killer) then {_killer call FUNC(PAddTankKillPoints)};
         };
     }];
     _vehicle setDamage 0;

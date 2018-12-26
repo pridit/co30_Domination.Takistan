@@ -98,10 +98,6 @@ class FSM
        "		_mg_array set [1, [_rpos]];" \n
        "		d_respawn_ai_groups set [_counter, -1];" \n
        "		_mg_array call d_fnc_makegroup;" \n
-       "		if (d_dom4) then {" \n
-       "			d_mt_defend_groups = d_mt_defend_groups - [_grp, grpNull];" \n
-       "			d_mt_attack_groups = d_mt_attack_groups - [_grp, grpNull];" \n
-       "		};" \n
        "		_dowaitfg = true;" \n
        "	};" \n
        "} else {" \n

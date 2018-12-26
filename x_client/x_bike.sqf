@@ -1,40 +1,11 @@
 // by Xeno
 #define THIS_FILE "x_bike.sqf"
 #include "x_setup.sqf"
-private ["_create_bike", "_disp_name", "_str", "_pos", "_vehicle", "_exitit", "_dosearch", "_index", "_parray", "_rank"];
+private ["_create_bike", "_disp_name", "_str", "_pos", "_vehicle", "_index", "_parray", "_rank"];
 if (!X_Client) exitWith {};
 
 _create_bike = (_this select 3) select 0;
 _b_mode = (_this select 3) select 1;
-
-_exitit = false;
-if (GVAR(with_ranked)) then {
-    _dosearch = true;
-    if ((_create_bike in GVAR(create_bike)) && {count GVAR(create_bike) > 1}) then {
-        _index = GVAR(create_bike) find _create_bike;
-        if (_index != -1) then {
-            _dosearch = false;
-            _parray = [GVAR(points_needed) select 1, GVAR(points_needed) select 2, GVAR(points_needed) select 3, GVAR(points_needed) select 4, GVAR(points_needed) select 5];
-            if (_index < count _parray && {score player < (_parray select _index)}) then {
-                _rank = switch (_parray select _index) do {
-                    case (GVAR(points_needed) select 1): {"Sergeant"};
-                    case (GVAR(points_needed) select 2): {"Lieutenant"};
-                    case (GVAR(points_needed) select 3): {"Captain"};
-                    case (GVAR(points_needed) select 4): {"Major"};
-                    case (GVAR(points_needed) select 5): {"Colonel"};
-                };
-                (format [(localize "STR_DOM_MISSIONSTRING_156"),_rank,_create_bike]) call FUNC(GlobalChat);
-                _exitit = true;
-            };
-        };
-    };
-    if (_dosearch && {score player < (GVAR(ranked_a) select 6)}) then {
-        _rank = (GVAR(ranked_a) select 6) call FUNC(GetRankFromScore); 
-        _exitit = true;
-        (format[(localize "STR_DOM_MISSIONSTRING_157"),_create_bike,_rank]) call FUNC(GlobalChat);
-    };
-};
-if (_exitit) exitWith {};
 
 _disp_name = [_create_bike,0] call FUNC(GetDisplayName);
 
@@ -53,10 +24,6 @@ if (diag_tickTime > GVAR(vec_end_time) && {!isNull GVAR(flag_vec)} && {(GVAR(fla
 };
 if (_b_mode == 0 && {alive GVAR(flag_vec)}) exitWith {
     (format [(localize "STR_DOM_MISSIONSTRING_160"),0 max (round((GVAR(vec_end_time) - diag_tickTime)/60))]) call FUNC(GlobalChat);
-};
-
-if (GVAR(with_ranked)) then {
-    [QGVAR(pas), [player, (GVAR(ranked_a) select 5) * -1]] call FUNC(NetCallEventCTS);
 };
 
 _pos = position player;

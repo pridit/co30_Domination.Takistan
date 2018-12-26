@@ -11,10 +11,6 @@ if (!__XJIPGetVar(para_available)) exitWith {
     (localize "STR_DOM_MISSIONSTRING_163") call FUNC(HQChat);
 };
 
-if (GVAR(with_ranked) && {score player < (GVAR(ranked_a) select 16)}) exitWith {
-    (format [(localize "STR_DOM_MISSIONSTRING_164"), score player, GVAR(ranked_a) select 16]) call FUNC(HQChat);
-};
-
 if ((GVAR(with_ai) || {GVAR(with_ai_features) == 0}) && {__XJIPGetVar(GVAR(drop_blocked))}) exitWith {
     (localize "STR_DOM_MISSIONSTRING_165") call FUNC(HQChat);
 };
@@ -58,7 +54,6 @@ if (GVAR(x_drop_type) != "") then {
         QGVAR(drop_zone) setMarkerPos _oldpos;
     };
     [player, format [(localize "STR_DOM_MISSIONSTRING_167"), [GVAR(x_drop_type), 0] call FUNC(GetDisplayName)]] call FUNC(SideChat);
-    if (GVAR(with_ranked)) then {[QGVAR(pas), [player, (GVAR(ranked_a) select 16) * -1]] call FUNC(NetCallEventCTS)};
     [QGVAR(x_dr_t), [GVAR(x_drop_type), markerPos QGVAR(drop_zone), player]] call FUNC(NetCallEventCTS);
 } else {
     GVAR(x_dropzone) setPosASL _oldpos;

@@ -38,10 +38,6 @@ if (surfaceIsWater [_d_farp_pos select 0, _d_farp_pos select 1]) exitWith {
     (localize "STR_DOM_MISSIONSTRING_244") call FUNC(GlobalChat);
 };
 
-if (GVAR(with_ranked) && {score player < (GVAR(ranked_a) select 20)}) exitWith {
-    (format [(localize "STR_DOM_MISSIONSTRING_245"), score player, GVAR(ranked_a) select 20]) call FUNC(HQChat);
-};
-
 _helper1 = GVAR(HeliHEmpty) createVehicleLocal [_d_farp_pos select 0, (_d_farp_pos select 1) + 4, 0];
 _helper2 = GVAR(HeliHEmpty) createVehicleLocal [_d_farp_pos select 0, (_d_farp_pos select 1) - 4, 0];
 _helper3 = GVAR(HeliHEmpty) createVehicleLocal [(_d_farp_pos select 0) + 4, _d_farp_pos select 1, 0];
@@ -58,8 +54,6 @@ for "_mt" from 1 to 4 do {call compile format ["deleteVehicle _helper%1;", _mt]}
 if (_exit_it) exitWith {};
 
 __pSetVar [QGVAR(isinaction), true];
-
-if (GVAR(with_ranked)) then {[QGVAR(pas), [player, (GVAR(ranked_a) select 20) * -1]] call FUNC(NetCallEventCTS)};
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 3;

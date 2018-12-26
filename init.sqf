@@ -33,18 +33,6 @@ if (!isDedicated) then {
 enableSaving [false,false];
 enableTeamSwitch false;
 
-if (isServer) then {
-    //GVAR(domdatabase) = ("Arma2Net.Unmanaged" callExtension "DomDatabase ['Init','DomDatabase','Dom.db']") == "[]";
-    GVAR(domdatabase) = false;
-    publicVariable QGVAR(domdatabase);
-    __TRACE_1("","d_domdatabase")
-    if (GVAR(domdatabase)) then {
-        GVAR(server_name) = "Arma2Net.Unmanaged" callExtension "DomDatabase ['Servername']";
-        __TRACE_1("","d_server_name")
-        publicVariable QGVAR(server_name);
-    };
-};
-
 // process d_init in one frame
 GVAR(init_obj) = "HeliHEmpty" createVehicleLocal [0, 0, 0];
 GVAR(init_obj) addEventHandler ["killed", {__ccppfln(d_init.sqf);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];

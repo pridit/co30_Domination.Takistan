@@ -94,12 +94,6 @@ _make_jump = {
                 };
                 _one_unit setVariable ["BIS_noCoreConversations", true];
                 [_one_unit, {__addDeadAI(_this)}] call FUNC(setUnitCode);
-                if (GVAR(domdatabase)) then {
-                    [_one_unit, {_this addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}]}] call FUNC(setUnitCode);
-                };
-#ifdef __TT__
-                [_one_unit, {_this addMPEventHandler ["MPkilled", {if (isServer) then {[[15, 3, 2, 1],_this select 1, _this select 0] call FUNC(AddKills)}}]}] call FUNC(setUnitCode);
-#endif
                 if (GVAR(with_ai) && {__RankedVer}) then {
                     [_one_unit, {_this addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}]}] call FUNC(setUnitCode);
                 };
@@ -173,14 +167,7 @@ for "_i" from 1 to _number_vehicles do {
     _veca = [_spos, _cdir, _heli_type, _vgrp] call FUNC(spawnVehicle);
     _vehicle = _veca select 0;
     if !((toUpper _heli_type) in GVAR(heli_wreck_lift_types)) then {__addDead(_vehicle)};
-    if (GVAR(domdatabase)) then {
-        _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddChopperKillPoints)}}];
-    };
-#ifdef __TT__
-    _vehicle addMPEventHandler ["MPkilled", {if (isServer) then {[[30, 5, 3, 1],_this select 1, _this select 0] call FUNC(AddKills)}}];
-#else
     if (!GVAR(banti_airdown)) then {_vehicle spawn FUNC(AirMarkerMove)};
-#endif
     if (GVAR(with_ai) && {__RankedVer}) then {
         _vehicle addMPEventHandler ["MPkilled", {if (isServer) then {[8,_this select 1] call FUNC(AddKillsAI)}}];
     };

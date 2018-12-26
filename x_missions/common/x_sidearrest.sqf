@@ -11,8 +11,6 @@ _is_dead = false;
 _rescued = false;
 _winner = 0;
 
-if (GVAR(with_ranked)) then {GVAR(sm_p_pos) = nil};
-
 while {!_offz_at_base && {!_is_dead}} do {
     __MPCheck;
     if (!alive _officer) then {
@@ -44,17 +42,6 @@ if (_is_dead) then {
     GVAR(side_mission_winner) = -500;
 } else {
     if (_offz_at_base) then {
-        if (GVAR(with_ranked)) then {
-            if !(__TTVer) then {
-                [QGVAR(sm_p_pos), position GVAR(FLAG_BASE)] call FUNC(NetCallEventToClients);
-            } else {
-                if (_winner == 1) then {
-                    [QGVAR(sm_p_pos), position GVAR(EFLAG_BASE)] call FUNC(NetCallEventToClients);
-                } else {
-                    [QGVAR(sm_p_pos), position GVAR(WFLAG_BASE)] call FUNC(NetCallEventToClients);
-                };
-            };
-        };
         if (_winner != 0) then {
             GVAR(side_mission_winner) = _winner;
         } else {

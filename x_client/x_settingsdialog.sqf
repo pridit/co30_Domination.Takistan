@@ -96,11 +96,7 @@ if (!GVAR(LimitedWeapons)) then {
 
 #define __tyn then {(localize "STR_DOM_MISSIONSTRING_374")} else {(localize "STR_DOM_MISSIONSTRING_375")}
 
-if (__ACEVer) then {__str (localize "STR_DOM_MISSIONSTRING_384")};
-
 __str (localize "STR_DOM_MISSIONSTRING_385") + (if (GVAR(with_ai)) __tyn);
-__str (localize "STR_DOM_MISSIONSTRING_386") + (if (GVAR(with_ranked)) __tyn);
-
 __str (localize "STR_DOM_MISSIONSTRING_387") + GVAR(version_string) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_388") + (if (GVAR(TimeOfDay) < 10) then {"0"} else {""}) + str(GVAR(TimeOfDay)) + ":00\n";
 __str (localize "STR_DOM_MISSIONSTRING_389") + (if (GVAR(WithBackpack)) __tyn);
@@ -178,42 +174,6 @@ __str (localize "STR_DOM_MISSIONSTRING_431") + (if (GVAR(with_medtent)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_432") + (if (GVAR(weapon_respawn)) __tyn);
 if (GVAR(with_ai)) then {__str (localize "STR_DOM_MISSIONSTRING_436") + str(GVAR(max_ai)) + "\n"};
 __str (localize "STR_DOM_MISSIONSTRING_437") + str(GVAR(sub_tk_points)) + "\n";
-if (GVAR(with_ranked)) then {
-    __str (localize "STR_DOM_MISSIONSTRING_438") + str(abs GVAR(sub_kill_points)) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_439") + str(GVAR(ranked_a) select 0) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_440") + str((GVAR(ranked_a) select 1) select 0) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_441") + str((GVAR(ranked_a) select 1) select 1) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_442") + str((GVAR(ranked_a) select 1) select 2) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_443") + str((GVAR(ranked_a) select 1) select 3) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_444") + str(GVAR(ranked_a) select 13) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_445") + str(GVAR(ranked_a) select 2) + "\n";
-    if (GVAR(with_ai)) then {
-        __str (localize "STR_DOM_MISSIONSTRING_446") + str(GVAR(ranked_a) select 3) + "\n";
-        __str "Points needed to call in an air taxi: " + str(GVAR(ranked_a) select 15) + "\n";
-    };
-    __str (localize "STR_DOM_MISSIONSTRING_447") + str(GVAR(ranked_a) select 4) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_448") + str(GVAR(ranked_a) select 6) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_449") + str(GVAR(ranked_a) select 5) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_450") + str(GVAR(ranked_a) select 7) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_451") + str(GVAR(ranked_a) select 17) + "\n";
-
-    _ar = GVAR(ranked_a) select 8;
-    __str (localize "STR_DOM_MISSIONSTRING_452") + ((_ar select 0) call FUNC(GetRankString)) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_453") + ((_ar select 1) call FUNC(GetRankString)) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_454") + ((_ar select 2) call FUNC(GetRankString)) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_455") + ((_ar select 3) call FUNC(GetRankString)) + "\n";
-
-    __str (localize "STR_DOM_MISSIONSTRING_456") + str(GVAR(ranked_a) select 9) + "\n";
-    __str format [(localize "STR_DOM_MISSIONSTRING_457"),GVAR(ranked_a) select 10] + str(GVAR(ranked_a) select 9) + "\n";
-    __str format [(localize "STR_DOM_MISSIONSTRING_458"),GVAR(ranked_a) select 12] + str(GVAR(ranked_a) select 11) + "\n";
-
-    __str (localize "STR_DOM_MISSIONSTRING_459") + str(GVAR(ranked_a) select 14) + "\n";
-    __str "Points needed to call in an air drop: " + str(GVAR(ranked_a) select 16) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_460") + str(GVAR(ranked_a) select 18) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_461") + str(GVAR(ranked_a) select 19) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_462") + str(GVAR(transport_distance)) + "\n";
-    __str (localize "STR_DOM_MISSIONSTRING_463") + ((GVAR(wreck_lift_rank)) call FUNC(GetRankString)) + "\n";
-};
 __str (localize "STR_DOM_MISSIONSTRING_464") + str(GVAR(drop_radius)) + "\n";
 
 __str (localize "STR_DOM_MISSIONSTRING_465") + str(GVAR(reload_time_factor)) + "\n";

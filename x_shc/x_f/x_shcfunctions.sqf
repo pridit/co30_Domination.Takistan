@@ -3,102 +3,6 @@
 #define THIS_FILE "x_shcfunctions.sqf"
 #include "x_setup.sqf"
 
-#ifdef __GROUPDEBUG__
-FUNC(map_group_count_marker) = {
-    scriptName "d_fnc_map_group_count_marker";
-    _mname = "all_groups_yeah";
-    _mtext = "Groups: %1, alive units: %2, inf without leader: %3";
-    [_mname, [3000,0,0],"ICON","ColorBlack",[2,2],format [_mtext, 0,0],0,"mil_dot"] call FUNC(CreateMarkerLocal);
-    while {true} do {
-        GVAR(all_marker_groups) = GVAR(all_marker_groups) - [objNull, grpNull];
-        _grpcounter = count GVAR(all_marker_groups);
-        _units = 0;
-        _remgrps = [];
-        {
-            _alu = _x call FUNC(GetAliveUnitsGrp);
-            if (_alu > 0) then {
-                _units = _units + _alu;
-            } else {
-                _remgrps set [count _remgrps, _x];
-            };
-        } forEach GVAR(all_marker_groups);
-        if (count _remgrps > 0) then {
-            GVAR(all_marker_groups) = GVAR(all_marker_groups) - _remgrps;
-        };
-        _mname setMarkerTextLocal format [_mtext, _grpcounter,_units, GVAR(infunitswithoutleader)];
-        sleep 1;
-    };
-};
-
-GVAR(gcounter) = -1;
-GVAR(infunitswithoutleader) = 0;
-FUNC(groupmarker) = {
-    scriptName "d_fnc_groupmarker";
-    private ["_grp", "_mname", "_mnamel", "_leader", "_p1", "_wps", "_idx", "_curwppos", "_gname"];
-    PARAMS_1(_grp);
-    waitUntil {sleep 0.221;(_grp call FUNC(GetAliveUnitsGrp)) > 0};
-    _helper = str(_grp);
-    _gname = if (_helper != "") then {_helper} else {__INC(GVAR(gcounter));str(GVAR(gcounter))};
-    _mname = _gname + "dgrp";
-    _mnamel = _mname + "lm";
-    _mnamewp = _mname + "wpm";
-    _gname = _gname;
-    sleep 1;
-    GVAR(all_marker_groups) set [count GVAR(all_marker_groups), _grp];
-    _vec = vehicle leader _grp;
-    _mtype = if (_vec == leader _grp) then {
-        if (side _grp == west) then {"b_inf"} else {"o_inf"}
-    } else {
-        switch (true) do {
-            case (_vec isKindOf "Wheeled_APC"): {if (side _grp == west) then {"b_mech_inf"} else {"o_mech_inf"}};
-            case (_vec isKindOf "Car"): {if (side _grp == west) then {"b_motor_inf"} else {"o_motor_inf"}};
-            case (_vec isKindOf "Tank"): {if (side _grp == west) then {"b_armor"} else {"o_armor"}};
-            case (_vec isKindOf "Helicopter"): {if (side _grp == west) then {"b_air"} else {"o_air"}};
-            case (_vec isKindOf "Plane"): {if (side _grp == west) then {"b_plane"} else {"o_plane"}};
-            case (_vec isKindOf "StaticCannon"): {if (side _grp == west) then {"b_art"} else {"o_art"}};
-            case (_vec isKindOf "StaticMortar"): {if (side _grp == west) then {"b_mortar"} else {"o_mortar"}};
-            default {if (side _grp == west) then {"b_support"} else {"n_support"}};
-        }
-    };
-    [_mname, [0,0,0],"ICON",(if (side _grp == east) then {"ColorRed"} else {"ColorBlue"}),[0.8,0.8],_gname,0,_mtype] call FUNC(CreateMarkerLocal);
-    _gname = _gname + " (%1)";
-    while {true} do {
-        if (isNull _grp || {(_grp call FUNC(GetAliveUnitsGrp)) == 0}) exitWith {
-            deleteMarkerLocal _mname;
-            deleteMarkerLocal _mnamel;
-            deleteMarkerLocal _mnamewp;
-        };
-        _leader = leader _grp;
-        if (!isNull _leader) then {
-            _p1 = getPosASL _leader;
-            _p1 set [2,0];
-            _mname setMarkerPosLocal _p1;
-            _mname setMarkerTextLocal format [_gname, _grp call FUNC(GetAliveUnitsGrp)];
-            _wps = waypoints _grp;
-            _idx = currentWaypoint _grp;
-            if (_idx > 0 && {_idx < count _wps}) then {
-                _curwppos = waypointPosition (_wps select _idx);
-                _curwppos set [2,0];
-                _mpos = markerPos _mnamewp;
-                if ((_mpos select 0) == 0 &&  {(_mpos select 1) == 0} && {(_mpos select 2) == 0}) then {
-                    [_mnamewp,_curwppos,"ICON","ColorGreen",[0.7, 0.7],"",0,"waypoint"] call FUNC(CreateMarkerLocal);
-                } else {
-                    _mnamewp setMarkerPosLocal _curwppos;
-                };
-                [_p1, _curwppos, _mnamel] call FUNC(linemaker2);
-            } else {
-                deleteMarkerLocal _mnamel;
-                deleteMarkerLocal _mnamewp;
-            };
-        } else {
-            deleteMarkerLocal _mnamel;
-            deleteMarkerLocal _mnamewp;
-        };
-        sleep (0.6 + random 0.2);
-    };
-};
-#endif
-
 FUNC(creategroup) = {
     private ["_grp","_side","_side_str"];
     PARAMS_1(_side);
@@ -109,13 +13,6 @@ FUNC(creategroup) = {
     // 1 = filled with units
     // 2 = reduced
     _grp setVariable [QGVAR(gstate), 0];
-    #ifdef __GROUPDEBUG__
-    if (isNil QGVAR(all_marker_groups)) then {
-        GVAR(all_marker_groups) = [];
-        0 spawn FUNC(map_group_count_marker);
-    };
-    [_grp] spawn FUNC(groupmarker);
-    #endif
     __TRACE_1("creategroup","_grp")
     _grp
 };
@@ -228,9 +125,8 @@ FUNC(handleDeadVec) = {
 
 FUNC(makevgroup) = {
     scriptName "spawn_d_fnc_makevgroup";
-    private ["_numbervehicles", "_pos", "_vehiclename", "_grp", "_direction", "_crews", "_grpskill", "_n", "_dir", "_vehicle", "_npos", "_do_points", "_radius", "_the_vehicles"];
+    private ["_numbervehicles", "_pos", "_vehiclename", "_grp", "_direction", "_crews", "_grpskill", "_n", "_dir", "_vehicle", "_npos", "_radius", "_the_vehicles"];
     PARAMS_6(_numbervehicles,_pos,_vehiclename,_grp,_radius,_direction);
-    _do_points = (count _this > 6);
     _the_vehicles = [];
     _crews = [];
     _npos = _pos;
@@ -255,18 +151,12 @@ FUNC(makevgroup) = {
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
                     __addDead(_vehicle)
                 };
-                if (GVAR(domdatabase)) then {
-                    _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddTankKillPoints)}}];
-                };
                 if (GVAR(LockArmored) == 0) then {_vehicle lock true};
             };
             case (_vehicle isKindOf "Wheeled_APC"): {
                 if !((toUpper _vehiclename) in GVAR(heli_wreck_lift_types)) then {
                     __addDead(_vehicle)
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
-                };
-                if (GVAR(domdatabase)) then {
-                    _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddAPCKillPoints)}}];
                 };
                 if (GVAR(LockCars) == 0) then {_vehicle lock true};
             };
@@ -275,36 +165,15 @@ FUNC(makevgroup) = {
                     __addDead(_vehicle)
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
                 };
-                if (GVAR(domdatabase)) then {
-                    _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddCarKillPoints)}}];
-                };
                 if (GVAR(LockCars) == 0) then {_vehicle lock true};
             };
             default {
                 if !((toUpper _vehiclename) in GVAR(heli_wreck_lift_types)) then {
                     __addDead(_vehicle)
                 };
-                if (GVAR(domdatabase)) then {
-                    if (_vehicle isKindOf "Helicopter") then {
-                        _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddChopperKillPoints)}}];
-                    } else {
-                        if (_vehicle isKindOf "Plane") then {
-                            _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddPlaneKillPoints)}}];
-                        };
-                    };
-                };
                 if (_vehicle isKindOf "Air") then {_is_air_vec = true;if (GVAR(LockAir) == 0) then {_vehicle lock true}};
             };
         };
-        #ifdef __TT__
-        if (_do_points) then {
-            if (!_is_air_vec) then {
-                _vehicle addMPEventHandler ["MPkilled", {if (isServer) then {[[20, 3, 2, 1],_this select 1, _this select 0] call FUNC(AddKills)}}];
-            } else {
-                _vehicle addMPEventHandler ["MPkilled", {if (isServer) then {[[30, 3, 2, 1],_this select 1, _this select 0] call FUNC(AddKills)}}];
-            };
-        };
-        #endif
         if (GVAR(with_ai) && {__RankedVer}) then {_vehicle addMPEventHandler ["MPkilled", {if (isServer) then {[5,_this select 1] call FUNC(AddKillsAI)}}]};
     };
     (leader _grp) setSkill _grpskill;
@@ -314,9 +183,9 @@ FUNC(makevgroup) = {
 
 FUNC(makemgroup) = {
     scriptName "spawn_d_fnc_makemgroup";
-    private ["_pos", "_unitliste", "_grp", "_ret", "_do_points"];
+    private ["_pos", "_unitliste", "_grp", "_ret"];
     PARAMS_3(_pos,_unitliste,_grp);
-    _do_points = (count _this > 3);_ret = [];
+    _ret = [];
     {
         _one_unit = _grp createunit [_x, _pos, [], 10,"NONE"];
         if (GVAR(without_nvg) == 0) then {
@@ -332,31 +201,12 @@ FUNC(makemgroup) = {
         };
         _one_unit setVariable ["BIS_noCoreConversations", true];
         [_one_unit, {__addDeadAI(_this)}] call FUNC(setUnitCode);
-        if (GVAR(domdatabase)) then {
-            [_one_unit, {_this addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];}] call FUNC(setUnitCode);
-        };
-        #ifdef __TT__
-        if (_do_points) then {
-            [_one_unit, {_this addMPEventHandler ["MPkilled", {if (isServer) then {[[15, 3, 2, 1],_this select 1, _this select 0] call FUNC(AddKills)}}]}] call FUNC(setUnitCode);
-        };
-        #endif
         if (GVAR(with_ai) && {__RankedVer}) then {
             [_one_unit, {_this addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}]}] call FUNC(setUnitCode);
         };
         _one_unit setUnitAbility ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
         _ret set [count _ret, _one_unit];
-        // does not subtract if a unit dies!
-        #ifdef __GROUPDEBUG__
-        if (side _grp == GVAR(side_enemy)) then {
-            __INC(GVAR(infunitswithoutleader));
-        };
-        #endif
     } foreach _unitliste;
-    #ifdef __GROUPDEBUG__
-    if (side _grp == GVAR(side_enemy)) then {
-        __DEC(GVAR(infunitswithoutleader));
-    };
-    #endif
     (leader _grp) setRank "SERGEANT";
     _grp setVariable [QGVAR(gstate), 1];
     _ret
@@ -740,39 +590,8 @@ FUNC(grmakesearch) = {
     };
 };
 
-/*
-FUNC(execWPMaker) = {
-    __TRACE_1("execWPMaker","_this");
-    _ar = _this select 1;
-    case (_ar select 0) do {
-        case "WPX": {(_ar select 1) call FUNC(MakePatrolWPX)};
-        case "WPX2": {(_ar select 1) call FUNC(MakePatrolWPX2)};
-        case "DEFEND": {(_ar select 1) spawn FUNC(taskDefend)};
-        case "ATTACK": {(_ar select 1) call FUNC(AttackWP)};
-        case "TAKEWFWP": {(_ar select 1) call FUNC(TakeWFWP)};
-    };
-    {
-        if (alive _x) then {
-            _x disableAI "FSM";
-            _x enableAI "FSM";
-        };
-    } forEach (units ((_ar select 1) select 0));
-};
-*/
-
-#ifdef __TT__
-FUNC(TTAddKEH) = {
-    (_this select 0) addMPEventHandler ["MPkilled", {
-        if (isServer) then {[5, _this select 1] call FUNC(AddPoints)};
-    }];
-};
-#endif
-
-
 FUNC(GetEnemyFlagType) = {("F" + GVAR(enemy_side)) call FUNC(StoreGet)};
-
 FUNC(GetOwnFlagType) = {("F" + GVAR(own_side)) call FUNC(StoreGet)};
-
 FUNC(GetSideFlagType) = {("F" + _this) call FUNC(StoreGet)};
 
 FUNC(selectCrew) = {
@@ -870,16 +689,12 @@ FUNC(CheckMTHardTarget) = {
         [QGVAR(kbmsg), [37]] call FUNC(NetCallEventCTS);
         #else
         [QGVAR(kbmsg), [38]] call FUNC(NetCallEventCTS);
-        [GVAR(tt_points) select 2,_this select 1] call FUNC(AddPoints);
         _killedby = switch (_this select 1) do {case west: {"US"};case east: {"EAST"};default {"N"};};
         if (_killedby != "N") then {
             [QGVAR(kbmsg), [39, _killedby]] call FUNC(NetCallEventCTS);
         };
         #endif
     }];
-    if (GVAR(domdatabase)) then {
-        _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddRadioTowerKillPoints)}}];
-    };
     _hdeh = _vehicle addEventHandler ["handleDamage", {_this call FUNC(CheckMTShotHD)}];
 };
 

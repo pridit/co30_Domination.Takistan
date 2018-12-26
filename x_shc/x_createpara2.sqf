@@ -59,12 +59,6 @@ if (alive _chopper && {!isNull _chopper} && {canMove _chopper} && {alive driver 
         if (GVAR(without_nvg) == 0 && {_one_unit hasWeapon "NVGoggles"}) then {_one_unit removeWeapon "NVGoggles"};
         _one_unit setVariable ["BIS_noCoreConversations", true];
         [_one_unit, {__addDeadAI(_this)}] call FUNC(setUnitCode);
-        if (GVAR(domdatabase)) then {
-            [_one_unit, {_this addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}]}] call FUNC(setUnitCode);
-        };
-#ifdef __TT__
-        [_one_unit, {_this addMPEventHandler ["MPkilled", {if (isServer) then {[[15, 3, 2, 1],_this select 1, _this select 0] call FUNC(AddKills)}}]}] call FUNC(setUnitCode);
-#endif
         if (GVAR(with_ai) && {__RankedVer}) then {
             [_one_unit, {_this addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}]}] call FUNC(setUnitCode);
         };

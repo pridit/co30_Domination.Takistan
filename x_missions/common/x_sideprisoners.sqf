@@ -66,23 +66,9 @@ if (!GVAR(with_ai)) then {
                 _do_loop = true;
                 {
                     if (!isNull _x && {alive _x}) then {
-                        if (!__TTVer) then {
-                            if ((vehicle _x) distance GVAR(FLAG_BASE) < 20) then {
-                                _hostages_reached_dest = true;
-                                _do_loop = false;
-                            };
-                        } else {
-                            if ((vehicle _x) distance GVAR(WFLAG_BASE) < 20) then {
-                                _hostages_reached_dest = true;
-                                _do_loop = false;
-                                _winner = 2;
-                            } else {
-                                if ((vehicle _x) distance GVAR(EFLAG_BASE) < 20) then {
-                                    _hostages_reached_dest = true;
-                                    _do_loop = false;
-                                    _winner = 1;
-                                };
-                            };
+                        if ((vehicle _x) distance GVAR(FLAG_BASE) < 20) then {
+                            _hostages_reached_dest = true;
+                            _do_loop = false;
                         };
                     };
                     if (!_do_loop) exitWith {};

@@ -36,9 +36,6 @@ if (call FUNC(checkSHC)) then {
             private "_vec";
             PARAMS_2(_vec,_killer);
             __addDead(_vec);
-            if (GVAR(domdatabase)) then {
-                if (isPlayer _killer) then {_killer call FUNC(PAddPlaneKillPoints)};
-            };
         };
     }];
     _vehicle setDamage 0;

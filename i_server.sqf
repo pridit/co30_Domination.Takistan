@@ -327,8 +327,8 @@ GVAR(veh_a_E) = switch (true) do {
         [
             ["T72_TK_EP1","T55_TK_EP1","T34_TK_EP1"],
             ["BMP2_TK_EP1", "M113_TK_EP1"],
-            if (__ACEVer) then {["BRDM2_ATGM_TK_EP1","BRDM2_TK_EP1","BTR60_TK_EP1","ACE_BTR70_TK"]} else {["BRDM2_ATGM_TK_EP1","BRDM2_TK_EP1","BTR60_TK_EP1"]},
-            if (__ACEVer) then {["ZSU_TK_EP1","Ural_ZU23_TK_EP1","ACE_BRDM2_SA9_TK"]} else {["ZSU_TK_EP1","Ural_ZU23_TK_EP1"]},
+            ["BRDM2_ATGM_TK_EP1","BRDM2_TK_EP1","BTR60_TK_EP1"],
+            ["ZSU_TK_EP1","Ural_ZU23_TK_EP1"],
             ["UAZ_MG_TK_EP1","BTR40_MG_TK_INS_EP1","LandRover_MG_TK_INS_EP1","LandRover_MG_TK_EP1"],
             ["UAZ_AGS30_TK_EP1","LandRover_SPG9_TK_INS_EP1","LandRover_SPG9_TK_EP1"],
             ["KORD_high_TK_EP1","KORD_TK_EP1","DSHkM_Mini_TriPod_TK_INS_EP1","DSHKM_TK_INS_EP1","SPG9_TK_INS_EP1"],
@@ -337,22 +337,6 @@ GVAR(veh_a_E) = switch (true) do {
             ["UralRefuel_TK_EP1"],
             ["UralRepair_TK_EP1"],
             ["UralReammo_TK_EP1"]
-        ]
-    };
-    case (__ACEVer): {
-        [
-            ["T72_RU","T90","T72_INS","ACE_T72B_RU","ACE_T72B_INS","ACE_T72BA_RU","ACE_T72BA_INS"],
-            ["BMP3","BMP2_INS","ACE_BMP2D_RU"],
-            ["BTR90","BTR90_HQ","BRDM2_INS","BRDM2_ATGM_INS","ACE_BRDM2_ATGM_RU","ACE_BRDM2_RU"],
-            ["2S6M_Tunguska","ZSU_INS","Ural_ZU23_INS","ACE_Ural_ZU23_RU","ACE_BRDM2_SA9_RU"],
-            ["GAZ_Vodnik","GAZ_Vodnik_HMG"],
-            ["UAZ_AGS30_RU","UAZ_AGS30_INS","UAZ_MG_INS","UAZ_SPG9_INS","ACE_Offroad_SPG9_INS"],
-            ["KORD"],
-            ["AGS_RU","Igla_AA_pod_East","Metis","2b14_82mm"],
-            ["D30_RU","GRAD_INS"],
-            ["KamazRefuel","ACE_KamazRefuel"],
-            ["KamazRepair","ACE_KamazRepair"],
-            ["KamazReammo","ACE_KamazReammo"]
         ]
     };
     case (__COVer): {
@@ -388,22 +372,6 @@ GVAR(veh_a_W) = switch (true) do {
             ["MtvrRefuel_DES_EP1"],
             ["MtvrRepair_DES_EP1"],
             ["MtvrReammo_DES_EP1"]
-        ]
-    };
-    case (__ACEVer): {
-        [
-            ["M1A1","M1A2_TUSK_MG","T72_CDF"],
-            ["LAV25","BRDM2_CDF","BRDM2_ATGM_CDF","ACE_Stryker_TOW","ACE_Stryker_MGS_Slat","ACE_Stryker_TOW_MG","ACE_Stryker_ICV_M2","ACE_Stryker_ICV_M2_SLAT","ACE_Stryker_ICV_MK19","ACE_Stryker_ICV_MK19_SLAT","ACE_Stryker_RV"],
-            ["AAV","BMP2_CDF","ACE_M113A3","ACE_M2A2_W"],
-            ["HMMWV_Avenger","ZSU_CDF","ACE_Vulcan","ACE_M6A1_W"],
-            ["HMMWV_M2","HMMWV_Armored","UAZ_MG_CDF","ACE_HMMWV_GMV"],
-            ["HMMWV_MK19","HMMWV_TOW","UAZ_AGS30_CDF","ACE_HMMWV_GMV_MK19"],
-            ["M2StaticMG","M2HD_mini_TriPod","AGS_CDF"],
-            ["Stinger_Pod","M2HD_mini_TriPod","MK19_TriPod","M252","M2StaticMG","TOW_TriPod","ZU23_CDF"],
-            ["M119","MLRS","GRAD_CDF"],
-            ["MtvrRefuel","ACE_MTVRRefuel"],
-            ["MtvrRepair","ACE_MTVRRepair"],
-            ["MtvrReammo","ACE_MTVRReammo"]
         ]
     };
     case (__COVer): {
@@ -637,15 +605,8 @@ GVAR(arti_observer_G) = "TK_GUE_Soldier_AR_EP1";
 GVAR(airki_attack_plane) = switch (true) do {
     case (__OAVer): {
         switch (GVAR(enemy_side)) do {
-            case "EAST": {if (__ACEVer) then {["Su25_TK_EP1","L39_TK_EP1","ACE_L39_TK_FAB250"]} else {["Su25_TK_EP1","L39_TK_EP1"]}};
+            case "EAST": {["Su25_TK_EP1","L39_TK_EP1"]};
             case "WEST": {["A10_US_EP1"]};
-            default {[]};
-        };
-    };
-    case (__ACEVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Su34","Su39","ACE_Su27_CAP","ACE_Su27_CAS","ACE_Su27_CASP"]};
-            case "WEST": {["A10","AV8B2","AV8B","F35B"]};
             default {[]};
         };
     };
@@ -665,13 +626,6 @@ GVAR(airki_attack_chopper) = switch (true) do {
         switch (GVAR(enemy_side)) do {
             case "EAST": {["Mi24_D_TK_EP1"]};
             case "WEST": {["AH64D_EP1"]};
-            default {[]};
-        };
-    };
-    case (__ACEVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Ka52","Ka52Black","Mi24_P","Mi24_V"]};
-            case "WEST": {["AH1Z","AH64D","ACE_AH1W_AGM_W","ACE_AH1W_AGM_D"]};
             default {[]};
         };
     };
@@ -710,13 +664,6 @@ GVAR(light_attack_chopper) = switch (true) do {
         switch (GVAR(enemy_side)) do {
             case "EAST": {["UH1H_TK_EP1"]};
             case "WEST": {["AH6J_EP1"]};
-            default {[]};
-        };
-    };
-    case (__ACEVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Mi17_Ins"]};
-            case "WEST": {["UH1Y","ACE_AH6_GAU19","ACE_AH6"]};
             default {[]};
         };
     };

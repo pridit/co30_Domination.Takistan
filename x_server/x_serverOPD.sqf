@@ -29,7 +29,6 @@ if (!isNil "_pa") then {
     _pa set [9, time];
     
     _pl = objNull;
-    //{if (getPlayerUID _x == _uid) exitWith {_pl = _x}} forEach playableUnits;
     {
         _un = __getMNsVar2(_x);
         if (!isNil "_un" && {!isNull _un} && {getPlayerUID _un == _uid}) exitWith {_pl = _un};
@@ -45,55 +44,6 @@ if (!isNil "_pa") then {
         _pa set [11, []];
         _pa set [12, []];
         _pa set [13, true];
-    };
-    
-    if (GVAR(domdatabase)) then {
-        _pa set [15, (_pa select 15) + (time - _connecttime)];
-        private ["_score", "_diffscore"];
-        _score = if (!isNull _pl) then {score _pl} else {0};
-        _diffscore = if (_score > 0) then {_score - (_pa select 18)} else {0};
-        _pa set [18, _score];
-        #ifdef __DEBUG__ 
-        _strdb = "DomDatabase ['Write','" + _uid +
-        "','" + (_pa select 6) +
-        "'," + str(round((_pa select 14) + _diffscore)) +
-        ", " + str(round(_pa select 15)) +
-        ", " + str(round(_pa select 16)) + // teamkills total
-        ", " + str(round(_pa select 17)) +
-        ", " + str(round(_pa select 19)) + // AI kills
-        ", " + str(round(_pa select 20)) + // Human kills
-        ", " + str(round(_pa select 21)) + // vehicle type car kills
-        ", " + str(round(_pa select 22)) + // vehicle type APC kills
-        ", " + str(round(_pa select 23)) + // vehicle type tank kills
-        ", " + str(round(_pa select 24)) + // vehicle type plane kills
-        ", " + str(round(_pa select 25)) + // vehicle type chopper kills
-        ", " + str(round(_pa select 26)) + // radio tower kills
-        ", " + str(round(_pa select 27)) + // main target objects kills
-        ", " + str(round(_pa select 28)) + // side missions resolved
-        ", " + str(round(_pa select 29)) + // deaths/uncons
-        "]";
-        __TRACE_1("","_strdb")
-        #endif
-        _res = "Arma2Net.Unmanaged" callExtension ("DomDatabase ['Write','" + _uid +
-        "','" + (_pa select 6) + //  name player
-        "'," + str(round((_pa select 14) + _diffscore)) + // total score player
-        ", " + str(round(_pa select 15)) + // total time played on the server
-        ", " + str(round(_pa select 16)) + // teamkills total
-        ", " + str(round(_pa select 17)) + // total number played on the server
-        ", " + str(round(_pa select 19)) + // AI kills
-        ", " + str(round(_pa select 20)) + // Human kills
-        ", " + str(round(_pa select 21)) + // vehicle type car kills
-        ", " + str(round(_pa select 22)) + // vehicle type APC kills
-        ", " + str(round(_pa select 23)) + // vehicle type tank kills
-        ", " + str(round(_pa select 24)) + // vehicle type plane kills
-        ", " + str(round(_pa select 25)) + // vehicle type chopper kills
-        ", " + str(round(_pa select 26)) + // radio tower kills
-        ", " + str(round(_pa select 27)) + // main target objects kills
-        ", " + str(round(_pa select 28)) + // side missions resolved
-        ", " + str(round(_pa select 29)) + // deaths/uncons
-        "]");
-        // teamkill number not saved for now
-        __TRACE_1("","_res")
     };
     
     (_pa select 4) call FUNC(markercheck);

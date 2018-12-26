@@ -64,16 +64,7 @@ if (_hasDriver == 1 && {isNull (driver _vehicle)}) then {
             _crew set [count _crew, _unit];
 
             __addDeadAI(_unit)
-            
-            if (GVAR(domdatabase)) then {
-                _unit addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-            };
-            
-            #ifdef __TT__
-            if (_do_points) then {
-                _unit addMPEventHandler ["MPkilled", {if (isServer) then {[[15, 3, 2, 1],_this select 1, _this select 0] call FUNC(AddKills)}}];
-            };
-            #endif
+
             if (GVAR(with_ai) && {__RankedVer}) then {
                 _unit addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
             };
@@ -114,15 +105,7 @@ _funcSpawnTurrets = {
                     _crew set [count _crew, _unit];
                     
                     __addDeadAI(_unit)
-                    
-                    if (GVAR(domdatabase)) then {
-                        _unit addEventHandler ["killed", {if (isPlayer (_this select 1)) then {[QGVAR(PAIKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-                    };
-#ifdef __TT__
-                    if (_do_points) then {
-                        _unit addMPEventHandler ["MPkilled", {if (isServer) then {[[15, 3, 2, 1],_this select 1, _this select 0] call FUNC(AddKills)}}]
-                    };
-#endif
+
                     if (GVAR(with_ai) && {__RankedVer}) then {
                         _unit addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
                     };
@@ -142,25 +125,6 @@ _funcSpawnTurrets = {
 };
 
 [_turrets, []] call _funcSpawnTurrets;
-
-// if (count (_crewType select 1) > 0) then {
-    // {
-        // _unit = _grp createUnit [_x, position _vehicle, [], 0, "NONE"];
-        // _unit setVariable ["BIS_noCoreConversations", true];
-        // _crew set [count _crew, _unit];
-
-        // __addDeadAI(_unit)
-// #ifdef __TT__
-        // if (_do_points) then {_unit addEventHandler ["killed", {[1,_this select 1] call FUNC(AddKills)}]};
-// #endif
-        // if (GVAR(with_ai)) then {
-            // if (__RankedVer) then {_unit addEventHandler ["killed", {[1,_this select 1] call FUNC(AddKillsAI)}]};
-        // };
-        // _unit setUnitAbility ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
-
-        // _unit moveInCargo _vehicle;
-    // } forEach (_crewType select 1);
-// };
 
 if (!_dummy) then {
     if !(isNull (driver _vehicle)) then {(driver _vehicle) setRank "LIEUTENANT"};

@@ -24,13 +24,6 @@ if (isClass (configFile >> "CfgPatches" >> "dayz")) exitWith {
     endMission "LOSER";
 };
 
-GVAR(with_dlc) =
-#ifdef __DLC__
-    true;
-#else
-    false;
-#endif
-
 GVAR(HeliHEmpty) = "HeliHEmpty";
 
 if (isNil "paramsArray") then {
@@ -55,7 +48,6 @@ if (isNil "paramsArray") then {
 GVAR(WithBackpack) = (GVAR(WithBackpack) == 0);
 GVAR(LimitedWeapons) = (GVAR(LimitedWeapons) == 0);
 GVAR(WithChopHud) = (GVAR(WithChopHud) == 0);
-GVAR(with_ranked) = (GVAR(with_ranked) == 0);
 GVAR(reload_engineoff) = (GVAR(reload_engineoff) == 0);
 
 GVAR(p_marker_dirs) = (GVAR(p_marker_dirs) == 0);
@@ -68,8 +60,6 @@ GVAR(with_ai) = (GVAR(with_ai) == 0);
 GVAR(random_sm_array) = (GVAR(random_sm_array) == 0);
 
 if (isNil QGVAR(with_ai_features)) then {GVAR(with_ai_features) = 1};
-
-GVAR(dom4) = false;
 
 __ccppfln(x_common\x_f\x_functions1.sqf);
 __ccppfln(x_common\x_f\x_commonfuncs.sqf);
@@ -201,11 +191,6 @@ if (isServer) then {
         };
     }] call FUNC(NetAddEventCTS);
     
-    if (GVAR(domdatabase)) then {
-        [QGVAR(ptkkg), {_this call FUNC(PAddTeamKillPoints)}] call FUNC(NetAddEventCTS);
-        [QGVAR(reqps), {_this call FUNC(ServerGetPlayerStats)}] call FUNC(NetAddEventCTS);
-    };
-    
     [QGVAR(p_a), {_this call FUNC(GetPlayerStats)}] call FUNC(NetAddEventCTS);
     [QGVAR(air_taxi), {_this execVM "x_server\x_airtaxiserver.sqf"}] call FUNC(NetAddEventCTS);
     [1, QGVAR(r_box), {_this call FUNC(RemABox)}] call FUNC(NetAddEvent);
@@ -268,8 +253,6 @@ if (isServer) then {
     [QGVAR(crl), {_this call FUNC(ChangeRLifes)}] call FUNC(NetAddEventCTS);
     [QGVAR(unit_tkr), {_this call FUNC(TKR)}] call FUNC(NetAddEventCTS);
     
-    [QGVAR(PAIKP), {_this call FUNC(PAddAIKillPoints)}] call FUNC(NetAddEventCTS);
-    [QGVAR(PACKP), {_this call FUNC(PAddCarKillPoints)}] call FUNC(NetAddEventCTS);
     if (GVAR(with_ai) && {__RankedVer}) then {
         [QGVAR(AddKillAI), {_this call FUNC(AddKillsAI)}] call FUNC(NetAddEventCTS);
     };
@@ -278,7 +261,6 @@ if (isServer) then {
     [QGVAR(sm_var), {GVAR(side_mission_winner) = _this;GVAR(side_mission_resolved) = true;}] call FUNC(NetAddEventCTS);
     [QGVAR(sm_poi), {if (_this == 0) then {__INC(GVAR(sm_points_west))} else {__INC(GVAR(sm_points_east))}}] call FUNC(NetAddEventCTS);
     
-    [QGVAR(addPoi), {_this call FUNC(AddPoints)}] call FUNC(NetAddEventCTS);
     [QGVAR(getSM), {execVM "x_missions\x_getsidemission.sqf"}] call FUNC(NetAddEventCTS);
 };
 
@@ -316,18 +298,7 @@ if (isServer) then {
         [QGVAR(drop_blocked),false] call FUNC(NetSetJIP);
     };
 
-    if (!__TTVer) then {
-        if (!GVAR(dom4)) then {
-            [QGVAR(campscaptured),0] call FUNC(NetSetJIP);
-        } else {
-            [QGVAR(campscaptured_w),0] call FUNC(NetSetJIP);
-            [QGVAR(campscaptured_e),0] call FUNC(NetSetJIP);
-            [QGVAR(currentcamps),[]] call FUNC(NetSetJIP);
-        };
-    } else {
-        [QGVAR(campscaptured_w),0] call FUNC(NetSetJIP);
-        [QGVAR(campscaptured_e),0] call FUNC(NetSetJIP);
-    };
+    [QGVAR(campscaptured),0] call FUNC(NetSetJIP);
     [QGVAR(currentcamps),[]] call FUNC(NetSetJIP);
     
     execVM "x_bikb\kbinit.sqf";
@@ -423,9 +394,9 @@ if (isServer) then {
     ] execVM "x_server\x_vrespawn2.sqf";
     
     [
-        [d_bonus_air_positions_1, 350, 'A10_US_EP1'],
-        [d_bonus_air_positions_2, 351, 'UH1Y'],
-        [d_bonus_air_positions_3, 352, 'AH64D_EP1']
+        [350, 'A10_US_EP1'],
+        [351, 'UH1Y'],
+        [352, 'AH64D_EP1']
     ] execVM "x_server\x_getbonus.sqf";
 
     if (!isNil "boat1") then {
@@ -453,30 +424,12 @@ if (isServer) then {
 QGVAR(island_marker) setMarkerAlphaLocal 0;
 
 if (!isDedicated) then {
-    #ifndef __TT__
     // [QGVAR(wreck_service), getPosASL GVAR(wreck_rep),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_1"),0,"n_service"] call FUNC(CreateMarkerLocal);
     // [QGVAR(aircraft_service), getPosASL GVAR(jet_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_2"),0,"n_service"] call FUNC(CreateMarkerLocal);
     // [QGVAR(chopper_service), getPosASL GVAR(chopper_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_3"),0,"n_service"] call FUNC(CreateMarkerLocal);
     // [QGVAR(vehicle_service), getPosASL GVAR(vecre_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_4"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    if (isNil QGVAR(with_carrier)) then {
-        ["Ammobox Reload", getPosASL GVAR(AMMOLOAD),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_5"),0,"Depot"] call FUNC(CreateMarkerLocal);
-    };
-    [QGVAR(teleporter), getPosASL GVAR(FLAG_BASE),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_6"),0,"mil_flag"] call FUNC(CreateMarkerLocal);
-    #else
-    [QGVAR(wreck_service), getPosASL GVAR(wreck_rep),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_1"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(aircraft_service), getPosASL GVAR(jet_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_2"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(chopper_service), getPosASL GVAR(chopper_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_3"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(vehicle_service), getPosASL GVAR(vecre_trigger),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_4"),0,"n_service"] call FUNC(CreateMarkerLocal);
     ["Ammobox Reload", getPosASL GVAR(AMMOLOAD),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_5"),0,"Depot"] call FUNC(CreateMarkerLocal);
-    [QGVAR(teleporter), getPosASL GVAR(WFLAG_BASE),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_6"),0,"mil_flag"] call FUNC(CreateMarkerLocal);
-    
-    [QGVAR(wreck_serviceR), getPosASL GVAR(wreck_rep2),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_1"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(aircraft_serviceR), getPosASL GVAR(jet_trigger2),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_2"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(chopper_serviceR), getPosASL GVAR(chopper_triggerR),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_3"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    [QGVAR(vehicle_serviceR), getPosASL GVAR(vecre_trigger2),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_4"),0,"n_service"] call FUNC(CreateMarkerLocal);
-    ["Ammobox ReloadR", getPosASL GVAR(AMMOLOAD2),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_5"),0,"Depot"] call FUNC(CreateMarkerLocal);
-    [QGVAR(teleporter_1), getPosASL GVAR(EFLAG_BASE),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_6"),0,"mil_flag"] call FUNC(CreateMarkerLocal);
-    #endif
+    [QGVAR(teleporter), getPosASL GVAR(FLAG_BASE),"ICON","ColorYellow",[1,1],(localize "STR_DOM_MISSIONSTRING_6"),0,"mil_flag"] call FUNC(CreateMarkerLocal);
 };
 
 GVAR(init_processed) = true;

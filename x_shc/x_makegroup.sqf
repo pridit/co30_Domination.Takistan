@@ -26,46 +26,17 @@ if (_numbervehicles > 0) then {
     _unitsinf = [_pos, _unit_array select 0, _grp,true] call FUNC(makemgroup);
 };
 
-if (!GVAR(dom4)) then {
-    if (_add_to_ar_type > 0) then {
-        if (!__TTVer && {!(_grptype in ["DSHKM", "AGS", "D30"])}) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
-            _add_ar = [_grp, [_grptype, [], _target_pos, _numbervehicles, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, GVAR(enemyai_respawn_pos)]];
-            __TRACE_1("","_add_ar")
-            GVAR(respawn_ai_groups) set [count GVAR(respawn_ai_groups), _add_ar];
-        };
-        if (count _vehicles > 0) then {
-            GVAR(delvecsmt) = [GVAR(delvecsmt), _vehicles] call FUNC(arrayPushStack2);
-        };
-        if (count _unitsinf > 0) then {
-            GVAR(delinfsm) = [GVAR(delinfsm), _unitsinf] call FUNC(arrayPushStack);
-        };
+if (_add_to_ar_type > 0) then {
+    if (!(_grptype in ["DSHKM", "AGS", "D30"])) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
+        _add_ar = [_grp, [_grptype, [], _target_pos, _numbervehicles, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, GVAR(enemyai_respawn_pos)]];
+        __TRACE_1("","_add_ar")
+        GVAR(respawn_ai_groups) set [count GVAR(respawn_ai_groups), _add_ar];
     };
-} else {
-    if (_add_to_ar_type > 0) then {
-        if !(_grptype in ["DSHKM", "AGS", "D30"]) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
-            _add_ar = [_grp, [_grptype, [], _target_pos, _numbervehicles, _type, _side, 0, _vec_dir, _add_to_ar_type, _center_rad, GVAR(enemyai_respawn_pos)]];
-            __TRACE_1("",_add_ar)
-            GVAR(respawn_ai_groups) set [count GVAR(respawn_ai_groups), _add_ar];
-        } else {
-            //GVAR(non_mt_respawn_ai_groups) set [count GVAR(non_mt_respawn_ai_groups), _grp];
-        };
-        if (count _vehicles > 0) then {
-            GVAR(delvecsmt) = [GVAR(delvecsmt), _vehicles] call FUNC(arrayPushStack2);
-        };
-        if (count _unitsinf > 0) then {
-            GVAR(delinfsm) = [GVAR(delinfsm), _unitsinf] call FUNC(arrayPushStack);
-        };
-        _grp setVariable [QGVAR(grptype), _add_to_ar_type];
-        switch (_add_to_ar_type) do {
-            case 1: {
-                GVAR(mt_defend_groups) set [count GVAR(mt_defend_groups), _grp];
-            };
-            case 2: {
-                GVAR(mt_attack_groups) set [count GVAR(mt_attack_groups), _grp];
-            };
-        };
-        __TRACE_1("",GVAR(mt_defend_groups))
-        __TRACE_1("",GVAR(mt_attack_groups))
+    if (count _vehicles > 0) then {
+        GVAR(delvecsmt) = [GVAR(delvecsmt), _vehicles] call FUNC(arrayPushStack2);
+    };
+    if (count _unitsinf > 0) then {
+        GVAR(delinfsm) = [GVAR(delinfsm), _unitsinf] call FUNC(arrayPushStack);
     };
 };
 

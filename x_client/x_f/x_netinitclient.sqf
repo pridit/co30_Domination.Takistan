@@ -118,11 +118,7 @@ FUNC(player_stuff) = {
         // _this select 11 = magazines player
         // _this select 12 = position player
         // _this select 13 = true = player wasn not in vehicle, false = player was in vehicle
-#ifndef __TT__
         if (!GVAR(LimitedWeapons) && {count (_this select 10) > 0}) then {
-#else
-        if (count (_this select 10) > 0 && {!GVAR(LimitedWeapons)} && {_same_side}) then {
-#endif
             private "_p";
             _p = player;
             removeAllWeapons _p;
@@ -136,13 +132,6 @@ FUNC(player_stuff) = {
                 _p selectWeapon (_muzzles select 0);
             };
         };
-    };
-    if (GVAR(domdatabase)) then {
-        GVAR(player_stats) = [
-            _this select 14, // total score
-            _this select 15, // total time played on this server
-            _this select 17 // number played on this server
-        ];
     };
 };
 

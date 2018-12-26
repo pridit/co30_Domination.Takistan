@@ -5,17 +5,15 @@ if (!isServer) exitWith {};
 
 _pos = [0,0,0];
 
-if !(__TTVer) then {
-    // very secret extra thingie...,
-    _shield = GVAR(ProtectionZone) createVehicleLocal (position GVAR(FLAG_BASE));
-    _shield setDir -211;
-    _shield setPos (position GVAR(FLAG_BASE));
-    _shield setObjectTexture [0,"#(argb,8,8,3)color(0,0,0,0,ca)"];
-    _trig = createTrigger["EmptyDetector" ,position GVAR(FLAG_BASE)];
-    _trig setTriggerArea [25, 25, 0, false];
-    _trig setTriggerActivation [GVAR(enemy_side), "PRESENT", true];
-    _trig setTriggerStatements ["this", "thislist call {{_x setDamage 1} forEach _this}", ""];
-};
+// very secret extra thingie...,
+_shield = GVAR(ProtectionZone) createVehicleLocal (position GVAR(FLAG_BASE));
+_shield setDir -211;
+_shield setPos (position GVAR(FLAG_BASE));
+_shield setObjectTexture [0,"#(argb,8,8,3)color(0,0,0,0,ca)"];
+_trig = createTrigger["EmptyDetector" ,position GVAR(FLAG_BASE)];
+_trig setTriggerArea [25, 25, 0, false];
+_trig setTriggerActivation [GVAR(enemy_side), "PRESENT", true];
+_trig setTriggerStatements ["this", "thislist call {{_x setDamage 1} forEach _this}", ""];
 
 _mpos = markerPos QGVAR(island_marker);
 _mpos set [2,0];

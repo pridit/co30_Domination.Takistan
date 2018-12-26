@@ -10,17 +10,13 @@ FUNC(initArtyDlg) = {
     {_ctrl lbAdd _x} forEach [(localize "STR_DOM_MISSIONSTRING_681"), (localize "STR_DOM_MISSIONSTRING_682"), (localize "STR_DOM_MISSIONSTRING_683"), (localize "STR_DOM_MISSIONSTRING_684"), (localize "STR_DOM_MISSIONSTRING_685")];
     _ctrl lbSetCurSel 0;
     _ctrl = __uiGetVar(D_ARTI_DISP) displayCtrl 889;
-    if (!GVAR(with_ranked)) then {
-        {_ctrl lbAdd _x} forEach ["1", "2", "3"];
-    } else {
-        _rank = rank player;
-        _sels = switch (true) do {
-            case (_rank in ["PRIVATE","CORPORAL"]): {["1"]};
-            case (_rank in ["SERGEANT","LIEUTENANT"]): {["1", "2"]};
-            default {["1", "2", "3"]};
-        };
-        {_ctrl lbAdd _x} forEach _sels;
+    _rank = rank player;
+    _sels = switch (true) do {
+        case (_rank in ["PRIVATE","CORPORAL"]): {["1"]};
+        case (_rank in ["SERGEANT","LIEUTENANT"]): {["1", "2"]};
+        default {["1", "2", "3"]};
     };
+    {_ctrl lbAdd _x} forEach _sels;
     _ctrl lbSetCurSel 0;
 };
 
@@ -364,15 +360,7 @@ FUNC(vdsliderchanged) = {
 FUNC(adminspectate) = {
     xr_phd_invulnerable = true;
     player setVariable ["ace_w_allow_dam", false];
-    if (__TTVer) then {
-        if (GVAR(side_player) == east) then {
-            KEGs_ShownSides = [east, west];
-        } else {
-            KEGs_ShownSides = [west, east];
-        };
-    } else {
-        KEGs_ShownSides = [GVAR(side_player)];
-    };
+    KEGs_ShownSides = [GVAR(side_player)];
     KEGs_can_exit_spectator = true;
     KEGs_playable_only = true;
     KEGs_no_butterfly_mode = true;
@@ -497,7 +485,7 @@ FUNC(fillRecruit) = {
 FUNC(recruitbuttonaction) = {
     if (__pGetVar(GVAR(recdbusy))) exitWith {};
     __pSetVar [QGVAR(recdbusy), true];
-    private ["_exitj", "_rank", "_control", "_idx", "_torecruit", "_grp", "_unit", "_ctrl", "_pic", "_index", "_control2"];
+    private ["_rank", "_control", "_idx", "_torecruit", "_grp", "_unit", "_ctrl", "_pic", "_index", "_control2"];
     if (GVAR(current_ai_num) >= GVAR(max_ai)) exitWith {
         format [(localize "STR_DOM_MISSIONSTRING_694"),GVAR(max_ai)] call FUNC(HQChat);
         __pSetVar [QGVAR(recdbusy), false];
@@ -507,39 +495,6 @@ FUNC(recruitbuttonaction) = {
     
     if (player != leader (group player)) exitWith {
         (localize "STR_DOM_MISSIONSTRING_695") call FUNC(HQChat);
-        __pSetVar [QGVAR(recdbusy), false];
-    };
-    
-    _exitj = false;
-    if (GVAR(with_ranked)) then {
-        _rank = rank player;
-        if (_rank == "PRIVATE") exitWith {
-            (localize "STR_DOM_MISSIONSTRING_696") call FUNC(HQChat);
-            _exitj = true;
-        };
-
-        if (score player < ((GVAR(points_needed) select 0) + (GVAR(ranked_a) select 3))) exitWith {
-            (format [(localize "STR_DOM_MISSIONSTRING_697"), score player, GVAR(ranked_a) select 3]) call FUNC(HQChat);
-            _exitj = true;
-        };
-
-        _max_rank_ai = switch (_rank) do {
-            case "CORPORAL": {3};
-            case "SERGEANT": {4};
-            case "LIEUTENANT": {5};
-            case "CAPTAIN": {6};
-            case "MAJOR": {7};
-            case "COLONEL": {8};
-        };
-        if (GVAR(current_ai_num) >= _max_rank_ai) exitWith {
-            (format [(localize "STR_DOM_MISSIONSTRING_698"), _max_rank_ai]) call FUNC(HQChat);
-            _exitj = true;
-        };
-        // each AI soldier costs score points
-        [QGVAR(pas), [player, (GVAR(ranked_a) select 3) * -1]] call FUNC(NetCallEventCTS);
-    };
-
-    if (_exitj) exitWith {
         __pSetVar [QGVAR(recdbusy), false];
     };
     
@@ -571,9 +526,6 @@ FUNC(recruitbuttonaction) = {
     [_unit] join _grp;
     _unit setSkill 1;
     _unit setRank "PRIVATE";
-    if (GVAR(with_ranked)) then {
-        _unit addEventHandler ["handleHeal", FUNC(HandleHeal)];
-    };
     if (getNumber (configFile >> "CfgVehicles" >> typeOf _unit >> "attendant") == 1) then {
         [_unit] execFSM "fsms\AIRevive.fsm";
     };
@@ -1074,7 +1026,4 @@ FUNC(squadmgmtlbchanged) = {
             CTRL(_button) ctrlSetText "Leave";
         };
     };
-};
-
-    
 };

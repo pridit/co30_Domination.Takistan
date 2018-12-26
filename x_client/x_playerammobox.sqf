@@ -39,9 +39,7 @@ player reveal _box;
 _box addAction [(localize "STR_DOM_MISSIONSTRING_300") call d_fnc_BlueText, "x_client\x_savelayout.sqf"];
 _box addAction [(localize "STR_DOM_MISSIONSTRING_301") call d_fnc_BlueText, "x_client\x_clearlayout.sqf"];
 #ifdef __OA__
-if !(__ACEVer) then {
-    _box addAction [(localize "STR_DOM_MISSIONSTRING_302") call FUNC(BlueText), "x_client\x_getbackpack.sqf"];
-};
+_box addAction [(localize "STR_DOM_MISSIONSTRING_302") call FUNC(BlueText), "x_client\x_getbackpack.sqf"];
 #endif
 
 [_box] call FUNC(weaponcargo);

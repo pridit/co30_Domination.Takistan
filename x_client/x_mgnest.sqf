@@ -1,7 +1,7 @@
 // by Xeno
 #define THIS_FILE "x_mgnest.sqf"
 #include "x_setup.sqf"
-private ["_dir_to_set","_m_name","_marker","_d_mgnest_pos","_exit_it"];
+private ["_dir_to_set","_m_name","_marker","_d_mgnest_pos"];
 
 if (__pGetVar(GVAR(isinaction))) exitWith {};
 
@@ -25,16 +25,6 @@ if (surfaceIsWater [_d_mgnest_pos select 0, _d_mgnest_pos select 1]) exitWith {
     (localize "STR_DOM_MISSIONSTRING_290") call FUNC(GlobalChat);
 };
 
-_exit_it = false;
-if (GVAR(with_ranked)) then {
-    if (score player < (GVAR(ranked_a) select 14)) then {
-        (format [(localize "STR_DOM_MISSIONSTRING_291"), score player,(GVAR(ranked_a) select 14)]) call FUNC(HQChat);
-        _exit_it = true;
-    };
-};
-
-if (_exit_it) exitWith {};
-
 _helper1 = GVAR(HeliHEmpty) createVehicleLocal [_d_mgnest_pos select 0, (_d_mgnest_pos select 1) + 4, 0];
 _helper2 = GVAR(HeliHEmpty) createVehicleLocal [_d_mgnest_pos select 0, (_d_mgnest_pos select 1) - 4, 0];
 _helper3 = GVAR(HeliHEmpty) createVehicleLocal [(_d_mgnest_pos select 0) + 4, _d_mgnest_pos select 1, 0];
@@ -51,8 +41,6 @@ for "_mt" from 1 to 4 do {call compile format ["deleteVehicle _helper%1;", _mt]}
 if (_exit_it) exitWith {};
 
 __pSetVar [QGVAR(isinaction), true];
-
-if (GVAR(with_ranked)) then {[QGVAR(pas), [player, (GVAR(ranked_a) select 14) * -1]] call FUNC(NetCallEventCTS)};
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 3;

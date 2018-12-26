@@ -61,9 +61,6 @@ for "_i" from 1 to 3 do {
     _truck = createVehicle [GVAR(sm_ammotrucktype), _poss, [], 0, "NONE"];
     _truck setPos _poss;
     _truck lock true;
-    if (GVAR(domdatabase)) then {
-        _truck addEventHandler ["Killed", {if (isPlayer (_this select 1)) then {[QGVAR(PACKP), _this select 1] call FUNC(NetCallEventCTS)}}];
-    };
     sleep 0.523;
 };
 

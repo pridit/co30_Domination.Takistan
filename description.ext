@@ -14,11 +14,7 @@ showGPS=1;
 loadScreen = "pics\domls.paa";
 
 class Header {
-#ifndef __TT__
     gameType = DOM;
-#else
-    gameType = DOMTT;
-#endif
     minPlayers = 1;
     maxPlayers = __D_NUM_PLAYERS__;
     playerCountMultipleOf = 1;
@@ -36,28 +32,15 @@ class Params {
     
     class GVAR(MainTargets) {
         title = "$STR_DOM_MISSIONSTRING_965";
-#ifdef __DEFAULT__
         values[] = {50,60,70,90,2,4,6,8,10,12,14,16,18,21};
         default = 8;
         texts[] = {"$STR_DOM_MISSIONSTRING_966","$STR_DOM_MISSIONSTRING_967","$STR_DOM_MISSIONSTRING_968","$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_970","$STR_DOM_MISSIONSTRING_971","$STR_DOM_MISSIONSTRING_972","$STR_DOM_MISSIONSTRING_973","$STR_DOM_MISSIONSTRING_974","$STR_DOM_MISSIONSTRING_975","$STR_DOM_MISSIONSTRING_976","$STR_DOM_MISSIONSTRING_977","$STR_DOM_MISSIONSTRING_978","$STR_DOM_MISSIONSTRING_979"};
-#endif
-
-#ifdef __TT__
-        values[] = {2,4,6,8,10,12,14,16,18,20};
-        default = 8;
-        texts[] = {"2","4","6","8","10","12","14","16","18","20"};
-#endif
     };
 
     class GVAR(TimeOfDay) {
         title = "$STR_DOM_MISSIONSTRING_980";
         values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
-#ifdef __OA__
         default = 5;
-#endif
-#ifdef __CO__
-        default = 7;
-#endif
         texts[] = {"$STR_DOM_MISSIONSTRING_981","$STR_DOM_MISSIONSTRING_982","$STR_DOM_MISSIONSTRING_983","$STR_DOM_MISSIONSTRING_984","$STR_DOM_MISSIONSTRING_985","$STR_DOM_MISSIONSTRING_986","$STR_DOM_MISSIONSTRING_987","$STR_DOM_MISSIONSTRING_988","$STR_DOM_MISSIONSTRING_989","$STR_DOM_MISSIONSTRING_990","$STR_DOM_MISSIONSTRING_991","$STR_DOM_MISSIONSTRING_992","$STR_DOM_MISSIONSTRING_993","$STR_DOM_MISSIONSTRING_994","$STR_DOM_MISSIONSTRING_995","$STR_DOM_MISSIONSTRING_996","$STR_DOM_MISSIONSTRING_997","$STR_DOM_MISSIONSTRING_998","$STR_DOM_MISSIONSTRING_999","$STR_DOM_MISSIONSTRING_1000","$STR_DOM_MISSIONSTRING_1001","$STR_DOM_MISSIONSTRING_1002","$STR_DOM_MISSIONSTRING_1003","$STR_DOM_MISSIONSTRING_1004"};
     };
     
@@ -222,13 +205,6 @@ class Params {
         texts[] = {""};
     };
     
-    class GVAR(with_ranked) {
-        title = "$STR_DOM_MISSIONSTRING_1112";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
     class GVAR(params_dummy_line_7) {
         title = "------------------------------ UI ---------------------------------";
         values[] = {-99999};
@@ -287,16 +263,14 @@ class Params {
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
-#ifndef __TT__
     class GVAR(ShowBaseSafeZone) {
         title = "$STR_DOM_MISSIONSTRING_1131";
         values[] = {0,1};
         default = 0;
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
-#endif
 
-class GVAR(show_player_marker) {
+    class GVAR(show_player_marker) {
         title = "$STR_DOM_MISSIONSTRING_1177";
         values[] = {0,1,2,3,4};
         default = 1;
@@ -320,11 +294,7 @@ class GVAR(show_player_marker) {
     class GVAR(v_marker_dirs) {
         title = "$STR_DOM_MISSIONSTRING_1183";
         values[] = {0,1};
-#ifndef __TT__
         default = 1;
-#else
-        default = 0;
-#endif
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
@@ -420,7 +390,6 @@ class GVAR(show_player_marker) {
         texts[] = {"$STR_DOM_MISSIONSTRING_1106","$STR_DOM_MISSIONSTRING_1078","$STR_DOM_MISSIONSTRING_1079","$STR_DOM_MISSIONSTRING_1080","$STR_DOM_MISSIONSTRING_1081"};
     };
     
-#ifndef __TT__
     class GVAR(params_dummy_line_9) {
         title = "------------------------------- AI --------------------------------";
         values[] = {-99999};
@@ -448,7 +417,6 @@ class GVAR(show_player_marker) {
         default = 8;
         texts[] = {"6","8","10","12","14","16"};
     };
-#endif
     
     class GVAR(params_dummy_line_10) {
         title = "------------------------------ MHQ --------------------------------";
@@ -583,14 +551,12 @@ class GVAR(show_player_marker) {
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
-#ifndef __TT__
     class GVAR(WithBaseAttack) {
         title = "$STR_DOM_MISSIONSTRING_1129";
         values[] = {0,1};
         default = 1;
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
-#endif
     
     class GVAR(params_dummy_line_13) {
         title = "----------------------------- HALO --------------------------------";

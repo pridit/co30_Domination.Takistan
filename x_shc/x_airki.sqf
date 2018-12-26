@@ -65,13 +65,13 @@ while {true} do {
     
     waitUntil {sleep 0.323;__XJIPGetVar(GVAR(current_target_index)) >= 0};
     _cdir = [_pos, GVAR(island_center)] call FUNC(DirTo);
-#ifndef __TT__
+
     switch (_type) do {
         case "SU": {if ((__XJIPGetVar(GVAR(searchintel)) select 2) == 1) then {[QGVAR(kbmsg), [0]] call FUNC(NetCallEventCTS)}};
         case "KA": {if ((__XJIPGetVar(GVAR(searchintel)) select 3) == 1) then {[QGVAR(kbmsg), [1]] call FUNC(NetCallEventCTS)}};
         case "MIMG": {if ((__XJIPGetVar(GVAR(searchintel)) select 4) == 1) then {[QGVAR(kbmsg), [2]] call FUNC(NetCallEventCTS)}};
     };
-#endif
+
     for "_xxx" from 1 to _numair do {
         _vec_array = [[_pos select 0, _pos select 1, 400], _cdir, _heli_type, _grp] call FUNC(spawnVehicle);
         
@@ -80,14 +80,6 @@ while {true} do {
         _vehicles set [count _vehicles, _vehicle];
         
         _funits = [_funits, (_vec_array select 1)] call FUNC(arrayPushStack2);
-        
-        if (GVAR(domdatabase)) then {
-            if (_vehicle isKindOf "Helicopter") then {
-                _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddChopperKillPoints)}}];
-            } else {
-                _vehicle addMPEventHandler ["MPKilled", {if (isServer && {isPlayer (_this select 1)}) then {(_this select 1) call FUNC(PAddPlaneKillPoints)}}];
-            };
-        };
     
         _vehicle flyInHeight 200;
         _vehicle setVariable [QGVAR(WreckDeleteTime), 3600, true];

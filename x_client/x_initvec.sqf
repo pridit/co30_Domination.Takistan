@@ -163,5 +163,5 @@ if (_d_vec < 400) exitWith {
         __addchopm;
         __chopset;
     };
-    if !(__ACEVer) then {__halo};
+    __halo;
 };

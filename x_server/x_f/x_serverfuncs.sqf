@@ -3,170 +3,6 @@
 #define THIS_FILE "x_serverfuncs.sqf"
 #include "x_setup.sqf"
 
-#ifdef __TT__
-#define __addpw(wpoints) GVAR(points_west) = GVAR(points_west) + wpoints
-#define __addpe(epoints) GVAR(points_east) = GVAR(points_east) + epoints
-
-// gameplay change:
-// _points is now an array
-// [points if the killer (player) is infantry unit, points if the killer is inside an APC, points if the killer is inside a tank, points if the player is inside an air vehicle]
-// now, the lowest points number should be given for air vehicles and the highest for inf units
-// second change: distance to target, the lower the higher, Only for infantry!!!!
-FUNC(AddKills) = {
-    private ["_points","_killer","_killed","_vec","_dist","_endpoints","_coef"];
-    PARAMS_3(_points,_killer,_killed);
-    if (isNull _killer || {!isPlayer _killer}) exitWith {};
-    _vec = vehicle _killer;
-    _endpoints = if (_vec == _killer) then {
-        _dist = if (isNull _killed) then {500} else {_killed distance _killer};
-        if (_dist < 0) then {_dist = 500};
-        _coef = switch (true) do {
-            case (_dist < 20): {3};
-            case (_dist < 70): {2};
-            default {1};
-        };
-        _killer addScore round ((_points select 0) / 5);
-        ((_points select 0) * _coef)
-    } else {
-        switch (true) do {
-            case (_vec isKindOf "Wheeled_APC"): {_points select 1};
-            case (_vec isKindOf "Tank"): {_points select 2};
-            case (_vec isKindOf "Air"): {_points select 3};
-            default {1};
-        };
-    };
-    switch (side (group _killer)) do {
-        case west: {__addkpw(_endpoints)};
-        case east: {__addkpe(_endpoints)};
-    };
-};
-FUNC(AddPoints) = {
-    if (!isNil QGVAR(HC_CLIENT_OBJ)) exitWith {
-        [QGVAR(addPoi), _this] call FUNC(NetCallEventCTS);
-    };
-    private ["_points","_killer"];
-    if (!isPlayer _killer) exitWith {};
-    PARAMS_2(_points,_killer);
-    switch (side (group _killer)) do {
-        case west: {__addpw(_points)};
-        case east: {__addpe(_points)};
-    };
-    _killer addScore _points;
-};
-#endif
-
-if (GVAR(domdatabase)) then {
-    // TODO: Add kills to array to count all kills for stats dialog
-    // something like: Overall AI killed on the server, radio towers destroyed on the server, etc, etc
-    FUNC(PAddAIKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [19, (_pa select 19) + 1];
-        };
-    };
-    
-    FUNC(PAddHumKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [20, (_pa select 20) + 1];
-        };
-    };
-    
-    FUNC(PAddCarKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [21, (_pa select 21) + 1];
-        };
-    };
-    
-    FUNC(PAddAPCKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [22, (_pa select 22) + 1];
-        };
-    };
-    
-    FUNC(PAddTankKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [23, (_pa select 23) + 1];
-        };
-    };
-    
-    FUNC(PAddPlaneKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [24, (_pa select 24) + 1];
-        };
-    };
-    
-    FUNC(PAddChopperKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [25, (_pa select 25) + 1];
-        };
-    };
-    
-    FUNC(PAddRadioTowerKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [26, (_pa select 26) + 1];
-        };
-    };
-    
-    FUNC(PAddMTObjKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [27, (_pa select 27) + 1];
-        };
-    };
-    
-    FUNC(PAddSMResolvedPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [28, (_pa select 28) + 1];
-        };
-    };
-    
-    FUNC(PAddUnconKilledPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [29, (_pa select 29) + 1];
-        };
-    };
-    
-    FUNC(PAddTeamKillPoints) = {
-        private ["_uid", "_pa"];
-        _uid = getPlayerUID _this;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            _pa set [16, (_pa select 16) + 1];
-        };
-    };
-};
-
 if (GVAR(with_ai) && {__RankedVer}) then {
     FUNC(AddKillsAI) = {
         private ["_points","_killer","_lead"];
@@ -210,18 +46,6 @@ FUNC(GetPlayerArray) = {
     };
 };
 
-if (GVAR(domdatabase)) then {
-    FUNC(ServerGetPlayerStats) = {
-        _pl = _this;
-        if (isNull _pl) exitWith {};
-        _uid = getPlayerUID _pl;
-        _pa = GV2(GVAR(player_store),_uid);
-        if (!isNil "_pa") then {
-            [QGVAR(sendps), [_pl, _pa]] call FUNC(NetCallEventSTO);
-        };
-    };
-};
-
 FUNC(TKKickCheck) = {
     private ["_tk", "_p", "_sel", "_numtk", "_uid"];
     _tk = _this select 2;
@@ -233,9 +57,6 @@ FUNC(TKKickCheck) = {
         _numtk = _p select 7;
         __INC(_numtk);
         _p set [7, _numtk];
-        if (GVAR(domdatabase)) then {
-            _p set [16, (_p select 16) + 1];
-        };
         if (_numtk >= GVAR(maxnum_tks_forkick)) exitWith {
             _pna = _p select 6;
             // god damn, servercommand was removed instead of fixing the heart of the problem, hackers/cheaters bypassing signature system

@@ -31,10 +31,6 @@ if !(X_JIPH getVariable _ariavailstr) exitWith {
     _str call FUNC(HQChat);
 };
 
-if (GVAR(with_ranked) && {score player < (GVAR(ranked_a) select 2)}) exitWith {
-    (format [(localize "STR_DOM_MISSIONSTRING_147"), score player, GVAR(ranked_a) select 2]) call FUNC(HQChat);
-};
-
 if ((GVAR(with_ai) || {GVAR(with_ai_features) == 0}) && {__XJIPGetVar(GVAR(ari_blocked))}) exitWith {
     (localize "STR_DOM_MISSIONSTRING_148") call FUNC(HQChat);
 };
@@ -91,7 +87,6 @@ if (GVAR(ari_type) != "") then {
         _arti_markername setMarkerPos _oldpos;
     };
 
-    if (GVAR(with_ranked) && {GVAR(ranked_a) select 2 > 0}) then {[QGVAR(pas), [player, (GVAR(ranked_a) select 2) * -1]] call FUNC(NetCallEventCTS)};
     [QGVAR(say), [player,"Funk"]] call FUNC(NetCallEvent);
     #ifndef __TT__
     player kbTell [GVAR(kb_logic1),GVAR(kb_topic_side_arti),"ArtilleryRequest",["1","",GVAR(ari_type),[]],["2","",str(GVAR(ari_salvos)),[]],["3","",mapGridPosition getPosASL _ari_target,[]],true];

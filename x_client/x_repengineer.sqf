@@ -1,7 +1,7 @@
 // by Xeno
 #define THIS_FILE "x_repengineer.sqf"
 #include "x_setup.sqf"
-private ["_aid","_caller","_coef","_damage","_damage_ok","_damage_val","_fuel","_fuel_ok","_fuel_val","_rep_count","_breaked_out","_rep_action","_type_name", "_exitit"];
+private ["_aid","_caller","_coef","_damage","_damage_ok","_damage_val","_fuel","_fuel_ok","_fuel_val","_rep_count","_breaked_out","_rep_action","_type_name"];
 
 _caller = _this select 1;
 _aid = _this select 2;
@@ -11,23 +11,6 @@ if (player distance TR7 < 21 || {player distance TR8 < 21}) then {_truck_near = 
 if (!GVAR(eng_can_repfuel) && {!_truck_near}) exitWith {
     hintSilent (localize "STR_DOM_MISSIONSTRING_324");
 };
-
-_exitit = false;
-if (GVAR(with_ranked)) then {
-    if (score player < (GVAR(ranked_a) select 0)) then {
-        (format [(localize "STR_DOM_MISSIONSTRING_325"), score player,(GVAR(ranked_a) select 0)]) call FUNC(HQChat);
-        _exitit = true;
-    };
-    if (_exitit) exitWith {};
-    if (time >= GVAR(last_base_repair)) then {GVAR(last_base_repair) = -1};
-};
-if (_exitit) exitWith {};
-
-if (GVAR(with_ranked) && {player in (list GVAR(engineer_trigger))} && {GVAR(last_base_repair) != -1}) exitWith {
-    (localize "STR_DOM_MISSIONSTRING_326") call FUNC(HQChat);
-};
-
-if (GVAR(with_ranked) && {player in (list GVAR(engineer_trigger))}) then {GVAR(last_base_repair) = time + 300};
 
 _caller removeAction _aid;
 if !(local _caller) exitWith {};
@@ -83,18 +66,5 @@ if (_breaked_out2) exitWith {};
 GVAR(eng_can_repfuel) = false;
 player removeAction _rep_action;
 if (!alive player) exitWith {player removeAction _rep_action};
-if (GVAR(with_ranked)) then {
-    _parray = GVAR(ranked_a) select 1;
-    _addscore = switch (true) do {
-        case (GVAR(objectID2) isKindOf "Air"): {_parray select 0};
-        case (GVAR(objectID2) isKindOf "Tank"): {_parray select 1};
-        case (GVAR(objectID2) isKindOf "Car"): {_parray select 2};
-        default {_parray select 3};
-    };
-    if (_addscore > 0) then {
-        [QGVAR(pas), [player, _addscore]] call FUNC(NetCallEventCTS);
-        (format [(localize "STR_DOM_MISSIONSTRING_333"), _addscore]) call FUNC(HQChat);
-    };
-};
 [QGVAR(rep_ar), GVAR(objectID2)] call FUNC(NetCallEvent);
 (format [(localize "STR_DOM_MISSIONSTRING_334"), _type_name]) call FUNC(GlobalChat);

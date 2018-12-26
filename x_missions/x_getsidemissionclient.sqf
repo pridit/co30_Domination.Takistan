@@ -20,30 +20,12 @@ if (!X_SPE) then {call compile preprocessFileLineNumbers _mis_fname};
 
 sleep 0.01;
 
-if (GVAR(with_ranked)) then {
-    GVAR(was_at_sm) = false;
-    GVAR(sm_running) = true;
-};
-
 if (__XJIPGetVar(GVAR(current_mission_index)) != -1) then {
     _posi_array = GVAR(x_sm_pos);
     _posione = _posi_array select 0;
     if (GVAR(x_sm_type) != "convoy") then {
         _m_name = format ["XMISSIONM%1", __XJIPGetVar(GVAR(current_mission_index)) + 1];
         [_m_name,_posione,"ICON","ColorRed",[1,1],(localize "STR_DOM_MISSIONSTRING_707"),0,"hd_destroy"] call FUNC(CreateMarkerLocal);
-        if (GVAR(with_ranked)) then {
-            _posione spawn {
-                private "_posione";
-                _posione = _this;
-                while {GVAR(sm_running)} do {
-                    if (player distance _posione < (GVAR(ranked_a) select 12)) exitWith {
-                        GVAR(was_at_sm) = true;
-                        GVAR(sm_running) = false;
-                    };
-                    sleep 3.012 + random 3;
-                };
-            };
-        };
     } else {
         _m_name = format ["XMISSIONM%1", __XJIPGetVar(GVAR(current_mission_index)) + 1];
         [_m_name, _posione,"ICON","ColorRed",[1,1],(localize "STR_DOM_MISSIONSTRING_708"),0,"hd_start"] call FUNC(CreateMarkerLocal);

@@ -19,14 +19,8 @@ _selectit = nil;
 
 __TRACE_1("","_type_list_guard")
 
-if (!GVAR(dom4)) then {
-    PARAMS_2(_trgobj,_radius);
-    _patrol_radius = _radius + 400 + random 400;
-} else {
-    _trgobj = GVAR(enemyai_mt_start_pos);
-    _radius = GVAR(target_radius);
-    _patrol_radius = GVAR(mttarget_radius_patrol);
-};
+PARAMS_2(_trgobj,_radius);
+_patrol_radius = _radius + 400 + random 400;
 
 __TRACE_3("","_trgobj","_radius","_patrol_radius")
 
@@ -230,11 +224,7 @@ if (GVAR(WithEnemyArtySpotters) == 0 && {!GVAR(no_more_observers)}) then {
         _observer = _units select 0;
         _observer addEventHandler ["killed", {GVAR(nr_observers) = GVAR(nr_observers) - 1;
             if (GVAR(nr_observers) == 0) then {
-#ifndef __TT__
                 [QGVAR(kbmsg), [3]] call FUNC(NetCallEventCTS);
-#else
-                [QGVAR(kbmsg), [4]] call FUNC(NetCallEventCTS);
-#endif
             }
         }];
         GVAR(obs_array) set [_xx, _observer];
@@ -242,24 +232,14 @@ if (GVAR(WithEnemyArtySpotters) == 0 && {!GVAR(no_more_observers)}) then {
     };
     _unit_array = nil;
 
-#ifndef __TT__
     [QGVAR(kbmsg), [6, GVAR(nr_observers)]] call FUNC(NetCallEventCTS);
-#else
-    [QGVAR(kbmsg), [7, GVAR(nr_observers)]] call FUNC(NetCallEventCTS);
-#endif
     execVM "x_shc\x_handleobservers.sqf";
     sleep 1.214;
 };
 
-//if (!GVAR(dom4)) then {
-    [_wp_array, GVAR(target_radius), _trg_center] execVM "x_shc\x_createsecondary.sqf";
-//} else {
-    //[_wp_array, GVAR(target_radius), _trg_center] execVM "x_server\x_createsecondary2.sqf";
-//};
+[_wp_array, GVAR(target_radius), _trg_center] execVM "x_shc\x_createsecondary.sqf";
 
-#ifndef __TT__
 execFSM "fsms\RespawnGroups.fsm";
-#endif
 
 if (GVAR(IllumMainTarget) == 0) then {
     GVAR(run_illum) = true;

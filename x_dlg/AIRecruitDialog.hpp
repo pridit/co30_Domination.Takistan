@@ -28,14 +28,6 @@ class XD_AIRecruitDialog {
             default = true;
             x = 0.68; y = 0.91;
         };
-        class Dom4 : XC_RscText {
-            x = 0.12; y = 0.91;
-            w = 0.25; h = 0.1;
-            sizeEx = 0.035;
-            colorBackground[] = {1, 1, 1, 0};
-            XCMainCapt;
-            text = __DOM_NVER_STR__;
-        };
         
         class UnitsListBoxCaption: XC_RscText {
             x = 0.08; y = 0.11;

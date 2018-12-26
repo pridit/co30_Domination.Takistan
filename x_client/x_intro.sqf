@@ -77,7 +77,6 @@ waitUntil {camCommitted _camera};
 _str = "One Team - " + GVAR(version_string);
 _start_pos = 5;
 _str2 = "";
-if (__ACEVer) then {if (_str2 != "") then {_str2 = _str2 + " ACE"} else {_str2 = _str2 + "ACE"}};
 if (GVAR(with_ai)) then {if (_str2 != "") then {_str2 = _str2 + " AI"} else {_str2 = _str2 + "AI"}};
 if (__RankedVer) then {if (_str2 != "") then {_str2 = _str2 + " RA"} else {_str2 = _str2 + "RA"}};
 if (__WoundsVer) then {if (_str2 != "") then {_str2 = _str2 + " WOUNDS"} else {_str2 = _str2 + "WOUNDS"}};
