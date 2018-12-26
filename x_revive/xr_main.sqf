@@ -1965,15 +1965,35 @@ FUNCXR(healanim) = {
     };
 };
 
-if (GVARXR(selfheals) > 0) then {
+FUNCXR(setselfheals) = {
+    private "_heals";
+    PARAMS_1(_heals);
+    
+    __pSetVar [QGVARXR(numheals), _heals];
+    call FUNCXR(selfheal);
+};
+
+FUNCXR(selfheal) = {
     0 spawn {
         scriptName "spawn_xr_selfheal";
         private "_id";
         while {true} do {
-            __pSetVar [QGVARXR(numheals), GVARXR(selfheals)];
             waitUntil {sleep 0.332;alive player};
-            _id = player addAction ["<t color='#FF0000'>Self Heal</t>", "x_revive\xr_selfheal.sqf", [], -1, false, false, "", "alive _target &&  {!(_target getVariable 'xr_pluncon')} && {!(_target getVariable 'xr_pisinaction')} && {(damage _target >= (xr_selfheals_minmaxdam select 0))} && {(damage _target <= (xr_selfheals_minmaxdam select 1))} && {(_target getVariable 'xr_numheals') > 0}"];
+            _id = player addAction ["Self Heal" call d_fnc_YellowText, "x_revive\xr_selfheal.sqf", [], -1, false, false, "", "alive _target &&  {!(_target getVariable 'xr_pluncon')} && {!(_target getVariable 'xr_pisinaction')} && {(damage _target >= (xr_selfheals_minmaxdam select 0))} && {(damage _target <= (xr_selfheals_minmaxdam select 1))} && {(_target getVariable 'xr_numheals') > 0}"];
             waitUntil {sleep 0.231;!alive player};
+            player removeAction _id;
+        };
+    };
+};
+
+FUNCXR(calldrop) = {
+    0 spawn {
+        scriptName "spawn_xr_calldrop";
+        private "_id";
+        while {true} do {
+            waitUntil {sleep 0.332;alive player;__XJIPGetVar(para_available)};
+            _id = player addAction ["Call Drop" call d_fnc_YellowText, "x_client\x_calldrop.sqf", [], 0, false, false, "", ""];
+            waitUntil {sleep 0.231;!alive player;!__XJIPGetVar(para_available)};
             player removeAction _id;
         };
     };

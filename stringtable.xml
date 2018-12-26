@@ -489,7 +489,7 @@
         <Original>Creating %1, stand by...</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_162">
-        <Original>Flip ATV</Original>
+        <Original>Flip Vehicle</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_163">
         <Original>Transport aircraft in the air... Drop not available!</Original>
@@ -777,7 +777,7 @@
         <Original>Unload Static</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_258">
-        <Original>Chopper Menu</Original>
+        <Original>Aircraft Menu</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_259">
         <Original>HALO Jump</Original>
@@ -4345,6 +4345,12 @@
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_1450">
         <Original>We have detected a salvageable %1, capture the wreck before the enemy does.</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1451">
+        <Original>My Perks</Original>
+      </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1452">
+        <Original>You do not have the requisite perk to perform this action</Original>
       </Key>
     </Container>
   </Package>

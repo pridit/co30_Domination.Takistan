@@ -28,10 +28,6 @@ _hasbox = GV(_unit,GVAR(ammobox));
 if (isNil "_hasbox") then {_hasbox = false};
 if (_hasbox) exitWith {[_unit, _caller, (localize "STR_DOM_MISSIONSTRING_269")] call _chatfunc};
 
-_time_next = GV(_unit,GVAR(ammobox_next));
-if (isNil "_time_next") then {_time_next = -1};
-if (_time_next > time) exitWith {[_unit, _caller, format [(localize "STR_DOM_MISSIONSTRING_270"), round (_time_next - time)]] call _chatfunc};
-
 _nobjs = nearestObjects [_unit, [GVAR(the_box)], 20];
 if (count _nobjs == 0) exitWith {[_unit, _caller, (localize "STR_DOM_MISSIONSTRING_271")] call _chatfunc};
 _box = _nobjs select 0;

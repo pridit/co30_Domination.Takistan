@@ -105,7 +105,6 @@ __str (localize "STR_DOM_MISSIONSTRING_391") + (if (GVAR(MissionType) == 1) __ty
 __str (localize "STR_DOM_MISSIONSTRING_392") + (if (GVAR(p_marker_dirs)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_393") + (if (GVAR(v_marker_dirs)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_394") + GVAR(p_marker) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_396") + (if (GVAR(WithMHQTeleport) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_397") + (if (GVAR(FastTime) > 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_398") + (switch (GVAR(EnemySkill)) do {case 1: {(localize "STR_DOM_MISSIONSTRING_399")};case 2: {(localize "STR_DOM_MISSIONSTRING_11")};case 3: {(localize "STR_DOM_MISSIONSTRING_400")};}) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_401") + (if (GVAR(WithIsleDefense) == 0) __tyn);

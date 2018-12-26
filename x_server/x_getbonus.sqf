@@ -40,4 +40,3 @@ if (!isServer) exitWith {};
     _vehicle setVariable ["D_VEC_SIDE", 2, true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";
 } forEach _this;
-_this = nil;

@@ -22,9 +22,6 @@ if (_caller != driver _unit && {!isNil {GV(_unit,GVAR(choppertype))}}) exitWith 
 };
 
 if (_unit distance GVAR(AMMOLOAD) < 20) exitWith {[_unit, _caller,(localize "STR_DOM_MISSIONSTRING_217")] call _chatfunc};
-#ifdef __TT__
-if (_unit distance GVAR(AMMOLOAD2) < 20) exitWith {[_unit, _caller, (localize "STR_DOM_MISSIONSTRING_217")] call _chatfunc};
-#endif
 
 _height = _unit call FUNC(GetHeight);
 if (_height > 3) exitWith {[_unit,(localize "STR_DOM_MISSIONSTRING_218")] call FUNC(VehicleChat)};
@@ -41,14 +38,13 @@ _hasbox = GV(_unit,GVAR(ammobox));
 if (isNil "_hasbox") then {_hasbox = false};
 if (!_hasbox) exitWith {[_unit, _caller, (localize "STR_DOM_MISSIONSTRING_222")] call _chatfunc};
 
-_time_next = GV(_unit,GVAR(ammobox_next));
-if (isNil "_time_next") then {_time_next = -1};
+_time_next = __pGetVar(GVAR(ammobox_next));
 if (_time_next > time) exitWith {[_unit, _caller, format [(localize "STR_DOM_MISSIONSTRING_223"),round (_time_next - time)]] call _chatfunc};
 
 [_unit, _caller, (localize "STR_DOM_MISSIONSTRING_224")] call _chatfunc;
 
 _unit setVariable [QGVAR(ammobox), false, true];
-_time_next = time + GVAR(drop_ammobox_time);
+_time_next = time + __pGetVar(GVAR(ammobox_next));
 _unit setVariable [QGVAR(ammobox_next), _time_next, true];
 
 _boxpos = _unit modelToWorld [4,0,0];

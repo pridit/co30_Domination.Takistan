@@ -425,13 +425,6 @@ class Params {
         texts[] = {""};
     };
     
-    class GVAR(WithMHQTeleport) {
-        title = "$STR_DOM_MISSIONSTRING_1056";
-        values[] = {0,1};
-        default = 0;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
     class GVAR(MHQDisableNearMT) {
         title = "$STR_DOM_MISSIONSTRING_1057";
         values[] = {0,500,700,900,1000,2000};
@@ -456,7 +449,7 @@ class Params {
     class GVAR(WithTeleToBase) {
         title = "$STR_DOM_MISSIONSTRING_1068";
         values[] = {0,1};
-        default = 1;
+        default = 0;
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
@@ -806,6 +799,7 @@ class Params {
 #include "x_dlg\AIRecruitDialog.hpp"
 #include "x_dlg\SquadManagement.hpp"
 #include "x_dlg\PlayerStatsDialog.hpp"
+#include "x_dlg\perks\base.hpp"
 
 #include "spect\spectating.hpp"
 

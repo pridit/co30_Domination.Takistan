@@ -1,45 +1,45 @@
 #define THIS_FILE "x_playerfuncs.sqf"
 #include "x_setup.sqf"
 
-if ((GVAR(string_player) in GVAR(is_engineer)) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
-    FUNC(sfunc) = {
-        private "_objs";
-        if (vehicle player == player) then {
-            _objs = (position player) nearEntities [["LandVehicle","Air"], 7];
-            if (count _objs > 0) then {
-                GVAR(objectID2) = _objs select 0;
-                if (alive GVAR(objectID2)) then {
-                    (damage GVAR(objectID2) > 0.05 || fuel GVAR(objectID2) < 1)
-                } else {
-                    false
-                }
-            }
-        } else {
-            false
-        }
-    };
-    FUNC(ffunc) = {
-        private ["_l","_vUp","_winkel"];
-        if (vehicle player == player) then {
-            GVAR(objectID1) = position player nearestObject "LandVehicle";
-            if (!alive GVAR(objectID1) || {player distance GVAR(objectID1) > 8}) then {
-                false
+
+FUNC(sfunc) = {
+    private "_objs";
+    if (vehicle player == player) then {
+        _objs = (position player) nearEntities [["LandVehicle","Air"], 7];
+        if (count _objs > 0) then {
+            GVAR(objectID2) = _objs select 0;
+            if (alive GVAR(objectID2)) then {
+                (damage GVAR(objectID2) > 0.05 || fuel GVAR(objectID2) < 1)
             } else {
-                _vUp = vectorUp GVAR(objectID1);
-                if ((_vUp select 2) < 0 && {player distance (position player nearestObject GVAR(rep_truck)) < 20}) then {
-                    true
-                } else {
-                    _l=sqrt((_vUp select 0)^2+(_vUp select 1)^2);
-                    if (_l != 0) then {
-                        _winkel = (_vUp select 2) atan2 _l;
-                        (_winkel < 30 && {player distance (position player nearestObject GVAR(rep_truck)) < 20})
-                    }
+                false
+            }
+        }
+    } else {
+        false
+    }
+};
+
+FUNC(ffunc) = {
+    private ["_l","_vUp","_winkel"];
+    if (vehicle player == player) then {
+        GVAR(objectID1) = position player nearestObject "LandVehicle";
+        if (!alive GVAR(objectID1) || {player distance GVAR(objectID1) > 8}) then {
+            false
+        } else {
+            _vUp = vectorUp GVAR(objectID1);
+            if ((_vUp select 2) < 0 && {player distance (position player nearestObject GVAR(rep_truck)) < 20}) then {
+                true
+            } else {
+                _l=sqrt((_vUp select 0)^2+(_vUp select 1)^2);
+                if (_l != 0) then {
+                    _winkel = (_vUp select 2) atan2 _l;
+                    (_winkel < 30 && {player distance (position player nearestObject GVAR(rep_truck)) < 20})
                 }
             }
-        } else {
-            false
         }
-    };
+    } else {
+        false
+    }
 };
 
 FUNC(PlacedObjAn) = {

@@ -44,8 +44,6 @@ _vec addAction[(localize "STR_DOM_MISSIONSTRING_257") call FUNC(RedText),"script
 
 #define __addchopm _vec addAction [(localize "STR_DOM_MISSIONSTRING_258") call FUNC(GreyText),"x_client\x_vecdialog.sqf",[],-1,false]
 
-#define __halo _vec addAction [(localize "STR_DOM_MISSIONSTRING_259") call FUNC(GreyText),"x_client\x_halo.sqf",[],-1,false,true,"","vehicle player != player && {((vehicle player) call d_fnc_GetHeight) > 50}"]
-
 private "_vec";
 
 _vec = _this;
@@ -163,5 +161,4 @@ if (_d_vec < 400) exitWith {
         __addchopm;
         __chopset;
     };
-    __halo;
 };

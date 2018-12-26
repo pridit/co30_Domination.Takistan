@@ -24,4 +24,6 @@ if (alive player && {!__pGetVar(GVARXR(pluncon))}) then {
     __pSetVar [QGVARXR(numheals), __pGetVar(GVARXR(numheals)) - 1];
 };
 
+__pSetVar [QGVARXR(selfheals), __pGetVar(GVARXR(numheals))];
+
 __pSetVar [QGVARXR(pisinaction), false];

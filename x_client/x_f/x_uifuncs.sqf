@@ -1027,3 +1027,73 @@ FUNC(squadmgmtlbchanged) = {
         };
     };
 };
+
+FUNC(perkclicked) = {
+    private ["_idc","_disp","_unlocked"];
+    PARAMS_1(_idc);
+    
+    _points = GVAR(perk_points_available);
+    
+    // no perk points available to allocate
+    if (_points == 0) exitWith {};
+    
+    // perk already unlocked
+    {
+        if (_x == _idc) exitWith {_unlocked = true};
+    } forEach GVAR(perks_unlocked);
+    
+    if (_unlocked) exitWith {};
+    
+    _disp = __uiGetVar(X_PERK_DIALOG);
+    
+    if (_idc == 1) then {
+        [1] call xr_fnc_setselfheals;
+    };
+    
+    if (_idc == 2) then {
+        __pSetVar [QGVAR(eng_can_repfuel), true];
+        
+        _trigger = createTrigger["EmptyDetector" , position player];
+        _trigger setTriggerArea [0, 0, 0, true];
+        _trigger setTriggerActivation ["NONE", "PRESENT", true];
+        _trigger setTriggerStatements["player getVariable 'd_eng_can_repfuel' && call d_fnc_sfunc", "d_actionID2 = player addAction ['Service Vehicle' call d_fnc_YellowText, 'x_client\x_repengineer.sqf',[],0,false]", "player removeAction d_actionID2"];
+    };
+    
+    if (_idc == 4) then {
+        call xr_fnc_calldrop;
+    };
+    
+    if (_idc == 6) then {
+        __pSetVar [QGVAR(WithMHQTeleport), true];    
+    };
+    
+    if (_idc == 7) then {
+        __pSetVar [QGVAR(ammobox_next), 120];    
+    };
+    
+    if (_idc == 8) then {
+        __pSetVar ["perkHalo", true];
+        
+        {
+            if (_x isKindOf "Air") then {
+                _x addAction [(localize "STR_DOM_MISSIONSTRING_259") call FUNC(YellowText),"x_client\x_halo.sqf",[],0,false,true,"","player getVariable 'perkHalo' && {vehicle player != player} && {((vehicle player) call d_fnc_GetHeight) > 100}"]
+            };
+        } forEach vehicles;
+    };
+    
+    if (_idc == 9) then {
+        __pSetVar ["perkFlip", true];
+        
+        {
+            if (_x isKindOf "LandVehicle") then {
+                _x addAction [(localize "STR_DOM_MISSIONSTRING_162") call FUNC(YellowText), "x_client\x_flipatv.sqf", 0, -1, false, false, "", "player getVariable 'perkFlip' && {!(player in _target)} && {((vectorUp _target) select 2) < 0.6}"];
+            };
+        } forEach vehicles;
+    };
+    
+    GVAR(perk_points_available) = _points - 1;
+    GVAR(perks_unlocked) = GVAR(perks_unlocked) + [_idc];
+    
+    closeDialog 0;
+    call FUNC(showperks);
+};

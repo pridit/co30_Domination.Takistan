@@ -40,9 +40,7 @@ _fuel_ok = false;
 GVAR(cancelrep) = false;
 _breaked_out = false;
 _breaked_out2 = false;
-_rep_action = player addAction[(localize "STR_DOM_MISSIONSTRING_329") call FUNC(RedText),"x_client\x_cancelrep.sqf"];
 for "_wc" from 1 to _coef do {
-    if (!alive player || {GVAR(cancelrep)}) exitWith {player removeAction _rep_action};
     (localize "STR_DOM_MISSIONSTRING_330") call FUNC(GlobalChat);
     player playMove "AinvPknlMstpSlayWrflDnon_medic";
     sleep 3.0;
@@ -60,9 +58,9 @@ for "_wc" from 1 to _coef do {
 };
 if (_breaked_out) exitWith {
     (localize "STR_DOM_MISSIONSTRING_332") call FUNC(GlobalChat);
-    player removeAction _rep_action;
 };
 if (_breaked_out2) exitWith {};
+__pSetVar [QGVAR(eng_can_repfuel), false];
 GVAR(eng_can_repfuel) = false;
 player removeAction _rep_action;
 if (!alive player) exitWith {player removeAction _rep_action};

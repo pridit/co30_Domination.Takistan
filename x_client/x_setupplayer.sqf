@@ -24,6 +24,9 @@ GVAR(current_defend_idx) = -1;
 GVAR(current_attack_target) = "";
 GVAR(current_attack_idx) = -1;
 
+GVAR(perk_points_available) = 9;
+GVAR(perks_unlocked) = [];
+
 __ccppfln(x_client\x_f\x_perframe.sqf);
 
 GVAR(name_pl) = name player;
@@ -34,17 +37,14 @@ GVAR(misc_store) = GVAR(HeliHEmpty) createVehicleLocal [0,0,0];
 FUNC(GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
 FUNC(RedText) = {"<t color='#f0ff0000'>" + _this + "</t>"};
 FUNC(BlueText) = {"<t color='#f07f7f00'>" + _this + "</t>"}; //olive
+FUNC(YellowText) = {"<t color='#e7e700'>" + _this + "</t>"};
 
+{
+    _x addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false,true,"","player in _target"];
+    _x addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false,true,"","player in _target"];
+} forEach vehicles;
 
 __pSetVar ["BIS_noCoreConversations", true];
-
-/* for "_i" from 1 to 21 do {
-    _mrkr = format ["mt%1", _i];
-    _str = "[" + str (markerPos _mrkr) + "," + toString [34] + markerText _mrkr + toString [34] + ",300]";
-    if (_i < 21) then {_str = _str + ","};
-    _str = _str + " // " + str (_i - 1);
-    diag_log _str;
-}; */
 
 _p = player;
 __pSetVar [QGVAR(alivetimestart), time];
@@ -416,7 +416,7 @@ if (GVAR(with_ai)) then {
 
 xr_use_dom_opendlg = false;
 FUNC(prespawned) = {
-    if (GVAR(WithMHQTeleport) == 0 && {!isNil QUOTE(FUNC(x_dlgopen))}) then {
+    if (!isNil QUOTE(FUNC(x_dlgopen))) then {
         if (GVAR(WithRevive) == 0) then {
             if (__pGetVar(xr_lives) > -1) then {
                 if (xr_use_dom_opendlg) then {
@@ -438,11 +438,7 @@ if (count __XJIPGetVar(GVAR(ammo_boxes)) > 0) then {
     {
         if (typeName _x == "ARRAY") then {
             _box_pos = _x select 0;
-#ifndef __TT__
             if ((_x select 1) != "") then {[_x select 1, _box_pos,"ICON","ColorBlue",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_523"),0,GVAR(dropped_box_marker)] call FUNC(CreateMarkerLocal)};
-#else
-            if ((_x select 1) != "" && {GVAR(player_side) == (_x select 2)}) then {[_x select 1, _box_pos,"ICON","ColorBlue",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_523"),0,GVAR(dropped_box_marker)] call FUNC(CreateMarkerLocal)};
-#endif
             _boxnew = GVAR(the_box) createVehicleLocal _box_pos;
             _boxnew setPos _box_pos;
             _boxnew addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf"];
@@ -465,9 +461,11 @@ __cppfln(FUNC(Sandstorm),scripts\fn_sandstorm.sqf);
 
 diag_log ["Internal D Version:",__DOM_NVER_STR2__];
 
+__pSetVar [QGVAR(WithMHQTeleport), false];
+__pSetVar [QGVAR(ammobox_next), 300];
 __pSetVar [QGVAR(trench), objNull];
 __pSetVar [QGVAR(trenchid), -9999];
-__pSetVar [QGVAR(dropaction), _p addAction [(localize "STR_DOM_MISSIONSTRING_230") call FUNC(GreyText), "x_client\x_calldrop.sqf",[],-1,false]];
+__pSetVar [QGVAR(showperks), _p addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-1,false]];
 __pSetVar [QGVAR(showstatus), _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-1,false]];
 if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
     if (GVAR(with_ai)) then {
@@ -571,7 +569,7 @@ GVAR(eng_can_repfuel) = false;
 if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
     GVAR(eng_can_repfuel) = true;
 
-    if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
+    if (__pGetVar(GVAR(eng_can_repfuel)) == false) then {
         GVAR(engineer_trigger) = createTrigger["EmptyDetector" ,GVAR(base_array) select 0];
         GVAR(engineer_trigger) setTriggerArea [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true];
         GVAR(engineer_trigger) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
@@ -579,17 +577,6 @@ if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai
     };
     
     [_pos, [0, 0, 0, false], ["NONE", "PRESENT", true], ["call d_fnc_ffunc", "actionID1=player addAction [(localize 'STR_DOM_MISSIONSTRING_1408') call d_fnc_GreyText, 'scripts\unflipVehicle.sqf',[d_objectID1],-1,false];", "player removeAction actionID1"]] call FUNC(CreateTrigger);
-    
-    if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
-        _trigger = createTrigger["EmptyDetector" ,_pos];
-        _trigger setTriggerArea [0, 0, 0, true];
-        _trigger setTriggerActivation ["NONE", "PRESENT", true];
-#ifndef __ENGINEER_OLD__
-        _trigger setTriggerStatements["call d_fnc_sfunc", "d_actionID6 = player addAction ['Analyze Vehicle' call d_fnc_GreyText, 'x_client\x_repanalyze.sqf',[],-1,false];d_actionID2 = player addAction ['Repair/Refuel Vehicle' call d_fnc_GreyText, 'x_client\x_repengineer.sqf',[],-1,false]", "player removeAction d_actionID6;player removeAction d_actionID2"];
-#else
-        _trigger setTriggerStatements["call d_fnc_sfunc", "d_actionID2 = player addAction ['Repair/Refuel Vehicle' call d_fnc_GreyText, 'x_client\x_repengineer_old.sqf',[],-1,false]", "player removeAction d_actionID2"];
-#endif
-    };
     
     __pSetVar [QGVAR(is_engineer),true];
     __pSetVar [QGVAR(farp_pos), []];
@@ -708,9 +695,7 @@ _fac setDir _dir
 if (GVAR(WithJumpFlags) == 0) then {GVAR(ParaAtBase) = 1};
 
 _tactionar = [(localize "STR_DOM_MISSIONSTRING_533") call FUNC(GreyText),"x_client\x_teleport.sqf"];
-if (GVAR(WithMHQTeleport) == 0) then {
-    GVAR(FLAG_BASE) addAction _tactionar;
-};
+GVAR(FLAG_BASE) addAction _tactionar;
 if (GVAR(with_ai) || {(GVAR(ParaAtBase) == 0)}) then {
     GVAR(FLAG_BASE) addaction [(localize "STR_DOM_MISSIONSTRING_296") call FUNC(GreyText),"AAHALO\x_paraj.sqf"];
 };
@@ -1235,11 +1220,13 @@ FUNC(startClientScripts) = {
                 GVAR(nomercyendtime) = nil;
             };
         } else {
-            if (time >= GVAR(nomercyendtime)) exitWith {
-                GVAR(clientScriptsAr) set [1, true];
-                GVAR(player_autokick_time) = nil;
-                GVAR(nomercyendtime) = nil;
-            };
+            {
+                if (_x == 3) exitWith {
+                    GVAR(clientScriptsAr) set [1, true];
+                    GVAR(player_autokick_time) = nil;
+                    GVAR(nomercyendtime) = nil;
+                };
+            } forEach GVAR(perks_unlocked);
             _vec = vehicle player;
             if (_vec != player && {_vec isKindOf "Air"} && !(serverCommandAvailable "#shutdown")) then {
                 _type = typeOf _vec;
@@ -1252,9 +1239,7 @@ FUNC(startClientScripts) = {
                     };
                     _type_name = [_type,0] call FUNC(GetDisplayName);
                     _wtime = GVAR(nomercyendtime) - time;
-                    _minutes = round (_wtime / 60);
-                    if (_minutes < 1) then {_minutes = 1};
-                    [format [localize "STR_DOM_MISSIONSTRING_1416", _type_name, _minutes], "HQ"] call FUNC(HintChatMsg);
+                    hint format ["%1", (localize "STR_DOM_MISSIONSTRING_1452")];
                 };
             };
         };

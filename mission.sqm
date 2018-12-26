@@ -1602,7 +1602,7 @@ class Mission
         };
         class Item27
         {
-            position[]={8005.0728,296.04001,1966.7808};
+            position[]={8006.4819,296.04001,1968.1274};
             azimut=329.84064;
             special="NONE";
             id=57;
@@ -2046,7 +2046,7 @@ class Mission
         };
         class Item67
         {
-            position[]={7979.5845,296.04001,1955.2095};
+            position[]={7984.7749,296.04001,1950.8264};
             azimut=-28.10817;
             special="NONE";
             id=130;
@@ -4668,7 +4668,7 @@ class Mission
         };
         class Item122
         {
-            position[]={8005.1509,296.04001,1966.7595};
+            position[]={8006.5601,296.04001,1968.1062};
             name="marker1";
             text="Ground Vehicle Service";
             type="mil_dot";
@@ -4720,7 +4720,7 @@ class Mission
         };
         class Item1
         {
-            position[]={8005.0991,296.04001,1966.791};
+            position[]={8006.5083,296.04001,1968.1377};
             a=5;
             b=5;
             angle=129.76685;

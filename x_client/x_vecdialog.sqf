@@ -81,7 +81,7 @@ if (_caller != driver _vec) then {
 _vtype = GV(_vec,GVAR(choppertype));
 if (!isNil "_vtype") then {_move_controls = true};
 
-if (GVAR(WithMHQTeleport) == 1) then {
+if (!__pGetVar(GVAR(WithMHQTeleport))) then {
     __control(44453) ctrlShow false;
 };
 

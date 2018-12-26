@@ -21,6 +21,7 @@ __ccppfln(x_shc\x_shcinit.sqf);
 
 FUNC(weaponcargo) = nil;
 FUNC(showstatus) = nil;
+FUNC(showperks) = nil;
 FUNC(settingsdialog) = nil;
 FUNC(pnselchanged) = nil;
 FUNC(pmmsgselchanged) = nil;

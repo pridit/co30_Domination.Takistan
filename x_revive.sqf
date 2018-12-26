@@ -3,29 +3,12 @@
 
 // playable units, var name as string that can be revived
 if (!isDedicated) then {
-    if !("TT" in d_version) then {
-        GVARXR(player_entities) = d_player_entities;
-    } else {
-        GVARXR(player_entities) = d_entities_tt;
-    };
-} else {
     GVARXR(player_entities) = [];
 };
 
 // units that can revive, use var name as string like in player entities or empty array so that anybody can revive
 // if a unit can't revive another one it can at least enhance the lifetime with CPR menu entry
-GVARXR(can_revive) = if (d_only_medics_canrevive == 0) then {
-    if !("TT" in d_version) then {
-        ["alpha_6", "bravo_6", "charlie_6", "echo_6"]
-    } else {
-        switch (d_player_side) do {
-            case west: {["west_6", "west_17"]};
-            case east: {["east_6", "east_17"]};
-        };
-    }
-} else {
-    []
-};
+GVARXR(can_revive) = [];
 
 // set max lives to -1 to have unlimited lives
 if (isNil QGVARXR(max_lives)) then {
@@ -53,14 +36,7 @@ GVARXR(near_player_dist_respawn) = true;
 GVARXR(withweaponrespawn) = false;
 
 // respawn markers (respawn positions) 
-if !("TT" in d_version) then {
-    GVARXR(respawn_markers) = ["base_spawn_1", "mobilerespawn1", "mobilerespawn2"];
-} else {
-    GVARXR(respawn_markers) = switch (d_player_side) do {
-        case west: {["base_spawn_1", "mobilerespawn1", "mobilerespawn2"]};
-        case east: {["base_spawn_2", "mobilerespawnE1", "mobilerespawnE2"]};
-    };
-};
+GVARXR(respawn_markers) = ["base_spawn_1", "mobilerespawn1", "mobilerespawn2"];
 
 // set the number of bonus lifes a player gets when he revives another player, 0 to disable it
 GVARXR(help_bonus) = 1;
@@ -82,7 +58,8 @@ GVARXR(no_respawn_dialog) = true;
 GVARXR(cpr_time_add) = 300;
 
 // selfheals, how often a player can heal himself (0 = disabled)
-GVARXR(selfheals) = 1;
+GVARXR(selfheals) = 0;
+
 // if selfheals is enabled then if damage player >= 0.3 and <= 0.7 the action shows up
 GVARXR(selfheals_minmaxdam) = [0.2, 0.8];
 

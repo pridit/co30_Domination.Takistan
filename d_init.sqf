@@ -107,6 +107,7 @@ if (X_Client) then {
 
     // dialog related scripts, precompiled to call them from UI EH's to get rid of script scheduling
     __cppfln(FUNC(showstatus),x_client\x_showstatus.sqf);
+    __cppfln(FUNC(showperks),x_client\x_showperks.sqf);
     __cppfln(FUNC(settingsdialog),x_client\x_settingsdialog.sqf);
     __cppfln(FUNC(pnselchanged),x_msg\x_pnselchanged.sqf);
     __cppfln(FUNC(pmmsgselchanged),x_msg\x_pmselchanged.sqf);
