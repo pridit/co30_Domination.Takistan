@@ -129,7 +129,7 @@ for "_i" from 0 to 100000 do {
 // } forEach GVAR(target_names);
 #endif
 
-GVAR(side_enemy) = west;
+GVAR(side_enemy) = east;
 GVAR(side_player) = west;
 GVAR(ai_enemy_sides) = [east];
 
