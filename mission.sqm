@@ -672,7 +672,7 @@ class Mission
                 class Item0
                 {
                     position[]={8267.7402,296.04001,2121.7244};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=302;
                     side="WEST";
@@ -681,13 +681,13 @@ class Mission
                     leader=1;
                     skill=0.33333331;
                     text="ARTY1";
-                    init="this setGroupId [""Alpha""];removeallweapons this;";
+                    init="this setGroupId [""Alpha""];removeallweapons this;this disableAI ""MOVE"";";
                     description="First Artillery Operator";
                 };
                 class Item1
                 {
                     position[]={8269.5166,296.04001,2122.6558};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=303;
                     side="WEST";
@@ -695,7 +695,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="ARTY2";
-                    init="this setGroupId [""Alpha""];removeallweapons this;";
+                    init="this setGroupId [""Alpha""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Second Artillery Operator";
                 };
             };
@@ -709,7 +709,7 @@ class Mission
                 class Item0
                 {
                     position[]={8258.1836,296.04001,2123.8696};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=294;
                     side="WEST";
@@ -718,13 +718,13 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="ENGINEER1";
-                    init="this setGroupId [""Bravo""];removeallweapons this;";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Engineer Team Leader";
                 };
                 class Item1
                 {
                     position[]={8260.7539,296.04001,2125.2144};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=301;
                     side="WEST";
@@ -732,13 +732,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="ENGINEER2";
-                    init="this setGroupId [""Bravo""];removeallweapons this;";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Engineer";
                 };
                 class Item2
                 {
                     position[]={8262.5156,296.04001,2126.1528};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=300;
                     side="WEST";
@@ -746,13 +746,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER3";
-                    init="this setGroupId [""Bravo""];removeallweapons this;";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Engineer";
                 };
                 class Item3
                 {
                     position[]={8264.29,296.04001,2127.0759};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=299;
                     side="WEST";
@@ -760,13 +760,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER4";
-                    init="this setGroupId [""Bravo""];removeallweapons this;";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Engineer";
                 };
                 class Item4
                 {
                     position[]={8266.0674,296.04001,2127.9993};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=298;
                     side="WEST";
@@ -774,13 +774,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="ENGINEER5";
-                    init="this setGroupId [""Bravo""];removeallweapons this;";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Engineer";
                 };
                 class Item5
                 {
                     position[]={8268.7217,296.04001,2129.3901};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=297;
                     side="WEST";
@@ -788,13 +788,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="ENGINEER6";
-                    init="this setGroupId [""Bravo""];removeallweapons this;";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Engineer";
                 };
                 class Item6
                 {
                     position[]={8270.4941,296.04001,2130.3201};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=296;
                     side="WEST";
@@ -802,13 +802,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER7";
-                    init="this setGroupId [""Bravo""];removeallweapons this;";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Engineer";
                 };
                 class Item7
                 {
                     position[]={8272.2705,296.04001,2131.2388};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=295;
                     side="WEST";
@@ -816,7 +816,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER8";
-                    init="this setGroupId [""Bravo""];removeallweapons this;";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Engineer";
                 };
             };
@@ -830,7 +830,7 @@ class Mission
                 class Item0
                 {
                     position[]={8254.8047,296.04001,2129.9885};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=304;
                     side="WEST";
@@ -839,13 +839,13 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="MGUNNER1";
-                    init="this setGroupId [""Charlie""];removeallweapons this;";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Machine Gunner Team Leader";
                 };
                 class Item1
                 {
                     position[]={8257.375,296.04001,2131.3337};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=311;
                     side="WEST";
@@ -853,13 +853,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="MGUNNER2";
-                    init="this setGroupId [""Charlie""];removeallweapons this;";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Machine Gunner";
                 };
                 class Item2
                 {
                     position[]={8259.1426,296.04001,2132.2722};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=310;
                     side="WEST";
@@ -867,13 +867,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MGUNNER3";
-                    init="this setGroupId [""Charlie""];removeallweapons this;";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Machine Gunner";
                 };
                 class Item3
                 {
                     position[]={8260.9131,296.04001,2133.1948};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=309;
                     side="WEST";
@@ -881,13 +881,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MGUNNER4";
-                    init="this setGroupId [""Charlie""];removeallweapons this;";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Machine Gunner";
                 };
                 class Item4
                 {
                     position[]={8262.6934,296.04001,2134.1187};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=308;
                     side="WEST";
@@ -895,13 +895,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="MGUNNER5";
-                    init="this setGroupId [""Charlie""];removeallweapons this;";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Machine Gunner";
                 };
                 class Item5
                 {
                     position[]={8265.3457,296.04001,2135.509};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=307;
                     side="WEST";
@@ -909,13 +909,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="MGUNNER6";
-                    init="this setGroupId [""Charlie""];removeallweapons this;";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Machine Gunner";
                 };
                 class Item6
                 {
                     position[]={8267.1211,296.04001,2136.4392};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=306;
                     side="WEST";
@@ -923,13 +923,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MGUNNER7";
-                    init="this setGroupId [""Charlie""];removeallweapons this;";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Machine Gunner";
                 };
                 class Item7
                 {
                     position[]={8268.8975,296.04001,2137.3584};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=305;
                     side="WEST";
@@ -937,7 +937,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MGUNNER8";
-                    init="this setGroupId [""Charlie""];removeallweapons this;";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Machine Gunner";
                 };
             };
@@ -951,7 +951,7 @@ class Mission
                 class Item0
                 {
                     position[]={8251.2031,296.04001,2136.3357};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=312;
                     side="WEST";
@@ -960,13 +960,13 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="SNIPER1";
-                    init="this setGroupId [""Delta""];removeallweapons this;";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman Team Leader";
                 };
                 class Item1
                 {
                     position[]={8253.7734,296.04001,2137.6804};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=319;
                     side="WEST";
@@ -974,13 +974,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="SNIPER2";
-                    init="this setGroupId [""Delta""];removeallweapons this;";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman";
                 };
                 class Item2
                 {
                     position[]={8255.5371,296.04001,2138.6184};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=318;
                     side="WEST";
@@ -988,27 +988,27 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="SNIPER3";
-                    init="this setGroupId [""Delta""];removeallweapons this;";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman";
                 };
                 class Item3
                 {
                     position[]={8257.3086,296.04001,2139.5417};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=317;
                     side="WEST";
-                    vehicle="US_Soldier_Marksman_EP1";
+                    vehicle="US_Delta_Force_Marksman_EP1";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="SNIPER4";
-                    init="this setGroupId [""Delta""];removeallweapons this;";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman";
                 };
                 class Item4
                 {
                     position[]={8259.0889,296.04001,2140.4651};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=316;
                     side="WEST";
@@ -1016,13 +1016,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="SNIPER5";
-                    init="this setGroupId [""Delta""];removeallweapons this;";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman (Ghillie)";
                 };
                 class Item5
                 {
                     position[]={8261.7461,296.04001,2141.856};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=315;
                     side="WEST";
@@ -1030,13 +1030,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="SNIPER6";
-                    init="this setGroupId [""Delta""];removeallweapons this;";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman (Ghillie)";
                 };
                 class Item6
                 {
                     position[]={8263.5156,296.04001,2142.7864};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=314;
                     side="WEST";
@@ -1044,13 +1044,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="SNIPER7";
-                    init="this setGroupId [""Delta""];removeallweapons this;";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman (Ghillie)";
                 };
                 class Item7
                 {
                     position[]={8265.29,296.04001,2143.7046};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=313;
                     side="WEST";
@@ -1058,7 +1058,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="SNIPER8";
-                    init="this setGroupId [""Delta""];removeallweapons this;";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman (Ghillie)";
                 };
             };
@@ -1072,7 +1072,7 @@ class Mission
                 class Item0
                 {
                     position[]={8248.2217,296.04001,2141.9751};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=320;
                     side="WEST";
@@ -1081,27 +1081,27 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="MEDIC1";
-                    init="this setGroupId [""Echo""];removeallweapons this;";
+                    init="this setGroupId [""Echo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Medic Team Leader";
                 };
                 class Item1
                 {
                     position[]={8250.79,296.04001,2143.3198};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=327;
                     side="WEST";
                     vehicle="US_Delta_Force_Medic_EP1";
                     player="PLAY CDG";
-                    skill=0.2;
+                    skill=0.82534337;
                     text="MEDIC2";
-                    init="this setGroupId [""Echo""];removeallweapons this;";
+                    init="this setGroupId [""Echo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Medic";
                 };
                 class Item2
                 {
                     position[]={8252.5576,296.04001,2144.2583};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=326;
                     side="WEST";
@@ -1109,13 +1109,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MEDIC3";
-                    init="this setGroupId [""Echo""];removeallweapons this;";
+                    init="this setGroupId [""Echo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Medic";
                 };
                 class Item3
                 {
                     position[]={8254.3262,296.04001,2145.1816};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=325;
                     side="WEST";
@@ -1123,13 +1123,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MEDIC4";
-                    init="this setGroupId [""Echo""];removeallweapons this;";
+                    init="this setGroupId [""Echo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Medic";
                 };
                 class Item4
                 {
                     position[]={8256.1064,296.04001,2146.1052};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=324;
                     side="WEST";
@@ -1137,13 +1137,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="MEDIC5";
-                    init="this setGroupId [""Echo""];removeallweapons this;";
+                    init="this setGroupId [""Echo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Medic";
                 };
                 class Item5
                 {
                     position[]={8258.7627,296.04001,2147.4956};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=323;
                     side="WEST";
@@ -1151,13 +1151,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="MEDIC6";
-                    init="this setGroupId [""Echo""];removeallweapons this;";
+                    init="this setGroupId [""Echo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Medic";
                 };
                 class Item6
                 {
                     position[]={8260.5322,296.04001,2148.4253};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=322;
                     side="WEST";
@@ -1165,13 +1165,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MEDIC7";
-                    init="this setGroupId [""Echo""];removeallweapons this;";
+                    init="this setGroupId [""Echo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Medic";
                 };
                 class Item7
                 {
                     position[]={8262.3105,296.04001,2149.3445};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=321;
                     side="WEST";
@@ -1179,7 +1179,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MEDIC8";
-                    init="this setGroupId [""Echo""];removeallweapons this;";
+                    init="this setGroupId [""Echo""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Medic";
                 };
             };
@@ -1193,7 +1193,7 @@ class Mission
                 class Item0
                 {
                     position[]={8247.1348,296.04001,2147.7573};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=328;
                     side="WEST";
@@ -1202,13 +1202,13 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="PILOT1";
-                    init="this setGroupId [""Foxtrot""];removeallweapons this;";
+                    init="this setGroupId [""Foxtrot""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Pilot Team Leader";
                 };
                 class Item1
                 {
                     position[]={8249.7041,296.04001,2149.1023};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=333;
                     side="WEST";
@@ -1216,13 +1216,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="PILOT2";
-                    init="this setGroupId [""Foxtrot""];removeallweapons this;";
+                    init="this setGroupId [""Foxtrot""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Pilot";
                 };
                 class Item2
                 {
                     position[]={8251.4707,296.04001,2150.0408};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=332;
                     side="WEST";
@@ -1230,13 +1230,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="PILOT3";
-                    init="this setGroupId [""Foxtrot""];removeallweapons this;";
+                    init="this setGroupId [""Foxtrot""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Pilot";
                 };
                 class Item3
                 {
                     position[]={8253.2383,296.04001,2150.9636};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=331;
                     side="WEST";
@@ -1244,13 +1244,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="PILOT4";
-                    init="this setGroupId [""Foxtrot""];removeallweapons this;";
+                    init="this setGroupId [""Foxtrot""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Pilot";
                 };
                 class Item4
                 {
                     position[]={8255.0234,296.04001,2151.8872};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=330;
                     side="WEST";
@@ -1258,13 +1258,13 @@ class Mission
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="PILOT5";
-                    init="this setGroupId [""Foxtrot""];removeallweapons this;";
+                    init="this setGroupId [""Foxtrot""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Pilot (Light)";
                 };
                 class Item5
                 {
                     position[]={8257.6768,296.04001,2153.2778};
-                    azimut=152.40593;
+                    azimut=152.40601;
                     special="NONE";
                     id=329;
                     side="WEST";
@@ -1272,7 +1272,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="PILOT6";
-                    init="this setGroupId [""Foxtrot""];removeallweapons this;";
+                    init="this setGroupId [""Foxtrot""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Pilot (Light)";
                 };
             };
