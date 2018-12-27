@@ -1052,11 +1052,6 @@ FUNC(perkclicked) = {
     
     if (_idc == 2) then {
         __pSetVar [QGVAR(eng_can_repfuel), true];
-        
-        _trigger = createTrigger["EmptyDetector" , position player];
-        _trigger setTriggerArea [0, 0, 0, true];
-        _trigger setTriggerActivation ["NONE", "PRESENT", true];
-        _trigger setTriggerStatements["player getVariable 'd_eng_can_repfuel' && call d_fnc_sfunc", "d_actionID2 = player addAction ['Service Vehicle' call d_fnc_YellowText, 'x_client\x_repengineer.sqf',[],0,false]", "player removeAction d_actionID2"];
     };
     
     if (_idc == 4) then {

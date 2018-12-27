@@ -459,8 +459,8 @@ __pSetVar [QGVAR(WithMHQTeleport), false];
 __pSetVar [QGVAR(ammobox_next), 300];
 __pSetVar [QGVAR(trench), objNull];
 __pSetVar [QGVAR(trenchid), -9999];
-__pSetVar [QGVAR(showperks), _p addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-1,false]];
-__pSetVar [QGVAR(showstatus), _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-1,false]];
+__pSetVar [QGVAR(showperks), _p addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false]];
+__pSetVar [QGVAR(showstatus), _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false]];
 if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
     if (GVAR(with_ai)) then {
         execVM "x_client\x_recruitsetup.sqf";
@@ -553,27 +553,12 @@ GVAR(base_trigger) setTriggerArea [GVAR(base_array) select 1, GVAR(base_array) s
 GVAR(base_trigger) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
 GVAR(base_trigger) setTriggerStatements["this", "", ""];
 
-// special triggers for engineers, AI version, everybody can repair and flip vehicles
-GVAR(eng_can_repfuel) = false;
-if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
-    GVAR(eng_can_repfuel) = true;
+GVAR(engineer_trigger) = createTrigger["EmptyDetector" , position player];
+GVAR(engineer_trigger) setTriggerArea [0, 0, 0, true];
+GVAR(engineer_trigger) setTriggerActivation ["NONE", "PRESENT", true];
+GVAR(engineer_trigger) setTriggerStatements["player getVariable 'd_eng_can_repfuel' && call d_fnc_sfunc", "d_actionID2 = player addAction ['Service Vehicle' call d_fnc_YellowText, 'x_client\x_repengineer.sqf',[],0,false]", "player removeAction d_actionID2"];
 
-    if (__pGetVar(GVAR(eng_can_repfuel)) == false) then {
-        GVAR(engineer_trigger) = createTrigger["EmptyDetector" ,GVAR(base_array) select 0];
-        GVAR(engineer_trigger) setTriggerArea [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true];
-        GVAR(engineer_trigger) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
-        GVAR(engineer_trigger) setTriggerStatements["!d_eng_can_repfuel && {player in thislist}", "d_eng_can_repfuel = true;(localize 'STR_DOM_MISSIONSTRING_340') call d_fnc_GlobalChat", ""];
-    };
-    
-    [_pos, [0, 0, 0, false], ["NONE", "PRESENT", true], ["call d_fnc_ffunc", "actionID1=player addAction [(localize 'STR_DOM_MISSIONSTRING_1408') call d_fnc_GreyText, 'scripts\unflipVehicle.sqf',[d_objectID1],-1,false];", "player removeAction actionID1"]] call FUNC(CreateTrigger);
-    
-    __pSetVar [QGVAR(is_engineer),true];
-    __pSetVar [QGVAR(farp_pos), []];
-    
-    if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
-        {_x addAction [(localize "STR_DOM_MISSIONSTRING_513") call FUNC(BlueText), "x_client\x_restoreeng.sqf"]} forEach (__XJIPGetVar(GVAR(farps)));
-    };
-};
+// _x addAction [(localize "STR_DOM_MISSIONSTRING_513") call FUNC(BlueText), "x_client\x_restoreeng.sqf"]} forEach (__XJIPGetVar(GVAR(farps)));
 
 GVAR(there_are_enemies_atbase) = false;
 GVAR(enemies_near_base) = false;

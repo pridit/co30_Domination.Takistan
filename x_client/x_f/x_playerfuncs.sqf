@@ -62,7 +62,7 @@ FUNC(PlacedObjAn) = {
             __pSetVar ["mg_nest", objNull];
             (localize "STR_DOM_MISSIONSTRING_657") call FUNC(GlobalChat);
         };
-        if (GVAR(eng_can_repfuel)) then {
+        if (__pGetVar(GVAR(eng_can_repfuel))) then {
             _m_name = "FARP " + _this;
             [QGVAR(w_ma),_m_name] call FUNC(NetCallEventToClients);
             __pSetVar [QGVAR(farp_pos), []];

@@ -1,14 +1,14 @@
 // by Xeno
 #define THIS_FILE "x_repengineer.sqf"
 #include "x_setup.sqf"
-private ["_aid","_caller","_coef","_damage","_damage_ok","_damage_val","_fuel","_fuel_ok","_fuel_val","_rep_count","_breaked_out","_rep_action","_type_name"];
+private ["_aid","_caller","_coef","_damage","_damage_ok","_damage_val","_fuel","_fuel_ok","_fuel_val","_rep_count","_breaked_out","_type_name"];
 
 _caller = _this select 1;
 _aid = _this select 2;
 
 _truck_near = false;
 if (player distance TR7 < 21 || {player distance TR8 < 21}) then {_truck_near = true};
-if (!GVAR(eng_can_repfuel) && {!_truck_near}) exitWith {
+if (!__pGetVar(GVAR(eng_can_repfuel)) && {!_truck_near}) exitWith {
     hintSilent (localize "STR_DOM_MISSIONSTRING_324");
 };
 
@@ -61,8 +61,5 @@ if (_breaked_out) exitWith {
 };
 if (_breaked_out2) exitWith {};
 __pSetVar [QGVAR(eng_can_repfuel), false];
-GVAR(eng_can_repfuel) = false;
-player removeAction _rep_action;
-if (!alive player) exitWith {player removeAction _rep_action};
 [QGVAR(rep_ar), GVAR(objectID2)] call FUNC(NetCallEvent);
 (format [(localize "STR_DOM_MISSIONSTRING_334"), _type_name]) call FUNC(GlobalChat);
