@@ -1333,8 +1333,8 @@ class Mission
         };
         class Item3
         {
-            position[]={8193.1592,296.04001,2124.2239};
-            azimut=106.61813;
+            position[]={8200.251,296.04001,2129.1794};
+            azimut=110.70631;
             id=3;
             side="EMPTY";
             vehicle="M1133_MEV_EP1";
@@ -1344,8 +1344,8 @@ class Mission
         };
         class Item4
         {
-            position[]={8200.9502,296.04001,2128.4214};
-            azimut=106.61813;
+            position[]={8191.6187,296.04001,2124.1584};
+            azimut=110.70631;
             id=4;
             side="EMPTY";
             vehicle="M1133_MEV_EP1";

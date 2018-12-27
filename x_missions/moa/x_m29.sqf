@@ -27,7 +27,7 @@ if (true) exitWith {};
 if (X_Client && {!GVAR(IS_HC_CLIENT)}) then {
     GVAR(current_mission_text) = (localize "STR_DOM_MISSIONSTRING_851");
     GVAR(current_mission_resolved_text) = (localize "STR_DOM_MISSIONSTRING_767");
-    [(localize "STR_DOM_MISSIONSTRING_851"), "Eliminate", _mpos] call FUNC(x_newtask);
+    [(localize "STR_DOM_MISSIONSTRING_851"), "Destroy", _mpos] call FUNC(x_newtask);
 };
 
 if (call FUNC(checkSHC)) then {
