@@ -15,7 +15,6 @@ class PerksBarIcon_1: XD_RscPicture
 };
 class PerksBarIcon_2: XD_RscPicture
 {
-    text = "\ca\ui\data\icon_task_ca";
     x = 0.474219 * safezoneW + safezoneX;
     y = 0.381300 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;

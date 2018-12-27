@@ -328,7 +328,7 @@ class PerkIcon_Role6_4: XD_RscPicture
 };
 class PerkIcon_Role6_5: XD_RscPicture
 {
-    text = "ca\ui\data\icon_wf_support_uav_ca";
+    text = "ca\ui\data\iconvehicle_ca";
     x = 0.570898 * safezoneW + safezoneX;
     y = 0.65125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
