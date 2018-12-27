@@ -124,17 +124,8 @@ GVAR(run_illum) = false;
 
 if (GVAR(current_counter) < GVAR(MainTargets)) then {
     sleep 15;
-#ifdef __TT__
-    GVAR(kill_points_west) = 0;
-    GVAR(kill_points_east) = 0;
-    GVAR(public_points) = true;
-#endif
     execVM "x_server\x_createnexttarget.sqf";
 } else {
-#ifdef __TT__
-    [QGVAR(the_end),true] call FUNC(NetSetJIP);
-    0 spawn FUNC(DomEnd);
-#else
     if (GVAR(WithRecapture) == 0) then {
         if (count GVAR(recapture_indices) == 0) then {
             [QGVAR(the_end),true] call FUNC(NetSetJIP);
@@ -152,5 +143,4 @@ if (GVAR(current_counter) < GVAR(MainTargets)) then {
         [QGVAR(the_end),true] call FUNC(NetSetJIP);
         0 spawn FUNC(DomEnd);
     };
-#endif
 };

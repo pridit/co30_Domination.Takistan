@@ -195,9 +195,6 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
-#ifdef __TT__
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
     };
     case 4: {
 #ifdef __CO__
@@ -287,9 +284,6 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
-#ifdef __TT__
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
     };
     case 7: {
         __getPos;
@@ -324,9 +318,6 @@ switch (_sec_kind) do {
         sleep 1.0112;
         __GetEGrp(_newgroup)
         __specops;
-#ifdef __TT__
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
     };
     case 8: {
         __getPos;
@@ -346,9 +337,6 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
-#ifdef __TT__
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
     };
     case 9: {
         __getPos;
@@ -368,9 +356,6 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
-#ifdef __TT__
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
     };
     case 10: {
         __GetEGrp(_newgroup)
@@ -401,7 +386,6 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         for "_i" from 1 to 4 do {_vehicle addMagazine "15Rnd_9x19_M9"};
         _vehicle addWeapon "M9";
-#ifndef __TT__
         _iar = __XJIPGetVar(GVAR(searchintel));
         _sum = 0;
         {if (_x == 1) then {__INC(_sum)}} forEach _iar;
@@ -414,10 +398,6 @@ switch (_sec_kind) do {
             __addDeadAI(_vehicle)
         };
         sleep 0.1;
-#else
-        __addDeadAI(_vehicle)
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
         __vkilled(lopo_dead);
         if (GVAR(with_ai) && {__RankedVer}) then {
             _vehicle addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
@@ -476,9 +456,6 @@ switch (_sec_kind) do {
         };
         sleep 1.0112;
         __specops;
-#ifdef __TT__
-        [_vehicle] call FUNC(TTAddKEH);
-#endif
     };
 };
 

@@ -79,28 +79,11 @@ FUNC(ataxiNet) = {
     };
 };
 
-#ifdef __TT__
-FUNC(dattention) = {[format [(localize "STR_DOM_MISSIONSTRING_641"), _this select 0, str(_this select 1), str(_this select 2)], "GLOBAL"] call FUNC(HintChatMsg)};
-#endif
-
 FUNC(player_stuff) = {
     __TRACE_1("player_stuff","_this");
     _this = _this select 1;
     __TRACE_1("player_stuff new _this","_this");
     GVAR(player_autokick_time) = _this select 0;
-#ifdef __TT__
-    private ["_prev_side", "_same_side"];
-    _prev_side = _this select 5;
-    _same_side = false;
-    if (_prev_side != sideUnknown) then {
-        if (GVAR(player_side) != _prev_side) then {
-            [QGVAR(attention), [GVAR(name_pl), _prev_side, GVAR(player_side)]] call FUNC(NetCallEventToClients);
-        } else {
-            _same_side = true;
-        };
-    };
-#endif
-    
     private "_can_select";
     _can_select = true;
     if (GVAR(WithRevive) == 0 && {(_this select 8) == -1} && {xr_max_lives != -1}) then {
@@ -150,10 +133,6 @@ FUNC(mhqdeplNet) = {
     PARAMS_2(_mhq,_isdeployed);
     _name = GV(_mhq,GVAR(vec_name));
     if (isNil "_name") exitWith {};
-#ifdef __TT__
-    _vside = GV(_mhq,GVAR(side));
-    if (isNil "_vside" || {GVAR(player_side) != _vside}) exitWith {};
-#endif
     _m = GV(_mhq,GVAR(marker));
     if (_isdeployed) then {
         (format [(localize "STR_DOM_MISSIONSTRING_647"), _name]) call FUNC(HQChat);

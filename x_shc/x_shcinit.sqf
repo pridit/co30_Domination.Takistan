@@ -41,14 +41,11 @@ if (GVAR(doRespawnGroups)) then {
     execFSM "fsms\ReduceGroups.fsm";
 };
 
-#ifndef __TT__
 if (GVAR(WithRecapture) == 0 && {GVAR(MissionType) != 2}) then {execFSM "fsms\Recapture.fsm"};
 
-if (!GVAR(no_sabotage) && {isNil QGVAR(with_carrier)} && {GVAR(MissionType) != 2}) then {execFSM "fsms\Infilrate.fsm"};
-#endif
+if (!GVAR(no_sabotage) && {GVAR(MissionType) != 2}) then {execFSM "fsms\Infilrate.fsm"};
 
 // start air AI (KI=AI) after some time
-#ifndef __TT__
 if (GVAR(MissionType) != 2) then {
     0 spawn {
         scriptName "spawn_x_setupserver_airki";
@@ -59,6 +56,5 @@ if (GVAR(MissionType) != 2) then {
         ["SU",GVAR(number_attack_planes)] execVM "x_shc\x_airki.sqf";
     };
 };
-#endif
 
 if (count GVAR(with_isledefense) > 0) then {execVM "x_shc\x_isledefense.sqf"};

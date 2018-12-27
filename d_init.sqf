@@ -132,8 +132,6 @@ if (X_Client) then {
     __cppfln(FUNC(checkhelipilot),x_client\x_checkhelipilot.sqf);
     __cppfln(FUNC(checkhelipilot_wreck),x_client\x_checkhelipilot_wreck.sqf);
     __cppfln(FUNC(checkhelipilotout),x_client\x_checkhelipilotout.sqf);
-    __cppfln(FUNC(checkenterer),x_client\x_checkenterer.sqf);
-    __cppfln(FUNC(checkdriver),x_client\x_checkdriver.sqf);
     __cppfln(FUNC(infoText),x_client\x_f\fn_infoText.sqf);
 
     __cppfln(FUNC(getsidemissionclient),x_missions\x_getsidemissionclient.sqf);

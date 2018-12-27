@@ -34,7 +34,6 @@ _vec addEventHandler ["getout", {_this call FUNC(checkhelipilotout)}]
 #define __sidee _vec setVariable [QGVAR(side), east]
 #define __vecname _vec setVariable [QGVAR(vec_name), _car select 6]
 #define __chopname _vec setVariable [QGVAR(vec_name), _car select 7]
-#define __checkenterer _vec addEventHandler ["getin", {_this call FUNC(checkenterer)}]
 #define __pvecs {if ((_x select 1) == _d_vec) exitWith {_car = _x}} forEach GVAR(p_vecs)
 #define __pvecss(sname) {if ((_x select 1) == _d_vec) exitWith {_car = _x}} forEach d_p_vecs_##sname
 

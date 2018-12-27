@@ -153,38 +153,6 @@ class XD_StatusDialog {
             colorBackground[] = {1, 1, 1, 0};
             text = "";
         };
-#ifdef __TT__
-        class XD_NPointsCaption : XC_RscText {
-            x = 0.68;
-            y = 0.2;
-            w = 0.25;
-            h = 0.1;
-            sizeEx = 0.025;
-            XCTextBlack;
-            colorBackground[] = {1, 1, 1, 0};
-            text = "$STR_DOM_MISSIONSTRING_1311";
-        };
-        class XD_GamePoints : XC_RscText {
-            idc = 11011;
-            x = 0.68;
-            y = 0.23;
-            w = 0.27;
-            h = 0.1;
-            sizeEx = 0.025;
-            XCTextBlack;
-            colorBackground[] = {1, 1, 1, 0};
-            text = "";
-        };
-        class XD_KillsCaption : XD_NPointsCaption {
-            y = 0.27;
-            text = "$STR_DOM_MISSIONSTRING_1312";
-        };
-        class XD_KillPoints : XD_GamePoints {
-            idc = 11012;
-            y = 0.3;
-            text = "";
-        };
-#endif
         class XD_Map : XD_RscMapControl {
             idc = 11010;
             colorBackground[] = {0.9, 0.9, 0.9, 0.9};

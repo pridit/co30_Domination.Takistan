@@ -228,11 +228,7 @@ for "_series" from 1 to _ari_salvos do {
     _wp_array = nil;
 
     if (_series < _ari_salvos) then {
-#ifndef __TT__
         GVAR(kb_logic1) kbTell [_arti_operator,GVAR(kb_topic_side_arti),"ArtilleryReload",["1","",_aristr,[]],true];
-#else
-        _logic kbTell [_arti_operator,_topicside,"ArtilleryReload",["1","",(localize "STR_DOM_MISSIONSTRING_939"),[]],true];
-#endif
         sleep (GVAR(arti_reload_time) + random 3);
     };
 };
@@ -243,31 +239,13 @@ _arti_operator addScore ({!alive _x} count _enemy_units);
 _enemy_units = nil;
 sleep 0.5;
 
-#ifndef __TT__
 GVAR(kb_logic1) kbTell [_arti_operator,GVAR(kb_topic_side_arti),"ArtilleryComplete",["1","",_aristr,[]],true];
-#else
-_logic kbTell [_arti_operator,_topicside,"ArtilleryComplete",["1","",(localize "STR_DOM_MISSIONSTRING_939"),[]],true];
-#endif
 
-#ifndef __TT__
 [_ari_salvos, _ari_type, _ari_avail,_aristr] spawn {
-#else
-[_ari_salvos, _ari_type, _ari_avail,_aristr,_topicside2] spawn {
-#endif
     scriptName "spawn_x_arifire_artiavailable";
     private ["_ari_salvos", "_ari_type", "_ari_avail", "_topicside2"];
     PARAMS_4(_ari_salvos,_ari_type,_ari_avail,_aristr);
-#ifdef __TT__
-    _topicside2 = _this select 4;
-#endif
     sleep (GVAR(arti_available_time) + ((_ari_salvos - 1) * 200)) + (random 60) + (if (GVAR(MissionType) != 2) then {if (_ari_type == "sadarm") then {180} else {0}} else {300});
     [_ari_avail,true] call FUNC(NetSetJIP);
-#ifndef __TT__
     ["ArtilleryAvailable", _aristr] call FUNC(KBSendMsgAll);
-#else
-    switch (true) do {
-        case (__OAVer): {[_topicside2,"ArtilleryAvailable", (localize "STR_DOM_MISSIONSTRING_939"), ["ArtilleryAvailableTransmitTargetLocationOver"]] call FUNC(KBSendMsgAll)};
-        case (__COVer): {[_topicside2,"ArtilleryAvailable", (localize "STR_DOM_MISSIONSTRING_939")] call FUNC(KBSendMsgAll)};
-    };
-#endif
 };

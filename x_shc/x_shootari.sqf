@@ -28,11 +28,7 @@ _type = if (GVAR(enemy_side) == "EAST") then {
 
 if (_kind in [0,1]) then {
     _number_shells = 3 + (ceil random 3);
-#ifdef __TT__
-    if ((floor random 3) == 0) then {[QGVAR(doarti), _pos_enemy] call FUNC(NetCallEventToClients)};
-#else
     if ((__XJIPGetVar(GVAR(searchintel)) select 5) == 1) then {[QGVAR(doarti), _pos_enemy] call FUNC(NetCallEventToClients)};
-#endif
 } else {
     _number_shells = 1;
 }; 

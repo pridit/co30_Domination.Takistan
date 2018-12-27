@@ -7,12 +7,6 @@ PARAMS_1(_poss);
 
 _objs = nearestObjects [_poss, ["Land_trafostanica_velka"], 40];
 
-#ifdef __TT__
-GVAR(sm_points_west) = 0;
-GVAR(sm_points_east) = 0;
-{_x addEventHandler ["killed", {_this call FUNC(AddSMPoints)}]} forEach _objs;
-#endif
-
 sleep 2.123;
 ["specops", 2, "basic", 1, _poss,200,true] spawn FUNC(CreateInf);
 sleep 2.221;

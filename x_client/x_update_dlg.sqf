@@ -19,9 +19,6 @@ _mr2_available = true;
 _mr1text ctrlSetText "";
 _mr2text ctrlSetText "";
 
-#ifdef __TT__
-if (GVAR(player_side) == west) then {
-#endif
 switch (true) do {
     case (__XJIPGetVar(mr1_in_air)): {
         _mr1text ctrlSetText (localize "STR_DOM_MISSIONSTRING_592");
@@ -86,74 +83,6 @@ switch (true) do {
         };
     };
 };
-#ifdef __TT__
-} else {
-    switch (true) do {
-        case (__XJIPGetVar(mrr1_in_air)): {
-            _mr1text ctrlSetText (localize "STR_DOM_MISSIONSTRING_592");
-            _mr1_available = false;
-        };
-        case (speed MRRR1 > 4): {
-            _mr1text ctrlSetText (localize "STR_DOM_MISSIONSTRING_593");
-            _mr1_available = false;
-        };
-        case (surfaceIsWater [(position MRRR1) select 0,(position MRRR1) select 1]): {
-            _mr1text ctrlSetText (localize "STR_DOM_MISSIONSTRING_594");
-            _mr1_available = false;
-        };
-        case (!alive MRRR1): {
-            _mr1text ctrlSetText (localize "STR_DOM_MISSIONSTRING_595");
-            _mr1_available = false;
-        };
-        default {
-            _depl = GV(MRRR1,GVAR(MHQ_Deployed));
-            if (isNil "_depl") then {_depl = false};
-            if (!_depl) then {
-                _mr1text ctrlSetText (localize "STR_DOM_MISSIONSTRING_596");
-                _mr1_available = false;
-            } else {
-                _enear = GV(MRRR1,GVAR(enemy_near));
-                if (!isNil "_enear" && {_enear}) then {
-                    _mr1text ctrlSetText (localize "STR_DOM_MISSIONSTRING_597");
-                    _mr1_available = false;
-                };
-            };
-        };
-    };
-    switch (true) do {
-        case (__XJIPGetVar(mrr2_in_air)): {
-            _mr2text ctrlSetText (localize "STR_DOM_MISSIONSTRING_598");
-            _mr2_available = false;
-        };
-        case (speed MRRR2 > 4): {
-            _mr2text ctrlSetText (localize "STR_DOM_MISSIONSTRING_599");
-            _mr2_available = false;
-        };
-        case (surfaceIsWater [(position MRRR2) select 0,(position MRRR2) select 1]): {
-            _mr2text ctrlSetText (localize "STR_DOM_MISSIONSTRING_600");
-            _mr2_available = false;
-        };
-        case (!alive MRRR2): {
-            _mr2text ctrlSetText (localize "STR_DOM_MISSIONSTRING_601");
-            _mr2_available = false;
-        };
-        default {
-            _depl = GV(MRRR2,GVAR(MHQ_Deployed));
-            if (isNil "_depl") then {_depl = false};
-            if (!_depl) then {
-                _mr2text ctrlSetText (localize "STR_DOM_MISSIONSTRING_602");
-                _mr2_available = false;
-            } else {
-                _enear = GV(MRRR2,GVAR(enemy_near));
-                if (!isNil "_enear" && {_enear}) then {
-                    _mr2text ctrlSetText (localize "STR_DOM_MISSIONSTRING_603");
-                    _mr2_available = false;
-                };
-            };
-        };
-    };
-};
-#endif
 
 if (GVAR(x_loop_end)) exitWith {};
 

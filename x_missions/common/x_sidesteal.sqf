@@ -9,9 +9,6 @@ PARAMS_1(_vehicle);
 sleep 10.213;
 
 _reached_base = false;
-#ifdef __TT__
-_winner = 0;
-#endif
 
 while {alive _vehicle && {!_reached_base}} do {
     __MPCheck;

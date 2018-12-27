@@ -17,60 +17,6 @@ for "_i" from 1 to 10000 do {
     GVAR(bonus_air_positions) set [count GVAR(bonus_air_positions), [_mpos, markerDir _mna]];
 };
 #endif
-#ifdef __TT__
-_mpos = markerPos QGVAR(bonus_create_pos_w);
-_mpos set [2,0];
-GVAR(bonus_create_pos_w) = _mpos;
-GVAR(bap_counter_w) = 0;
-GVAR(bonus_air_positions_w) = [];
-for "_i" from 1 to 10000 do {
-    _mna = format [QGVAR(bonus_air_positions_w_%1), _i];
-    _mpos = markerPos _mna;
-    _mpos set [2,0];
-    if (str _mpos == "[0,0,0]") exitWith {};
-    GVAR(bonus_air_positions_w) set [count GVAR(bonus_air_positions_w), [_mpos, markerDir _mna]];
-};
-
-_mpos = markerPos QGVAR(bonus_create_pos_e);
-_mpos set [2,0];
-GVAR(bonus_create_pos_e) = _mpos;
-GVAR(bap_counter_e) = 0;
-GVAR(bonus_air_positions_e) = [];
-for "_i" from 1 to 10000 do {
-    _mna = format [QGVAR(bonus_air_positions_e_%1), _i];
-    _mpos = markerPos _mna;
-    _mpos set [2,0];
-    if (str _mpos == "[0,0,0]") exitWith {};
-    GVAR(bonus_air_positions_e) set [count GVAR(bonus_air_positions_e), [_mpos, markerDir _mna]];
-};
-#endif
-#ifdef __TTCoop__
-_mpos = markerPos QGVAR(bonus_create_pos_w);
-_mpos set [2,0];
-GVAR(bonus_create_pos_w) = _mpos;
-GVAR(bap_counter_w) = 0;
-GVAR(bonus_air_positions_w) = [];
-for "_i" from 1 to 10000 do {
-    _mna = format [QGVAR(bonus_air_positions_w_%1), _i];
-    _mpos = markerPos _mna;
-    _mpos set [2,0];
-    if (str _mpos == "[0,0,0]") exitWith {};
-    GVAR(bonus_air_positions_w) set [count GVAR(bonus_air_positions_w), [_mpos, markerDir _mna]];
-};
-
-_mpos = markerPos QGVAR(bonus_create_pos_e);
-_mpos set [2,0];
-GVAR(bonus_create_pos_e) = _mpos;
-GVAR(bap_counter_e) = 0;
-GVAR(bonus_air_positions_e) = [];
-for "_i" from 1 to 10000 do {
-    _mna = format [QGVAR(bonus_air_positions_e_%1), _i];
-    _mpos = markerPos _mna;
-    _mpos set [2,0];
-    if (str _mpos == "[0,0,0]") exitWith {};
-    GVAR(bonus_air_positions_e) set [count GVAR(bonus_air_positions_e), [_mpos, markerDir _mna]];
-};
-#endif
 
 #ifdef __DEFAULT__
 GVAR(bvp_counter) = 0;
@@ -81,48 +27,6 @@ for "_i" from 1 to 10000 do {
     _mpos set [2,0];
     if (str _mpos == "[0,0,0]") exitWith {};
     GVAR(bonus_vec_positions) set [count GVAR(bonus_vec_positions), [_mpos, markerDir _mna]];
-};
-#endif
-#ifdef __TT__
-GVAR(bvp_counter_w) = 0;
-GVAR(bonus_vec_positions_w) = [];
-for "_i" from 1 to 10000 do {
-    _mna = format [QGVAR(bonus_vec_positions_w_%1), _i];
-    _mpos = markerPos _mna;
-    _mpos set [2,0];
-    if (str _mpos == "[0,0,0]") exitWith {};
-    GVAR(bonus_vec_positions_w) set [count GVAR(bonus_vec_positions_w), [_mpos, markerDir _mna]];
-};
-
-GVAR(bvp_counter_e) = 0;
-GVAR(bonus_vec_positions_e) = [];
-for "_i" from 1 to 10000 do {
-    _mna = format [QGVAR(bonus_vec_positions_e_%1), _i];
-    _mpos = markerPos _mna;
-    _mpos set [2,0];
-    if (str _mpos == "[0,0,0]") exitWith {};
-    GVAR(bonus_vec_positions_e) set [count GVAR(bonus_vec_positions_e), [_mpos, markerDir _mna]];
-};
-#endif
-#ifdef __TTCoop__
-GVAR(bvp_counter_w) = 0;
-GVAR(bonus_vec_positions_w) = [];
-for "_i" from 1 to 10000 do {
-    _mna = format [QGVAR(bonus_vec_positions_w_%1), _i];
-    _mpos = markerPos _mna;
-    _mpos set [2,0];
-    if (str _mpos == "[0,0,0]") exitWith {};
-    GVAR(bonus_vec_positions_w) set [count GVAR(bonus_vec_positions_w), [_mpos, markerDir _mna]];
-};
-
-GVAR(bvp_counter_e) = 0;
-GVAR(bonus_vec_positions_e) = [];
-for "_i" from 1 to 10000 do {
-    _mna = format [QGVAR(bonus_vec_positions_e_%1), _i];
-    _mpos = markerPos _mna;
-    _mpos set [2,0];
-    if (str _mpos == "[0,0,0]") exitWith {};
-    GVAR(bonus_vec_positions_e) set [count GVAR(bonus_vec_positions_e), [_mpos, markerDir _mna]];
 };
 #endif
 
@@ -703,12 +607,6 @@ GVAR(drop_aircraft) =
         case (__COVer): {"Mi17_rockets_RU"};
     };
 #endif
-#ifdef __TT__
-    switch (true) do {
-        case (__OAVer): {"C130J_US_EP1"};
-        case (__COVer): {"MH60S"};
-    };
-#endif
     
 if (GVAR(with_ai) || GVAR(with_ai_features) == 0) then {
 GVAR(taxi_aircraft) =
@@ -728,12 +626,6 @@ GVAR(taxi_aircraft) =
     switch (true) do {
         case (__OAVer): {"Mi17_TK_EP1"};
         case (__COVer): {"Mi17_rockets_RU"};
-    };
-#endif
-#ifdef __TT__
-    switch (true) do {
-        case (__OAVer): {"UH60M_EP1"};
-        case (__COVer): {"MH60S"};
     };
 #endif
 };
@@ -773,7 +665,6 @@ GVAR(airki_respawntime) = 1200;
 
 GVAR(side_missions_random) = [];
 
-#ifndef __TT__
 // don't remove GVAR(recapture_indices) even if you set GVAR(WithRecapture) to 1
 GVAR(recapture_indices) = [];
 
@@ -781,46 +672,37 @@ GVAR(recapture_indices) = [];
 // if set to -1 no check is done
 GVAR(max_recaptures) = 2;
 
-if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
-    0 spawn {
-        scriptName "spawn_CreateWarFac";
-        _wairfac = switch (GVAR(own_side)) do {
-            case "WEST": {GVAR(WarfareAircraftFactory_West)};
-            case "EAST": {GVAR(WarfareAircraftFactory_East)};
-            case "GUER": {GVAR(WarfareAircraftFactory_Guer)};
-        };
-        _pos = (GVAR(aircraft_facs) select 0) select 0;
-        _dir = (GVAR(aircraft_facs) select 0) select 1;
-        [QGVAR(jet_serviceH),false] call FUNC(NetSetJIP);
-        _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
-        _fac setDir _dir;
-        _fac setPos _pos;
-        _fac addEventHandler ["HandleDamage", {false}];
-
-        _pos = (GVAR(aircraft_facs) select 1) select 0;
-        _dir = (GVAR(aircraft_facs) select 1) select 1;
-        [QGVAR(chopper_serviceH),false] call FUNC(NetSetJIP);
-        _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
-        _fac setDir _dir;
-        _fac setPos _pos;
-        _fac addEventHandler ["HandleDamage", {false}];
-
-        _pos = (GVAR(aircraft_facs) select 2) select 0;
-        _dir = (GVAR(aircraft_facs) select 2) select 1;
-        [QGVAR(wreck_repairH),false] call FUNC(NetSetJIP);
-        _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
-        _fac setDir _dir;
-        _fac setPos _pos;
-        _fac addEventHandler ["HandleDamage", {false}];
+0 spawn {
+    scriptName "spawn_CreateWarFac";
+    _wairfac = switch (GVAR(own_side)) do {
+        case "WEST": {GVAR(WarfareAircraftFactory_West)};
+        case "EAST": {GVAR(WarfareAircraftFactory_East)};
+        case "GUER": {GVAR(WarfareAircraftFactory_Guer)};
     };
-} else {
-    if (isNil QGVAR(with_carrier) && {GVAR(MissionType) == 2}) then {
-        [QGVAR(jet_serviceH),false] call FUNC(NetSetJIP);
-        [QGVAR(chopper_serviceH),false] call FUNC(NetSetJIP);
-        [QGVAR(wreck_repairH),false] call FUNC(NetSetJIP);
-    };
+    _pos = (GVAR(aircraft_facs) select 0) select 0;
+    _dir = (GVAR(aircraft_facs) select 0) select 1;
+    [QGVAR(jet_serviceH),false] call FUNC(NetSetJIP);
+    _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
+    _fac setDir _dir;
+    _fac setPos _pos;
+    _fac addEventHandler ["HandleDamage", {false}];
+
+    _pos = (GVAR(aircraft_facs) select 1) select 0;
+    _dir = (GVAR(aircraft_facs) select 1) select 1;
+    [QGVAR(chopper_serviceH),false] call FUNC(NetSetJIP);
+    _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
+    _fac setDir _dir;
+    _fac setPos _pos;
+    _fac addEventHandler ["HandleDamage", {false}];
+
+    _pos = (GVAR(aircraft_facs) select 2) select 0;
+    _dir = (GVAR(aircraft_facs) select 2) select 1;
+    [QGVAR(wreck_repairH),false] call FUNC(NetSetJIP);
+    _fac = createVehicle [_wairfac, _pos, [], 0, "NONE"];
+    _fac setDir _dir;
+    _fac setPos _pos;
+    _fac addEventHandler ["HandleDamage", {false}];
 };
-#endif
 
 GVAR(time_until_next_sidemission) = [
     [10,300], // if player number <= 10, it'll take 300 seconds = 5 minutes until the next sidemission
@@ -838,22 +720,18 @@ GVAR(civilians_t) = ["TK_CIV_Takistani01_EP1","TK_CIV_Takistani02_EP1","TK_CIV_T
 
 if (GVAR(with_ai)) then {
     _mpos = markerPos QGVAR(pos_aihut);
-    if (isNil QGVAR(with_carrier)) then {
-        _mpos set [2,0];
-    } else {
-        _mpos set [2,15.9];
-    };
+    _mpos set [2,0];
     GVAR(pos_ai_hut) = [_mpos, markerDir QGVAR(pos_aihut)];
 #ifdef __CO__
     _wbarracks = switch (GVAR(own_side)) do {
-        case "WEST": {if (isNil QGVAR(with_carrier)) then {"USMC_WarfareBBarracks"} else {"WarfareBunkerSign"}};
+        case "WEST": {"USMC_WarfareBBarracks"};
         case "EAST": {"RU_WarfareBBarracks"};
         case "GUER": {"Gue_WarfareBBarracks"};
     };
 #endif
 #ifdef __OA__
     _wbarracks = switch (GVAR(own_side)) do {
-        case "WEST": {if (isNil QGVAR(with_carrier)) then {"US_WarfareBBarracks_EP1"} else {"WarfareBunkerSign"}};
+        case "WEST": {"US_WarfareBBarracks_EP1"};
         case "EAST": {"TK_WarfareBBarracks_EP1"};
         case "GUER": {"TK_GUE_WarfareBBarracks_EP1"};
     };
@@ -861,19 +739,10 @@ if (GVAR(with_ai)) then {
 
     _D_AI_HUT = createVehicle [_wbarracks, GVAR(pos_ai_hut) select 0, [], 0, "NONE"];
     _D_AI_HUT setDir (GVAR(pos_ai_hut) select 1);
-    if (isNil QGVAR(with_carrier)) then {
-        _D_AI_HUT setPos (GVAR(pos_ai_hut) select 0)
-    } else {
-        _D_AI_HUT setPosASL (GVAR(pos_ai_hut) select 0)
-    };
+    _D_AI_HUT setPos (GVAR(pos_ai_hut) select 0);
     _D_AI_HUT addEventHandler ["handleDamage", {0}];
     [QGVAR(AI_HUT), _D_AI_HUT] call FUNC(NetSetJIP);
 };
-
-#ifdef __CARRIER__
-GVAR(chop_s_trig) setPosASL [position GVAR(chop_s_trig) select 0, position GVAR(chop_s_trig) select 1, 15.9];
-GVAR(jet_s_trig) setPosASL [position GVAR(jet_s_trig) select 0, position GVAR(jet_s_trig) select 1, 15.9];
-#endif
 
 GVAR(banti_airdown) = false;
 
@@ -1003,22 +872,7 @@ GVAR(sm_cargo) = "Misc_Cargo1B_military";
 GVAR(sm_hangar) = "Land_SS_hangar";
 GVAR(sm_tent) = "ACamp";
 #endif
-#ifndef __TT__
 GVAR(intel_unit) = objNull;
-#endif
-
-#ifdef __TT__
-GVAR(sm_arty_crewman) = switch (true) do {
-    case (__OAVer): {"TK_GUE_Soldier_EP1"};
-    case (__COVer): {"GUE_Soldier_3"};
-};
-#endif
-#ifdef __TTCoop__
-GVAR(sm_arty_crewman) = switch (true) do {
-    case (__OAVer): {"TK_GUE_Soldier_EP1"};
-    case (__COVer): {"GUE_Soldier_3"};
-};
-#endif
 
 GVAR(enemyai_mt_start_pos) = [];
 
@@ -1055,25 +909,6 @@ resistance setFriend [west, 0.1];
 resistance setFriend [east, 0.1];
 west setFriend [resistance, 0.1];
 east setFriend [resistance, 0.1];
-#endif
-
-#ifdef __TT__
-_guercenter = createCenter resistance;
-west setFriend [resistance, 0.1];
-resistance setFriend [west, 0.1];
-east setFriend [resistance, 0.1];
-resistance setFriend [east, 0.1];
-#endif
-
-// TTCoop version does not exist, maybe once I find fun in modding the game again it will be available again
-#ifdef __TTCoop__
-_guercenter = createCenter resistance;
-west setFriend [resistance, 0.1];
-resistance setFriend [west, 0.1];
-east setFriend [resistance, 0.1];
-resistance setFriend [east, 0.1];
-west setFriend [east, 1];
-east setFriend [west, 1];
 #endif
 
 GVAR(ArtyShellsWest) = [

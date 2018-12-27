@@ -263,9 +263,6 @@ GVAR(x_drop_array) =
         };
     };
 #endif
-#ifdef __TT__
-    [[(localize "STR_DOM_MISSIONSTRING_18"), "M119"], [(localize "STR_DOM_MISSIONSTRING_19"),"HMMWV"], [(localize "STR_DOM_MISSIONSTRING_20"), "USBasicAmmunitionBox"]];
-#endif
 
 // side of the pilot that will fly the drop air vehicle
 GVAR(drop_side) = GVAR(own_side);
@@ -335,21 +332,6 @@ _hasbasemarker = str(_mpos) != "[0,0,0]";
 QGVAR(base_marker) setMarkerAlphaLocal 0;
 _msize = markerSize QGVAR(base_marker);
 GVAR(base_array) =[_mpos, _msize select 0, _msize select 1, markerDir QGVAR(base_marker)];
-#endif
-#ifdef __TT__
-_mpos = markerPos QGVAR(base_marker_w);
-_mpos set [2,0];
-_mpos2 = markerPos QGVAR(base_marker_e);
-_mpos2 set [2,0];
-_hasbasemarker = (str(_mpos) != "[0,0,0]") && (str(_mpos2) != "[0,0,0]");
-QGVAR(base_marker_w) setMarkerAlphaLocal 0;
-QGVAR(base_marker_e) setMarkerAlphaLocal 0;
-_msize = markerSize QGVAR(base_marker_w);
-_msize2 = markerSize QGVAR(base_marker_e);
-GVAR(base_array) = [
-    [_mpos, _msize select 0, _msize select 1, markerDir QGVAR(base_marker_w)], // West
-    [_mpos2, _msize2 select 0, _msize2 select 1, markerDir QGVAR(base_marker_e)] // East
-];
 #endif
 
 // position of radar and anti air at own base

@@ -35,11 +35,7 @@ for "_i" from 1 to (_numconfv - 1) do {
     (_vehicles select 0) lock true;
     _nextpos = (_vehicles select 0) modeltoworld [0, -9, 0];
     _nextpos set [2,0];
-    (_vehicles select 0) addEventHandler ["killed", {__INC(GVAR(confvdown));
-        #ifdef __TT__
-        _this call FUNC(AddSMPoints)
-        #endif
-    }];
+    (_vehicles select 0) addEventHandler ["killed", {__INC(GVAR(confvdown))}];
     _allSMVecs set [count _allSMVecs, _vehicles select 0];
     GVAR(extra_mission_vehicle_remover_array) = [GVAR(extra_mission_vehicle_remover_array), _vehicles] call FUNC(arrayPushStack2);
     GVAR(extra_mission_remover_array) = [GVAR(extra_mission_remover_array), _reta select 1] call FUNC(arrayPushStack);

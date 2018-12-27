@@ -727,29 +727,9 @@ FUNC(MTSMTargetKilled) = {
     if (GVAR(IS_HC_CLIENT)) then {
         [QGVAR(sSetVar), [QGVAR(side_main_done), true]] call FUNC(NetCallEventCTS);
     };
-    #ifdef __TT__
-    private ["_si", "_type", "_s", "_westmsg", "_eastmsg","_killedby2"];
-    _si = side (group (_this select 1));
-    _type = if (side (group (_this select 1)) in [west,east]) then {_type} else {"sec_over"};
-    _s = _type call FUNC(GetSMTargetMessage);
-    if (_type != "sec_over") then {
-        _westmsg = if (_si == west) then {_s} else {(localize "STR_DOM_MISSIONSTRING_962")};
-        _eastmsg = if (_si == east) then {_s} else {(localize "STR_DOM_MISSIONSTRING_962")};
-    } else {
-        _westmsg = _s;
-        _eastmsg = _s;
-    };
-    [QGVAR(kbmsg), [40, _westmsg, _eastmsg]] call FUNC(NetCallEventCTS);
-    [QGVAR(addPoi), [GVAR(tt_points) select 3,_this select 1]] call FUNC(NetCallEventCTS);
-    _killedby2 = switch (_this select 1) do {case west: {"US"};case east: {"EAST"};default {"N"};};
-    if (_killedby2 != "N") then {
-        [QGVAR(kbmsg), [41, _killedby2]] call FUNC(NetCallEventCTS);
-    };
-    #else
     private "_s";
     _s = (if (side (_this select 1) == GVAR(side_player)) then {_type} else {"sec_over"}) call FUNC(GetSMTargetMessage);
     [QGVAR(kbmsg), [42, _s]] call FUNC(NetCallEventCTS);
-    #endif
     ["sec_kind",0] call FUNC(NetSetJIP);
 };
 

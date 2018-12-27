@@ -280,24 +280,6 @@ class Sentences {
         speech[] = {};
         class Arguments {};
     };
-    #ifdef __TT__
-    class MTSMAnnounce {
-        text = "$STR_DOM_MISSIONSTRING_1384";
-        speech[] = {};
-        class Arguments {
-            class 1 {type = "simple";};
-            class 2 {type = "simple";};
-        };
-    };
-    class MTRadioAnnounce {
-        text = "$STR_DOM_MISSIONSTRING_1385";
-        speech[] = {};
-        class Arguments {
-            class 1 {type = "simple";};
-            class 2 {type = "simple";};
-        };
-    };
-    #else
     class TellBaseRadarDown {
         text = "$STR_DOM_MISSIONSTRING_1386";
         speech[] = {};
@@ -375,7 +357,6 @@ class Sentences {
         speech[] = {};
         class Arguments {};
     };
-    #endif
     class Dummy {
         text = "%1";
         speech[] = {};

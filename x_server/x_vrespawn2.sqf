@@ -17,13 +17,6 @@ _vec_array = [];
     _vehicle setAmmoCargo 0;
     _vehicle setVariable [QGVAR(vec_islocked), (_vehicle call d_fnc_isVecLocked)];
     _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(fuelCheck)}}];
-    #ifdef __TT__
-    if (_number_v < 100) then {
-        _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(checkveckillwest)}}];
-    } else {
-        _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(checkveckilleast)}}];
-    };
-    #endif
     if (_number_v < 10 || {(_number_v > 99 && {_number_v < 110})}) then {
         _vehicle addMPEventhandler ["MPKilled", {(_this select 0) call FUNC(MHQFunc)}];
     };
@@ -148,13 +141,6 @@ while {true} do {
             if (_isitlocked) then {_vehicle lock true};
             [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
             
-#ifdef __TT__
-            if (_number_v < 100) then {
-                _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(checkveckillwest)}}];
-            } else {
-                _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(checkveckilleast)}}];
-            };
-#endif
 #ifndef __CARRIER__
             if (GVAR(with_base_camonet) == 0) then {
                 if (isNull _camo) then {

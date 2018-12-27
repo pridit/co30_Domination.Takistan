@@ -202,9 +202,6 @@ if (__XJIPGetVar(GVAR(the_end))) exitWith {
 [QGVAR(w_ma), {deleteMarkerLocal _this}] call FUNC(NetAddEventToClients);
 [2, QGVAR(p_o_a), {
     private "_ar";_ar = _this select 1;
-#ifdef __TT__
-    if (GVAR(player_side) == (_ar select 3)) then {
-#endif
     if ((_ar select 0) isKindOf "Mash") then {
         [_ar select 1, getPosASL (_ar select 0),"ICON","ColorBlue",[0.5,0.5],format [(localize "STR_DOM_MISSIONSTRING_510"), _ar select 2],0,"mil_dot"] call FUNC(CreateMarkerLocal);
     } else {
@@ -214,9 +211,6 @@ if (__XJIPGetVar(GVAR(the_end))) exitWith {
             [_ar select 1, getPosASL (_ar select 0),"ICON","ColorBlue",[0.5,0.5],format [(localize "STR_DOM_MISSIONSTRING_512"), _ar select 2],0,"mil_dot"] call FUNC(CreateMarkerLocal);
         };
     };
-#ifdef __TT__
-    };
-#endif
 }] call FUNC(NetAddEvent);
 [2, QGVAR(p_o_r), {deleteMarkerLocal (_this select 1)}] call FUNC(NetAddEvent);
 if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
@@ -538,12 +532,7 @@ switch (GVAR(own_side)) do {
 };
 
 #define __rmsmpl _respawn_marker setMarkerPosLocal
-if (!isNil QGVAR(with_carrier)) then {
-    "base_spawn_1" setMarkerPosLocal [markerPos "base_spawn_1" select 0, markerPos "base_spawn_1" select 1, 15.9];
-    __rmsmpl [markerPos "base_spawn_1" select 0, markerPos "base_spawn_1" select 1, 15.9];
-} else {
-    __rmsmpl markerPos "base_spawn_1";
-};
+__rmsmpl markerPos "base_spawn_1";
 
 __pSetVar [QGVAR(pbp_id), -9999];
 GVAR(backpack_helper) = [];
@@ -590,12 +579,10 @@ GVAR(there_are_enemies_atbase) = false;
 GVAR(enemies_near_base) = false;
 
 // Enemy at base
-if (isNil QGVAR(with_carrier)) then {
-    "enemy_base" setMarkerPosLocal (GVAR(base_array) select 0);
-    "enemy_base" setMarkerDirLocal (GVAR(base_array) select 3);
-    [GVAR(base_array) select 0, [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "[0] call d_fnc_BaseEnemies;'enemy_base' setMarkerSizeLocal [d_base_array select 1,d_base_array select 2];d_there_are_enemies_atbase = true", "[1] call d_fnc_BaseEnemies;'enemy_base' setMarkerSizeLocal [0,0];d_there_are_enemies_atbase = false"]] call FUNC(CreateTrigger);
-    [GVAR(base_array) select 0, [(GVAR(base_array) select 1) + 300, (GVAR(base_array) select 2) + 300, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "hint (localize 'STR_DOM_MISSIONSTRING_1409');d_enemies_near_base = true", "d_enemies_near_base = false"]] call FUNC(CreateTrigger);
-};
+"enemy_base" setMarkerPosLocal (GVAR(base_array) select 0);
+"enemy_base" setMarkerDirLocal (GVAR(base_array) select 3);
+[GVAR(base_array) select 0, [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "[0] call d_fnc_BaseEnemies;'enemy_base' setMarkerSizeLocal [d_base_array select 1,d_base_array select 2];d_there_are_enemies_atbase = true", "[1] call d_fnc_BaseEnemies;'enemy_base' setMarkerSizeLocal [0,0];d_there_are_enemies_atbase = false"]] call FUNC(CreateTrigger);
+[GVAR(base_array) select 0, [(GVAR(base_array) select 1) + 300, (GVAR(base_array) select 2) + 300, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "hint (localize 'STR_DOM_MISSIONSTRING_1409');d_enemies_near_base = true", "d_enemies_near_base = false"]] call FUNC(CreateTrigger);
 
 GVAR(player_can_build_mgnest) = false;
 if (GVAR(with_mgnest) && {GVAR(string_player) in GVAR(can_use_mgnests)}) then {
@@ -648,18 +635,17 @@ if (!isNil QGVAR(action_menus_vehicle) && {count GVAR(action_menus_vehicle) > 0}
     execVM "x_client\x_vecmenus.sqf";
 };
 
-if (isNil QGVAR(with_carrier) && {GVAR(MissionType) != 2}) then {
-    if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
-        if (__XJIPGetVar(GVAR(jet_serviceH)) && {!__XJIPGetVar(GVAR(jet_s_reb))}) then {
-            [0] spawn FUNC(XFacAction);
-        };
-        if (__XJIPGetVar(GVAR(chopper_serviceH)) && {!__XJIPGetVar(GVAR(chopper_s_reb))}) then {
-            [1] spawn FUNC(XFacAction);
-        };
-        if (__XJIPGetVar(GVAR(wreck_repairH)) && {!__XJIPGetVar(GVAR(wreck_s_reb))}) then {
-            [2] spawn FUNC(XFacAction);
-        };
+if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
+    if (__XJIPGetVar(GVAR(jet_serviceH)) && {!__XJIPGetVar(GVAR(jet_s_reb))}) then {
+        [0] spawn FUNC(XFacAction);
     };
+    if (__XJIPGetVar(GVAR(chopper_serviceH)) && {!__XJIPGetVar(GVAR(chopper_s_reb))}) then {
+        [1] spawn FUNC(XFacAction);
+    };
+    if (__XJIPGetVar(GVAR(wreck_repairH)) && {!__XJIPGetVar(GVAR(wreck_s_reb))}) then {
+        [2] spawn FUNC(XFacAction);
+    };
+};
 
 #define __facset _pos = _element select 0;\
 _dir = _element select 1;\
@@ -669,26 +655,25 @@ _fac setDir _dir
 _dir = _element select 1;\
 _fac = "Land_vez_ruins" createVehicleLocal _pos;\
 _fac setDir _dir
-    if (__XJIPGetVar(GVAR(jet_serviceH)) && {!__XJIPGetVar(GVAR(jet_s_reb))}) then {
-        _element = GVAR(aircraft_facs) select 0;
-        switch (true) do {
-            case (__COVer): {__facset};
-            case (__OAVer): {__facset2};
-        };
+if (__XJIPGetVar(GVAR(jet_serviceH)) && {!__XJIPGetVar(GVAR(jet_s_reb))}) then {
+    _element = GVAR(aircraft_facs) select 0;
+    switch (true) do {
+        case (__COVer): {__facset};
+        case (__OAVer): {__facset2};
     };
-    if (__XJIPGetVar(GVAR(chopper_serviceH)) && {!__XJIPGetVar(GVAR(chopper_s_reb))}) then {
-        _element = GVAR(aircraft_facs) select 1;
-        switch (true) do {
-            case (__COVer): {__facset};
-            case (__OAVer): {__facset2};
-        };
+};
+if (__XJIPGetVar(GVAR(chopper_serviceH)) && {!__XJIPGetVar(GVAR(chopper_s_reb))}) then {
+    _element = GVAR(aircraft_facs) select 1;
+    switch (true) do {
+        case (__COVer): {__facset};
+        case (__OAVer): {__facset2};
     };
-    if (__XJIPGetVar(GVAR(wreck_repairH)) && {!__XJIPGetVar(GVAR(wreck_s_reb))}) then {
-        _element = GVAR(aircraft_facs) select 2;
-        switch (true) do {
-            case (__COVer): {__facset};
-            case (__OAVer): {__facset2};
-        };
+};
+if (__XJIPGetVar(GVAR(wreck_repairH)) && {!__XJIPGetVar(GVAR(wreck_s_reb))}) then {
+    _element = GVAR(aircraft_facs) select 2;
+    switch (true) do {
+        case (__COVer): {__facset};
+        case (__OAVer): {__facset2};
     };
 };
 
@@ -769,87 +754,72 @@ if (_primw != "") then {
     _p selectWeapon (_muzzles select 0);
 };
 
-#ifndef __TT__
 if (GVAR(MissionType) != 2) then {
     _sb = __XJIPGetVar(GVAR(searchbody));
     if (!isNull _sb && {isNil {GV(_sb,GVAR(search_body))}}) then {
         _sb setVariable [QGVAR(search_id), _sb addAction [(localize "STR_DOM_MISSIONSTRING_518"), "x_client\x_searchbody.sqf"]];
     };
 };
-#endif
 
 player addEventHandler ["fired", {_this call FUNC(ParaExploitHandler)}];
 
-if (isNil QGVAR(with_carrier)) then {
-    __pSetVar [QGVAR(p_f_b), 0];
-    
-    FUNC(KickPlayerBaseFired) = {
-        private "_num";
-        if !(serverCommandAvailable "#shutdown") then {
-            if (player in (list GVAR(player_base_trig))) then {
-                private "_ta";
-                _ta = _this select 4;
-                if (_ta isKindOf "TimeBombCore" || {_ta == "ACE_PipebombExplosion"}) then {
-                    if (count _this > 6) then {
-                        deleteVehicle (_this select 6);
-                    };
-                    if (GVAR(kick_base_satchel) == 0) then {
-                        [QGVAR(p_f_b_k), [player, GVAR(name_pl),1]] call FUNC(NetCallEventCTS);
-                    } else {
-                        [QGVAR(p_bs), [player, GVAR(name_pl),1]] call FUNC(NetCallEventCTS);
-                    };
+__pSetVar [QGVAR(p_f_b), 0];
+
+FUNC(KickPlayerBaseFired) = {
+    private "_num";
+    if !(serverCommandAvailable "#shutdown") then {
+        if (player in (list GVAR(player_base_trig))) then {
+            private "_ta";
+            _ta = _this select 4;
+            if (_ta isKindOf "TimeBombCore" || {_ta == "ACE_PipebombExplosion"}) then {
+                if (count _this > 6) then {
+                    deleteVehicle (_this select 6);
+                };
+                if (GVAR(kick_base_satchel) == 0) then {
+                    [QGVAR(p_f_b_k), [player, GVAR(name_pl),1]] call FUNC(NetCallEventCTS);
                 } else {
-                    if (!GVAR(there_are_enemies_atbase) && {!GVAR(enemies_near_base)} && {!(getText(configFile >> "CfgAmmo" >> _ta >> "simulation") in ["shotSmoke", "shotIlluminating", "shotNVGMarker", "shotCM"])}) then {
-                        _num = __pGetVar(GVAR(p_f_b));
-                        __INC(_num);
-                        __pSetVar [QGVAR(p_f_b), _num];
-                        if !(player in (list GVAR(player_base_trig2))) then {
-                            if (GVAR(player_kick_shootingbase) != 1000) then {
-                                if (_num >= GVAR(player_kick_shootingbase)) then {
-                                    if (isNil {__pGetVar(GVAR(pfbk_announced))}) then {
-                                        [QGVAR(p_f_b_k), [player, GVAR(name_pl),0]] call FUNC(NetCallEventCTS);
-                                        __pSetVar [QGVAR(pfbk_announced), true];
-                                    };
-                                } else {
-                                    hint (localize "STR_DOM_MISSIONSTRING_537");
+                    [QGVAR(p_bs), [player, GVAR(name_pl),1]] call FUNC(NetCallEventCTS);
+                };
+            } else {
+                if (!GVAR(there_are_enemies_atbase) && {!GVAR(enemies_near_base)} && {!(getText(configFile >> "CfgAmmo" >> _ta >> "simulation") in ["shotSmoke", "shotIlluminating", "shotNVGMarker", "shotCM"])}) then {
+                    _num = __pGetVar(GVAR(p_f_b));
+                    __INC(_num);
+                    __pSetVar [QGVAR(p_f_b), _num];
+                    if !(player in (list GVAR(player_base_trig2))) then {
+                        if (GVAR(player_kick_shootingbase) != 1000) then {
+                            if (_num >= GVAR(player_kick_shootingbase)) then {
+                                if (isNil {__pGetVar(GVAR(pfbk_announced))}) then {
+                                    [QGVAR(p_f_b_k), [player, GVAR(name_pl),0]] call FUNC(NetCallEventCTS);
+                                    __pSetVar [QGVAR(pfbk_announced), true];
                                 };
                             } else {
-                                if (_num >= GVAR(player_kick_shootingbase)) then {
-                                    [QGVAR(p_bs), [player, GVAR(name_pl),0]] call FUNC(NetCallEventCTS);
-                                };
+                                hint (localize "STR_DOM_MISSIONSTRING_537");
+                            };
+                        } else {
+                            if (_num >= GVAR(player_kick_shootingbase)) then {
+                                [QGVAR(p_bs), [player, GVAR(name_pl),0]] call FUNC(NetCallEventCTS);
                             };
                         };
                     };
                 };
-            } else {
-                __pSetVar [QGVAR(p_f_b), 0];
             };
+        } else {
+            __pSetVar [QGVAR(p_f_b), 0];
         };
     };
-
-#ifndef __TT__
-    GVAR(player_base_trig) = createTrigger["EmptyDetector" ,GVAR(base_array) select 0];
-    GVAR(player_base_trig) setTriggerArea [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true];
-#else
-    _dbase_a = if (GVAR(player_side) == west) then {GVAR(base_array) select 0} else {GVAR(base_array) select 1};
-    GVAR(player_base_trig) = createTrigger["EmptyDetector" ,_dbase_a select 0];
-    GVAR(player_base_trig) setTriggerArea [_dbase_a select 1, _dbase_a select 2, _dbase_a select 3, true];
-#endif
-    GVAR(player_base_trig) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
-    GVAR(player_base_trig) setTriggerStatements["this", "", ""];
-
-#ifndef __TT__
-    GVAR(player_base_trig2) = createTrigger["EmptyDetector" ,position GVAR(FLAG_BASE)];
-#else
-    _dbase_a = if (GVAR(player_side) == west) then {position GVAR(WFLAG_BASE)} else {position GVAR(EFLAG_BASE)};
-    GVAR(player_base_trig2) = createTrigger["EmptyDetector" ,_dbase_a];
-#endif
-    GVAR(player_base_trig2) setTriggerArea [25, 25, 0, false];
-    GVAR(player_base_trig2) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
-    GVAR(player_base_trig2) setTriggerStatements["this", "", ""];
-    
-    player addEventHandler ["fired", {_this call FUNC(KickPlayerBaseFired)}];
 };
+
+GVAR(player_base_trig) = createTrigger["EmptyDetector" ,GVAR(base_array) select 0];
+GVAR(player_base_trig) setTriggerArea [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true];
+GVAR(player_base_trig) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
+GVAR(player_base_trig) setTriggerStatements["this", "", ""];
+
+GVAR(player_base_trig2) = createTrigger["EmptyDetector" ,position GVAR(FLAG_BASE)];
+GVAR(player_base_trig2) setTriggerArea [25, 25, 0, false];
+GVAR(player_base_trig2) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
+GVAR(player_base_trig2) setTriggerStatements["this", "", ""];
+
+player addEventHandler ["fired", {_this call FUNC(KickPlayerBaseFired)}];
 
 if (GVAR(no_3rd_person) == 0) then {
     execFSM "fsms\3rdperson.fsm";

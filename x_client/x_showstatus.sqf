@@ -43,44 +43,6 @@ if (__XJIPGetVar(GVAR(current_target_index)) != -1) then {
     _current_target_name = (localize "STR_DOM_MISSIONSTRING_539");
 };
 
-#ifdef __TT__
-__ctrl(11011);
-_color = [];
-_points_array = __XJIPGetVar(points_array);
-_points_west = _points_array select 0;
-_points_east = _points_array select 1;
-_kill_points_west = _points_array select 2;
-_kill_points_east = _points_array select 3;
-if (_points_west > _points_east) then {
-    _color = [0,0,1,1];
-} else {
-    if (_points_east > _points_west) then {
-        _color = [1,0,0,1];
-    } else {
-        if (_points_east == _points_west) then {_color = [0,1,0,1]};
-    };
-};
-_ctrl ctrlSetTextColor _color;
-_s = str(_points_west) + " : " + str(_points_east);
-_ctrl ctrlSetText _s;
-
-__ctrl(11012);
-if (_kill_points_west > _kill_points_east) then {
-    _color = [0,0,1,1];
-} else {
-    if (_kill_points_east > _kill_points_west) then {
-        _color = [1,0,0,1];
-    } else {
-        if (_kill_points_east == _kill_points_west) then {
-            _color = [0,1,0,1];
-        };
-    };
-};
-_ctrl ctrlSetTextColor _color;
-_s = str(_kill_points_west) + " : " + str(_kill_points_east);
-_ctrl ctrlSetText _s;
-#endif
-
 _s = switch (true) do {
     case __XJIPGetVar(all_sm_res): {(localize "STR_DOM_MISSIONSTRING_522")};
     case (__XJIPGetVar(GVAR(current_mission_index)) == -1): {(localize "STR_DOM_MISSIONSTRING_540")};

@@ -18,11 +18,7 @@ GVAR(p_marker) = (getArray (missionConfigFile >> "Params" >> QGVAR(MarkerTypeL) 
 
 // position of the player ammobox at base (created only on the players computer, refilled every 20 minutes)
 _mpos = markerPos QGVAR(player_ammobox_pos);
-if (isNil QGVAR(with_carrier)) then {
-    _mpos set [2,0];
-} else {
-    _mpos set [2,15.9];
-};
+_mpos set [2,0];
 GVAR(player_ammobox_pos) = [_mpos, markerDir QGVAR(player_ammobox_pos)];
 
 // this vehicle will be created if you use the "Create XXX" at a mobile respawn (old "Create Motorcycle") or at a jump flag
@@ -146,7 +142,6 @@ GVAR(choppers) = [
 ];
 
 // vehicle varname, unique number (same as in init.sqf), marker name, marker type, marker color, marker text, vehicle string name
-#ifndef __TT__
 GVAR(p_vecs) = [
     ["MRR1",0,"mobilerespawn1","HQ","ColorYellow","MHQ 1",(localize "STR_DOM_MISSIONSTRING_12")],
     ["MRR2",1,"mobilerespawn2","HQ","ColorYellow","MHQ 2",(localize "STR_DOM_MISSIONSTRING_13")],
@@ -157,28 +152,9 @@ GVAR(p_vecs) = [
     ["TR8",31,"truck8","n_service","ColorGreen","E2",""],["TR9",40,"truck9","n_support","ColorGreen","T2",""],
     ["TR10",41,"truck10","n_support","ColorGreen","T1",""]
 ];
-#else
-GVAR(p_vecs_west) = [
-    ["MRR1",0,"mobilerespawn1","HQ","ColorYellow","1",(localize "STR_DOM_MISSIONSTRING_14")],["MRR2",1,"mobilerespawn2","HQ","ColorYellow","2",(localize "STR_DOM_MISSIONSTRING_15")],
-    ["MEDVEC",10,"medvec","n_med","ColorGreen","M",""],["TR1",20,"truck1","n_maint","ColorGreen","R",""],
-    ["TR2",21,"truck2","n_support","ColorGreen","F",""],["TR3",22,"truck3","n_support","ColorGreen","A",""],
-    ["TR4",30,"truck4","n_service","ColorGreen","E",""],["TR5",40,"truck5","n_support","ColorGreen","T",""]
-];
-    
-GVAR(p_vecs_east) = [
-    ["MRRR1",100,"mobilerespawnE1","HQ","ColorYellow","1",(localize "STR_DOM_MISSIONSTRING_16")],["MRRR2",101,"mobilerespawnE2","HQ","ColorYellow","2",(localize "STR_DOM_MISSIONSTRING_17")],
-    ["MEDVECR",110,"medvecE","n_med","ColorGreen","M",""],["TRR1",120,"truckE1","n_maint","ColorGreen","R",""],
-    ["TRR2",121,"truckE2","n_support","ColorGreen","F",""],["TRR3",122,"truckE3","n_support","ColorGreen","A",""],
-    ["TRR4",130,"truckE4","n_service","ColorGreen","E",""],["TRR5",140,"truckE5","n_support","ColorGreen","T",""]
-];
-#endif
 
 // is engineer
-#ifndef __TT__
 GVAR(is_engineer) = ["delta_1","delta_2","delta_3","delta_4","delta_5","delta_6"];
-#else
-GVAR(is_engineer) = ["west_9","west_10","east_9","east_10"];
-#endif
 
 // is artillery operator
 // please be aware that Dom 2 only supports two artillery operators in the non AI versions
@@ -186,25 +162,13 @@ GVAR(is_engineer) = ["west_9","west_10","east_9","east_10"];
 GVAR(can_use_artillery) = ["RESCUE","RESCUE2"];
 
 // can build mash
-#ifndef __TT__
 GVAR(is_medic) = ["alpha_6","bravo_6","charlie_6","echo_6"];
-#else
-GVAR(is_medic) = ["west_6","east_6","west_17","east_17"];
-#endif
 
 // can build mg nest
-#ifndef __TT__
 GVAR(can_use_mgnests) =  ["alpha_3","alpha_7","charlie_3","charlie_7","bravo_4","echo_3","echo_7"];
-#else
-GVAR(can_use_mgnests) = ["west_3","west_7","west_18","east_3","east_7","east_18"];
-#endif
 
 // can call in air drop
-#ifndef __TT__
 GVAR(can_call_drop_ar) = ["alpha_1","charlie_1","echo_1"];
-#else
-GVAR(can_call_drop_ar) = [];
-#endif
 
 #ifdef __OWN_SIDE_EAST__
 _armor = if (GVAR(LockArmored) == 1) then {
@@ -238,20 +202,6 @@ _car = if (GVAR(LockCars) == 1) then {
 _armor = if (GVAR(LockArmored) == 1) then {["BMP3","BTR90","BTR90_HQ","GAZ_Vodnik","GAZ_Vodnik_HMG"]} else {[]};
 _car = if (GVAR(LockCars) == 1) then {["UAZ_RU","UAZ_AGS30_RU","D30_RU"]} else {[]};
 #endif
-#ifdef __TT__
-_armor = if (GVAR(LockArmored) == 1) then {
-    switch (true) do {
-        case (__OAVer): {["T55_TK_GUE_EP1","T34_TK_GUE_EP1","BRDM2_TK_GUE_EP1","BTR40_MG_TK_GUE_EP1","Ural_ZU23_TK_GUE_EP1"]};
-        case (__COVer): {["BMP2_Gue","BRDM2_Gue","BRDM2_HQ_Gue","T34"]};
-    };
-} else {[]};
-_car = if (GVAR(LockCars) == 1) then {
-    switch (true) do {
-        case (__OAVer): {["Offroad_DSHKM_TK_GUE_EP1","Offroad_SPG9_TK_GUE_EP1","D30_TK_GUE_EP1"]};
-        case (__COVer): {["Offroad_DSHKM_Gue","Offroad_SPG9_Gue","Pickup_PK_GUE","Ural_ZU23_Gue"]};
-    };
-} else {[]};
-#endif
 
 GVAR(helilift1_types) =
 #ifdef __OWN_SIDE_EAST__
@@ -277,46 +227,18 @@ switch (true) do {
 #ifdef __OWN_SIDE_GUER__
     [];
 #endif
-#ifdef __TT__
-switch (true) do {
-    case (__OAVer): {
-        ["M1133_MEV_EP1","HMMWV_DES_EP1","HMMWV_M1035_DES_EP1","MTVR_DES_EP1","HMMWV_Ambulance_DES_EP1","MtvrReammo_DES_EP1","MtvrRefuel_DES_EP1","MtvrRepair_DES_EP1","LandRover_CZ_EP1","HMMWV_Ambulance_CZ_DES_EP1","MtvrSupply_DES_EP1","M119_US_EP1","BMP2_HQ_TK_EP1","M113Ambul_TK_EP1","UralSupply_TK_EP1","UralRepair_TK_EP1","UralRefuel_TK_EP1","UralReammo_TK_EP1","V3S_Open_TK_EP1","V3S_TK_EP1","UAZ_Unarmed_TK_EP1","D30_TK_EP1"]
-    };
-    case (__COVer): {
-        ["BTR90_HQ","GAZ_Vodnik_MedEvac","WarfareSalvageTruck_RU","KamazRepair","KamazRefuel","KamazReammo","Kamaz","KamazOpen","UAZ_RU","LAV25_HQ","HMMWV","HMMWV_Armored","MTVR","HMMWV_Ambulance","MtvrReammo","MtvrRefuel","MtvrRepair","M119"]
-    };
-};
-#endif
 
 if (count _armor > 0) then {GVAR(helilift1_types) = [GVAR(helilift1_types), _armor] call FUNC(arrayPushStack2)};
 if (count _car > 0) then {GVAR(helilift1_types) = [GVAR(helilift1_types), _car] call FUNC(arrayPushStack2)};
 
 {GVAR(helilift1_types) set [_forEachIndex, toUpper _x]} forEach GVAR(helilift1_types);
 
-#ifdef __TT__
-{
-    switch (_x select 1) do {
-        case 0: {_x set [count _x, GVAR(helilift1_types)]};
-        case 1: {_x set [count _x, GVAR(heli_wreck_lift_types)]};
-    };
-} forEach GVAR(choppers_west);
-{
-    switch (_x select 1) do {
-        case 0: {_x set [count _x, GVAR(helilift1_types)]};
-        case 1: {_x set [count _x, GVAR(heli_wreck_lift_types)]};
-    };
-} forEach GVAR(choppers_east);
-#else
 {
     switch (_x select 1) do {
         case 0: {_x set [count _x, GVAR(helilift1_types)]};
         case 1: {_x set [count _x, GVAR(heli_wreck_lift_types)]};
     };
 } forEach GVAR(choppers);
-// also possible:
-// _elem = GVAR(choppers) select 2; // third chopper
-// _elem set [3, GVAR(helilift_types_custom)];
-#endif
 
 GVAR(prim_weap_player) = "";
 GVAR(last_telepoint) = 0;

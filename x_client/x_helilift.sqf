@@ -99,18 +99,6 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
                             #endif
                             [QGVAR(mr2_l_c), _vehicle] call FUNC(NetCallEventCTS);
                         };
-#ifdef __TT__
-                        case MRRR1: {
-                            ["mrr1_in_air",true] call FUNC(NetSetJIP);
-                            player kbTell [GVAR(hq_logic_ru1),"HQ_E","Dmr1_in_air",true];
-                            [QGVAR(mrr1_l_c), _vehicle] call FUNC(NetCallEventCTS);
-                        };
-                        case MRRR2: {
-                            ["mrr2_in_air",true] call FUNC(NetSetJIP);
-                            player kbTell [GVAR(hq_logic_ru1),"HQ_E","Dmr2_in_air",true];
-                            [QGVAR(mrr2_l_c), _vehicle] call FUNC(NetCallEventCTS);
-                        };
-#endif
                     };
                     
                     _fuelloss = switch (true) do {
@@ -163,33 +151,13 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
                         case MRR1: {
                             ["mr1_in_air",false] call FUNC(NetSetJIP);
                             [QGVAR(mr1_l_c), objNull] call FUNC(NetCallEventCTS);
-                            #ifndef __TT__
                             player kbTell [GVAR(kb_logic1),GVAR(kb_topic_side),"Dmr1_available",true];
-                            #else
-                            player kbTell [GVAR(hq_logic_en1),"HQ_W","Dmr1_available",true];
-                            #endif
                         };
                         case MRR2: {
                             ["mr2_in_air",false] call FUNC(NetSetJIP);
                             [QGVAR(mr2_l_c), objNull] call FUNC(NetCallEventCTS);
-                            #ifndef __TT__
                             player kbTell [GVAR(kb_logic1),GVAR(kb_topic_side),"Dmr2_available",true];
-                            #else
-                            player kbTell [GVAR(hq_logic_en1),"HQ_W","Dmr2_available",true];
-                            #endif
                         };
-#ifdef __TT__
-                        case MRRR1: {
-                            ["mrr1_in_air",false] call FUNC(NetSetJIP);
-                            [QGVAR(mrr1_l_c), objNull] call FUNC(NetCallEventCTS);
-                            player kbTell [GVAR(hq_logic_ru1),"HQ_E","Dmr1_available",true];
-                        };
-                        case MRRR2: {
-                            ["mrr2_in_air",false] call FUNC(NetSetJIP);
-                            [QGVAR(mrr2_l_c), objNull] call FUNC(NetCallEventCTS);
-                            player kbTell [GVAR(hq_logic_ru1),"HQ_E","Dmr2_available",true];
-                        };
-#endif
                     };
                     
                     _vehicle setVariable [QGVAR(Attached_Vec), objNull];

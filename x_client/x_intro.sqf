@@ -52,28 +52,17 @@ playMusic "EP1_Track01D";
 
 if (daytime > 19.75 || daytime < 4.15) then {camUseNVG true};
 
-#ifndef __TT__
 GVAR(intro_color) = switch (GVAR(own_side)) do {case "WEST": {[0.85,0.88,1,1]};case "EAST": {[1,0.36,0.34,1]};case "GUER": {[1,1,0,1]};};
 _camstart = camstart;
-#endif
-#ifdef __TT__
-GVAR(intro_color) = if (playerSide == west) then {[0.85,0.88,1,1]} else {[1,0.36,0.34,1]};
-_camstart = if (playerSide == west) then {camstart} else {camstart_east};
-#endif
 
 private "_camera";
 _camera = "camera" camCreate [getPosASL _camstart select 0, (getPosASL _camstart select 1) + 1, 120];
-#ifndef __CARRIER__
 _camera camSetTarget [getPosASL player select 0, getPosASL player select 1 , 1.5];
-#else
-_camera camSetTarget [getPosASL LHD_Center select 0, getPosASL LHD_Center select 1, 1.5];
-#endif
 _camera camSetFov 0.7;
 _camera cameraEffect ["INTERNAL", "Back"];
 _camera camCommit 1;
 waitUntil {camCommitted _camera};
 
-#ifndef __TT__
 _str = "One Team - " + GVAR(version_string);
 _start_pos = 5;
 _str2 = "";
@@ -100,20 +89,11 @@ _start_pos2 = switch (count _sarray) do {
     case 16: {3};
     default {1};
 };
-#else
-_str = "Two Teams";
-_str2 = "";
-_sarray = [];
-_start_pos = 8;
-#endif
 
 1 cutRsc ["XDomLabel","PLAIN",2];
 2 cutRsc ["XDomAward","PLAIN",2];
 3 cutRsc ["XDomTwo", "PLAIN",2];
 4 cutRsc ["XA2Logo","PLAIN",2];
-#ifdef __CARRIER__
-1365 cutRsc ["XCarrierTitel","PLAIN",2];
-#endif
 [_start_pos, _str, 5] execVM "IntroAnim\animateLettersX.sqf";__INC(_line); waitUntil {GVAR(animL_i) == _line};
 if (count _sarray > 0) then {[_start_pos2, _str2, 6] execVM "IntroAnim\animateLettersX.sqf";__INC(_line); waitUntil {GVAR(animL_i) == _line}};
 switch (GVAR(MissionType)) do {

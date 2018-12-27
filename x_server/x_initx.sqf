@@ -14,7 +14,6 @@ __cppfln(FUNC(markercheck),x_server\x_markercheck.sqf);
 #ifndef __TT__
 0 spawn {
     scriptName "spawn_x_initx_createbase";
-    if (!isNil QGVAR(with_carrier)) then {sleep 20};
     private ["_x_objs", "_x_objs2", "_x_objs3", "_dgrp", "_unit_array"];
     _x_objs = [];
     _x_objs2 = [];

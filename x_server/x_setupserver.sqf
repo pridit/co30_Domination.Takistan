@@ -41,7 +41,6 @@ if (GVAR(MissionType) in [0,2]) then {
     };
 };
 
-#ifndef __TT__
 GVAR(air_bonus_vecs) = 0;
 GVAR(land_bonus_vecs) = 0;
 
@@ -54,10 +53,7 @@ GVAR(land_bonus_vecs) = 0;
     };
 } foreach GVAR(sm_bonus_vehicle_array);
 
-if (isNil QGVAR(with_carrier)) then {
-    [GVAR(base_array) select 0, [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'BaseUnderAtack',true]", ""]] call FUNC(CreateTrigger);
-};
-#endif
+[GVAR(base_array) select 0, [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'BaseUnderAtack',true]", ""]] call FUNC(CreateTrigger);
 
 FUNC(DomEnd) = {
     scriptName "spawn_x_serversetup_domend";

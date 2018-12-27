@@ -76,11 +76,7 @@ if (d_sub_kill_points != 0) then {
 }] call d_fnc_NetAddEventToClients;
 [0, QGVARXR(swmnon), {_this switchMove ""}] call d_fnc_NetAddEvent;
 [0, QGVARXR(wn2), {if (local (_this select 0)) then {_this call FUNCXR(handlenet)}}] call d_fnc_NetAddEvent;
-#ifdef __TT__
-[QGVARXR(addActions), {if (player != (_this select 0) && {(_this select 1) == side (group player)}) then {(_this select 0) call FUNCXR(addActions)}}] call d_fnc_NetAddEventToClients; // TODO, what if more than one side is friendly
-#else
 [QGVARXR(addActions), {if (player != _this) then {_this call FUNCXR(addActions)}}] call d_fnc_NetAddEventToClients;
-#endif
 [QGVARXR(removeActions), {if (player != _this) then {_this call FUNCXR(removeActions)}}] call d_fnc_NetAddEventToClients;
 [0, QGVARXR(hpl), {_this hideobject true}] call d_fnc_NetAddEvent;
 [QGVARXR(grpl), {(_this select 0) selectLeader (_this select 1)}] call d_fnc_NetAddEventSTO;
@@ -403,15 +399,7 @@ FUNCXR(MapClickRespawn) = {
         };
         {player reveal _x} forEach _nobs;
     } else {
-        if (isNil "d_with_carrier") then {
-            player setpos _respawn_pos;
-        } else {
-            if (surfaceIsWater _respawn_pos) then {
-                player setPosASL [markerpos "base_spawn_1" select 0, markerpos "base_spawn_1" select 1, 16.20];
-            } else {
-                player setpos _respawn_pos;
-            };
-        };
+        player setpos _respawn_pos;
     };
     titleText [(localize "STR_DOM_MISSIONSTRING_918"),"BLACK IN", 6];
     if (GVARXR(max_lives) != -1) then {
@@ -1286,11 +1274,7 @@ FUNCXR(uncon) = {
     __TRACE_1("uncon","_typer");
     disableSerialization;
     enableRadio false;
-    #ifdef __TT__
-    [QGVARXR(addActions), [player, side (group player)]] call d_fnc_NetCallEventToClients;
-    #else
     [QGVARXR(addActions), player] call d_fnc_NetCallEventToClients;
-    #endif
     [QGVARXR(setCap), [player,true]] call d_fnc_NetCallEvent;
     
     GVARXR(respavailablemarker) = false;

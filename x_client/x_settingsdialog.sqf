@@ -214,18 +214,6 @@ __str (localize "STR_DOM_MISSIONSTRING_482") + (if (GVAR(show_vehicle_welcome) =
 
 __str (localize "STR_DOM_MISSIONSTRING_483") + (if (GVAR(WithRepStations) == 0) __tyn);
 
-#ifdef __TT__
-__str (localize "STR_DOM_MISSIONSTRING_484") + str(GVAR(tt_points) select 0) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_485") + str(GVAR(tt_points) select 1) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_486") + str(GVAR(tt_points) select 2) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_487") + str(GVAR(tt_points) select 3) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_488") + str(GVAR(tt_points) select 4) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_489") + str(GVAR(tt_points) select 5) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_490") + str(GVAR(tt_points) select 6) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_491") + str(GVAR(tt_points) select 7) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_492") + str(GVAR(tt_points) select 8);
-#endif
-
 // don't forget to add \n, but not when adding the last string part
 __ctrl(2007) ctrlSetText _str;
 __ctrl(2007) ctrlCommit 0;
@@ -235,13 +223,7 @@ _str = "";
     _med = __getMNsVar2(_x);
     if (!isNull _med && {isPlayer _med}) then {
         if (_str != "") then {__str ", "};
-#ifdef __TT__
-        if (side (group _med) == GVAR(player_side)) then {
-#endif
         __str (if (alive _med) then {name _med} else {(localize "STR_DOM_MISSIONSTRING_493")});
-#ifdef __TT__
-        };
-#endif
     };
 } forEach GVAR(is_medic);
 
@@ -253,13 +235,7 @@ _str = "";
     _art = __getMNsVar2(_x);
     if (!isNull _art && {isPlayer _art}) then {
         if (_str != "") then {__str ", "};
-#ifdef __TT__
-        if (side (group _art) == GVAR(player_side)) then {
-#endif
         __str (if (alive _art) then {name _art} else {(localize "STR_DOM_MISSIONSTRING_493")});
-#ifdef __TT__
-        };
-#endif
     };
 } forEach GVAR(can_use_artillery);
 
@@ -271,13 +247,7 @@ _str = "";
     _eng = __getMNsVar2(_x);
     if (!isNull _eng && {isPlayer _eng}) then {
         if (_str != "") then {__str ", "};
-#ifdef __TT__
-        if (side (group _eng) == GVAR(player_side)) then {
-#endif
         __str (if (alive _eng) then {name _eng} else {(localize "STR_DOM_MISSIONSTRING_493")});
-#ifdef __TT__
-        };
-#endif
     };
 } forEach GVAR(is_engineer);
 

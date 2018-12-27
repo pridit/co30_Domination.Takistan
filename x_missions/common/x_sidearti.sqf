@@ -29,22 +29,13 @@ for "_i" from 0 to _count_arti - 1 do {
 GVAR(dead_arti) = 0;
 __GetEGrp(_grp)
 
-#ifdef __TT__
-GVAR(sm_points_west) = 0;
-GVAR(sm_points_east) = 0;
-#endif
-
 for "_i" from 0 to (_count_arti - 1) do {
     _arti_pos_dir = _pos_array select _i;
     _arti = createVehicle [GVAR(sm_arty), _arti_pos_dir select 0, [], 0, "NONE"];
     _arti setDir (_arti_pos_dir select 1);
     _arti setPos (_arti_pos_dir select 0);
     GVAR(extra_mission_vehicle_remover_array) set [count GVAR(extra_mission_vehicle_remover_array), _arti];
-    _arti addEventHandler ["killed",{__INC(GVAR(dead_arti));_this call FUNC(handleDeadVec);
-        #ifdef __TT__
-        _this call FUNC(AddSMPoints)
-        #endif
-    }];
+    _arti addEventHandler ["killed",{__INC(GVAR(dead_arti));_this call FUNC(handleDeadVec)}];
     _arti lock true;
     _unit = _grp createUnit [GVAR(sm_arty_crewman), _arti_pos_dir select 0, [], 0, "NONE"];
     if (GVAR(without_nvg) == 0) then {

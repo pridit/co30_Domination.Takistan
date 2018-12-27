@@ -39,7 +39,6 @@ FUNC(checktrucktrans) = nil;
 FUNC(checkhelipilot) = nil;
 FUNC(checkhelipilot_wreck) = nil;
 FUNC(checkhelipilotout) = nil;
-FUNC(checkenterer) = nil;
 FUNC(checkdriver) = nil;
 FUNC(infoText) = nil;
 FUNC(getsidemissionclient) = nil;

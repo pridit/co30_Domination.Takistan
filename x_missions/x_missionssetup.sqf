@@ -7,7 +7,6 @@ GVAR(mission_filename) = "x_m";
 
 // GVAR(sm_array) contains the indices of the sidemissions (it gets shuffled later)
 // to remove a specific side mission just remove the index from GVAR(sm_array)
-#ifdef __DEFAULT__
 GVAR(sm_array) = switch (true) do {
     case (__OAVer): {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,36,40,41,42,44,46,47,49,51,52]};
     case (__COVer): {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,36,37,38,39,40,41,42,44,45,46,47,48,49,50,51,52]};
@@ -19,16 +18,7 @@ if (__OAVer) then {
     };
 };
 
-if (!isNil QGVAR(with_carrier)) then {GVAR(sm_array) = GVAR(sm_array) - [3]};
-
 if (GVAR(FastTime) > 0) then {GVAR(sm_array) = GVAR(sm_array) - [51,52]};
-#endif
-#ifdef __TT__
-GVAR(sm_array) = switch (true) do {
-    case (__OAVer): {[0,1,2,3,4,5,6,7,8,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,36,40,42,44,46,47]};
-    case (__COVer): {[0,1,3,4,5,6,7,8,10,11,12,13,14,15,16,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,36,37,38,39,40,41,42,45,46,47,48,49,50]};
-};
-#endif
 
 GVAR(number_side_missions) = count GVAR(sm_array);
 
@@ -72,11 +62,7 @@ if (call FUNC(checkSHC)) then {
             __addDead(_dvec)
         };
         if (!isNull _killer && {_killer != _dvec}) then {
-#ifdef __TT__
-            GVAR(side_mission_winner) = switch (side (group _killer)) do {case east:{1}; case west:{2}; default{-1};};
-#else
             GVAR(side_mission_winner) = if (side (group _killer) == GVAR(side_player)) then {2} else {-1};
-#endif
         } else {
             GVAR(side_mission_winner) = -1;
         };
@@ -85,18 +71,6 @@ if (call FUNC(checkSHC)) then {
             [QGVAR(sm_var), GVAR(side_mission_winner)] call FUNC(NetCallEventCTS);
         };
     };
-#ifdef __TT__	
-    FUNC(AddSMPoints) = {
-        if (!GVAR(IS_HC_CLIENT)) then {
-            switch (side (group (_this select 1))) do {case west: {__INC(GVAR(sm_points_west))};case east: {__INC(GVAR(sm_points_east))}};
-        } else {
-            _which = switch (side (group (_this select 1))) do {case west: {0};case east: {1};default {-1}};
-            if (_which != -1) then {
-                [QGVAR(sm_poi), _which] call FUNC(NetCallEventCTS);
-            };
-        };
-    };
-#endif
     FUNC(KilledSMTarget500) = {
         GVAR(side_mission_winner) = -500;
         GVAR(side_mission_resolved) = true;
@@ -106,11 +80,7 @@ if (call FUNC(checkSHC)) then {
     };
     FUNC(addKilledEHSM) = {
         _this addEventHandler ["killed", {
-#ifdef __TT__
-            GVAR(side_mission_winner) = (switch (side (_this select 1)) do {case east:{1};case west:{2};default{-1};});
-#else
             GVAR(side_mission_winner) = 2;
-#endif
             GVAR(side_mission_resolved) = true;
             if (GVAR(IS_HC_CLIENT)) then {
                 [QGVAR(sm_var), GVAR(side_mission_winner)] call FUNC(NetCallEventCTS);

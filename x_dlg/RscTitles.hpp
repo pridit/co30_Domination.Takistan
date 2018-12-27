@@ -159,29 +159,6 @@ class GVAR(SayHello) {
         };
     };
 };
-#ifdef __CARRIER__
-class XCarrierTitel {
-    idd=-1;
-    movingEnable=0;
-    duration=9;
-    name="XCarrierTitel";
-    fadein = 1;
-    fadeout = 1;
-    class controls {
-        class carrierTitel : XC_RscText {
-            lineSpacing=0.95;
-            style="16+2+512";
-            x=0.35; y=0.335; w=0.3; h=0.2;
-            text="Carrier";
-            size=0.57;
-            sizeEx = 0.04;
-            colorBackground[]={0,0,0,0};
-            colorText[]={0.8,0.9,0.9,0.7};
-        };
-    };
-};
-#endif
-
 class xvehicle_hud {
     idd=-1;
     movingEnable = true;

@@ -26,12 +26,6 @@ for "_i" from 0 to _count_obj - 1 do {
     _angle = _angle + _angle_plus;
 };
 
-
-#ifdef __TT__
-GVAR(sm_points_west) = 0;
-GVAR(sm_points_east) = 0;
-#endif
-
 for "_i" from 0 to (_count_obj - 1) do {
     _obj_pos_dir = _pos_array select _i;
     _tent = createVehicle [GVAR(sm_tent), _obj_pos_dir select 0, [], 0, "NONE"];
@@ -56,9 +50,6 @@ _unitcode = {
     _this allowFleeing 0;
     _this addEventHandler ["killed", {
         __INC(GVAR(num_species));
-        #ifdef __TT__
-        _this call FUNC(AddSMPoints);
-        #endif
     }];
     __addDeadAI(_this)
 };

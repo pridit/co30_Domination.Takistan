@@ -61,11 +61,7 @@ if (_typepos == 1) then {
     player setPosATL [_global_pos select 0, _global_pos select 1, 0];
     player setDir _global_dir;
 } else {
-#ifdef __CARRIER__
-    player setPosASL [_global_pos select 0, _global_pos select 1, 15.9];
-#else
     player setPos _global_pos;
-#endif
     player setDir _global_dir;
 };
 0 spawn {

@@ -7,17 +7,8 @@ if !(call FUNC(checkSHC)) exitWith {};
 PARAMS_2(_pos,_trains);
 GVAR(dead_trains) = 0;
 
-#ifdef __TT__
-GVAR(sm_points_west) = 0;
-GVAR(sm_points_east) = 0;
-#endif
-
 {
-#ifdef __TT__
-    _x addEventHandler ["killed", {__INC(GVAR(dead_trains));_this call FUNC(AddSMPoints)}];
-#else
     _x addEventHandler ["killed", {__INC(GVAR(dead_trains))}];
-#endif
     __AddToExtraVec(_x)
 } forEach _trains;
 

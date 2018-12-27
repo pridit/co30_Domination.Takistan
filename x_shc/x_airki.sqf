@@ -34,12 +34,6 @@ while {true} do {
     __MPCheck;
     while {__XJIPGetVar(GVAR(mt_radio_down))} do {sleep 6.123};
     _pos = call FUNC(GetRanPointOuterAir);
-    if (!isNil QGVAR(with_carrier)) then {
-        while {_pos distance GVAR(FLAG_BASE) < 1000} do {
-            _pos = call FUNC(GetRanPointOuterAir);
-            sleep 0.01;
-        };
-    };
     
     _grpskill = 0.6 + (random 0.3);
     

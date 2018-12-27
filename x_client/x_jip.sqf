@@ -26,11 +26,3 @@ if (GVAR(FastTime) > 0) then {
 };
 
 __ccppfln(x_client\x_setupplayer.sqf);
-
-#ifdef __CARRIER__
-0 spawn {
-    scriptName "spawn_carrierplayersetpos";
-    sleep 2;
-    player setPosASL [getPosASL player select 0, getPosASL player select 1, 9.26];
-};
-#endif

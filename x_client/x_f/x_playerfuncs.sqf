@@ -223,70 +223,66 @@ FUNC(GetRankPic) = {
     }
 };
 
-#ifndef __TT__
-if (isNil "d_with_carrier") then {
-    FUNC(BaseEnemies) = {
-        scriptName "d_fnc_BaseEnemies";
-        private "_status";
-        _status = _this select 0;
-        switch (_status) do {
-            case 0: {
-                hint composeText[
-                    parseText("<t color='#f0ff0000' size='2'>" + (localize "STR_DOM_MISSIONSTRING_676") + "</t>"), lineBreak,
-                    parseText("<t size='1'>" + (localize "STR_DOM_MISSIONSTRING_677") + "</t>")
-                ];
-            };
-            case 1: {
-                hint composeText[
-                    parseText("<t color='#f00000ff' size='2'>" + (localize "STR_DOM_MISSIONSTRING_678") + "</t>"), lineBreak,
-                    parseText("<t size='1'>" + (localize "STR_DOM_MISSIONSTRING_679") + "</t>")
-                ];
-            };
+FUNC(BaseEnemies) = {
+    scriptName "d_fnc_BaseEnemies";
+    private "_status";
+    _status = _this select 0;
+    switch (_status) do {
+        case 0: {
+            hint composeText[
+                parseText("<t color='#f0ff0000' size='2'>" + (localize "STR_DOM_MISSIONSTRING_676") + "</t>"), lineBreak,
+                parseText("<t size='1'>" + (localize "STR_DOM_MISSIONSTRING_677") + "</t>")
+            ];
         };
-    };
-    
-    FUNC(XFacAction) = {
-        scriptName "d_fnc_XFacAction";
-        private ["_num","_thefac","_element","_posf","_facid","_exit_it"];
-        PARAMS_1(_num);
-        _thefac = switch (_num) do {
-            case 0: {QGVAR(jet_serviceH)};
-            case 1: {QGVAR(chopper_serviceH)};
-            case 2: {QGVAR(wreck_repairH)};
-        };
-        waitUntil {(sleep 0.521 + (random 0.3));(X_JIPH getVariable _thefac)};
-        _element = GVAR(aircraft_facs) select _num;
-        _posf = _element select 0;
-        sleep 0.543;
-        _facid = -1;
-        _exit_it = false;
-        while {!_exit_it} do {
-            sleep 0.432;
-            switch (_num) do {
-                case 0: {if (__XJIPGetVar(GVAR(jet_s_reb))) then {_exit_it = true}};
-                case 1: {if (__XJIPGetVar(GVAR(chopper_s_reb))) then {_exit_it = true}};
-                case 2: {if (__XJIPGetVar(GVAR(wreck_s_reb))) then {_exit_it = true}};
-            };
-            if (!_exit_it) then {
-                if (player distance _posf < 14 && {_facid == -1} && {(X_JIPH getVariable _thefac)}) then {
-                    if (alive player) then {
-                        _facid = player addAction [(localize "STR_DOM_MISSIONSTRING_680") call FUNC(RedText),"x_client\x_rebuildsupport.sqf",_num];
-                    };
-                } else {
-                    if (_facid != -1) then {
-                        if (player distance _posf > 13 || {!(X_JIPH getVariable _thefac)}) then {
-                            player removeAction _facid;
-                            _facid = -1;
-                        };
-                    };
-                };
-            } else {
-                if (_facid != -1) then {player removeAction _facid};
-            };
+        case 1: {
+            hint composeText[
+                parseText("<t color='#f00000ff' size='2'>" + (localize "STR_DOM_MISSIONSTRING_678") + "</t>"), lineBreak,
+                parseText("<t size='1'>" + (localize "STR_DOM_MISSIONSTRING_679") + "</t>")
+            ];
         };
     };
 };
-#endif
+
+FUNC(XFacAction) = {
+    scriptName "d_fnc_XFacAction";
+    private ["_num","_thefac","_element","_posf","_facid","_exit_it"];
+    PARAMS_1(_num);
+    _thefac = switch (_num) do {
+        case 0: {QGVAR(jet_serviceH)};
+        case 1: {QGVAR(chopper_serviceH)};
+        case 2: {QGVAR(wreck_repairH)};
+    };
+    waitUntil {(sleep 0.521 + (random 0.3));(X_JIPH getVariable _thefac)};
+    _element = GVAR(aircraft_facs) select _num;
+    _posf = _element select 0;
+    sleep 0.543;
+    _facid = -1;
+    _exit_it = false;
+    while {!_exit_it} do {
+        sleep 0.432;
+        switch (_num) do {
+            case 0: {if (__XJIPGetVar(GVAR(jet_s_reb))) then {_exit_it = true}};
+            case 1: {if (__XJIPGetVar(GVAR(chopper_s_reb))) then {_exit_it = true}};
+            case 2: {if (__XJIPGetVar(GVAR(wreck_s_reb))) then {_exit_it = true}};
+        };
+        if (!_exit_it) then {
+            if (player distance _posf < 14 && {_facid == -1} && {(X_JIPH getVariable _thefac)}) then {
+                if (alive player) then {
+                    _facid = player addAction [(localize "STR_DOM_MISSIONSTRING_680") call FUNC(RedText),"x_client\x_rebuildsupport.sqf",_num];
+                };
+            } else {
+                if (_facid != -1) then {
+                    if (player distance _posf > 13 || {!(X_JIPH getVariable _thefac)}) then {
+                        player removeAction _facid;
+                        _facid = -1;
+                    };
+                };
+            };
+        } else {
+            if (_facid != -1) then {player removeAction _facid};
+        };
+    };
+};
 
 FUNC(ProgBarCall) = {
     scriptName "d_fnc_ProgBarCall";

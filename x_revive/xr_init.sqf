@@ -196,13 +196,7 @@ if (GVARXR(with_marker)) then {
     _unit = __getMNsVar2(_x);
     if (!isNil "_unit") then {
         if (alive _unit && {__GV(_unit,GVARXR(pluncon))}) then {
-#ifdef __TT__
-            if (side (group _unit) == GVARXR(side_pl)) then {
-#endif
-                _unit call FUNCXR(addActions);
-#ifdef __TT__
-            };
-#endif
+            _unit call FUNCXR(addActions);
         } else {
             _unit setVariable [QGVARXR(ReviveAction), -9999];
             _unit setVariable [QGVARXR(DragAction), -9999];
