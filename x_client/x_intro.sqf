@@ -19,9 +19,8 @@ createDialog "X_RscAnimatedLetters";
 setMousePosition [1, 1];
 _line = 0;
 GVAR(animL_i) = 0;
-titleText ["", "BLACK IN",3];
+titleText ["", "BLACK IN",4];
 
-#ifdef __OA__
 _arrow_over_head = "Sign_arrow_down_large_EP1" createVehicleLocal [getPosASL player select 0, getPosASL player select 1, 2.2];
 _arrow_over_head setPos [getPosASL player select 0, getPosASL player select 1, 2.2];
 _arrow_over_head spawn {
@@ -35,7 +34,6 @@ _arrow_over_head spawn {
         sleep 0.005;
     };
 };
-#endif
 
 "dynamicBlur" ppEffectEnable true;
 "dynamicBlur" ppEffectAdjust [6];
@@ -43,33 +41,24 @@ _arrow_over_head spawn {
 "dynamicBlur" ppEffectAdjust [0.0];
 "dynamicBlur" ppEffectCommit 15;
 
-#ifdef __CO__
-playMusic "Track07_Last_Men_Standing";
-#endif
-#ifdef __OA__
-playMusic "EP1_Track01D";
-#endif
+playMusic "MyIntro";
 
 if (daytime > 19.75 || daytime < 4.15) then {camUseNVG true};
 
 GVAR(intro_color) = switch (GVAR(own_side)) do {case "WEST": {[0.85,0.88,1,1]};case "EAST": {[1,0.36,0.34,1]};case "GUER": {[1,1,0,1]};};
 _camstart = camstart;
 
-private "_camera";
-_camera = "camera" camCreate [getPosASL _camstart select 0, (getPosASL _camstart select 1) + 1, 120];
-_camera camSetTarget [getPosASL player select 0, getPosASL player select 1 , 1.5];
-_camera camSetFov 0.7;
-_camera cameraEffect ["INTERNAL", "Back"];
-_camera camCommit 1;
-waitUntil {camCommitted _camera};
+// private "_camera";
+// _camera = "camera" camCreate [getPosASL _camstart select 0, (getPosASL _camstart select 1) + 1, 120];
+// _camera camSetTarget [getPosASL player select 0, getPosASL player select 1 , 1.5];
+// _camera camSetFov 0.7;
+// _camera cameraEffect ["INTERNAL", "Back"];
+// _camera camCommit 1;
+// waitUntil {camCommitted _camera};
 
 _str = "One Team - " + GVAR(version_string);
 _start_pos = 5;
 _str2 = "";
-if (GVAR(with_ai)) then {if (_str2 != "") then {_str2 = _str2 + " AI"} else {_str2 = _str2 + "AI"}};
-if (__RankedVer) then {if (_str2 != "") then {_str2 = _str2 + " RA"} else {_str2 = _str2 + "RA"}};
-if (__WoundsVer) then {if (_str2 != "") then {_str2 = _str2 + " WOUNDS"} else {_str2 = _str2 + "WOUNDS"}};
-if (GVAR(WithRevive) == 0) then {if (_str2 != "") then {_str2 = _str2 + " REVIVE"} else {_str2 = _str2 + "REVIVE"}};
 _sarray = toArray (_str2);
 _start_pos2 = switch (count _sarray) do {
     case 2: {11};
@@ -94,6 +83,7 @@ _start_pos2 = switch (count _sarray) do {
 2 cutRsc ["XDomAward","PLAIN",2];
 3 cutRsc ["XDomTwo", "PLAIN",2];
 4 cutRsc ["XA2Logo","PLAIN",2];
+sleep 4;
 [_start_pos, _str, 5] execVM "IntroAnim\animateLettersX.sqf";__INC(_line); waitUntil {GVAR(animL_i) == _line};
 if (count _sarray > 0) then {[_start_pos2, _str2, 6] execVM "IntroAnim\animateLettersX.sqf";__INC(_line); waitUntil {GVAR(animL_i) == _line}};
 switch (GVAR(MissionType)) do {
@@ -105,22 +95,10 @@ switch (GVAR(MissionType)) do {
     };
 };
 
-#ifndef __TOH__
-_camera camSetTarget player;
-#endif
-_p_tpos =
-#ifndef __CARRIER__
-    [getPosASL player select 0, getPosASL player select 1, 2];
-#else
-    [getPosASL player select 0, getPosASL player select 1, 12];
-#endif
-#ifndef __TOH__
-_camera camSetPos _p_tpos;
-_camera camCommit 18;
-#else
-_camera camPrepareTarget _p_tpos;
-_camera camCommitPrepared 18;
-#endif
+// _camera camSetTarget player;
+// _p_tpos = [getPosASL player select 0, getPosASL player select 1, 2];
+// _camera camSetPos _p_tpos;
+// _camera camCommit 18;
 
 0 spawn {
     private ["_control", "_posdom", "_control2", "_pos", "_oldy"];
@@ -142,17 +120,11 @@ _camera camCommitPrepared 18;
     playSound "DThunder";
 };
 55 cutRsc ["dXlabel","PLAIN"];
-sleep 6;
-waitUntil {camCommitted _camera};
-#ifdef __OA__
+sleep 14.5;
+// waitUntil {camCommitted _camera};
 deleteVehicle _arrow_over_head;
-#endif
-//#ifndef __TOH__
 player cameraEffect ["terminate","back"];
-//#else
-//player cameraEffect ["internal","back"];
-//#endif
-camDestroy _camera;
+// camDestroy _camera;
 closeDialog 0;
 
 enableRadio true;
@@ -180,7 +152,7 @@ if (!_uidcheck_done && {count GVAR(uid_reserved_slots) > 0} && {count GVAR(uids_
 GVAR(still_in_intro) = false;
 
 sleep 5;
-[(localize "STR_DOM_MISSIONSTRING_265"), name player, (localize "STR_DOM_MISSIONSTRING_266")] spawn FUNC(infoText);
+// [(localize "STR_DOM_MISSIONSTRING_265"), name player, (localize "STR_DOM_MISSIONSTRING_266")] spawn FUNC(infoText);
 sleep 1;
 if (!isNil QGVAR(server_name)) then {
     if (isNil QGVAR(player_stats)) then {

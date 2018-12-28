@@ -846,7 +846,7 @@ class CfgSounds {
 class X_RscAnimatedLetters {
     idd = -1;
     movingEnable = false;
-    onLoad = "uiNamespace setVariable ['X_ANIM_LETTERS', _this select 0]";
+    onLoad = "uiNamespace setVariable ['X_ANIM_LETTERS', _this select 0];escKeyEH = (_this select 0) displayAddEventHandler [""KeyDown"", ""if (((_this select 1) == 1)) then {true};""]";
     onUnLoad = "uiNamespace setVariable ['X_ANIM_LETTERS', nil]";
 
     class ControlsBackground {};
@@ -1106,6 +1106,19 @@ class CfgIdentities {
         speaker = "Male03TK";
     };
 #endif
+};
+
+class CfgMusic
+{
+    tracks[] = {};
+    class MyIntro
+    {
+        // display name
+        name	= "My intro music";
+
+        // filename, volume, pitch
+        sound[]	= { "\sounds\hitormiss.ogg", db + 0, 1.0 };
+    };
 };
 
 
