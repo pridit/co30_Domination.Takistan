@@ -136,7 +136,7 @@ if (X_Client) then {
 
     __cppfln(FUNC(getsidemissionclient),x_missions\x_getsidemissionclient.sqf);
     __cppfln(FUNC(initvec),x_client\x_initvec.sqf);
-    __cppfln(FUNC(weaponcargo),x_client\x_weaponcargo_oa.sqf);
+    __cppfln(FUNC(weaponcargo),x_client\x_weaponcargo.sqf);
     
     bis_fnc_halo = compile preprocessFileLineNumbers "AAHALO\Scripts\fn_halo.sqf";
 };
