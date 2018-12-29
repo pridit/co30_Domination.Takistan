@@ -40,7 +40,6 @@ GVAR(check_trigger) = [_current_target_pos, [_current_target_radius + 20, _curre
 
 while {!GVAR(update_target)} do {sleep 2.123};
 
-_tsar = ["(X_JIPH getVariable 'd_mt_radio_down') && {d_side_main_done} && {((X_JIPH getVariable 'd_campscaptured_e') == d_sum_camps || {(X_JIPH getVariable 'd_campscaptured_w') == d_sum_camps})} && {('Car' countType thislist <= d_car_count_for_target_clear)} && {('Tank' countType thislist <= d_tank_count_for_target_clear)} && {('Man' countType thislist <= d_man_count_for_target_clear)}", "0 = [] execVM 'x_server\x_target_clear.sqf'", ""];
+_tsar = ["(X_JIPH getVariable 'd_mt_radio_down') && {d_side_main_done} && {(X_JIPH getVariable 'd_campscaptured') == d_sum_camps} && {('Car' countType thislist <= d_car_count_for_target_clear)} && {('Tank' countType thislist <= d_tank_count_for_target_clear)} && {('Man' countType thislist <= d_man_count_for_target_clear)}", "0 = [] execVM 'x_server\x_target_clear.sqf'", ""];
 
 GVAR(current_trigger) = [_current_target_pos, [_current_target_radius  + 50, _current_target_radius + 50, 0, false],[GVAR(enemy_side), "PRESENT", false], _tsar] call FUNC(CreateTrigger);
-
