@@ -1089,6 +1089,10 @@ FUNC(perkclicked) = {
     GVAR(perk_points_available) = _points - 1;
     GVAR(perks_unlocked) = GVAR(perks_unlocked) + [_idc];
     
+    if (count GVAR(perks_unlocked) == 9) then {
+        playSound "PowerOfTheSun";
+    };
+    
     closeDialog 0;
     call FUNC(showperks);
 };

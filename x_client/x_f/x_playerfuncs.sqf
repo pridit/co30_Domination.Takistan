@@ -117,7 +117,7 @@ FUNC(PlayerRank) = {
     if (_score < (GVAR(points_needed) select 1) && {_score >= (GVAR(points_needed) select 0)} && {_d_player_old_rank != 1}) exitWith {
         if (_d_player_old_score < (GVAR(points_needed) select 1)) then {
             (localize "STR_DOM_MISSIONSTRING_665") call FUNC(HQChat);
-            playSound "fanfare";
+            playSound "Impressive";
         } else {
             (format [(localize "STR_DOM_MISSIONSTRING_666"),_d_player_old_rank call FUNC(GetRankIndex2)]) call FUNC(HQChat);
         };
@@ -129,7 +129,7 @@ FUNC(PlayerRank) = {
     if (_score < (GVAR(points_needed) select 2) && {_score >= (GVAR(points_needed) select 1)} && {_d_player_old_rank != 2}) exitWith {
         if (_d_player_old_score < (GVAR(points_needed) select 2)) then {
             (localize "STR_DOM_MISSIONSTRING_667") call FUNC(HQChat);
-            playSound "fanfare";
+            playSound "Impressive";
         } else {
             (format [(localize "STR_DOM_MISSIONSTRING_668"),_d_player_old_rank call FUNC(GetRankIndex2)]) call FUNC(HQChat);
         };
@@ -141,7 +141,7 @@ FUNC(PlayerRank) = {
     if (_score < (GVAR(points_needed) select 3) && {_score >= (GVAR(points_needed) select 2)} && {_d_player_old_rank != 3}) exitWith {
         if (_d_player_old_score < (GVAR(points_needed) select 3)) then {
             (localize "STR_DOM_MISSIONSTRING_669") call FUNC(HQChat);
-            playSound "fanfare";
+            playSound "Impressive";
         } else {
             (format [(localize "STR_DOM_MISSIONSTRING_670"),_d_player_old_rank call FUNC(GetRankIndex2)]) call FUNC(HQChat);
         };
@@ -153,7 +153,7 @@ FUNC(PlayerRank) = {
     if (_score < (GVAR(points_needed) select 4) && {_score >= (GVAR(points_needed) select 3)} && {_d_player_old_rank != 4}) exitWith {
         if (_d_player_old_score < (GVAR(points_needed) select 4)) then {
             (localize "STR_DOM_MISSIONSTRING_671") call FUNC(HQChat);
-            playSound "fanfare";
+            playSound "Impressive";
         } else {
             (format [(localize "STR_DOM_MISSIONSTRING_672"),_d_player_old_rank call FUNC(GetRankIndex2)]) call FUNC(HQChat);
         };
@@ -165,7 +165,7 @@ FUNC(PlayerRank) = {
     if (_score < (GVAR(points_needed) select 5) && {_score >= (GVAR(points_needed) select 4)} && {_d_player_old_rank != 5}) exitWith {		
         if (_d_player_old_score < (GVAR(points_needed) select 4)) then {
             (localize "STR_DOM_MISSIONSTRING_673") call FUNC(HQChat);
-            playSound "fanfare";
+            playSound "Impressive";
         } else {
             (format [(localize "STR_DOM_MISSIONSTRING_674"),_d_player_old_rank call FUNC(GetRankIndex2)]) call FUNC(HQChat);
         };
@@ -178,7 +178,7 @@ FUNC(PlayerRank) = {
         _d_player_old_rank = 6;
         player setRank (_d_player_old_rank call FUNC(GetRankIndex2));
         (localize "STR_DOM_MISSIONSTRING_675") call FUNC(HQChat);
-        playSound "fanfare";
+        playSound "Impressive";
         __pSetVar [QGVAR(player_old_score), _score];
         __pSetVar [QGVAR(player_old_rank), _d_player_old_rank];
     };

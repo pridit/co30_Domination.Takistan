@@ -16,6 +16,8 @@ if (!isNil QGVAR(task1)) then {GVAR(task1) setTaskState "Succeeded"};
 if (!isNil QGVAR(current_task)) then {
     GVAR(current_task) setTaskState "Succeeded";
     [GVAR(current_task), "SUCCEEDED"] call FUNC(TaskHint);
+    sleep 3;
+    playSound "PizzaTime";
 };
 
 if (count __XJIPGetVar(resolved_targets) < GVAR(MainTargets)) then {
