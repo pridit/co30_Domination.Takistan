@@ -318,7 +318,38 @@ if (isServer) then {
     WALL3 addEventHandler ["handleDamage", {0}];
 };
 
-GVAR(player_entities) = ["RESCUE","RESCUE2","alpha_1","alpha_2","alpha_3","alpha_4","alpha_5","alpha_6","alpha_7","alpha_8","bravo_1","bravo_2","bravo_3","bravo_4","bravo_5","bravo_6","bravo_7","bravo_8","charlie_1","charlie_2","charlie_3","charlie_4","charlie_5","charlie_6","charlie_7","charlie_8","delta_1","delta_2","delta_3","delta_4","delta_5","delta_6","echo_1","echo_2","echo_3","echo_4","echo_5","echo_6","echo_7","echo_8"];
+GVAR(artillery) = [];
+GVAR(engineers) = [];
+GVAR(machine_gunners) = [];
+GVAR(marksmen) = [];
+GVAR(medics) = [];
+GVAR(pilots) = [];
+
+for "_i" from 1 to 2 do {
+    GVAR(artillery) = GVAR(artillery) + ["ARTY" + str _i];
+};
+
+for "_i" from 1 to 8 do {
+    GVAR(engineers) = GVAR(engineers) + ["ENGINEER" + str _i];
+};
+
+for "_i" from 1 to 8 do {
+    GVAR(machine_gunners) = GVAR(machine_gunners) + ["MGUNNER" + str _i];
+};
+
+for "_i" from 1 to 8 do {
+    GVAR(marksmen) = GVAR(marksmen) + ["MARKSMAN" + str _i];
+};
+
+for "_i" from 1 to 8 do {
+    GVAR(medics) = GVAR(medics) + ["MEDIC" + str _i];
+};
+
+for "_i" from 1 to 6 do {
+    GVAR(pilots) = GVAR(pilots) + ["PILOT" + str _i];
+};
+
+GVAR(player_entities) = GVAR(artillery) + GVAR(engineers) + GVAR(machine_gunners) + GVAR(marksmen) + GVAR(medics) + GVAR(pilots);
 
 if (!isDedicated) then {
     GVAR(player_roles) = ["PLT LD","PLT SGT","SL","SN","MG","AT","GL","CM","AR","AM","TL","OP","GL","MG","MM","CM","GL","DS","SL","SN","AR","AT","RM","CM","MG","AT","EN","EN","EN","EN","EN","EN","SL","SN","AR","AT","RM","CM","MG","AT"];

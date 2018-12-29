@@ -959,7 +959,7 @@ class Mission
                     player="PLAY CDG";
                     leader=1;
                     skill=0.59999996;
-                    text="SNIPER1";
+                    text="MARKSMAN1";
                     init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman Team Leader";
                 };
@@ -973,7 +973,7 @@ class Mission
                     vehicle="US_Delta_Force_Marksman_EP1";
                     player="PLAY CDG";
                     skill=0.2;
-                    text="SNIPER2";
+                    text="MARKSMAN2";
                     init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman";
                 };
@@ -987,7 +987,7 @@ class Mission
                     vehicle="US_Delta_Force_Marksman_EP1";
                     player="PLAY CDG";
                     skill=0.33333331;
-                    text="SNIPER3";
+                    text="MARKSMAN3";
                     init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman";
                 };
@@ -1001,7 +1001,7 @@ class Mission
                     vehicle="US_Delta_Force_Marksman_EP1";
                     player="PLAY CDG";
                     skill=0.33333331;
-                    text="SNIPER4";
+                    text="MARKSMAN4";
                     init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman";
                 };
@@ -1015,7 +1015,7 @@ class Mission
                     vehicle="US_Soldier_Sniper_EP1";
                     player="PLAY CDG";
                     skill=0.46666664;
-                    text="SNIPER5";
+                    text="MARKSMAN5";
                     init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman (Ghillie)";
                 };
@@ -1029,7 +1029,7 @@ class Mission
                     vehicle="US_Soldier_Sniper_EP1";
                     player="PLAY CDG";
                     skill=0.2;
-                    text="SNIPER6";
+                    text="MARKSMAN6";
                     init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman (Ghillie)";
                 };
@@ -1043,7 +1043,7 @@ class Mission
                     vehicle="US_Soldier_Sniper_EP1";
                     player="PLAY CDG";
                     skill=0.33333331;
-                    text="SNIPER7";
+                    text="MARKSMAN7";
                     init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman (Ghillie)";
                 };
@@ -1057,7 +1057,7 @@ class Mission
                     vehicle="US_Soldier_Sniper_EP1";
                     player="PLAY CDG";
                     skill=0.33333331;
-                    text="SNIPER8";
+                    text="MARKSMAN8";
                     init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
                     description="Marksman (Ghillie)";
                 };
