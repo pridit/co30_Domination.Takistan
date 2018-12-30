@@ -123,7 +123,6 @@ __awc(BAF_AS50_TWS, 10)
 __awc(BAF_LRR_scoped, 10)
 __awc(BAF_LRR_scoped_W, 10)
 __awc(BAF_NLAW_Launcher, 10)
-__awc(BAF_L17_40mm, 50)
 
 // Weapons: Private Military Company
 __awc(AA12_PMC, 10)
