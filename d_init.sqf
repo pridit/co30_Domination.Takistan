@@ -375,7 +375,7 @@ if (isServer) then {
         [transport1,302,false,1500],
         [transport2,303,false,1500],
         [transport3,92,false,1500],
-        [transport4,313,false,1200],
+        [transport4,94,false,1200],
         [light1,306,false,600],
         [light2,307,false,600],
         [wrk1,304,false,600],

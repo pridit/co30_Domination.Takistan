@@ -2078,7 +2078,7 @@ class Mission
             side="EMPTY";
             vehicle="C130J_US_EP1";
             skill=0.33333331;
-            text="c130";
+            text="transport4";
         };
         class Item72
         {
