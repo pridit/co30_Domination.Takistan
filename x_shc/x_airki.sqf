@@ -80,7 +80,7 @@ while {true} do {
         _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
         _vehicle setVariable ["D_VEC_SIDE", 1, true];
         _vehicle execFSM "fsms\Wreckmarker.fsm";
-        if (!GVAR(banti_airdown)) then {_vehicle spawn FUNC(AirMarkerMove)};
+        _vehicle spawn FUNC(AirMarkerMove);
         sleep 0.1;
     };
     

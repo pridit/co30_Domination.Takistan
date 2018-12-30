@@ -112,6 +112,10 @@ _multiplyMatrixFunc = {
         _newObj = createVehicle [_type, _newPos, [], 0, "NONE"];
         _newObj setDir (_azi + _azimuth);
         _newObj setPos _newPos;
+        
+        if (_newObj isKindOf GVAR(baseAARadarUS)) then {
+            _newObj addEventHandler ["handleDamage", {0}];
+        };
 
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage};

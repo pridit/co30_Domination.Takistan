@@ -66,13 +66,12 @@ class Sentences {
         };
     };
     class ArtilleryRequest {
-        text = "$STR_DOM_MISSIONSTRING_1349";
+        text = "$STR_DOM_MISSIONSTRING_1404";
         speech[] = {};
         class Arguments {
             class 1 {type = "simple";};
             class 2 {type = "simple";};
             class 3 {type = "simple";};
-            class 4 {type = "simple";};
         };
     };
     class ArtilleryRoger {
@@ -85,14 +84,14 @@ class Sentences {
 #ifndef __TT__
     class ArtilleryFirstOTW {
         text = "$STR_DOM_MISSIONSTRING_1351";
-        speech[] = {SecOp_Artillery_Barrage_Shot};
+        speech[] = {ShotOver};
         class Arguments {
             class 1 {type = "simple";};
         };
     };
     class ArtillerySecondOTW {
         text = "$STR_DOM_MISSIONSTRING_1352";
-        speech[] = {SecOp_Artillery_Barrage_Shot};
+        speech[] = {ShotOver};
         class Arguments {
             class 1 {type = "simple";};
         };
@@ -100,23 +99,23 @@ class Sentences {
 #else
     class ArtilleryOTW {
         text = "$STR_DOM_MISSIONSTRING_1353";
-        speech[] = {SecOp_Artillery_Barrage_Shot};
+        speech[] = {ShotOver};
         class Arguments {
             class 1 {type = "simple";};
         };
     };
 #endif
-#ifndef __TT__
+    #ifndef __TT__
     class ArtilleryFirstSplash {
         text = "$STR_DOM_MISSIONSTRING_1354";
-        speech[] = {SecOp_Artillery_Barrage_Splash};
+        speech[] = {SplashOver};
         class Arguments {
             class 1 {type = "simple";};
         };
     };
     class ArtillerySecondSplash {
         text = "$STR_DOM_MISSIONSTRING_1355";
-        speech[] = {SecOp_Artillery_Barrage_Splash};
+        speech[] = {SplashOver};
         class Arguments {
             class 1 {type = "simple";};
         };
@@ -124,7 +123,7 @@ class Sentences {
     #else
     class ArtillerySplash {
         text = "$STR_DOM_MISSIONSTRING_1356";
-        speech[] = {SecOp_Artillery_Barrage_Splash};
+        speech[] = {SplashOver};
         class Arguments {
             class 1 {type = "simple";};
         };
@@ -139,7 +138,7 @@ class Sentences {
     };
     class ArtilleryComplete {
         text = "$STR_DOM_MISSIONSTRING_1358";
-        speech[] = {SecOp_Artillery_Barrage_RoundsComplete};
+        speech[] = {RoundsComplete};
         class Arguments {
             class 1 {type = "simple";};
         };
@@ -244,12 +243,12 @@ class Sentences {
     };
     #ifndef __TT__
     class RussianCampByUS {
-        text = "$STR_DOM_MISSIONSTRING_1376";
+        text = "$STR_DOM_MISSIONSTRING_1405";
         speech[] = {};
         class Arguments {};
     };
     class USCampByRussian {
-        text = "$STR_DOM_MISSIONSTRING_1377";
+        text = "$STR_DOM_MISSIONSTRING_1406";
         speech[] = {};
         class Arguments {};
     };
@@ -260,7 +259,7 @@ class Sentences {
         class Arguments {};
     };
     class CapCampByRU {
-        text = "$STR_DOM_MISSIONSTRING_1379";
+        text = "$STR_DOM_MISSIONSTRING_1407";
         speech[] = {};
         class Arguments {};
     };
@@ -277,16 +276,6 @@ class Sentences {
     };
     class NewJumpVehFlag {
         text = "$STR_DOM_MISSIONSTRING_1383";
-        speech[] = {};
-        class Arguments {};
-    };
-    class TellBaseRadarDown {
-        text = "$STR_DOM_MISSIONSTRING_1386";
-        speech[] = {};
-        class Arguments {};
-    };
-    class TellBaseRadarUpAgain {
-        text = "$STR_DOM_MISSIONSTRING_1387";
         speech[] = {};
         class Arguments {};
     };
@@ -385,12 +374,18 @@ class Sentences {
         speech[] = {BaseUnderAtack};
         class Arguments {};
     };
-    
     class distanceReport {
         text = "%Dist";
         speech[]={%Dist};
         class Arguments {
             class Dist {type = "simple";};
+        };
+    };
+    class EnemyWreck {
+        text = "$STR_DOM_MISSIONSTRING_1450";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
         };
     };
 };

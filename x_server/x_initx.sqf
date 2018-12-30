@@ -8,10 +8,8 @@ __ccppfln(x_shc\x_shcinit.sqf);
 __cppfln(FUNC(vehirespawn),x_server\x_vehirespawn.sqf);
 __cppfln(FUNC(vehirespawn2),x_server\x_vehirespawn2.sqf);
 __cppfln(FUNC(arifire),x_server\x_arifire.sqf);
-__cppfln(FUNC(radarkilled),x_server\x_radarkilled.sqf);
 __cppfln(FUNC(markercheck),x_server\x_markercheck.sqf);
 
-#ifndef __TT__
 0 spawn {
     scriptName "spawn_x_initx_createbase";
     private ["_x_objs", "_x_objs2", "_x_objs3", "_dgrp", "_unit_array"];
@@ -86,10 +84,7 @@ __cppfln(FUNC(markercheck),x_server\x_markercheck.sqf);
                     _dgrp = [GVAR(own_side)] call FUNC(creategroup);
                     _crew = [_x, _dgrp] call FUNC(spawnCrew);
                 };
-            } else {
-                _x addMPEventHandler ["MPkilled", {if (call FUNC(checkSHC)) then {GVAR(banti_airdown) = true};if (isServer) then {_this call FUNC(radarkilled)}}];
             };
         };
     } forEach _x_objs + _x_objs2 + _x_objs3;
 };
-#endif

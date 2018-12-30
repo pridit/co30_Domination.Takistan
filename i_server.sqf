@@ -744,8 +744,6 @@ if (GVAR(with_ai)) then {
     [QGVAR(AI_HUT), _D_AI_HUT] call FUNC(NetSetJIP);
 };
 
-GVAR(banti_airdown) = false;
-
 GVAR(wreck_cur_ar) = [];
 
 GVAR(misc_stores) = GVAR(HeliHEmpty) createVehicleLocal [0,0,0];

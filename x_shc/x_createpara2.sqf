@@ -24,12 +24,10 @@ _wp2 setwaypointtype "MOVE";
 
 _chopper flyinheight 100;
 
-#ifndef __TT__
-if (!GVAR(banti_airdown)) then {_chopper spawn FUNC(AirMarkerMove)};
+_chopper spawn FUNC(AirMarkerMove);
 if ((__XJIPGetVar(GVAR(searchintel)) select 0) == 1) then {
     [QGVAR(kbmsg), [21]] call FUNC(NetCallEventCTS);
 };
-#endif
 
 _parachute_type = GVAR(enemy_side) call FUNC(GetParachuteSide);
 

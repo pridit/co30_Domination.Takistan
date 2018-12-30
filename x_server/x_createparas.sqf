@@ -167,7 +167,7 @@ for "_i" from 1 to _number_vehicles do {
     _veca = [_spos, _cdir, _heli_type, _vgrp] call FUNC(spawnVehicle);
     _vehicle = _veca select 0;
     if !((toUpper _heli_type) in GVAR(heli_wreck_lift_types)) then {__addDead(_vehicle)};
-    if (!GVAR(banti_airdown)) then {_vehicle spawn FUNC(AirMarkerMove)};
+    _vehicle spawn FUNC(AirMarkerMove);
     if (GVAR(with_ai) && {__RankedVer}) then {
         _vehicle addMPEventHandler ["MPkilled", {if (isServer) then {[8,_this select 1] call FUNC(AddKillsAI)}}];
     };

@@ -740,11 +740,11 @@ FUNC(AirMarkerMove) = {
     private ["_vec", "_markern"];
     _vec = _this;
     sleep 30;
-    if (!isNull _vec && {alive _vec} && {canMove _vec} && {!GVAR(banti_airdown)}) then {
+    if (!isNull _vec && {alive _vec} && {canMove _vec}) then {
         _markern = str(_vec) + str(GVAR(airmarker_counter));
         __INC(GVAR(airmarker_counter));
         [_markern, [0,0,0],"ICON","ColorRed",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_963"),0,"Air"] call FUNC(CreateMarkerGlobal);
-        while {!isNull _vec && {alive _vec} && {canMove _vec} && {!GVAR(banti_airdown)}} do {
+        while {!isNull _vec && {alive _vec} && {canMove _vec}} do {
             _markern setMarkerPos getPosASL _vec;
             sleep (3 + random 1);
         };

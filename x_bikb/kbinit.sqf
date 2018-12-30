@@ -34,12 +34,7 @@ if (isServer) then {
     GVAR(hq_logic_ru2) = __XJIPGetVar(GVAR(hq_logic_ru2));
 };
 
-#ifdef __OA__
-_kbscript = "x_bikb\domkboa.bikb";
-#endif
-#ifdef __CO__
 _kbscript = "x_bikb\domkb.bikb";
-#endif
 
 GVAR(hq_logic_ru1) kbAddTopic["HQ_E",_kbscript];
 GVAR(hq_logic_ru1) kbAddTopic["HQ_ART_E",_kbscript];
