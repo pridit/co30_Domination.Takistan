@@ -714,7 +714,7 @@ class Mission
                     id=289;
                     side="WEST";
                     vehicle="US_Delta_Force_TL_EP1";
-                    player="PLAYER COMMANDER";
+                    player="PLAY CDG";
                     leader=1;
                     skill=0.59999996;
                     text="ENGINEER1";
