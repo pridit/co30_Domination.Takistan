@@ -175,7 +175,7 @@ for "_i" from 1 to _number_vehicles do {
     sleep 5.012;
     
     _vehicle flyInHeight 100;
-    _vehicle setVariable [QGVAR(WreckDeleteTime), 3600, true];
+    _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
     _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
     _vehicle setVariable ["D_VEC_SIDE", 1, true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";

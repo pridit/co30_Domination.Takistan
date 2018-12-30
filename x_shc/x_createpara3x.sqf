@@ -39,7 +39,7 @@ _make_jump = {
     _wp = _vgrp addWaypoint [_heliendpoint, 0];
     
     _vehicle flyInHeight 100;
-    _vehicle setVariable [QGVAR(WreckDeleteTime), 3600, true];
+    _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
     _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
     _vehicle setVariable ["D_VEC_SIDE", 1, true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";
