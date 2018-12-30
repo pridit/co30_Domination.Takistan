@@ -295,7 +295,9 @@ GVAR(heli_wreck_lift_types) = GVAR(sm_bonus_vehicle_array) + GVAR(mt_bonus_vehic
 
 GVAR(lift_types_custom) = [
     "A10_US_EP1",
-    "C130J_US_EP1"
+    "C130J_US_EP1",
+    "Su25_TK_EP1",
+    "L39_TK_EP1"
 ];
 
 // internal
