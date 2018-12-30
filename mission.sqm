@@ -25,7 +25,8 @@ class Mission
         "ca_baf",
         "warfarebuildings",
         "cawheeled_d_baf",
-        "castructures_e_mil"
+        "castructures_e_mil",
+        "camp_armory_misc_info_board"
     };
     addOnsAuto[]=
     {
@@ -51,6 +52,7 @@ class Mission
         "cawheeled_d_baf",
         "camisc_e_wf",
         "castructures_e_mil",
+        "camp_armory_misc_info_board",
         "takistan"
     };
     randomSeed=6464821;
@@ -1280,7 +1282,7 @@ class Mission
     };
     class Vehicles
     {
-        items=268;
+        items=269;
         class Item0
         {
             position[]={8330.8545,296.04001,2045.4362};
@@ -1338,7 +1340,7 @@ class Mission
         };
         class Item5
         {
-            position[]={8275.6055,296.04001,2108.3738};
+            position[]={8278.1396,296.04001,2110.4895};
             id=5;
             side="EMPTY";
             vehicle="FlagCarrierUNO_EP1";
@@ -1984,7 +1986,7 @@ class Mission
         };
         class Item63
         {
-            position[]={8268.6025,296.04001,2096.364};
+            position[]={8268.6299,296.04001,2096.3113};
             azimut=-121.5187;
             special="NONE";
             id=86;
@@ -2061,8 +2063,8 @@ class Mission
         };
         class Item70
         {
-            position[]={8273.585,296.04001,2123.2034};
-            azimut=120.597;
+            position[]={8261.0029,296.04001,2110.0564};
+            azimut=102.42641;
             id=93;
             side="EMPTY";
             vehicle="Sign_Checkpoint";
@@ -3915,6 +3917,17 @@ class Mission
             skill=0.60000002;
             init="this addEventHandler [""HandleDamage"", {false}];";
         };
+        class Item268
+        {
+            position[]={8265.0859,296.04001,2104.2307};
+            azimut=240.214;
+            id=339;
+            side="EMPTY";
+            vehicle="Info_Board_EP1";
+            skill=0.60000002;
+            text="help";
+            init="this setObjectTexture [0,""pics\help.paa""]; this addAction [""Main Targets"", ""boards\main.sqf""]; this addAction [""Perks"", ""boards\perks.sqf""]; this addAction [""Tips"", ""boards\tips.sqf""]; this addEventHandler [""HandleDamage"", {false}];";
+        };
     };
     class Markers
     {
@@ -3939,7 +3952,7 @@ class Mission
         };
         class Item3
         {
-            position[]={8272.1738,296.04001,2108.6531};
+            position[]={8274.708,296.04001,2110.7688};
             name="base_spawn_1";
             type="Empty";
         };
@@ -4053,7 +4066,7 @@ class Mission
         };
         class Item18
         {
-            position[]={8270.9873,296.04001,2105.2361};
+            position[]={8273.5215,296.04001,2107.3518};
             name="d_player_ammobox_pos";
             type="Empty";
             angle=151.92087;
