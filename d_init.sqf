@@ -369,27 +369,39 @@ if (isServer) then {
 
     // editor varname, unique number, true = respawn only when the chopper is completely destroyed, false = respawn after some time when no crew is in or chopper is destroyed
     [
-        [ch1,301,false,5400],
-        [ch2,302,false,1500],
-        [ch3,303,false,1500],
-        [ch4,304,false,1500],
-        [ch5,305,false,5400],
-        [ch6,306,false,600],
-        [ch7,307,false,600],
-        [ch8,308,false,5400],
-        [ch9,309,false,600],
-        [atv1,310,false,300],
-        [atv2,311,false,300],
-        [atv3,312,false,300],
-        [atv4,315,false,300],
-        [c130,313,false,1500]
+        [lift1,301,false,5400],
+        [lift2,305,false,5400],
+        [lift3,308,false,5400],
+        [transport1,302,false,1500],
+        [transport2,303,false,1500],
+        [transport3,92,false,1500],
+        [transport4,313,false,1200],
+        [light1,306,false,600],
+        [light2,307,false,600],
+        [wrk1,304,false,600],
+        [wrk2,329,false,600],
+        [atv1,310,false,180],
+        [atv2,311,false,180],
+        [atv3,312,false,180],
+        [atv4,315,false,180]
     ] execVM "x_server\x_helirespawn2.sqf";
 
     // editor varname, unique number
     //0-9 = MHQ, 10-19 = Medic vehicles, 20-29 = Fuel, Repair, Reammo trucks, 30-39 = Engineer Salvage trucks, 40-49 = Transport trucks
     [
-        [xvec1,0],[xvec2,1],[xmedvec,10],[xvec3,20],[xvec4,21],[xvec5,22], [xvec7,23],
-        [xvec8,24], [xvec9,25], [xvec6,30], [xvec10,31], [xvec11,40], [xvec12,41]
+        [mhq1,0],
+        [mhq2,1],
+        [xmedvec,10],
+        [xvec3,20],
+        [xvec4,21],
+        [xvec5,22],
+        [xvec7,23],
+        [xvec8,24],
+        [xvec9,25],
+        [xvec6,30],
+        [xvec10,31],
+        [xvec11,40],
+        [xvec12,41]
     ] execVM "x_server\x_vrespawn2.sqf";
     
     [

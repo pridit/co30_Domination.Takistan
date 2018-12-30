@@ -67,7 +67,7 @@ GVAR(current_truck_cargo_array) = 0;
 // the only vehicles that can load an ammo box are the transport choppers and MHQs__
 #ifdef __OWN_SIDE_WEST__
 GVAR(check_ammo_load_vecs) = switch (true) do {
-    case (__OAVer): {["M1133_MEV_EP1","UH60M_EP1","UH1H_TK_GUE_EP1","BMP2_HQ_TK_EP1","Mi17_TK_EP1","CH_47F_BAF","BAF_Merlin_HC3_D"]};
+    case (__OAVer): {["M1133_MEV_EP1","UH60M_EP1","UH1H_TK_GUE_EP1","BMP2_HQ_TK_EP1","Mi17_TK_EP1","MV22"]};
     case (__COVer): {["LAV25_HQ","MH60S"]};
 };
 #endif
@@ -126,19 +126,20 @@ GVAR(marker_vecs) = [];
 
 // chopper varname, type (0 = lift chopper, 1 = wreck lift chopper, 2 = normal chopper), marker name, unique number (same as in init.sqf), marker type, marker color, marker text, chopper string name
 GVAR(choppers) = [
-    ["HR1",0,"chopper1",301,"n_air","ColorWhite","CH1",(localize "STR_DOM_MISSIONSTRING_7")],
-    ["HR2",2,"chopper2",302,"n_air","ColorWhite","UH2",""],
-    ["HR3",2,"chopper3",303,"n_air","ColorWhite","UH1",""],
-    ["HR4",1,"chopper4",304,"n_air","ColorWhite","WRK",(localize "STR_DOM_MISSIONSTRING_10")],
-    ["HR5",0,"chopper5",305,"n_air","ColorWhite","CH2",(localize "STR_DOM_MISSIONSTRING_8")],
-    ["HR6",2,"chopper6",306,"n_air","ColorWhite","LB1",""],
-    ["HR7",2,"chopper7",307,"n_air","ColorWhite","LB2",""],
-    ["HR8",0,"chopper8",308,"n_air","ColorWhite","HC3",(localize "STR_DOM_MISSIONSTRING_9")],
-    ["HR9",2,"chopper9",309,"n_air","ColorWhite","MV22",""],
-    ["HR10",2,"chopper10",313,"n_air","ColorWhite","C130J",""],
-    ["HR11",2,"chopper11",350,"n_air","ColorWhite","A10",""],
-    ["HR12",2,"chopper12",351,"n_air","ColorWhite","UH1Y",""],
-    ["HR13",2,"chopper13",352,"n_air","ColorWhite","AH64",""]
+    ["LIFT1",0,"lift1",301,"n_air","ColorWhite","CH1",(localize "STR_DOM_MISSIONSTRING_7")],
+    ["LIFT2",0,"lift2",305,"n_air","ColorWhite","CH2",(localize "STR_DOM_MISSIONSTRING_8")],
+    ["LIFT3",0,"lift3",308,"n_air","ColorWhite","HC3",(localize "STR_DOM_MISSIONSTRING_9")],
+    ["TRANSPORT1",2,"transport1",302,"n_air","ColorWhite","UH1",""],
+    ["TRANSPORT2",2,"transport2",303,"n_air","ColorWhite","UH2",""],
+    ["TRANSPORT3",2,"transport3",92,"n_air","ColorWhite","MV22",""],
+    ["TRANSPORT4",2,"transport4",313,"n_air","ColorWhite","C130J",""],
+    ["LIGHT1",2,"light1",306,"n_air","ColorWhite","LB1",""],
+    ["LIGHT2",2,"light2",307,"n_air","ColorWhite","LB2",""],
+    ["WRECK1",1,"wreck1",304,"n_air","ColorWhite","WRK1",(localize "STR_DOM_MISSIONSTRING_10")],
+    ["WRECK2",1,"wreck2",329,"n_air","ColorWhite","WRK2",(localize "STR_DOM_MISSIONSTRING_10")],
+    ["A10",2,"attack1",350,"n_air","ColorWhite","A10",""],
+    ["UH1Y",2,"attack2",351,"n_air","ColorWhite","UH1Y",""],
+    ["AH64",2,"attack3",352,"n_air","ColorWhite","AH64",""]
 ];
 
 // vehicle varname, unique number (same as in init.sqf), marker name, marker type, marker color, marker text, vehicle string name
