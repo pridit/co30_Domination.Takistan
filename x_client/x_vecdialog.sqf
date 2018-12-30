@@ -55,9 +55,6 @@ if (_canloadunloadbox) then {
 _move_controls = false;
 
 if (_caller != driver _vec) then {
-    _ctrl_but_load ctrlEnable false;
-    _ctrl_but_drop ctrlEnable false;
-
     _vtype = GV(_vec,GVAR(vec_type));
     if (!isNil "_vtype" && {_vtype == "MHQ"}) then {
         if (!(_caller in _vec)) then {
@@ -79,7 +76,18 @@ if (_caller != driver _vec) then {
 };
 
 _vtype = GV(_vec,GVAR(choppertype));
-if (!isNil "_vtype") then {_move_controls = true};
+if (!isNil "_vtype") then {
+    __control(44480) ctrlShow true;
+    _move_controls = true;
+} else {
+    __control(44480) ctrlShow false;
+};
+
+if (GVAR(chophud_on)) then {
+    __control(44480) ctrlSetText "Hide HUD";
+} else {
+    __control(44480) ctrlSetText "Show HUD";
+};
 
 if (!__pGetVar(GVAR(WithMHQTeleport))) then {
     __control(44453) ctrlShow false;

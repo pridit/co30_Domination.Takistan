@@ -76,7 +76,7 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
                 _vehicle setVariable [QGVAR(Vehicle_Released), false];
             } else {
                 if (GV(_vehicle,GVAR(Vehicle_Attached))) then {
-                    _release_id = _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_251") call FUNC(RedText), "x_client\x_heli_release.sqf",-1,100000];
+                    _release_id = _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_251") call FUNC(RedText), "x_client\x_heli_release.sqf",-1,100000,false,true,"","((vehicle player) call d_fnc_GetHeight) < 40"];
                     [_vehicle, (localize "STR_DOM_MISSIONSTRING_252")] call FUNC(VehicleChat);
                     _vehicle setVariable [QGVAR(Attached_Vec), _nearest];
                     

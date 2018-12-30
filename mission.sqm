@@ -1304,6 +1304,7 @@ class Mission
             lock="UNLOCKED";
             skill=0.60000002;
             text="transport2";
+            init="this setPos [getPos this select 0, getPos this select 1,1.5];";
         };
         class Item2
         {

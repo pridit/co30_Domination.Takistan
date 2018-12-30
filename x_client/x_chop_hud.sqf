@@ -108,12 +108,6 @@ while {GVAR(player_in_vec)} do {
                     _lift_height = 50;
                 };
                 _hudoff = true;
-#ifdef __TOH__
-                private ["_sling_cam", "_pip_cam_on", "_prev_nearest"];
-                _sling_cam = objNull;
-                _pip_cam_on = false;
-                _prev_nearest = objNull;
-#endif
                 while {GVAR(player_in_vec) && {alive player} && {player == driver _vec}} do {
                     if (GVAR(chophud_on) && {!visibleMap}) then {
                         _hudoff = false;

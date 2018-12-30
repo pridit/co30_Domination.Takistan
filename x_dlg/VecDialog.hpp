@@ -96,6 +96,12 @@ class XD_VecDialog {
             x = 0.20;
             y = 0.53;
         };
+        class XD_ToggleHudButton: XD_ButtonBase {
+            idc = 44480;
+            action = "closeDialog 0;execVM 'x_client\x_sethud.sqf'";
+            x = 0.37;
+            y = 0.59;
+        };
         class XD_CreateVecCaption : XC_RscText {
             idc = 44450;
             x = 0.50;
