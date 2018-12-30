@@ -1121,7 +1121,7 @@ class CfgMusic
         name	= "My intro music";
 
         // filename, volume, pitch
-        sound[]	= { "\sounds\hitormiss.ogg", db + 0, 1.0 };
+        sound[]	= { "\sounds\intro.ogg", db + 0, 1.0 };
     };
 };
 
