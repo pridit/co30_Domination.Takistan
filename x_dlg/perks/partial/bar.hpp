@@ -8,42 +8,48 @@ class PerksBarBackground: XD_RscPicture
 };
 class PerksBarIcon_1: XD_RscPicture
 {
-    x = 0.441992 * safezoneW + safezoneX;
+    idc = 501;
+    x = 0.409766 * safezoneW + safezoneX;
     y = 0.381300 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
 };
 class PerksBarIcon_2: XD_RscPicture
 {
-    x = 0.474219 * safezoneW + safezoneX;
+    idc = 502;
+    x = 0.441992 * safezoneW + safezoneX;
     y = 0.381300 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
 };
 class PerksBarIcon_3: XD_RscPicture
 {
-    x = 0.506445 * safezoneW + safezoneX;
+    idc = 503;
+    x = 0.474219 * safezoneW + safezoneX;
     y = 0.381300 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
 };
 class PerksBarIcon_4: XD_RscPicture
 {
-    x = 0.538672 * safezoneW + safezoneX;
+    idc = 504;
+    x = 0.506445 * safezoneW + safezoneX;
     y = 0.381300 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
 };
 class PerksBarIcon_5: XD_RscPicture
 {
-    x = 0.570898 * safezoneW + safezoneX;
+    idc = 505;
+    x = 0.538672 * safezoneW + safezoneX;
     y = 0.381300 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
 };
 class PerksBarIcon_6: XD_RscPicture
 {
-    x = 0.409766 * safezoneW + safezoneX;
+    idc = 506;
+    x = 0.570898 * safezoneW + safezoneX;
     y = 0.381300 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;

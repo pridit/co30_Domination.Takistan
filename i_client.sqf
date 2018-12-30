@@ -154,8 +154,16 @@ GVAR(p_vecs) = [
     ["TR10",41,"truck10","n_support","ColorGreen","T1",""]
 ];
 
+// All available player roles and subsequent classes
+// We use this to determine perk availability
+GVAR(roles) = [
+    "artillery", "engineers", "machine_gunners", "marksmen", "medics", "pilots"
+];
+
 // is engineer
 GVAR(is_engineer) = ["delta_1","delta_2","delta_3","delta_4","delta_5","delta_6"];
+
+//hint format ["%1 | %2", GVAR(pilots), GVAR(is_engineer)];
 
 // is artillery operator
 // please be aware that Dom 2 only supports two artillery operators in the non AI versions
