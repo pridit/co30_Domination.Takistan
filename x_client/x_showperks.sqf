@@ -12,9 +12,9 @@ createDialog "XD_PerkDialog";
 
 _XD_display = __uiGetVar(X_PERK_DIALOG);
 
-__ctrl(1) ctrlSetText (str GVAR(perk_points_available));
+__ctrl(1) ctrlSetText (str __pGetVar(GVAR(perk_points_available)));
 
-if (GVAR(perk_points_available) > 0) then {
+if (__pGetVar(GVAR(perk_points_available)) > 0) then {
     for "_i" from 1 to 10 do {
         __ctrl2(200 + _i) ctrlSetText "\ca\ui\data\cmdbar_player_ca";
     };
@@ -23,7 +23,7 @@ if (GVAR(perk_points_available) > 0) then {
 {
     __ctrl2(100 + _x) ctrlSetText "\ca\ui\data\cmdbar_selected_ca";
     __ctrl2(200 + _x) ctrlSetText "";
-} forEach GVAR(perks_unlocked);
+} forEach __pGetVar(GVAR(perks_unlocked));
 
 {
     if (str(player) == _x) then {

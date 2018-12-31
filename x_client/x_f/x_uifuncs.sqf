@@ -760,7 +760,7 @@ FUNC(perkclicked) = {
     private ["_idc","_disp","_unlocked"];
     PARAMS_1(_idc);
     
-    _points = GVAR(perk_points_available);
+    _points = __pGetVar(GVAR(perk_points_available));
     
     // no perk points available to allocate
     if (_points == 0) exitWith {};
@@ -768,7 +768,7 @@ FUNC(perkclicked) = {
     // perk already unlocked
     {
         if (_x == _idc) exitWith {_unlocked = true};
-    } forEach GVAR(perks_unlocked);
+    } forEach __pGetVar(GVAR(perks_unlocked));
     
     if (_unlocked) exitWith {};
     
@@ -814,10 +814,10 @@ FUNC(perkclicked) = {
         } forEach vehicles;
     };
     
-    GVAR(perk_points_available) = _points - 1;
-    GVAR(perks_unlocked) = GVAR(perks_unlocked) + [_idc];
+    __pSetVar [QGVAR(perk_points_available), _points - 1];
+    __pSetVar [QGVAR(perks_unlocked), __pGetVar(GVAR(perks_unlocked)) + [_idc]];
     
-    if (count GVAR(perks_unlocked) == 9) then {
+    if (count __pGetVar(GVAR(perks_unlocked)) == 9) then {
         playSound "PowerOfTheSun";
     };
     

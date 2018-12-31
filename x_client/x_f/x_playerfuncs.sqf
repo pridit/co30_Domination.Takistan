@@ -101,17 +101,21 @@ FUNC(RecapturedUpdate) = {
 };
 #endif
 FUNC(PlayerRank) = {
-    private ["_score","_d_player_old_score","_d_player_old_rank"];
+    private ["_score","_d_player_old_score","_d_player_old_rank","_perks_unlocked","_points_available"];
     _score = score player;
     _d_player_old_score = __pGetVar(GVAR(player_old_score));
     if (isNil "_d_player_old_score") then {_d_player_old_score = 0};
     _d_player_old_rank = __pGetVar(GVAR(player_old_rank));
     if (isNil "_d_player_old_rank") then {_d_player_old_rank = 0};
+    
+    _perks_unlocked = __pGetVar(GVAR(perks_unlocked));
+    _points_available = __pGetVar(GVAR(perk_points_available));
     for "_i" from 1 to 7 do {
-        if (_score >= ((_i * 2) * 10) && (count GVAR(perks_unlocked) + GVAR(perk_points_available)) < (_i * 2)) then {
-            GVAR(perk_points_available) = GVAR(perk_points_available) + 2;
+        if (_score >= ((_i * 2) * 10) && (count _perks_unlocked + _points_available) < (_i * 2)) then {
+            __pSetVar [QGVAR(perk_points_available), (floor(_score / 20) * 2) - count _perks_unlocked];
         };
     };
+    
     if (_score < (GVAR(points_needed) select 0) && {_d_player_old_rank != 0}) exitWith {
         if (_d_player_old_score >= (GVAR(points_needed) select 0)) then {(format [(localize "STR_DOM_MISSIONSTRING_664"),_d_player_old_rank call FUNC(GetRankIndex2)]) call FUNC(HQChat)};
         _d_player_old_rank = 0;

@@ -24,8 +24,8 @@ GVAR(current_defend_idx) = -1;
 GVAR(current_attack_target) = "";
 GVAR(current_attack_idx) = -1;
 
-GVAR(perk_points_available) = 0;
-GVAR(perks_unlocked) = [];
+__pSetVar [QGVAR(perk_points_available), 0];
+__pSetVar [QGVAR(perks_unlocked), []];
 
 __ccppfln(x_client\x_f\x_perframe.sqf);
 
@@ -416,7 +416,7 @@ FUNC(prespawned) = {
     };
     if (_x == 4) then {
         call xr_fnc_calldrop;
-    } forEach GVAR(perks_unlocked);
+    } forEach __pGetVar(GVAR(perks_unlocked));
     [1, _this] call FUNC(x_playerspawn);
 };
 
@@ -1106,7 +1106,7 @@ FUNC(startClientScripts) = {
                     GVAR(player_autokick_time) = nil;
                     GVAR(nomercyendtime) = nil;
                 };
-            } forEach GVAR(perks_unlocked);
+            } forEach __pGetVar(GVAR(perks_unlocked));
             _vec = vehicle player;
             if (_vec != player && {_vec isKindOf "Air"} && !(serverCommandAvailable "#shutdown")) then {
                 _type = typeOf _vec;
