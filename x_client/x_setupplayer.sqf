@@ -24,7 +24,7 @@ GVAR(current_defend_idx) = -1;
 GVAR(current_attack_target) = "";
 GVAR(current_attack_idx) = -1;
 
-GVAR(perk_points_available) = 9;
+GVAR(perk_points_available) = 0;
 GVAR(perks_unlocked) = [];
 
 __ccppfln(x_client\x_f\x_perframe.sqf);

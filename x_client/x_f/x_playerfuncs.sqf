@@ -107,6 +107,11 @@ FUNC(PlayerRank) = {
     if (isNil "_d_player_old_score") then {_d_player_old_score = 0};
     _d_player_old_rank = __pGetVar(GVAR(player_old_rank));
     if (isNil "_d_player_old_rank") then {_d_player_old_rank = 0};
+    for "_i" from 1 to 7 do {
+        if (_score >= ((_i * 2) * 10) && (count GVAR(perks_unlocked) + GVAR(perk_points_available)) < (_i * 2)) then {
+            GVAR(perk_points_available) = GVAR(perk_points_available) + 2;
+        };
+    };
     if (_score < (GVAR(points_needed) select 0) && {_d_player_old_rank != 0}) exitWith {
         if (_d_player_old_score >= (GVAR(points_needed) select 0)) then {(format [(localize "STR_DOM_MISSIONSTRING_664"),_d_player_old_rank call FUNC(GetRankIndex2)]) call FUNC(HQChat)};
         _d_player_old_rank = 0;
