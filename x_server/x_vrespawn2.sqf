@@ -78,11 +78,6 @@ while {true} do {
                 if (isNil "_dhqcamo") then {_dhqcamo = objNull};
                 if (!isNull _dhqcamo) then {deleteVehicle _dhqcamo};
             };
-            if (GVAR(with_base_camonet) == 0) then {
-                _camo = GV(_vehicle,GVAR(camonet));
-                if (isNil "_camo") then {_camo = objNull};
-                if (!isNull _camo) then {deleteVehicle _camo;_camo = objNull} else {_camo = objNull};
-            };
             _isitlocked = _vehicle getVariable QGVAR(vec_islocked);
             sleep 0.1;
             deletevehicle _vehicle;
@@ -108,29 +103,6 @@ while {true} do {
             _vehicle setVariable [QGVAR(vec_islocked), _isitlocked];
             if (_isitlocked) then {_vehicle lock true};
             [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
-            
-            if (GVAR(with_base_camonet) == 0) then {
-                if (isNull _camo) then {
-                    _camotype = switch (getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "side")) do {
-                        case 1: {
-                            switch (true) do {
-                                case (__OAVer): {"Land_CamoNetB_NATO_EP1"};
-                                case (__COVer): {"Land_CamoNetB_NATO"};
-                            }
-                        };
-                        case 0: {
-                            switch (true) do {
-                                case (__OAVer): {"Land_CamoNetB_EAST_EP1"};
-                                case (__COVer): {"Land_CamoNetB_EAST"};
-                            };
-                        };
-                    };
-                    _camo = createVehicle [_camotype, position _vehicle, [], 0, "NONE"];
-                    _camo setDir (direction _vehicle) + 180;
-                    _camo setPos position _vehicle;
-                    _vehicle setVariable [QGVAR(camonet), _camo];
-                };
-            };
         };
         sleep 8 + random 5;
     } forEach _vec_array;
