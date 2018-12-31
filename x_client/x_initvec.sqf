@@ -38,6 +38,8 @@ _vec addEventHandler ["getout", {_this call FUNC(checkhelipilotout)}]
 #define __pvecss(sname) {if ((_x select 1) == _d_vec) exitWith {_car = _x}} forEach d_p_vecs_##sname
 
 #define __addchopm _vec addAction [(localize "STR_DOM_MISSIONSTRING_258") call FUNC(GreyText),"x_client\x_vecdialog.sqf",[],-1,false]
+#define __addperks _vec addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false,true,"","player in _target"]
+#define __addstatus _vec addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false,true,"","player in _target"]
 
 private "_vec";
 
@@ -52,11 +54,14 @@ if (!isNil "_desm") then {
 };
 
 _d_vec = GV(_vec,GVAR(vec));
-if (isNil "_d_vec") exitWith {};
 
 if (!isNil {GV(_vec,GVAR(vcheck))}) exitWith {};
 _vec setVariable [QGVAR(vcheck), true];
 
+__addperks;
+__addstatus;
+
+if (isNil "_d_vec") exitWith {};
 if (_d_vec < 10) exitWith {
     _car = [];
     __pvecs;

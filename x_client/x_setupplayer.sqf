@@ -39,11 +39,6 @@ FUNC(RedText) = {"<t color='#f0ff0000'>" + _this + "</t>"};
 FUNC(BlueText) = {"<t color='#f07f7f00'>" + _this + "</t>"}; //olive
 FUNC(YellowText) = {"<t color='#e7e700'>" + _this + "</t>"};
 
-{
-    _x addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false,true,"","player in _target"];
-    _x addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false,true,"","player in _target"];
-} forEach vehicles;
-
 __pSetVar ["BIS_noCoreConversations", true];
 
 _p = player;

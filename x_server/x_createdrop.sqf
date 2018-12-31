@@ -126,6 +126,7 @@ if (_may_exit) exitWith {[QGVAR(dropansw), [_player, 3]] call FUNC(NetCallEventS
         _para = createVehicle [_the_chute, [0,0,0], [], 0, "FLY"];
         _para setPos (_vehicle modelToWorld [0,0,2]);
         _vehicle attachTo [_para,[0,0,0]];
+        [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
         __addDead(_vehicle)
     };
     

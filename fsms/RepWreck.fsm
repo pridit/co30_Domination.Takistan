@@ -150,6 +150,7 @@ class FSM
        "_new_vec setDir _ddir;" \n
        "_new_vec setPos [_dpos select 0, _dpos select 1, 0];" \n
        "_new_vec lock true;" \n
+       "[""d_n_v"", _new_vec] call d_fnc_NetCallEventToClients;" \n
        "_type_name = [_type,0] call d_fnc_GetDisplayName;" \n
        "if (!isNil ""_sidevar"") then {_new_vec setVariable [""D_VEC_SIDE"", _sidevar]};" \n
        "if (isNil ""_maxrep"") then {_maxrep = d_WreckMaxRepair};" \n
@@ -157,14 +158,7 @@ class FSM
        "" \n
        "d_wreck_cur_ar set [count d_wreck_cur_ar, _new_vec];" \n
        "" \n
-       "if (!(""TT"" in d_version)) then {" \n
-       "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true];" \n
-       "} else {" \n
-       "	switch (_rep_station_side) do {" \n
-       "		case west: {d_hq_logic_en1 kbTell [d_hq_logic_en2,""HQ_W"",""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true]};" \n
-       "		case east: {d_hq_logic_ru1 kbTell [d_hq_logic_ru2,""HQ_E"",""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true]};" \n
-       "	};" \n
-       "};" \n
+       "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true];" \n
        "" \n
        "_sleep_time = 240;" \n
        "if (_new_vec isKindOf ""Plane"") then {" \n
@@ -196,14 +190,7 @@ class FSM
        "_new_vec lock false;" \n
        "_new_vec setVariable [""D_VEC_SIDE"", 2, true];" \n
        "_new_vec execFSM ""fsms\Wreckmarker.fsm"";" \n
-       "if (!(""TT"" in d_version)) then {" \n
-       "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true];" \n
-       "} else {" \n
-       "	switch (_rep_station_side) do {" \n
-       "		case west: {d_hq_logic_en1 kbTell [d_hq_logic_en2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true]};" \n
-       "		case east: {d_hq_logic_ru1 kbTell [d_hq_logic_ru2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true]};" \n
-       "	};" \n
-       "};";
+       "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true];";
       precondition = "";
       class Links
       {
