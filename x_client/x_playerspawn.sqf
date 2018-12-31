@@ -185,10 +185,6 @@ if (_rtype == 0) then { // player died
         };
     };
     
-    {
-        if (_x == 4) exitWith {call xr_fnc_calldrop};
-    } forEach GVAR(perks_unlocked);
-    
     _p addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false];
     _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false];
 

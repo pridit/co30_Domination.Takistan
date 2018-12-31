@@ -414,6 +414,9 @@ FUNC(prespawned) = {
             call FUNC(x_dlgopen);
         };
     };
+    if (_x == 4) then {
+        call xr_fnc_calldrop;
+    } forEach GVAR(perks_unlocked);
     [1, _this] call FUNC(x_playerspawn);
 };
 
