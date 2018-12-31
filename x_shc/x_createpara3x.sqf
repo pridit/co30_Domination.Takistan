@@ -40,6 +40,7 @@ _make_jump = {
     
     _vehicle flyInHeight 100;
     _vehicle setVariable ["D_VEC_SIDE", 1, true];
+    _vehicle setVariable [QGVAR(WreckMaxRepair), 0, true];
     if (GVAR(enemy_wreck_chance) > random 100) then {
         _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
         _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
