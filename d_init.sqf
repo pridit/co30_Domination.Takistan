@@ -370,19 +370,19 @@ if (isServer) then {
     // editor varname, unique number, true = respawn only when the chopper is completely destroyed, false = respawn after some time when no crew is in or chopper is destroyed
     [
         [lift1,301,false,5400],
-        [lift2,305,false,5400],
-        [lift3,308,false,5400],
-        [transport1,302,false,1500],
-        [transport2,303,false,1500],
-        [transport3,92,false,1500],
-        [transport4,94,false,1200],
-        [light1,306,false,600],
-        [light2,307,false,600],
-        [wrk1,304,false,600],
-        [wrk2,329,false,600],
-        [atv1,310,false,180],
-        [atv2,311,false,180],
-        [atv3,312,false,180],
+        [lift2,302,false,5400],
+        [lift3,303,false,5400],
+        [transport1,304,false,1500],
+        [transport2,305,false,1500],
+        [transport3,306,false,1500],
+        [transport4,307,false,1200],
+        [light1,308,false,600],
+        [light2,309,false,600],
+        [wrk1,310,false,600],
+        [wrk2,311,false,600],
+        [atv1,312,false,5],
+        [atv2,313,false,180],
+        [atv3,314,false,180],
         [atv4,315,false,180]
     ] execVM "x_server\x_helirespawn2.sqf";
 

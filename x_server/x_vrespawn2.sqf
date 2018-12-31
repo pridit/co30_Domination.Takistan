@@ -21,7 +21,6 @@ _vec_array = [];
         _vehicle addMPEventhandler ["MPKilled", {(_this select 0) call FUNC(MHQFunc)}];
     };
     
-    #ifndef __CARRIER__
     if (GVAR(with_base_camonet) == 0) then {
         _camotype = switch (getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "side")) do {
             case 1: {
@@ -42,11 +41,9 @@ _vec_array = [];
         _camo setPos position _vehicle;
         _vehicle setVariable [QGVAR(camonet), _camo];
     };
-    #endif
 } forEach _this;
 _this = nil;
 
-//sleep 65;
 sleep 5;
 
 while {true} do {
@@ -102,13 +99,11 @@ while {true} do {
                 if (isNil "_dhqcamo") then {_dhqcamo = objNull};
                 if (!isNull _dhqcamo) then {deleteVehicle _dhqcamo};
             };
-#ifndef __CARRIER__
             if (GVAR(with_base_camonet) == 0) then {
                 _camo = GV(_vehicle,GVAR(camonet));
                 if (isNil "_camo") then {_camo = objNull};
                 if (!isNull _camo) then {deleteVehicle _camo;_camo = objNull} else {_camo = objNull};
             };
-#endif
             _isitlocked = _vehicle getVariable QGVAR(vec_islocked);
             sleep 0.1;
             deletevehicle _vehicle;
@@ -116,15 +111,7 @@ while {true} do {
             _vehicle = objNull;
             _vehicle = createVehicle [_vec_a select 4, _vec_a select 2, [], 0, "NONE"];
             _vehicle setdir (_vec_a select 3);
-#ifndef __CARRIER__
             _vehicle setpos (_vec_a select 2);
-#else
-            if (_number_v > 9) then {
-                _vehicle setPos (_vec_a select 3);
-            } else {
-                _vehicle setPosASL [(_vec_a select 2) select 0, (_vec_a select 2) select 1, 15.9];
-            };
-#endif
             _vehicle setFuel _fuelleft;
             
             _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(fuelCheck)}}];
@@ -136,12 +123,13 @@ while {true} do {
             _vec_array set [_forEachIndex, _vec_a];
             _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
             _vehicle setVariable [QGVAR(vec), _number_v, true];
+            _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false,true,"","player in _target"];
+            _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false,true,"","player in _target"];
             _vehicle setAmmoCargo 0;
             _vehicle setVariable [QGVAR(vec_islocked), _isitlocked];
             if (_isitlocked) then {_vehicle lock true};
             [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
             
-#ifndef __CARRIER__
             if (GVAR(with_base_camonet) == 0) then {
                 if (isNull _camo) then {
                     _camotype = switch (getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "side")) do {
@@ -164,7 +152,6 @@ while {true} do {
                     _vehicle setVariable [QGVAR(camonet), _camo];
                 };
             };
-#endif
         };
         sleep 8 + random 5;
     } forEach _vec_array;
