@@ -97,8 +97,6 @@ while {true} do {
             _vec_array set [_forEachIndex, _vec_a];
             _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
             _vehicle setVariable [QGVAR(vec), _number_v, true];
-            _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false,true,"","player in _target"];
-            _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false,true,"","player in _target"];
             _vehicle setAmmoCargo 0;
             _vehicle setVariable [QGVAR(vec_islocked), _isitlocked];
             if (_isitlocked) then {_vehicle lock true};
