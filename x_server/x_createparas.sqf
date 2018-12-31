@@ -175,10 +175,12 @@ for "_i" from 1 to _number_vehicles do {
     sleep 5.012;
     
     _vehicle flyInHeight 100;
-    _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
-    _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
     _vehicle setVariable ["D_VEC_SIDE", 1, true];
-    _vehicle execFSM "fsms\Wreckmarker.fsm";
+    if (GVAR(enemy_wreck_chance) > random 100) then {
+        _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
+        _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
+        _vehicle execFSM "fsms\Wreckmarker.fsm";
+    };
     [_vgrp,_vehicle,_attackpoint,_heliendpoint, _delveccrew] spawn _make_jump;
     
     sleep 40 + random 30;

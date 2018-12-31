@@ -76,10 +76,12 @@ while {true} do {
         _funits = [_funits, (_vec_array select 1)] call FUNC(arrayPushStack2);
     
         _vehicle flyInHeight 200;
-        _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
-        _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
         _vehicle setVariable ["D_VEC_SIDE", 1, true];
-        _vehicle execFSM "fsms\Wreckmarker.fsm";
+        if (GVAR(enemy_wreck_chance) > random 100) then {
+            _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
+            _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
+            _vehicle execFSM "fsms\Wreckmarker.fsm";
+        };
         _vehicle spawn FUNC(AirMarkerMove);
         sleep 0.1;
     };
