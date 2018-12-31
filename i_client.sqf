@@ -80,10 +80,6 @@ GVAR(check_ammo_load_vecs) = switch (true) do {
 
 GVAR(weapon_respawn) = true;
 
-if (GVAR(with_ai)) then {
-    GVAR(current_ai_num) = 0;
-};
-
 // points needed to get a specific rank
 // gets even used in the unranked versions, though it's just cosmetic there
 GVAR(points_needed) = [
@@ -176,9 +172,6 @@ GVAR(is_medic) = ["alpha_6","bravo_6","charlie_6","echo_6"];
 // can build mg nest
 GVAR(can_use_mgnests) =  ["alpha_3","alpha_7","charlie_3","charlie_7","bravo_4","echo_3","echo_7"];
 
-// can call in air drop
-GVAR(can_call_drop_ar) = ["alpha_1","charlie_1","echo_1"];
-
 #ifdef __OWN_SIDE_EAST__
 _armor = if (GVAR(LockArmored) == 1) then {
     switch (true) do {
@@ -262,10 +255,6 @@ GVAR(backpackclasses) = [
         "USBasicBag", "Tripod_Bag", "M2StaticMG_US_Bag_EP1", "M2HD_mini_TriPod_US_Bag_EP1", "MK19_TriPod_US_Bag_EP1", "M252_US_Bag_EP1", "TOW_TriPod_US_Bag_EP1",
         "US_UAV_Pack_EP1", "US_Assault_Pack_EP1", "US_Patrol_Pack_EP1", "US_Backpack_EP1", "DE_Backpack_Specops_EP1"
         
-#ifdef __DLC__
-        , "RBS70_Bag_ACR", "CZ_Assault_Pack_ACR", "CZ_Assault_Pack_Explosives_ACR", "CZ_Assault_Pack_MG_ACR", "CZ_Backpack_RPG_ACR"
-#endif
-        
         // "USBasicBag", "Tripod_Bag", "M2StaticMG_US_Bag_EP1", "M2HD_mini_TriPod_US_Bag_EP1", "MK19_TriPod_US_Bag_EP1", "M252_US_Bag_EP1", "TOW_TriPod_US_Bag_EP1",
         // "US_UAV_Pack_EP1", "US_Assault_Pack_EP1", "US_Assault_Pack_Ammo_EP1", "US_Assault_Pack_AmmoSAW_EP1", "US_Assault_Pack_AT_EP1", "US_Assault_Pack_Explosives_EP1", "US_Patrol_Pack_EP1", "US_Patrol_Pack_Ammo_EP1",
         // "US_Patrol_Pack_Specops_EP1", "US_Backpack_EP1", "US_Backpack_AmmoMG_EP1", "US_Backpack_AT_EP1", "US_Backpack_Specops_EP1", "DE_Backpack_Specops_EP1"
@@ -280,58 +269,7 @@ GVAR(backpackclasses) = [
     ]
 ];
 
-#ifdef __OA__
 GVAR(jump_helo) = ["Mi17_TK_EP1", "UH60M_EP1", "UH1H_TK_GUE_EP1"];
-#endif
-#ifdef __CO__
-GVAR(jump_helo) = ["Mi17_rockets_RU", "MH60S", "UH1H_TK_GUE_EP1"];
-#endif
-
-#ifdef __OA__
 GVAR(headbug_vehicle) = "UAZ_Unarmed_TK_EP1";
-#endif
-#ifdef __CO__
-GVAR(headbug_vehicle) = "UAZ_RU";
-#endif
-
-if (GVAR(with_ai)) then {
-    // additional AI recruit buildings
-    // these have to be placed in the editor, give them a var name in the editor
-    // only client handling means, no damage handling done for those buildings (contrary to the standard AI hut)
-    // example:
-    // GVAR(additional_recruit_buildings) = [my_ai_building1, my_ai_building2];
-    GVAR(additional_recruit_buildings) = [];
-};
-
-// add action menu entries + scripts that will be executed to specific player types
-// if the first array is empty, then all players will get that action menu entry
-// default, nothing in it
-// you have to set fourth element allways to -1000
-// example:
-//	GVAR(action_menus_type) = [
-//		[[],"Whatever2", "whateverscript2.sqf", -1000], // ALL players will get the action menu entry "Whatever2"
-//		[["SoldierWMiner", "SoldierWAT","OfficerW"],"Whatever1", "whateverscript1.sqf", -1000] // only players of type SoldierWMiner, SoldierWAT and OfficerW will get the action menu entry "Whatever1"
-//	];
-// GVAR(action_menus_type) = [];
-
-// add action menu entries + scripts that will be executed to specific player units
-// if the first array is empty, then all players will get that action menu entry
-// default, nothing in it
-// you have to set fourth element allways to -1000
-// example:
-// 	GVAR(action_menus_unit) = [
-//		[[],"Whatever2", "whateverscript2.sqf", -1000], // ALL players will get the action menu entry "Whatever2"
-//		[["RESCUE", "delta_1","bravo_6"],"Whatever1", "whateverscript1.sqf", -1000] // only players who are RESCUE, delta_1 and bravo_6 will get the action menu entry "Whatever1"
-//	];
-// GVAR(action_menus_unit) = [];
-
-// add action menu entries to all or specific vehicles, default = none
-// example:
-// GVAR(action_menus_vehicle) = [
-// 		[[],"Whatever2", "whateverscript2.sqf", -1000], // will add action menu entry "Whatever2" to all vehicles
-// 		[["UH60MG", "M113_MHQ"],"Whatever1", "whateverscript1.sqf", -1000] // will add action menu entry "Whatever1" to chopper 1 and MHQ 1
-// 
-// ];
-// GVAR(action_menus_vehicle) = [];
 
 GVAR(do_ma_update_n) = false;

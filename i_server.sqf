@@ -607,8 +607,7 @@ GVAR(drop_aircraft) =
         case (__COVer): {"Mi17_rockets_RU"};
     };
 #endif
-    
-if (GVAR(with_ai) || GVAR(with_ai_features) == 0) then {
+
 GVAR(taxi_aircraft) =
 #ifdef __OWN_SIDE_GUER__
     switch (true) do {
@@ -628,7 +627,6 @@ GVAR(taxi_aircraft) =
         case (__COVer): {"Mi17_rockets_RU"};
     };
 #endif
-};
 
 // max men for main target clear
 GVAR(man_count_for_target_clear) = 6;
@@ -717,32 +715,6 @@ GVAR(civilians_t) = ["Assistant","Citizen1","Citizen2","Citizen2","Citizen4","Wo
 #ifdef __OA__
 GVAR(civilians_t) = ["TK_CIV_Takistani01_EP1","TK_CIV_Takistani02_EP1","TK_CIV_Takistani03_EP1","TK_CIV_Takistani04_EP1","TK_CIV_Takistani05_EP1","TK_CIV_Takistani06_EP1","TK_CIV_Worker01_EP1","TK_CIV_Worker02_EP1","Citizen2_EP1","Citizen3_EP1","CIV_EuroMan01_EP1","CIV_EuroMan02_EP1","Haris_Press_EP1","Profiteer2_EP1"];
 #endif
-
-if (GVAR(with_ai)) then {
-    _mpos = markerPos QGVAR(pos_aihut);
-    _mpos set [2,0];
-    GVAR(pos_ai_hut) = [_mpos, markerDir QGVAR(pos_aihut)];
-#ifdef __CO__
-    _wbarracks = switch (GVAR(own_side)) do {
-        case "WEST": {"USMC_WarfareBBarracks"};
-        case "EAST": {"RU_WarfareBBarracks"};
-        case "GUER": {"Gue_WarfareBBarracks"};
-    };
-#endif
-#ifdef __OA__
-    _wbarracks = switch (GVAR(own_side)) do {
-        case "WEST": {"US_WarfareBBarracks_EP1"};
-        case "EAST": {"TK_WarfareBBarracks_EP1"};
-        case "GUER": {"TK_GUE_WarfareBBarracks_EP1"};
-    };
-#endif
-
-    _D_AI_HUT = createVehicle [_wbarracks, GVAR(pos_ai_hut) select 0, [], 0, "NONE"];
-    _D_AI_HUT setDir (GVAR(pos_ai_hut) select 1);
-    _D_AI_HUT setPos (GVAR(pos_ai_hut) select 0);
-    _D_AI_HUT addEventHandler ["handleDamage", {0}];
-    [QGVAR(AI_HUT), _D_AI_HUT] call FUNC(NetSetJIP);
-};
 
 GVAR(wreck_cur_ar) = [];
 

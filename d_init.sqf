@@ -2,7 +2,7 @@
 #define THIS_FILE "d_init.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 #include "x_setup.sqf"
-private ["_mname","_dtar","_ar","_pos","_nlocs","_nl","_name","_paramName","_h","_first_ar","_second_ar","_targets_list","_wbarracks","_D_AI_HUT","_standard_weap","_silenced","_glweaps","_basic","_machineg","_sniper","_atweap","_elem","_armor","_car","_ranover","_ww","_east_targets_ar","_west_targets_ar"];
+private ["_mname","_dtar","_ar","_pos","_nlocs","_nl","_name","_paramName","_h","_first_ar","_second_ar","_targets_list","_wbarracks","_standard_weap","_silenced","_glweaps","_basic","_machineg","_sniper","_atweap","_elem","_armor","_car","_ranover","_ww","_east_targets_ar","_west_targets_ar"];
 
 _productVer = call {productVersion};
 
@@ -57,11 +57,8 @@ GVAR(v_marker_dirs) = (GVAR(v_marker_dirs) == 0);
 
 GVAR(with_mgnest) = (GVAR(with_mgnest) == 0);
 GVAR(with_medtent) = (GVAR(with_medtent) == 0);
-GVAR(with_ai) = (GVAR(with_ai) == 0);
 
 GVAR(random_sm_array) = (GVAR(random_sm_array) == 0);
-
-if (isNil QGVAR(with_ai_features)) then {GVAR(with_ai_features) = 1};
 
 __ccppfln(x_common\x_f\x_functions1.sqf);
 __ccppfln(x_common\x_f\x_commonfuncs.sqf);
@@ -124,13 +121,12 @@ if (X_Client) then {
     __cppfln(FUNC(x_update_target),x_client\x_update_target.sqf);
     __cppfln(FUNC(x_newtask),x_client\x_newtask.sqf);
     __cppfln(FUNC(SatellitenBildd),scripts\SatellitenBild.sqf);
-    
+
     __ccppfln(x_client\x_f\x_clientfuncs.sqf);
     __ccppfln(x_client\x_f\x_uifuncs.sqf);
 
     __ccppfln(x_client\x_f\x_netinitclient.sqf);
 
-    __cppfln(FUNC(checktrucktrans),x_client\x_checktrucktrans.sqf);
     __cppfln(FUNC(checkhelipilot),x_client\x_checkhelipilot.sqf);
     __cppfln(FUNC(checkhelipilot_wreck),x_client\x_checkhelipilot_wreck.sqf);
     __cppfln(FUNC(checkhelipilotout),x_client\x_checkhelipilotout.sqf);
@@ -139,7 +135,7 @@ if (X_Client) then {
     __cppfln(FUNC(getsidemissionclient),x_missions\x_getsidemissionclient.sqf);
     __cppfln(FUNC(initvec),x_client\x_initvec.sqf);
     __cppfln(FUNC(weaponcargo),x_client\x_weaponcargo.sqf);
-    
+
     bis_fnc_halo = compile preprocessFileLineNumbers "AAHALO\Scripts\fn_halo.sqf";
 };
 
@@ -191,7 +187,7 @@ if (isServer) then {
             GVAR(player_groups_lead) set [_idx, _this select 1]
         };
     }] call FUNC(NetAddEventCTS);
-    
+
     [QGVAR(p_a), {_this call FUNC(GetPlayerStats)}] call FUNC(NetAddEventCTS);
     [QGVAR(air_taxi), {_this execVM "x_server\x_airtaxiserver.sqf"}] call FUNC(NetAddEventCTS);
     [1, QGVAR(r_box), {_this call FUNC(RemABox)}] call FUNC(NetAddEvent);
@@ -233,7 +229,7 @@ if (isServer) then {
         _ar set [count _ar, _this select 1];
         GVAR(placed_objs_store2) setVariable [_this select 0, _ar];
     }] call FUNC(NetAddEventCTS);
-    
+
     [QGVAR(p_o_a2r), {
         _ar = GVAR(placed_objs_store2) getVariable (_this select 0);
         if (isNil "_ar") then {_ar = []};
@@ -242,7 +238,7 @@ if (isServer) then {
         };
         GVAR(placed_objs_store2) setVariable [_this select 0, _ar];
     }] call FUNC(NetAddEventCTS);
-    
+
     [QGVAR(x_dr_t), {_this execVM "x_server\x_createdrop.sqf"}] call FUNC(NetAddEventCTS);
     [QGVAR(f_ru_i), {[_this] execFSM "fsms\XFacRebuild.fsm"}] call FUNC(NetAddEventCTS);
     [QGVAR(ari_type), {_this spawn FUNC(arifire)}] call FUNC(NetAddEventCTS);
@@ -250,18 +246,13 @@ if (isServer) then {
     [1, QGVAR(mhqdepl), {if (local (_this select 0)) then {(_this select 0) lock (_this select 1)};if (_this select 1) then {(_this select 0) call FUNC(createMHQEnemyTeleTrig)} else {(_this select 0) call FUNC(removeMHQEnemyTeleTrig)}}] call FUNC(NetAddEvent);
     [QGVAR(g_p_inf), {_this call FUNC(GetAdminArray)}] call FUNC(NetAddEventCTS);
     [QGVAR(ad_deltk), {_this call FUNC(AdminDelTKs)}] call FUNC(NetAddEventCTS);
-    [QGVAR(addai), {__addDeadAI(_this)}] call FUNC(NetAddEventCTS);
     [QGVAR(crl), {_this call FUNC(ChangeRLifes)}] call FUNC(NetAddEventCTS);
     [QGVAR(unit_tkr), {_this call FUNC(TKR)}] call FUNC(NetAddEventCTS);
-    
-    if (GVAR(with_ai) && {__RankedVer}) then {
-        [QGVAR(AddKillAI), {_this call FUNC(AddKillsAI)}] call FUNC(NetAddEventCTS);
-    };
     [QGVAR(kbmsg), {_this call FUNC(DoKBMsg)}] call FUNC(NetAddEventCTS);
     [QGVAR(sSetVar), {missionNamespace setVariable [_this select 0, _this select 1]}] call FUNC(NetAddEventCTS);
     [QGVAR(sm_var), {GVAR(side_mission_winner) = _this;GVAR(side_mission_resolved) = true;}] call FUNC(NetAddEventCTS);
     [QGVAR(sm_poi), {if (_this == 0) then {__INC(GVAR(sm_points_west))} else {__INC(GVAR(sm_points_east))}}] call FUNC(NetAddEventCTS);
-    
+
     [QGVAR(getSM), {execVM "x_missions\x_getsidemission.sqf"}] call FUNC(NetAddEventCTS);
 };
 
@@ -293,15 +284,10 @@ if (isServer) then {
     [QUOTE(para_available),true] call FUNC(NetSetJIP);
     [QGVAR(searchbody),objNull] call FUNC(NetSetJIP);
     [QGVAR(searchintel),[0,0,0,0,0,0,0]] call FUNC(NetSetJIP);
-    
-    if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
-        [QGVAR(ari_blocked),false] call FUNC(NetSetJIP);
-        [QGVAR(drop_blocked),false] call FUNC(NetSetJIP);
-    };
 
     [QGVAR(campscaptured),0] call FUNC(NetSetJIP);
     [QGVAR(currentcamps),[]] call FUNC(NetSetJIP);
-    
+
     execVM "x_bikb\kbinit.sqf";
     
     GVAR(X_DropZone) = createVehicle [GVAR(HeliHEmpty), [0, 0, 0], [], 0, "NONE"];
@@ -317,21 +303,12 @@ if (isServer) then {
     
     __ccppfln(x_server\x_initx.sqf);
     
-    if (GVAR(weather) == 0 && {GVAR(FastTime) == 0}) then {
-        _ranover = random 1;
-        [QGVAR(overcast),_ranover] call FUNC(NetSetJIP);
-        _ww = if (_ranover > 0.5) then {if (rain <= 0.3) then {1} else {2}} else {0};
-        [QGVAR(winterw), _ww] call FUNC(NetSetJIP);
-        execFSM "fsms\WeatherServer.fsm";
-    } else {
-        GVAR(weather) = 1;
-        [QGVAR(overcast),0] call FUNC(NetSetJIP);
-    };
+    _ranover = random 1;
+    [QGVAR(overcast),_ranover] call FUNC(NetSetJIP);
+    _ww = if (_ranover > 0.5) then {if (rain <= 0.3) then {1} else {2}} else {0};
+    execFSM "fsms\WeatherServer.fsm";
 
     // create random list of targets
-#ifndef __DEFAULT__
-    GVAR(maintargets_list) = (count GVAR(target_names)) call FUNC(RandomIndexArray);
-#else
     if (GVAR(number_targets_h) < 50) then {
         GVAR(maintargets_list) = (count GVAR(target_names)) call FUNC(RandomIndexArray);
     } else {
@@ -354,18 +331,18 @@ if (isServer) then {
             };
         };
     };
-#endif
 
     __TRACE_1("","d_maintargets_list")
+    
     // create random list of side missions
     if (GVAR(random_sm_array)) then {
         GVAR(side_missions_random) = GVAR(sm_array) call FUNC(RandomArray);
     } else {
         GVAR(side_missions_random) = GVAR(sm_array);
     };
-    
+
     __TRACE_1("","d_side_missions_random")
-    
+
     GVAR(current_counter) = 0;
     GVAR(current_mission_counter) = 0;
 
@@ -405,7 +382,7 @@ if (isServer) then {
         [xvec11,40],
         [xvec12,41]
     ] execVM "x_server\x_vrespawn2.sqf";
-    
+
     [
         [350, 'A10_US_EP1'],
         [351, 'UH1Y'],
@@ -424,12 +401,7 @@ if (isServer) then {
     GVAR(player_store) = GVAR(HeliHEmpty) createVehicleLocal [0, 0, 0];
     GVAR(placed_objs_store) = GVAR(HeliHEmpty) createVehicleLocal [0, 0, 0];
     GVAR(placed_objs_store2) = GVAR(HeliHEmpty) createVehicleLocal [0, 0, 0];
-    if (GVAR(with_ai)) then {
-        GVAR(player_groups) = [];
-        GVAR(player_groups_lead) = [];
-    };
-    if (GVAR(FastTime) > 0) then {execFSM "fsms\FastTime.fsm"};
-    
+
     onPlayerConnected {[_id, _name, _uid] call compile preprocessFileLineNumbers "x_server\x_serverOPC.sqf"};
     onPlayerDisconnected {[_id, _name, _uid] call compile preprocessFileLineNumbers "x_server\x_serverOPD.sqf"};
 };

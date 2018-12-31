@@ -11,14 +11,6 @@ if (!__XJIPGetVar(para_available)) exitWith {
     (localize "STR_DOM_MISSIONSTRING_163") call FUNC(HQChat);
 };
 
-if ((GVAR(with_ai) || {GVAR(with_ai_features) == 0}) && {__XJIPGetVar(GVAR(drop_blocked))}) exitWith {
-    (localize "STR_DOM_MISSIONSTRING_165") call FUNC(HQChat);
-};
-
-if (GVAR(with_ai)|| {GVAR(with_ai_features) == 0}) then {
-    [QGVAR(drop_blocked),true] call FUNC(NetSetJIP);
-};
-
 ["arti1_marker_1",getPosASL player,"ELLIPSE","ColorYellow",[GVAR(drop_max_dist), GVAR(drop_max_dist)],"",0,"","FDiagonal"] call FUNC(CreateMarkerLocal);
 
 GVAR(x_drop_type) = "";
@@ -58,8 +50,4 @@ if (GVAR(x_drop_type) != "") then {
 } else {
     GVAR(x_dropzone) setPosASL _oldpos;
     QGVAR(drop_zone) setMarkerPos _oldpos;
-};
-
-if (GVAR(with_ai)|| {GVAR(with_ai_features) == 0}) then {
-    [QGVAR(drop_blocked),false] call FUNC(NetSetJIP);
 };

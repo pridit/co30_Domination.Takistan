@@ -20,27 +20,6 @@ _vec_array = [];
     if (_number_v < 10 || {(_number_v > 99 && {_number_v < 110})}) then {
         _vehicle addMPEventhandler ["MPKilled", {(_this select 0) call FUNC(MHQFunc)}];
     };
-    
-    if (GVAR(with_base_camonet) == 0) then {
-        _camotype = switch (getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "side")) do {
-            case 1: {
-                switch (true) do {
-                    case (__OAVer): {"Land_CamoNetB_NATO_EP1"};
-                    case (__COVer): {"Land_CamoNetB_NATO"};
-                }
-            };
-            case 0: {
-                switch (true) do {
-                    case (__OAVer): {"Land_CamoNetB_EAST_EP1"};
-                    case (__COVer): {"Land_CamoNetB_EAST"};
-                };
-            };
-        };
-        _camo = createVehicle [_camotype, position _vehicle, [], 0, "NONE"];
-        _camo setDir (direction _vehicle) + 180;
-        _camo setPos position _vehicle;
-        _vehicle setVariable [QGVAR(camonet), _camo];
-    };
 } forEach _this;
 _this = nil;
 

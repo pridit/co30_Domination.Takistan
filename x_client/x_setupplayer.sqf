@@ -213,7 +213,7 @@ if (__XJIPGetVar(GVAR(the_end))) exitWith {
     };
 }] call FUNC(NetAddEvent);
 [2, QGVAR(p_o_r), {deleteMarkerLocal (_this select 1)}] call FUNC(NetAddEvent);
-if (GVAR(engineerfull) == 0 || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
+if (GVAR(engineerfull) == 0) then {
     [QGVAR(farp_e), {if (GVAR(eng_can_repfuel)) then {_this addAction [(localize "STR_DOM_MISSIONSTRING_513") call FUNC(BlueText), "x_client\x_restoreeng.sqf"]}}] call FUNC(NetAddEventToClients);
 };
 [QGVAR(p_o_an), {_this call FUNC(PlacedObjAn)}] call FUNC(NetAddEventToClients);
@@ -401,12 +401,9 @@ __cppfln(FUNC(x_playerspawn),x_client\x_playerspawn.sqf);
 GVAR(pl_killer) = objNull;
 GVAR(pl_killer_t) = 0;
 GVAR(dublicate_kill) = false;
-if (GVAR(with_ai)) then {
-    player addMPEventHandler ["MPKilled", {_this call FUNC(x_checkkill)}];
-} else {
-    __cppfln(FUNC(x_dlgopen),x_client\x_open.sqf);
-    player addMPEventHandler ["MPKilled", {_this call FUNC(x_checkkill)}];
-};
+
+__cppfln(FUNC(x_dlgopen),x_client\x_open.sqf);
+player addMPEventHandler ["MPKilled", {_this call FUNC(x_checkkill)}];
 
 xr_use_dom_opendlg = false;
 FUNC(prespawned) = {
@@ -461,52 +458,20 @@ __pSetVar [QGVAR(trench), objNull];
 __pSetVar [QGVAR(trenchid), -9999];
 __pSetVar [QGVAR(showperks), _p addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false]];
 __pSetVar [QGVAR(showstatus), _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false]];
-if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
-    if (GVAR(with_ai)) then {
-        execVM "x_client\x_recruitsetup.sqf";
-        
-        _grpp = group player;
-        _leader = leader _grpp;
-        if (!isPlayer _leader || {player == _leader}) then {
-            {
-                if (!isPlayer _x) then {
-                    if (vehicle _x == _x) then {
-                        deleteVehicle _x;
-                    } else {
-                        moveOut _x;
-                        _x spawn {
-                            scriptName "spawn_ai_vecout";
-                            waitUntil {sleep 0.331;vehicle _this == _this};
-                            deleteVehicle _this;
-                        };
-                    };
-                };
-            } forEach units _grpp;
-        };
+if (GVAR(string_player) in GVAR(can_use_artillery)) then {
+    GVAR(player_can_call_arti) = switch (GVAR(string_player)) do {
+        case "RESCUE": {1};
+        case "RESCUE2": {2};
+        default {0};
     };
-
-    [1] execVM "x_client\x_artiradiocheckold.sqf";
-    execVM "x_client\x_dropradiocheckold.sqf";
-    GVAR(player_can_build_trench) = true;
-    _p addRating 20000;
+    if (GVAR(player_can_call_arti) == 0) exitWith {};
+    [GVAR(player_can_call_arti)] execVM "x_client\x_artiradiocheckold.sqf";
 } else {
-    if (GVAR(string_player) in GVAR(can_use_artillery)) then {
-        GVAR(player_can_call_arti) = switch (GVAR(string_player)) do {
-            case "RESCUE": {1};
-            case "RESCUE2": {2};
-            default {0};
-        };
-        if (GVAR(player_can_call_arti) == 0) exitWith {};
-        [GVAR(player_can_call_arti)] execVM "x_client\x_artiradiocheckold.sqf";
-    } else {
-        enableEngineArtillery false;
-    };
-    if (GVAR(string_player) in GVAR(can_call_drop_ar)) then {
-        GVAR(player_can_call_drop) = 1;
-    };
-    if (GVAR(player_can_call_arti) == 0 && {!(GVAR(string_player) in GVAR(is_engineer))}) then {
-        GVAR(player_can_build_trench) = true;
-    };
+    enableEngineArtillery false;
+};
+
+if (GVAR(player_can_call_arti) == 0 && {!(GVAR(string_player) in GVAR(is_engineer))}) then {
+    GVAR(player_can_build_trench) = true;
 };
 
 _respawn_marker = "";
@@ -620,18 +585,6 @@ if (!isNil QGVAR(action_menus_vehicle) && {count GVAR(action_menus_vehicle) > 0}
     execVM "x_client\x_vecmenus.sqf";
 };
 
-if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {
-    if (__XJIPGetVar(GVAR(jet_serviceH)) && {!__XJIPGetVar(GVAR(jet_s_reb))}) then {
-        [0] spawn FUNC(XFacAction);
-    };
-    if (__XJIPGetVar(GVAR(chopper_serviceH)) && {!__XJIPGetVar(GVAR(chopper_s_reb))}) then {
-        [1] spawn FUNC(XFacAction);
-    };
-    if (__XJIPGetVar(GVAR(wreck_repairH)) && {!__XJIPGetVar(GVAR(wreck_s_reb))}) then {
-        [2] spawn FUNC(XFacAction);
-    };
-};
-
 #define __facset _pos = _element select 0;\
 _dir = _element select 1;\
 _fac = "Land_budova2_ruins" createVehicleLocal _pos;\
@@ -666,7 +619,7 @@ if (GVAR(WithJumpFlags) == 0) then {GVAR(ParaAtBase) = 1};
 
 _tactionar = [(localize "STR_DOM_MISSIONSTRING_533") call FUNC(GreyText),"x_client\x_teleport.sqf"];
 GVAR(FLAG_BASE) addAction _tactionar;
-if (GVAR(with_ai) || {(GVAR(ParaAtBase) == 0)}) then {
+if (GVAR(ParaAtBase) == 0) then {
     GVAR(FLAG_BASE) addaction [(localize "STR_DOM_MISSIONSTRING_296") call FUNC(GreyText),"AAHALO\x_paraj.sqf"];
 };
 
@@ -676,13 +629,11 @@ if (GVAR(ParaAtBase) == 1) then {
     _s setMarkerTextLocal _sn;
 };
 
-if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
-    GVAR(heli_taxi_available) = true;
-    _trigger = createTrigger ["EmptyDetector", _pos];
-    _trigger setTriggerText (localize "STR_DOM_MISSIONSTRING_535");
-    _trigger setTriggerActivation ["HOTEL", "PRESENT", true];
-    _trigger setTriggerStatements ["this", "0 = [] execVM 'x_client\x_airtaxi.sqf'",""];
-};
+GVAR(heli_taxi_available) = true;
+_trigger = createTrigger ["EmptyDetector", _pos];
+_trigger setTriggerText (localize "STR_DOM_MISSIONSTRING_535");
+_trigger setTriggerActivation ["HOTEL", "PRESENT", true];
+_trigger setTriggerStatements ["this", "0 = [] execVM 'x_client\x_airtaxi.sqf'",""];
 
 GVAR(vec_end_time) = -1;
 
@@ -711,25 +662,6 @@ execVM "x_msg\x_playernamehud.sqf";
 
 if (GVAR(MissionType) != 2) then {
     execFSM "fsms\CampDialog.fsm";
-};
-
-if (GVAR(with_ai)) then {
-    0 spawn {
-        scriptName "spawn_withaicheck";
-        while {true} do {
-            waitUntil {sleep 0.272;alive player};
-            if (player != leader (group player) && {!__pGetVar(xr_pluncon)}) then {
-                if (count GVAR(current_ai_units) > 0) then {
-                    GVAR(current_ai_units) = [];
-                    GVAR(current_ai_num) = 0;
-                };
-            };
-            if (__pGetVar(xr_pluncon)) then {
-                waitUntil {sleep 0.332;!__pGetVar(xr_pluncon) || {!alive player}};
-            };
-            sleep 1.212;
-        };
-    };
 };
 
 _primw = primaryWeapon _p;
@@ -870,12 +802,7 @@ __ccppfln(x_client\x_playerammobox.sqf);
     waitUntil {sleep 0.123;!isNil {__XJIPGetVar(GVAR(overcast))}};
     GVAR(lastovercast) = __XJIPGetVar(GVAR(overcast));
     0 setOvercast GVAR(lastovercast);
-    if (GVAR(weather) == 0 && {GVAR(FastTime) == 0}) then {
-        execFSM "fsms\WeatherClient.fsm";
-        if (GVAR(WithWinterWeather) == 0) then {execVM "scripts\weather_winter.sqf"};
-    } else {
-        if (GVAR(FastTime) > 0) then {GVAR(weather) = 1};
-    };
+    execFSM "fsms\WeatherClient.fsm";
 };
 
 if (!isClass (configFile >> "CfgPatches" >> "ace_main")) then {

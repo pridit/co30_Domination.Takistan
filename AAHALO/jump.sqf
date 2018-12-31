@@ -32,6 +32,3 @@ if (vehicle _obj_jump isKindOf "ParachuteBase") then {
 sleep 3;
 
 deleteVehicle _uh60p;
-if (GVAR(with_ai)) then {
-    if (alive player) then {[position player, velocity player, direction player] execVM "x_client\x_moveai.sqf"};
-};

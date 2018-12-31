@@ -174,7 +174,6 @@ FUNC(makevgroup) = {
                 if (_vehicle isKindOf "Air") then {_is_air_vec = true;if (GVAR(LockAir) == 0) then {_vehicle lock true}};
             };
         };
-        if (GVAR(with_ai) && {__RankedVer}) then {_vehicle addMPEventHandler ["MPkilled", {if (isServer) then {[5,_this select 1] call FUNC(AddKillsAI)}}]};
     };
     (leader _grp) setSkill _grpskill;
     _grp setVariable [QGVAR(gstate), 1];
@@ -201,9 +200,6 @@ FUNC(makemgroup) = {
         };
         _one_unit setVariable ["BIS_noCoreConversations", true];
         [_one_unit, {__addDeadAI(_this)}] call FUNC(setUnitCode);
-        if (GVAR(with_ai) && {__RankedVer}) then {
-            [_one_unit, {_this addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}]}] call FUNC(setUnitCode);
-        };
         _one_unit setUnitAbility ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
         _ret set [count _ret, _one_unit];
     } foreach _unitliste;

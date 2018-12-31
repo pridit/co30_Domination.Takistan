@@ -35,7 +35,6 @@ FUNC(x_teleport) = nil;
 FUNC(x_beam_tele) = nil;
 FUNC(x_update_target) = nil;
 FUNC(SatellitenBildd) = nil;
-FUNC(checktrucktrans) = nil;
 FUNC(checkhelipilot) = nil;
 FUNC(checkhelipilot_wreck) = nil;
 FUNC(checkhelipilotout) = nil;

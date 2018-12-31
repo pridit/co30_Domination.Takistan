@@ -58,13 +58,6 @@ class Params {
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
-    class GVAR(FastTime) {
-        title = "$STR_DOM_MISSIONSTRING_1069";
-        values[] = {0,1,2,3,4,5};
-        default = 0;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1070","$STR_DOM_MISSIONSTRING_1071","$STR_DOM_MISSIONSTRING_1072","$STR_DOM_MISSIONSTRING_1073","$STR_DOM_MISSIONSTRING_1074","$STR_DOM_MISSIONSTRING_1075"};
-    };
-    
     class GVAR(MaxNumAmmoboxes) {
         title = "$STR_DOM_MISSIONSTRING_1169";
         values[] = {10,20,30};
@@ -84,13 +77,6 @@ class Params {
         values[] = {1,3,6,9,12,16};
         default = 6;
         texts[] = {"1","3","6","9","12","16"};
-    };
-    
-    class GVAR(with_base_camonet) {
-        title = "$STR_DOM_MISSIONSTRING_1210";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
     class GVAR(params_dummy_line_2) {
@@ -147,20 +133,6 @@ class Params {
         values[] = {-99999};
         default = -99999;
         texts[] = {""};
-    };
-    
-    class GVAR(weather) {
-        title = "$STR_DOM_MISSIONSTRING_1164";
-        values[] = {0,1};
-        default = 0;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-
-    class GVAR(WithWinterWeather) {
-        title = "$STR_DOM_MISSIONSTRING_1165";
-        values[] = {0,1};
-        default = 1; 
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
     class GVAR(params_dummy_line_5) {
@@ -395,27 +367,6 @@ class Params {
         values[] = {-99999};
         default = -99999;
         texts[] = {""};
-    };
-
-    class GVAR(with_ai) {
-        title = "$STR_DOM_MISSIONSTRING_1023";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
-    class GVAR(with_ai_features) {
-        title = "$STR_DOM_MISSIONSTRING_1024";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
-    class GVAR(max_ai) {
-        title = "$STR_DOM_MISSIONSTRING_1176";
-        values[] = {6,8,10,12,14,16};
-        default = 8;
-        texts[] = {"6","8","10","12","14","16"};
     };
     
     class GVAR(params_dummy_line_10) {
@@ -796,7 +747,6 @@ class Params {
 #include "x_dlg\AirDropDialog.hpp"
 #include "x_dlg\Sat_Cam.hpp"
 #include "x_dlg\BackpackDialog.hpp"
-#include "x_dlg\AIRecruitDialog.hpp"
 #include "x_dlg\SquadManagement.hpp"
 #include "x_dlg\PlayerStatsDialog.hpp"
 #include "x_dlg\perks\base.hpp"

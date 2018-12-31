@@ -96,9 +96,6 @@ _make_jump = {
                 };
                 _one_unit setVariable ["BIS_noCoreConversations", true];
                 [_one_unit, {__addDeadAI(_this)}] call FUNC(setUnitCode);
-                if (GVAR(with_ai) && {__RankedVer}) then {
-                    [_one_unit, {_this addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}]}] call FUNC(setUnitCode);
-                };
                 _one_unit setSkill ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
                 
                 _para = createVehicle [_parachute_type, position _vehicle, [], 20, 'NONE'];
@@ -170,9 +167,6 @@ for "_i" from 1 to _number_vehicles do {
     _vehicle = _veca select 0;
     if !((toUpper _heli_type) in GVAR(heli_wreck_lift_types)) then {__addDead(_vehicle)};
     _vehicle spawn FUNC(AirMarkerMove);
-    if (GVAR(with_ai) && {__RankedVer}) then {
-        _vehicle addMPEventHandler ["MPkilled", {if (isServer) then {[8,_this select 1] call FUNC(AddKillsAI)}}];
-    };
 
     if (GVAR(LockAir) == 0) then {_vehicle lock true};
     sleep 5.012;

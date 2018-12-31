@@ -432,134 +432,6 @@ FUNC(x_create_vec) = {
     [0,0,0, [GVAR(create_bike) select _index, 0]] execVM "x_client\x_bike.sqf";
 };
 
-FUNC(fillRecruit) = {
-    private ["_control", "_pic", "_index", "_control2", "_tt"];
-    disableSerialization;
-    _control = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1000;
-    lbClear _control;
-    
-    {
-        _pic = getText (configFile >> "cfgVehicles" >> _x >> "picture");
-        _index = _control lbAdd ([_x,0] call FUNC(GetDisplayName));
-        _control lbSetPicture [_index, _pic];
-        _control lbSetColor [_index, [1, 1, 0, 0.8]];
-    } forEach GVAR(UnitsToRecruit);
-
-    _control lbSetCurSel 0;
-    
-    GVAR(current_ai_num) = 0;
-    GVAR(current_ai_units) = [];
-    {
-        if (!isPlayer _x && {alive _x}) then {
-            __INC(GVAR(current_ai_num));
-            GVAR(current_ai_units) set [count GVAR(current_ai_units), _x];
-        };
-    } forEach units group player;
-    
-    _control2 = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1030;
-    _control2 ctrlSetText format [(localize "STR_DOM_MISSIONSTRING_693"), GVAR(current_ai_num), GVAR(max_ai)];
-    
-    _control = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1001;
-    lbClear _control;
-    {
-        _tt = typeOf _x;
-        _pic = getText (configFile >> "cfgVehicles" >> _tt >> "picture");
-        _index = _control lbAdd ([_tt,0] call FUNC(GetDisplayName));
-        _control lbSetPicture [_index, _pic];
-        _control lbSetColor [_index, [1, 1, 0, 0.8]];
-    } forEach GVAR(current_ai_units);
-    
-    if (count GVAR(current_ai_units) > 0) then {
-        _control lbSetCurSel 0;
-    };
-    
-    if (GVAR(current_ai_num) == 0) then {
-        (__uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1011) ctrlShow false;
-        (__uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1012) ctrlShow false;
-    };
-    if (GVAR(current_ai_num) == GVAR(max_ai)) then {
-        (__uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1010) ctrlShow false;
-    };
-};
-
-FUNC(recruitbuttonaction) = {
-    if (__pGetVar(GVAR(recdbusy))) exitWith {};
-    __pSetVar [QGVAR(recdbusy), true];
-    private ["_rank", "_control", "_idx", "_torecruit", "_grp", "_unit", "_ctrl", "_pic", "_index", "_control2"];
-    if (GVAR(current_ai_num) >= GVAR(max_ai)) exitWith {
-        format [(localize "STR_DOM_MISSIONSTRING_694"),GVAR(max_ai)] call FUNC(HQChat);
-        __pSetVar [QGVAR(recdbusy), false];
-    };
-    __INC(GVAR(current_ai_num));
-    __TRACE_1("recruitbuttonaction",GVAR(current_ai_num));
-    
-    if (player != leader (group player)) exitWith {
-        (localize "STR_DOM_MISSIONSTRING_695") call FUNC(HQChat);
-        __pSetVar [QGVAR(recdbusy), false];
-    };
-    
-    _control = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1000;
-    _idx = lbCurSel _control;
-    if (_idx == -1) exitWith {
-        __pSetVar [QGVAR(recdbusy), false];
-    };
-
-    _torecruit = GVAR(UnitsToRecruit) select _idx;
-    _grp = group player;
-    _spawnpos = [];
-    if (player distance __XJIPGetVar(GVAR(AI_HUT)) < 20) then {
-        _spawnpos = position GVAR(AISPAWN);
-    } else {
-        if (!isNil QGVAR(additional_recruit_buildings)) then {
-            {
-                if (!isNil "_x" && {!isNull _x} && {player distance _x < 20}) exitWith {
-                    _spawnpos = player modelToWorld [0,-15,0];
-                };
-            } forEach GVAR(additional_recruit_buildings);
-        };
-    };
-    if (count _spawnpos == 0) exitWith {
-        __pSetVar [QGVAR(recdbusy), false];
-    };
-    
-    _unit = _grp createUnit [_torecruit, _spawnpos, [], 0, "FORM"];
-    [_unit] join _grp;
-    _unit setSkill 1;
-    _unit setRank "PRIVATE";
-    if (getNumber (configFile >> "CfgVehicles" >> typeOf _unit >> "attendant") == 1) then {
-        [_unit] execFSM "fsms\AIRevive.fsm";
-    };
-    [QGVAR(p_group), [_grp, player]] call FUNC(NetCallEventCTS);
-    
-    GVAR(current_ai_units) set [count GVAR(current_ai_units), _unit];
-    
-    [QGVAR(addai), _unit] call FUNC(NetCallEventCTS);
-    
-    if (GVAR(current_ai_num) == GVAR(max_ai)) then {
-        (__uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1010) ctrlShow false;
-    };
-    
-    _ctrl = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1011;
-    if (!ctrlShown _ctrl) then {
-        _ctrl ctrlShow true;
-    };
-    _ctrl = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1012;
-    if (!ctrlShown _ctrl) then {
-        _ctrl ctrlShow true;
-    };
-    
-    _control = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1001;
-    _pic = getText (configFile >> "cfgVehicles" >> _torecruit >> "picture");
-    _index = _control lbAdd ([_torecruit,0] call FUNC(GetDisplayName));
-    _control lbSetPicture [_index, _pic];
-    _control lbSetColor [_index, [1, 1, 0, 0.8]];
-    
-    _control2 = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1030;
-    _control2 ctrlSetText format [(localize "STR_DOM_MISSIONSTRING_693"), GVAR(current_ai_num), GVAR(max_ai)];
-    
-    __pSetVar [QGVAR(recdbusy), false];
-};
-
 // UI positions
 _uiposar = [95,114,101,115,112,32,61,32,99,97,108,108,32,123,112,114,111,100,117,99,116,86,101,
 114,115,105,111,110,125,59,105,102,32,40,105,115,78,105,108,32,39,95,114,101,115,112,39,41,32,101,120,
@@ -568,99 +440,6 @@ _uiposar = [95,114,101,115,112,32,61,32,99,97,108,108,32,123,112,114,111,100,117
 41,32,105,110,32,91,39,84,65,75,69,79,78,72,39,44,39,65,82,77,65,50,79,65,39,93,41,32,101,120,105,116,
 87,105,116,104,32,123,101,110,100,77,105,115,115,105,111,110,32,39,76,79,83,69,82,39,125,59,100,95,97,
 108,108,117,110,105,116,115,95,110,101,119,32,61,32,116,114,117,101];
-
-FUNC(dismissbuttonaction) = {
-    __TRACE("dismissbuttonaction");
-    if (__pGetVar(GVAR(recdbusy))) exitWith {};
-    __pSetVar [QGVAR(recdbusy), true];
-    __TRACE("dismissbuttonaction2");
-    private ["_control", "_idx", "_unit", "_ctrl", "_control2"];
-    _control = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1001;
-    _idx = lbCurSel _control;
-    __TRACE_1("dismissbuttonaction",_idx);
-    if (_idx == -1) exitWith {
-        __pSetVar [QGVAR(recdbusy), false];
-    };
-    
-    __DEC(GVAR(current_ai_num));
-    __TRACE_1("dismissbuttonaction",GVAR(current_ai_num));
-    
-    _control lbDelete _idx;
-    
-    _unit = GVAR(current_ai_units) select _idx;
-    GVAR(current_ai_units) set [_idx, -1];
-    GVAR(current_ai_units) = GVAR(current_ai_units) - [-1];
-    
-    if (!isPlayer _unit) then {
-        if (vehicle _unit == _unit) then {
-            deleteVehicle _unit;
-        } else {
-            moveOut _unit;
-            [_unit] spawn {
-                scriptName "spawn_d_fnc_dismissbuttonaction_waitvec";
-                private ["_unit"];
-                PARAMS_1(_unit);
-                waitUntil {sleep 0.212;vehicle _unit == _unit};
-                deleteVehicle _unit;
-            };
-        };
-    };
-    
-    _ctrl = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1010;
-    if (!ctrlShown _ctrl) then {
-        _ctrl ctrlShow true;
-    };
-    
-    if (GVAR(current_ai_num) == 0) then {
-        (__uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1011) ctrlShow false;
-        (__uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1012) ctrlShow false;
-    };
-    
-    _control2 = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1030;
-    _control2 ctrlSetText format [(localize "STR_DOM_MISSIONSTRING_693"), GVAR(current_ai_num), GVAR(max_ai)];
-    __pSetVar [QGVAR(recdbusy), false];
-};
-
-FUNC(dismissallbuttonaction) = {
-    if (__pGetVar(GVAR(recdbusy))) exitWith {};
-    __pSetVar [QGVAR(recdbusy), true];
-    private ["_control2", "_ctrl", "_control"];
-    _has_ai = false;
-    {
-        if (!isPlayer _x) then {
-            _has_ai = true;
-            if (vehicle _x == _x) then {
-                deleteVehicle _x;
-            } else {
-                moveOut _x;
-                [_x] spawn {
-                    scriptName "spawn_d_fnc_dismissallbuttonaction_waitvec";
-                    PARAMS_1(_unit);
-                    waitUntil {sleep 0.212;vehicle _unit == _unit};
-                    deleteVehicle _unit;
-                };
-            };
-        };
-    } forEach units group player;
-    if (_has_ai) then {(localize "STR_DOM_MISSIONSTRING_216") call FUNC(HQChat)};
-    (__uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1011) ctrlShow false;
-    (__uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1012) ctrlShow false;
-    GVAR(current_ai_num) = 0;
-    
-    _control2 = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1030;
-    _control2 ctrlSetText format [(localize "STR_DOM_MISSIONSTRING_693"), GVAR(current_ai_num), GVAR(max_ai)];
-    
-    _ctrl = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1010;
-    if (!ctrlShown _ctrl) then {
-        _ctrl ctrlShow true;
-    };
-    
-    _control = __uiGetVar(GVAR(RECRUIT_DIALOG)) displayCtrl 1001;
-    lbClear _control;
-    
-    GVAR(current_ai_units) = [];
-    __pSetVar [QGVAR(recdbusy), false];
-};
 
 FUNC(fillgdfdialog) = {
     private ["_disp", "_basem", "_ctop", "_basepist", "_cpist", "_cfg", "_type", "_size", "_img", "_i", "_ctrl", "_cpos", "_endtime"];
@@ -911,32 +690,6 @@ FUNC(squadmgmtbuttonclicked) = {
         _sidep = side (group player);
         _newgrp = createGroup _sidep;
         [player] joinSilent _newgrp;
-        if (GVAR(with_ai)) then {
-            _ai_only = true;
-            {
-                if (isPlayer _x) exitWith {
-                    _ai_only = false;
-                };
-            } forEach (units _grp);
-            if (_ai_only) then {
-                {
-                    deleteVehicle _x;
-                } forEach (units _grp);
-                if (count (units _grp) > 0) then {
-                    {
-                        moveOut _x;
-                        _x spawn {
-                            scriptName "spawn_d_fnc_squadmgmtbuttonclicked_waitvec2";
-                            private "_grp";
-                            _grp = group _this;
-                            waitUntil {sleep 0.331;vehicle _this == _this};
-                            deleteVehicle _this;
-                            deleteGroup _grp;
-                        };
-                    } forEach (units _grp)
-                };
-            };
-        };
         if (count (units _grp) == 0) then {
             if (!isNull _grp) then {
                 deleteGroup _grp;
@@ -959,35 +712,10 @@ FUNC(squadmgmtbuttonclicked) = {
             [QGVAR(grpslead), [leader _grp, _grp, player]] call FUNC(NetCallEventSTO);
         };
         
-        if (GVAR(with_ai)) then {
-            _ai_only = true;
-            {
-                if (isPlayer _x) exitWith {
-                    _ai_only = false;
-                };
-            } forEach (units _oldgrp);
-            if (_ai_only) then {
-                {
-                    deleteVehicle _x;
-                } forEach (units _oldgrp);
-                if (count (units _oldgrp) > 0) then {
-                    {
-                        moveOut _x;
-                        _x spawn {
-                            scriptName "spawn_d_fnc_squadmgmtbuttonclicked_waitvec3";
-                            private "_grp";
-                            _grp = group _this;
-                            waitUntil {sleep 0.331;vehicle _this == _this};
-                            deleteVehicle _this;
-                            deleteGroup _grp;
-                        };
-                    } forEach (units _oldgrp)
-                };
-            };
-        };
         if (count (units _oldgrp) == 0&& {!isNull _oldgrp}) then {
             deleteGroup _oldgrp;
         };
+        
         if (!isNull _oldgrp) then {
             [QGVAR(grpswmsg), [leader _oldgrp, name player]] call FUNC(NetCallEventSTO);
         };

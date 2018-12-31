@@ -31,14 +31,6 @@ if !(X_JIPH getVariable _ariavailstr) exitWith {
     _str call FUNC(HQChat);
 };
 
-if ((GVAR(with_ai) || {GVAR(with_ai_features) == 0}) && {__XJIPGetVar(GVAR(ari_blocked))}) exitWith {
-    (localize "STR_DOM_MISSIONSTRING_148") call FUNC(HQChat);
-};
-
-if (GVAR(with_ai) || GVAR(with_ai_features) == 0) then {
-    [QGVAR(ari_blocked),true] call FUNC(NetSetJIP);
-};
-
 ["arti1_marker_1",getPosASL player,"ELLIPSE","ColorYellow",[GVAR(ArtiOperatorMaxDist),GVAR(ArtiOperatorMaxDist)],"",0,"","FDiagonal"] call FUNC(CreateMarkerLocal);
 
 GVAR(ari_type) = "";
@@ -56,9 +48,6 @@ waitUntil {GVAR(ari_type) != "" || {!GVAR(arti_dialog_open)} || {!alive player} 
 deleteMarkerLocal "arti1_marker_1";
 if (!alive player || {__pGetVar(xr_pluncon)}) exitWith {
     if (GVAR(arti_dialog_open)) then {closeDialog 0};
-    if (GVAR(with_ai)|| {GVAR(with_ai_features) == 0}) then {
-        [QGVAR(ari_blocked), false] call FUNC(NetSetJIP);
-    };
 };
 if (GVAR(ari_type) != "") then {
     if !(X_JIPH getVariable _ariavailstr) exitWith {(localize "STR_DOM_MISSIONSTRING_149") call FUNC(HQChat)};
@@ -106,8 +95,4 @@ if (GVAR(ari_type) != "") then {
     (localize "STR_DOM_MISSIONSTRING_152") call FUNC(HQChat);
     _ari_target setpos _oldpos;
     _arti_markername setMarkerPos _oldpos;
-};
-
-if (GVAR(with_ai) || {GVAR(with_ai_features) == 0}) then {
-    [QGVAR(ari_blocked),false] call FUNC(NetSetJIP);
 };

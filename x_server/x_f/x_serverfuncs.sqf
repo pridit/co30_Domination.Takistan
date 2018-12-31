@@ -3,17 +3,6 @@
 #define THIS_FILE "x_serverfuncs.sqf"
 #include "x_setup.sqf"
 
-if (GVAR(with_ai) && {__RankedVer}) then {
-    FUNC(AddKillsAI) = {
-        private ["_points","_killer","_lead"];
-        PARAMS_2(_points,_killer);
-        _lead = leader _killer;
-        if (!isPlayer _killer && {side (group _killer) != GVAR(side_enemy)} && {!isNull _lead} && {isPlayer _lead}) then {
-            _lead addScore _points;
-        };
-    };
-};
-
 FUNC(GetWreck) = {
     private ["_no","_rep_station"];
     PARAMS_1(_rep_station);

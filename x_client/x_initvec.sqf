@@ -37,10 +37,6 @@ _vec addEventHandler ["getout", {_this call FUNC(checkhelipilotout)}]
 #define __pvecs {if ((_x select 1) == _d_vec) exitWith {_car = _x}} forEach GVAR(p_vecs)
 #define __pvecss(sname) {if ((_x select 1) == _d_vec) exitWith {_car = _x}} forEach d_p_vecs_##sname
 
-#define __staticl \
-_vec addAction[(localize "STR_DOM_MISSIONSTRING_256") call FUNC(GreyText),"scripts\load_static.sqf",_d_vec,-1,false];\
-_vec addAction[(localize "STR_DOM_MISSIONSTRING_257") call FUNC(RedText),"scripts\unload_static.sqf",_d_vec,-1,false]
-
 #define __addchopm _vec addAction [(localize "STR_DOM_MISSIONSTRING_258") call FUNC(GreyText),"x_client\x_vecdialog.sqf",[],-1,false]
 
 private "_vec";
@@ -123,11 +119,6 @@ if (_d_vec < 40) exitWith {
         __vecname;
     };
     if (!alive _vec) exitWith {};
-    if (GVAR(with_ai) || {GVAR(with_ai_features) == 0} || {GVAR(string_player) in GVAR(is_engineer)}) then {
-        __staticl;
-    } else {
-        _vec addEventHandler ["getin", {_this call FUNC(checktrucktrans)}];
-    };
     _vec setVariable [QGVAR(vec_type), "Engineer"];
     _vec setAmmoCargo 0;
 };

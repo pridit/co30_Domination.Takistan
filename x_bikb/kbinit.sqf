@@ -58,7 +58,6 @@ GVAR(hq_logic_en2) setIdentity "DHQ_EN2";
 GVAR(hq_logic_en2) setRank "COLONEL";
 GVAR(hq_logic_en2) setGroupId ["Crossroad1"];
 
-#ifndef __TT__
 GVAR(kb_logic1) = switch (GVAR(enemy_side)) do {
     case "EAST": {GVAR(hq_logic_en1)};
     case "WEST": {GVAR(hq_logic_ru1)};
@@ -75,7 +74,6 @@ GVAR(kb_topic_side_arti) = switch (GVAR(enemy_side)) do {
     case "EAST": {"HQ_ART_W"};
     case "WEST": {"HQ_ART_E"};
 };
-#endif
 
 if (!isDedicated) then {
     waitUntil {sleep 0.121;X_INIT};
@@ -90,23 +88,8 @@ if (!isDedicated) then {
     };
     _strp = str(player);
     player kbAddTopic["PL" + _strp,_kbscript];
-    #ifndef __TT__
     GVAR(kb_logic1) kbAddTopic["PL" + str(player),_kbscript];
-    #else
-    _ll = switch (playerSide) do {
-        case west: {GVAR(hq_logic_en1)};
-        case east: {GVAR(hq_logic_ru1)};
-    };
-    _ll kbAddTopic["PL" + _strp,_kbscript];
-    #endif
-    if (!GVAR(with_ai) && {GVAR(with_ai_features) != 0}) then {
-        if (_strp in GVAR(can_use_artillery)) then {
-            switch (playerSide) do {
-                case west: {player kbAddTopic["HQ_ART_W",_kbscript]};
-                case east: {player kbAddTopic["HQ_ART_E",_kbscript]};
-            };
-        };
-    } else {
+    if (_strp in GVAR(can_use_artillery)) then {
         switch (playerSide) do {
             case west: {player kbAddTopic["HQ_ART_W",_kbscript]};
             case east: {player kbAddTopic["HQ_ART_E",_kbscript]};

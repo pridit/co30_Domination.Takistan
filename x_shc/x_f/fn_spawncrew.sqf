@@ -65,9 +65,6 @@ if (_hasDriver == 1 && {isNull (driver _vehicle)}) then {
 
             __addDeadAI(_unit)
 
-            if (GVAR(with_ai) && {__RankedVer}) then {
-                _unit addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
-            };
             _unit setUnitAbility ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
 
             _unit moveInDriver _vehicle;
@@ -106,9 +103,6 @@ _funcSpawnTurrets = {
                     
                     __addDeadAI(_unit)
 
-                    if (GVAR(with_ai) && {__RankedVer}) then {
-                        _unit addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
-                    };
                     _unit setUnitAbility ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
                     
                     _unit moveInTurret [_vehicle, _thisTurret];

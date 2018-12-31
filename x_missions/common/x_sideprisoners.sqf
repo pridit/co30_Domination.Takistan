@@ -37,66 +37,19 @@ _hostages_reached_dest = false;
 _all_dead = false;
 _rescued = false;
 
-if (!GVAR(with_ai)) then {
-    while {!_hostages_reached_dest && {!_all_dead}} do {
-        __MPCheck;
-        if ((_units call FUNC(GetAliveUnits)) == 0) then {
-            _all_dead = true;
-        } else {
-            if (!_rescued) then {
-                _leader = leader _newgroup;
-                _nobjs = (position _leader) nearEntities ["CAManBase", 20];
-                if (count _nobjs > 0) then {
-                    {
-                        if (isPlayer _x && {alive _x}) exitWith {
-                            _rescued = true;
-                            _retter = _x;
-                            {
-                                if (!isNull _x && {alive _x}) then {
-                                    _x setCaptive false;
-                                    _x enableAI "MOVE";
-                                };
-                            } forEach _units;
-                            [QGVAR(joing), [group _retter, _units]] call FUNC(NetCallEventSTO);
-                        };
-                        sleep 0.01;
-                    } forEach _nobjs;
-                };
-            } else {
-                _do_loop = true;
+while {!_hostages_reached_dest && {!_all_dead}} do {
+    __MPCheck;
+    if ((_units call FUNC(GetAliveUnits)) == 0) then {
+        _all_dead = true;
+    } else {
+        if (!_rescued) then {
+            _leader = leader _newgroup;
+            _nobjs = (position _leader) nearEntities ["CAManBase", 20];
+            if (count _nobjs > 0) then {
                 {
-                    if (!isNull _x && {alive _x}) then {
-                        if ((vehicle _x) distance GVAR(FLAG_BASE) < 20) then {
-                            _hostages_reached_dest = true;
-                            _do_loop = false;
-                        };
-                    };
-                    if (!_do_loop) exitWith {};
-                } forEach _units;
-            };
-        };
-        sleep 5.123;
-    };
-} else {
-    _retter = objNull;
-
-    while {!_hostages_reached_dest && {!_all_dead}} do {
-        __MPCheck;
-        if ((_units call FUNC(GetAliveUnits)) == 0) then {
-            _all_dead = true;
-        } else {
-            if (!_rescued) then {
-                _leader = leader _newgroup;
-                _nobjs = (position _leader) nearEntities ["CAManBase", 20];
-                if (count _nobjs > 0) then {
-                    {
-                        if (isPlayer _x && {alive _x}) exitWith {
-                            _rescued = true;
-                            _retter = _x;
-                        };
-                        sleep 0.01;
-                    } forEach _nobjs;
-                    if (_rescued && {!isNull _retter}) then {
+                    if (isPlayer _x && {alive _x}) exitWith {
+                        _rescued = true;
+                        _retter = _x;
                         {
                             if (!isNull _x && {alive _x}) then {
                                 _x setCaptive false;
@@ -105,18 +58,23 @@ if (!GVAR(with_ai)) then {
                         } forEach _units;
                         [QGVAR(joing), [group _retter, _units]] call FUNC(NetCallEventSTO);
                     };
-                };
-            } else {
-                {
-                    if (!isNull _x && {alive _x} && {(vehicle _x) distance GVAR(FLAG_BASE) < 20}) exitWith {_hostages_reached_dest = true};
-                } forEach _units;
+                    sleep 0.01;
+                } forEach _nobjs;
             };
+        } else {
+            _do_loop = true;
+            {
+                if (!isNull _x && {alive _x}) then {
+                    if ((vehicle _x) distance GVAR(FLAG_BASE) < 20) then {
+                        _hostages_reached_dest = true;
+                        _do_loop = false;
+                    };
+                };
+                if (!_do_loop) exitWith {};
+            } forEach _units;
         };
-        if (__RankedVer) then {
-            if (_hostages_reached_dest) then {[QGVAR(sm_p_pos), position GVAR(FLAG_BASE)] call FUNC(NetCallEvent)};
-        };
-        sleep 5.123;
     };
+    sleep 5.123;
 };
 
 if (_all_dead) then {
@@ -124,11 +82,7 @@ if (_all_dead) then {
 } else {
     if (_hostages_reached_dest) then {
         if ((_units call FUNC(GetAliveUnits)) > 7) then {
-#ifndef __TT__
             GVAR(side_mission_winner) = 2;
-#else
-            GVAR(side_mission_winner) = _winner;
-#endif
         } else {
             GVAR(side_mission_winner) = -400;
         };

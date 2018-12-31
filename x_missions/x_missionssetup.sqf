@@ -18,8 +18,6 @@ if (__OAVer) then {
     };
 };
 
-if (GVAR(FastTime) > 0) then {GVAR(sm_array) = GVAR(sm_array) - [51,52]};
-
 GVAR(number_side_missions) = count GVAR(sm_array);
 
 // just for debugging

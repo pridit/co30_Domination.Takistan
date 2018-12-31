@@ -13,16 +13,4 @@ if (!isNil QGVAR(HC_CLIENT_NAME) && {name player == GVAR(HC_CLIENT_NAME)} && {pr
 if (!isNil QGVAR(jip_started)) exitWith {};
 GVAR(jip_started) = true;
 
-if (GVAR(FastTime) > 0) then {
-    0 setOvercast 0;
-    0 spawn {
-        scriptName "spawn_TimeUpdateScript";
-        waitUntil {sleep 0.221;!isNil {__XJIPGetVar(currentTime)}};
-        while {true} do {
-            sleep 1;
-            skipTime (__XJIPGetVar(currentTime) - DayTime);
-        };
-    };
-};
-
 __ccppfln(x_client\x_setupplayer.sqf);

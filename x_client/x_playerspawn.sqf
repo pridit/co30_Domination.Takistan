@@ -173,7 +173,6 @@ if (_rtype == 0) then { // player died
     "RadialBlur" ppEffectCommit 0;
     "RadialBlur" ppEffectEnable false;
 
-    if ((GVAR(with_ai) || {GVAR(with_ai_features) == 0}) && {rating _p < 20000}) then {_p addRating 20000};
     if (GVAR(WithBackpack)) then {
         if (count __pGetVar(GVAR(player_backpack)) == 0) then {
             if (primaryWeapon _p != "") then {

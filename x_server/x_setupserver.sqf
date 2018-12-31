@@ -31,8 +31,6 @@ GVAR(last_bonus_vec) = "";
 // check mr
 __cppfln(FUNC(checktransport),x_server\x_checktransport.sqf);
 
-if (GVAR(with_ai)) then {execVM "x_server\x_delaiserv.sqf"};
-
 if (GVAR(MissionType) in [0,2]) then {
     0 spawn {
         scriptName "spawn_x_serversetup_startsm";

@@ -56,7 +56,6 @@ GVAR(version) = [];
 #define __adddv(dtype) GVAR(version) set [count GVAR(version), #dtype]
 __adddv(OA);
 GVAR(COVer) = false;
-if (GVAR(with_ai)) then {__adddv(AI)};
 if (GVAR(WithRevive) == 0) then {__adddv(REVIVE)};
 
 GVAR(last_target_idx) = -1;

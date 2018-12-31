@@ -78,6 +78,4 @@ if (_typepos == 1) then {
         case (__COVer): {nearestObjects [player, [GVAR(the_box),"LAV25_HQ","BTR90_HQ"], 30]};
     };
     {player reveal _x} forEach _nobs;
-
-    if (GVAR(with_ai) && {alive player}) then {execVM "x_client\x_moveai.sqf"};
 };

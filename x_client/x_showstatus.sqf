@@ -102,8 +102,6 @@ if (playerSide == west) then {
 #endif
 
 _s = format [(localize "STR_DOM_MISSIONSTRING_549"), round(overcast * 100), round (rain * 100)];
-_s = _s + (if (GVAR(WithWinterWeather) == 0) then {if (__XJIPGetVar(GVAR(winterw)) == 1) then {(localize "STR_DOM_MISSIONSTRING_550")} else {""}} else {""});
-if (GVAR(weather) == 1) then {_s = format [(localize "STR_DOM_MISSIONSTRING_551"), round(overcast * 100), round(fog * 100)]};
 __ctrl2(11013) ctrlSetText _s;
 
 __ctrl(11009);

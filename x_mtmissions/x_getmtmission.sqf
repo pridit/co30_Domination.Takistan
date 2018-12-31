@@ -83,20 +83,11 @@ __TargetInfo
 switch (_sec_kind) do {
     case 1: {
         __GetEGrp(_newgroup)
-#ifdef __CO__
-        _the_officer = switch (GVAR(enemy_side)) do {
-            case "EAST": {"RU_Commander"};
-            case "WEST": {"USMC_Soldier_Officer"};
-            case "GUER": {"GUE_Commander"};
-        };
-#endif
-#ifdef __OA__
         _the_officer = switch (GVAR(enemy_side)) do {
             case "EAST": {"TK_Soldier_Officer_EP1"};
             case "WEST": {"US_Soldier_Officer_EP1"};
             case "GUER": {"TK_GUE_Warlord_EP1"};
         };
-#endif
         _vehicle = _newgroup createUnit [_the_officer, _poss, [], 0, "FORM"];
         if (GVAR(without_nvg) == 0) then {
             if (_vehicle hasWeapon "NVGoggles") then {_vehicle removeWeapon "NVGoggles"};
@@ -128,21 +119,12 @@ switch (_sec_kind) do {
         };
         sleep 0.1;
         __vkilled(gov_dead);
-        if (GVAR(with_ai) && {__RankedVer}) then {
-            _vehicle addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
-        };
         sleep 1.0112;
         __specops;
     };
     case 2: {
         __getPos;
-        _ctype =
-#ifdef __OA__
-        "Land_Fort_Watchtower_EP1";
-#endif
-#ifdef __CO__
-        "Land_vysilac_FM2";
-#endif
+        _ctype = "Land_Fort_Watchtower_EP1";
         _vehicle = createVehicle [_ctype, _poss, [], 0, "NONE"];
         _svec = sizeOf _ctype;
         _isFlat = (position _vehicle) isFlatEmpty [_svec / 2, 150, 0.7, _svec, 0, false, _vehicle];
@@ -161,20 +143,11 @@ switch (_sec_kind) do {
     };
     case 3: {
         __getPos;
-#ifdef __CO__
-        _truck = switch (GVAR(enemy_side)) do {
-            case "EAST": {"KamazReammo"};
-            case "WEST": {"MtvrReammo"};
-            case "GUER": {"V3S_Gue"};
-        };
-#endif
-#ifdef __OA__
         _truck = switch (GVAR(enemy_side)) do {
             case "EAST": {"UralReammo_TK_EP1"};
             case "WEST": {"MtvrReammo_DES_EP1"};
             case "GUER": {"V3S_Reammo_TK_GUE_EP1"};
         };
-#endif
         _vehicle = createVehicle [_truck, _poss, [], 0, "NONE"];
         _svec = sizeOf _truck;
         _isFlat = (position _vehicle) isFlatEmpty [_svec / 2, 150, 0.7, _svec, 0, false, _vehicle];
@@ -197,20 +170,11 @@ switch (_sec_kind) do {
         __specops;
     };
     case 4: {
-#ifdef __CO__
-        _truck = switch (GVAR(enemy_side)) do {
-            case "EAST": {"GAZ_Vodnik_MedEvac"};
-            case "WEST": {"HMMWV_Ambulance"};
-            case "GUER": {"BMP2_Gue"};
-        };
-#endif
-#ifdef __OA__
         _truck = switch (GVAR(enemy_side)) do {
             case "EAST": {"M113Ambul_TK_EP1"};
             case "WEST": {"HMMWV_Ambulance_DES_EP1"};
             case "GUER": {"M113Ambul_UN_EP1"};
         };
-#endif
         _vehicle = createVehicle [_truck, _poss, [], 0, "NONE"];
         _svec = sizeOf _truck;
         _isFlat = (position _vehicle) isFlatEmpty [_svec / 2, 150, 0.7, _svec, 0, false, _vehicle];
@@ -254,20 +218,11 @@ switch (_sec_kind) do {
     };
     case 6: {
         __getPos;
-#ifdef __CO__
-        _fact = switch (GVAR(enemy_side)) do {
-            case "EAST": {"RU_WarfareBLightFactory"};
-            case "WEST": {"USMC_WarfareBLightFactory"};
-            case "GUER": {"Gue_WarfareBLightFactory"};
-        };
-#endif
-#ifdef __OA__
         _fact = switch (GVAR(enemy_side)) do {
             case "EAST": {"TK_WarfareBLightFactory_EP1"};
             case "WEST": {"US_WarfareBLightFactory_EP1"};
             case "GUER": {"TK_GUE_WarfareBLightFactory_EP1"};
         };
-#endif
         _vehicle = createVehicle [_fact, _poss, [], 0, "NONE"];
         _svec = sizeOf _fact;
         _isFlat = (position _vehicle) isFlatEmpty [_svec / 2, 150, 0.7, _svec, 0, false, _vehicle];
@@ -287,20 +242,11 @@ switch (_sec_kind) do {
     };
     case 7: {
         __getPos;
-#ifdef __CO__
-        _fact = switch (GVAR(enemy_side)) do {
-            case "EAST": {"RU_WarfareBHeavyFactory"};
-            case "WEST": {"USMC_WarfareBHeavyFactory"};
-            case "GUER": {"Gue_WarfareBHeavyFactory"};
-        };
-#endif
-#ifdef __OA__
         _fact = switch (GVAR(enemy_side)) do {
             case "EAST": {"TK_WarfareBHeavyFactory_EP1"};
             case "WEST": {"US_WarfareBHeavyFactory_EP1"};
             case "GUER": {"TK_GUE_WarfareBHeavyFactory_EP1"};
         };
-#endif
         _vehicle = createVehicle [_fact, _poss, [], 0, "NONE"];
         _svec = sizeOf _fact;
         _isFlat = (position _vehicle) isFlatEmpty [_svec / 2, 150, 0.7, _svec, 0, false, _vehicle];
@@ -359,13 +305,7 @@ switch (_sec_kind) do {
     };
     case 10: {
         __GetEGrp(_newgroup)
-        _ctype =
-#ifdef __CO__
-        "Ins_Lopotev";
-#endif
-#ifdef __OA__
-        "Dr_Hladik_EP1";
-#endif
+        _ctype = "Dr_Hladik_EP1";
         _vehicle = _newgroup createUnit [_ctype, _poss, [], 0, "FORM"];
         if (GVAR(without_nvg) == 0) then {
             if (_vehicle hasWeapon "NVGoggles") then {_vehicle removeWeapon "NVGoggles"};
@@ -399,21 +339,12 @@ switch (_sec_kind) do {
         };
         sleep 0.1;
         __vkilled(lopo_dead);
-        if (GVAR(with_ai) && {__RankedVer}) then {
-            _vehicle addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
-        };
         sleep 1.0112;
         __specops;
     };
     case 11: {
         __GetEGrp(_newgroup)
-        _ctype =
-#ifdef __CO__
-        "Rocker3";
-#endif
-#ifdef __OA__
-        "CIV_EuroMan01_EP1";
-#endif
+        _ctype = "CIV_EuroMan01_EP1";
         _vehicle = _newgroup createUnit [_ctype, _poss, [], 0, "FORM"];
         if (GVAR(without_nvg) == 0) then {
             if (_vehicle hasWeapon "NVGoggles") then {_vehicle removeWeapon "NVGoggles"};
@@ -434,7 +365,6 @@ switch (_sec_kind) do {
         _vehicle disableAI "MOVE";
         for "_i" from 1 to 4 do {_vehicle addMagazine "15Rnd_9x19_M9"};
         _vehicle addWeapon "M9";
-#ifndef __TT__
         _iar = __XJIPGetVar(GVAR(searchintel));
         _sum = 0;
         {if (_x == 1) then {__INC(_sum)}} forEach _iar;
@@ -447,13 +377,7 @@ switch (_sec_kind) do {
             __addDeadAI(_vehicle)
         };
         sleep 0.1;
-#else
-        __addDeadAI(_vehicle)
-#endif
         __vkilled(dealer_dead);
-        if (GVAR(with_ai) && {__RankedVer}) then {
-            _vehicle addEventHandler ["killed", {if (!isPlayer (_this select 1)) then {[QGVAR(AddKillAI), [1,_this select 1]] call FUNC(NetCallEventCTS)}}];
-        };
         sleep 1.0112;
         __specops;
     };

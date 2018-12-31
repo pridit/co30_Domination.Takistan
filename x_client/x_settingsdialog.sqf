@@ -96,7 +96,6 @@ if (!GVAR(LimitedWeapons)) then {
 
 #define __tyn then {(localize "STR_DOM_MISSIONSTRING_374")} else {(localize "STR_DOM_MISSIONSTRING_375")}
 
-__str (localize "STR_DOM_MISSIONSTRING_385") + (if (GVAR(with_ai)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_387") + GVAR(version_string) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_388") + (if (GVAR(TimeOfDay) < 10) then {"0"} else {""}) + str(GVAR(TimeOfDay)) + ":00\n";
 __str (localize "STR_DOM_MISSIONSTRING_389") + (if (GVAR(WithBackpack)) __tyn);
@@ -105,7 +104,6 @@ __str (localize "STR_DOM_MISSIONSTRING_391") + (if (GVAR(MissionType) == 1) __ty
 __str (localize "STR_DOM_MISSIONSTRING_392") + (if (GVAR(p_marker_dirs)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_393") + (if (GVAR(v_marker_dirs)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_394") + GVAR(p_marker) + "\n";
-__str (localize "STR_DOM_MISSIONSTRING_397") + (if (GVAR(FastTime) > 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_398") + (switch (GVAR(EnemySkill)) do {case 1: {(localize "STR_DOM_MISSIONSTRING_399")};case 2: {(localize "STR_DOM_MISSIONSTRING_11")};case 3: {(localize "STR_DOM_MISSIONSTRING_400")};}) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_401") + (if (GVAR(WithIsleDefense) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_402") + (if (GVAR(WithRecapture) == 0) __tyn);
@@ -118,8 +116,6 @@ __str (localize "STR_DOM_MISSIONSTRING_408") + (if (GVAR(WithEnemyArtySpotters) 
 #ifndef __TT__
 __str (localize "STR_DOM_MISSIONSTRING_409") + (if (GVAR(WithBaseAttack) == 0) __tyn);
 #endif
-
-__str (localize "STR_DOM_MISSIONSTRING_410") + (if (GVAR(WithWinterWeather) == 0) __tyn);
 
 __str (localize "STR_DOM_MISSIONSTRING_411") + (if (GVAR(OverrideBISEffects) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_412") + (if (GVAR(BloodDirtScreen) == 0) __tyn);
@@ -167,11 +163,9 @@ __str (localize "STR_DOM_MISSIONSTRING_428");
     if (_forEachIndex < (count GVAR(check_ammo_load_vecs) - 1)) then {__str ", "};
 } forEach GVAR(check_ammo_load_vecs);
 __str "\n";
-__str (localize "STR_DOM_MISSIONSTRING_429") + (if (GVAR(weather) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_430") + (if (GVAR(with_mgnest)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_431") + (if (GVAR(with_medtent)) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_432") + (if (GVAR(weapon_respawn)) __tyn);
-if (GVAR(with_ai)) then {__str (localize "STR_DOM_MISSIONSTRING_436") + str(GVAR(max_ai)) + "\n"};
 __str (localize "STR_DOM_MISSIONSTRING_437") + str(GVAR(sub_tk_points)) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_464") + str(GVAR(drop_radius)) + "\n";
 

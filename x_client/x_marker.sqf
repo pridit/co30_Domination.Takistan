@@ -18,7 +18,6 @@ FUNC(X_XMarkerVehicles) = {
 
 GVAR(mark_loc280) = localize "STR_DOM_MISSIONSTRING_280";
 
-#ifndef __TT__
 FUNC(X_XMarkerPlayers) = {
     private ["_ap","_as","_isu"];
     {
@@ -59,53 +58,6 @@ if (_ncpr != _ncpe && {_ncpe > _ncpr}) then {
 {
     GVAR(misc_store) setVariable [_x, [_forEachIndex, GVAR(player_roles) select _forEachIndex]];
 } forEach GVAR(player_entities);
-#endif
-
-if (GVAR(with_ai)) then {
-    for "_ai" from 2 to 40 do {
-        [format ["AI_X%1%2", GVAR(string_player), _ai], [0,0],"ICON","ColorGreen",[0.4,0.4],"",0,GVAR(p_marker)] call FUNC(CreateMarkerLocal);
-    };
-    FUNC(X_XAI_Markers) = {
-        private ["_units","_mkname","_mkr","_unit","_plobj","_ai","_unittext","_unitno"];
-        _mkname = "AI_X%1%2";
-        _plobj = __getMNsVar2(GVAR(string_player));
-        if (!isNil "_plobj" && {!isNull _plobj}) then {
-            _grppl = group _plobj;
-            _units = units _grppl - [player];
-            for "_ai" from 2 to 40 do {
-                _mkr = format[_mkname, GVAR(string_player), _ai];
-                if (_ai - 1 <= count _units) then {
-                    _unit = _units select _ai - 2;
-                    if (alive _unit && {!isPlayer _unit}) then {
-                        _mkr setMarkerAlphaLocal 1;
-                        _unittext = toArray(str _unit);
-                        _unitno = toString([_unittext select ((count _unittext) - 1)]);
-                        _mkr setMarkerPosLocal getPosASL _unit;
-                        _mkr setMarkerTextLocal (switch (GVAR(show_player_marker)) do {
-                            case 1: {_unitno};
-                            case 2: {""};
-                            case 3: {""};
-                            case 4: {GVAR(mark_loc280) + str(9 - round(9 * damage _unit))};
-                            default {""};
-                        });
-                        //if (_plobj == player) then {
-                            //_mkr setMarkerColorLocal "ColorGreen";
-                        //};
-                        if (GVAR(p_marker_dirs)) then {_as setMarkerDirLocal (direction (vehicle _unit))};
-                    } else {
-                        _mkr setMarkerPosLocal [0,0];
-                        _mkr setMarkerTextLocal "";
-                        _mkr setMarkerAlphaLocal 0;
-                    };
-                } else {
-                    _mkr setMarkerPosLocal [0,0];
-                    _mkr setMarkerTextLocal "";
-                    _mkr setMarkerAlphaLocal 0;
-                };
-            };
-        };
-    };
-};
 
 0 spawn {
     scriptName "spawn_start_marker";
@@ -114,9 +66,6 @@ if (GVAR(with_ai)) then {
     ["marker_units", {
         if (GVAR(show_player_marker) > 0 && {visibleMap || {GVAR(do_ma_update_n)} || {!isNil {uiNamespace getVariable "BIS_RscMiniMap"}} || {!isNil {uiNamespace getVariable "RscMiniMapSmall"}}}) then {
             call FUNC(X_XMarkerPlayers);
-            if (GVAR(with_ai)) then {
-                call FUNC(X_XAI_Markers);
-            };
         };
     }, 2.02] call FUNC(addPerFrame);
 };

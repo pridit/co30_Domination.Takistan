@@ -18,7 +18,6 @@ FUNC(create_boxNet) = {
 FUNC(jet_service_facNet) = {
     if (__XJIPGetVar(GVAR(jet_serviceH))) then {
         private ["_element", "_pos", "_dir", "_fac"];
-        if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {[0] spawn FUNC(XFacAction)};
         _element = GVAR(aircraft_facs) select 0;
         _pos = _element select 0;
         _dir = _element select 1;
@@ -35,7 +34,6 @@ FUNC(jet_service_facNet) = {
 FUNC(chopper_service_facNet) = {
     if (__XJIPGetVar(GVAR(chopper_serviceH))) then {
         private ["_element", "_pos", "_dir", "_fac"];
-        if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {[1] spawn FUNC(XFacAction)};
         _element = GVAR(aircraft_facs) select 1;
         _pos = _element select 0;
         _dir = _element select 1;
@@ -52,7 +50,6 @@ FUNC(chopper_service_facNet) = {
 FUNC(wreck_repair_facNet) = {
     if (__XJIPGetVar(GVAR(wreck_repairH))) then {
         private ["_element", "_pos", "_dir", "_fac"];
-        if (GVAR(string_player) in GVAR(is_engineer) || {GVAR(with_ai)} || {GVAR(with_ai_features) == 0}) then {[2] spawn FUNC(XFacAction)};
         _element = GVAR(aircraft_facs) select 2;
         _pos = _element select 0;
         _dir = _element select 1;

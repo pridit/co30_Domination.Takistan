@@ -14,19 +14,6 @@ _killedfriendly = (side (group _killer) == side (group _killed));
 
 __addDeadAI(_killed)
 
-if (GVAR(with_ai)) then {
-    if (!isNull _killer && {!isPlayer _killer} && {side (group _killer) == side (group _killed)} && {vehicle _killed != vehicle _killer}) then {
-        _leader_killer = leader _killer;
-        if (isPlayer _leader_killer) then {
-            _par = GVAR(player_store) getVariable (getPlayerUID _killed);
-            _namep = if (isNil "_par") then {"Unknown"} else {_par select 6};
-            _par = GVAR(player_store) getVariable (getPlayerUID _leader_killer);
-            _namek = if (isNil "_par") then {"Unknown"} else {_par select 6};
-            [_namek, _namep, _killer] call FUNC(TKKickCheck);
-        };
-    };
-};
-
 if (!isNull _killer && {isPlayer _killer} && {vehicle _killer != vehicle _killed}) then {
     _par = GVAR(player_store) getVariable (getPlayerUID _killed);
     __TRACE_1("_killed",_par);
