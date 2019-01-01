@@ -162,7 +162,6 @@ FUNC(RemABox) = {
     __XJIPSetVar [QGVAR(ammo_boxes), _boxes, true];
 };
 
-#ifndef __TT__
 FUNC(CreateDroppedBox) = {
     private ["_the_box_pos","_boxes","_mname"];
     PARAMS_1(_the_box_pos);
@@ -172,18 +171,6 @@ FUNC(CreateDroppedBox) = {
     [QGVAR(ammo_boxes),_boxes] call FUNC(NetSetJIP);
     [_mname, _the_box_pos, "ICON", "ColorBlue",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_523"),0,GVAR(dropped_box_marker)] call FUNC(CreateMarkerGlobal);
 };
-#else
-FUNC(CreateDroppedBox) = {
-    private ["_the_box_pos", "_boxside", "_boxes", "_mname"];
-    PARAMS_2(_the_box_pos,_boxside);
-    _mname = "bm_" + str(_the_box_pos);
-    _boxes = __XJIPGetVar(GVAR(ammo_boxes));
-    _boxes set [count _boxes, [_the_box_pos,_mname, _boxside]];
-    [QGVAR(ammo_boxes),_boxes] call FUNC(NetSetJIP);
-    [_mname, _the_box_pos,"ICON","ColorBlue",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_523"),0,GVAR(dropped_box_marker)] call FUNC(CreateMarkerGlobal);
-    [QGVAR(r_mark), [_mname, _boxside]] call FUNC(NetCallEventToClients);
-};
-#endif
 
 if (GVAR(NoMHQTeleEnemyNear) > 0) then {
     FUNC(createMHQEnemyTeleTrig) = {

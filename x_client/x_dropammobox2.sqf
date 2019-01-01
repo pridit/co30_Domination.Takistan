@@ -50,10 +50,6 @@ _unit setVariable [QGVAR(ammobox_next), _time_next, true];
 _boxpos = _unit modelToWorld [4,0,0];
 _boxpos set [2, 0];
 
-#ifndef __TT__
-[QGVAR(m_box), [_boxpos]] call FUNC(NetCallEvent);
-#else
-[QGVAR(m_box), [_boxpos, GVAR(player_side)]] call FUNC(NetCallEvent);
-#endif
+[QGVAR(m_box), [_boxpos,_unit]] call FUNC(NetCallEvent);
 
 [_unit, _caller, (localize "STR_DOM_MISSIONSTRING_225")] call _chatfunc;
