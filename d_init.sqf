@@ -194,8 +194,8 @@ if (isServer) then {
     [QGVAR(p_f_b_k), {_this call FUNC(KickPlayerBS)}] call FUNC(NetAddEventCTS);
     [QGVAR(p_bs), {_this call FUNC(RptMsgBS)}] call FUNC(NetAddEventCTS);
     [QGVAR(pas), {(_this select 0) addScore (_this select 1)}] call FUNC(NetAddEventCTS);
-    [QGVAR(mr1_l_c), {if (!isNull _this) then {[_this, 1] spawn x_checktransport}}] call FUNC(NetAddEventCTS);
-    [QGVAR(mr2_l_c), {if (!isNull _this) then {[_this, 2] spawn x_checktransport}}] call FUNC(NetAddEventCTS);
+    [QGVAR(mr1_l_c), {if (!isNull _this) then {[_this, 1] spawn FUNC(checktransport)}}] call FUNC(NetAddEventCTS);
+    [QGVAR(mr2_l_c), {if (!isNull _this) then {[_this, 2] spawn FUNC(checktransport)}}] call FUNC(NetAddEventCTS);
     [QGVAR(p_varn), {_this call FUNC(GetPlayerArray)}] call FUNC(NetAddEventCTS);
     [QGVAR(ad), {__addDead(_this)}] call FUNC(NetAddEventCTS);
     [QGVAR(ad2), {(_this select 0) setVariable [QGVAR(end_time), _this select 1];GVAR(allunits_add) set [count GVAR(allunits_add), _this select 0]}] call FUNC(NetAddEventCTS);
