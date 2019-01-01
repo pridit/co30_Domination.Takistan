@@ -6,9 +6,11 @@ class FSM
     class Start
     {
       name = "Start";
-      init = "private [""_box"", ""_boxname"", ""_box_array"",""_timeend""];" \n
+      init = "private [""_box"", ""_boxname"", ""_box_array"",""_backpacks"",""_backpacks_array"",""_timeend""];" \n
        "_box = _this select 0;" \n
        "_box_array = _this select 1;" \n
+       "_backpacks = _this select 2;" \n
+       "_backpacks_array = _this select 3;" \n
        "";
       precondition = "";
       class Links
@@ -57,7 +59,11 @@ class FSM
        "[_box] call d_fnc_weaponcargo ;" \n
        "" \n
        "if (""OA"" in d_version) then {" \n
-       "	_box addAction [(localize ""STR_DOM_MISSIONSTRING_302"") call d_fnc_BlueText, ""x_client\x_getbackpack.sqf""];" \n
+       "    _backpacks = d_backpacks createVehicleLocal (_backpacks_array select 0);" \n
+       "    _backpacks setDir (_backpacks_array select 1);" \n
+       "    _backpacks setPos (_backpacks_array select 0);" \n
+       "    player reveal _backpacks;" \n
+       "    _backpacks addAction [(localize ""STR_DOM_MISSIONSTRING_302"") call d_fnc_BlueText, ""x_client\x_getbackpack.sqf""];" \n
        "	/*_objs = (_box_array select 0) nearObjects [""Bag_Base_EP1"", 10];" \n
        "	if (count _objs > 0) then {" \n
        "		{" \n

@@ -21,6 +21,11 @@ _mpos = markerPos QGVAR(player_ammobox_pos);
 _mpos set [2,0];
 GVAR(player_ammobox_pos) = [_mpos, markerDir QGVAR(player_ammobox_pos)];
 
+// position of the backpack heap
+_bpos = markerPos QGVAR(player_backpacks_pos);
+_bpos set [2,0];
+GVAR(player_backpacks_pos) = [_bpos, markerDir QGVAR(player_backpacks_pos)];
+
 // this vehicle will be created if you use the "Create XXX" at a mobile respawn (old "Create Motorcycle") or at a jump flag
 // IMPORTANT !!!! for ranked version !!!!
 // if there is more than one vehicle defined in the array the vehicle will be selected by player rank

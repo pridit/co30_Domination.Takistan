@@ -1,10 +1,13 @@
 // by Xeno
 #define THIS_FILE "x_playerammobox.sqf"
 #include "x_setup.sqf"
-private ["_box","_box_array"];
+private ["_box","_box_array","_backpacks","_backpacks_array"];
 
 _box_array = [];
 _box_array = GVAR(player_ammobox_pos);
+
+_backpacks_array = [];
+_backpacks_array = GVAR(player_backpacks_pos);
 
 //box coordinates offset update
 private ["_a","_b"];
@@ -30,10 +33,17 @@ player reveal _box;
         _box addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf"];
     };
 } forEach __pGetVar(GVAR(perks_unlocked));
-_box addAction [(localize "STR_DOM_MISSIONSTRING_302") call FUNC(BlueText), "x_client\x_getbackpack.sqf"];
+
+_backpacks = GVAR(backpacks) createVehicleLocal (_backpacks_array select 0);
+_backpacks setDir (_backpacks_array select 1);
+_backpacks setPos (_backpacks_array select 0);
+player reveal _backpacks;
+
+_backpacks addAction [(localize "STR_DOM_MISSIONSTRING_302") call FUNC(BlueText), "x_client\x_getbackpack.sqf"];
 
 [_box] call FUNC(weaponcargo);
 
 GVAR(player_ammobox_pos) = nil;
+GVAR(player_backpacks_pos) = nil;
 
-[_box,_box_array] execFSM "fsms\PlayerAmmobox.fsm";
+[_box,_box_array,_backpacks,_backpacks_array] execFSM "fsms\PlayerAmmobox.fsm";

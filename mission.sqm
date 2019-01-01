@@ -3932,7 +3932,7 @@ class Mission
     };
     class Markers
     {
-        items=126;
+        items=127;
         class Item0
         {
             position[]={12779.68,158.9151,13160.88};
@@ -4762,6 +4762,13 @@ class Mission
             text="Wreck Repair";
             type="mil_dot";
             colorName="ColorBrown";
+        };
+        class Item126
+        {
+            position[]={8269.9189,296.04001,2105.1982};
+            name="d_player_backpacks_pos";
+            type="Empty";
+            angle=151.92101;
         };
     };
     class Sensors
