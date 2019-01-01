@@ -23,8 +23,6 @@ _isfirst = true;
 while {true} do {
     __MPCheck;
     {
-        _tt = 20 + random 10;
-        sleep _tt;
         _vec_a = _x;
         _vehicle = _vec_a select 0;
         _ifdamage = _vec_a select 2;
