@@ -83,7 +83,7 @@ _vec = vehicle player;
 _doexitit = false;
 while {GVAR(player_in_vec)} do {
     if (player == driver _vec) then {
-        if (_vec isKindOf "Helicopter" && {!(_vec isKindOf "ParachuteBase")} && {!(_vec isKindOf "BIS_Steerable_Parachute")}) then {
+        if ((_vec isKindOf "Helicopter" || {typeOf _vec == "MV22"}) && {!(_vec isKindOf "ParachuteBase")} && {!(_vec isKindOf "BIS_Steerable_Parachute")}) then {
             _chopttype = GV(_vec,GVAR(choppertype));
             __TRACE_2("","_vec","_chopttype");
             if (isNil "_chopttype") then {_chopttype = -1};

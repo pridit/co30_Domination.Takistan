@@ -1036,7 +1036,7 @@ FUNC(vehicleScripts) = {
     if ((_vec isKindOf "ParachuteBase") || {_vec isKindOf "BIS_Steerable_Parachute"}) exitWith {};
     _isAir = _vec isKindOf "Air";
     __TRACE_2("d_fnc_vehicleScripts","_vec","_isAir");
-    if (_isAir && {_vec isKindOf "Helicopter"} && {GVAR(WithChopHud)}) then {
+    if (_isAir && {_vec isKindOf "Helicopter" || typeOf _vec == "MV22"} && {GVAR(WithChopHud)}) then {
         0 spawn FUNC(x_chop_hudsp);
     };
     if (!_isAir && {GVAR(vechud_on) == 0} && {((_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) || {_vec isKindOf "StaticWeapon" && {!(_vec isKindOf "ACE_SpottingScope")} && {!(_vec isKindOf "StaticATWeapon")}})}) then {

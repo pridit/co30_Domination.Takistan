@@ -67,7 +67,7 @@ GVAR(current_truck_cargo_array) = 0;
 // the only vehicles that can load an ammo box are the transport choppers and MHQs__
 #ifdef __OWN_SIDE_WEST__
 GVAR(check_ammo_load_vecs) = switch (true) do {
-    case (__OAVer): {["M1133_MEV_EP1","UH60M_EP1","UH1H_TK_GUE_EP1","BMP2_HQ_TK_EP1","Mi17_TK_EP1","MV22"]};
+    case (__OAVer): {["M1133_MEV_EP1","UH60M_EP1","UH1H_TK_GUE_EP1","BMP2_HQ_TK_EP1","Mi17_TK_EP1"]};
     case (__COVer): {["LAV25_HQ","MH60S"]};
 };
 #endif
@@ -127,7 +127,7 @@ GVAR(choppers) = [
     ["LIFT3",0,"lift3",303,"n_air","ColorWhite","HC3",(localize "STR_DOM_MISSIONSTRING_9")],
     ["TRANSPORT1",2,"transport1",304,"n_air","ColorWhite","UH1",""],
     ["TRANSPORT2",2,"transport2",305,"n_air","ColorWhite","UH2",""],
-    ["TRANSPORT3",2,"transport3",306,"n_air","ColorWhite","MV22",""],
+    ["TRANSPORT3",0,"transport3",306,"n_air","ColorWhite","MV22",""],
     ["TRANSPORT4",2,"transport4",307,"n_air","ColorWhite","C130J",""],
     ["LIGHT1",2,"light1",308,"n_air","ColorWhite","LB1",""],
     ["LIGHT2",2,"light2",309,"n_air","ColorWhite","LB2",""],
