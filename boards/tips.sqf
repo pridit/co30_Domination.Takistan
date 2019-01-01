@@ -4,5 +4,5 @@
     "Missions: Side Missions generate a task entry that can be set as your waypoint.",
     "Vehicle Service: Vehicles will skip repair cycle when serviced if not damaged.",
     "Wrecks: Only wrecks designated on the map can be lifted. Wrecks without markers will eventually disappear.",
-    "Wreck Service: It takes 8 minutes for a helicopter repair cycle, and 12 minutes for a plane."
+    "Wreck Service: It takes 8 minutes for a helicopter rebuild cycle, and 12 minutes for a plane."
 ]
