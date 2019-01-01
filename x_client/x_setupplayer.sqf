@@ -104,7 +104,7 @@ if (GVAR(WithRevive) == 1) then {
 };
 
 GVAR(name_flag_base) = GVAR(FLAG_BASE);
-GVAR(the_box) = "USBasicWeapons_EP1";
+GVAR(the_box) = "USVehicleBox_EP1";
 GVAR(the_base_box) = "USVehicleBox_EP1";
 GVAR(flag_vec) = objNull;
 
