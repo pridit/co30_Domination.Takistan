@@ -45,7 +45,7 @@ class PerkButton_General_5: XD_LinkButtonUpgradeBase
     y = 0.2990 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Revive other players";
+    tooltip = "Save gear layout";
     action = __EVAL("[5] call d_fnc_perkclicked");
 };
 class PerkButton_General_6: XD_LinkButtonUpgradeBase

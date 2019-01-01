@@ -430,8 +430,12 @@ if (count __XJIPGetVar(GVAR(ammo_boxes)) > 0) then {
             if ((_x select 1) != "") then {[_x select 1, _box_pos,"ICON","ColorBlue",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_523"),0,GVAR(dropped_box_marker)] call FUNC(CreateMarkerLocal)};
             _boxnew = GVAR(the_box) createVehicleLocal _box_pos;
             _boxnew setPos _box_pos;
-            _boxnew addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf"];
-            _boxnew addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf"];
+            {
+                if (_x == 5) exitWith {
+                    _boxnew addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf"];
+                    _boxnew addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf"];
+                };
+            } forEach __pGetVar(GVAR(perks_unlocked));
             [_boxnew] call FUNC(weaponcargo);
             _boxnew allowDamage false;
         };

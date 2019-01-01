@@ -786,6 +786,15 @@ FUNC(perkclicked) = {
         call xr_fnc_calldrop;
     };
     
+    if (_idc == 5) then {
+        __pSetVar ["perkSaveLayout", true];
+        
+        {
+            _x addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf",[],2,false,true,"","player getVariable 'perkSaveLayout'"];
+            _x addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf",[],2,false,true,"","player getVariable 'perkSaveLayout'"];
+        } forEach (player nearObjects [GVAR(the_box), 100000]);
+    };
+    
     if (_idc == 6) then {
         __pSetVar [QGVAR(WithMHQTeleport), true];    
     };

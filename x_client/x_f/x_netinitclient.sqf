@@ -9,8 +9,12 @@ FUNC(create_boxNet) = {
     _box setPos (_this select 0);
     player reveal _box;
     _box allowDamage false;
-    _box addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf"];
-    _box addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf"];
+    {
+        if (_x == 5) exitWith {
+            _box addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf"];
+            _box addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf"];
+        };
+    } forEach __pGetVar(GVAR(perks_unlocked));
     [_box] call FUNC(weaponcargo);
 };
 

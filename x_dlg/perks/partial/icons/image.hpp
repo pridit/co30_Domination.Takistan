@@ -32,7 +32,7 @@ class PerkIcon_General_4: XD_RscPicturePerkIcon
 };
 class PerkIcon_General_5: XD_RscPicture
 {
-    text = "\ca\ui\data\stats_killed_ca";
+    text = "\ca\ui\data\ui_action_reammo_ca";
     x = 0.570898 * safezoneW + safezoneX;
     y = 0.2988 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;

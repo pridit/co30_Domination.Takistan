@@ -4,16 +4,7 @@
 private ["_box","_box_array"];
 
 _box_array = [];
-
-#ifndef __TT__
 _box_array = GVAR(player_ammobox_pos);
-#else
-if (GVAR(player_side) == west) then {
-    _box_array = GVAR(player_ammobox_pos) select 0;
-} else {
-    _box_array = GVAR(player_ammobox_pos) select 1;
-};
-#endif
 
 //box coordinates offset update
 private ["_a","_b"];
@@ -30,17 +21,16 @@ if (isMultiplayer) then {
 
 _box = GVAR(the_base_box) createVehicleLocal (_box_array select 0);
 _box setDir (_box_array select 1);
-#ifndef __CARRIER__
 _box setPos (_box_array select 0);
-#else
-_box setPosASL (_box_array select 0);
-#endif
 player reveal _box;
-_box addAction [(localize "STR_DOM_MISSIONSTRING_300") call d_fnc_BlueText, "x_client\x_savelayout.sqf"];
-_box addAction [(localize "STR_DOM_MISSIONSTRING_301") call d_fnc_BlueText, "x_client\x_clearlayout.sqf"];
-#ifdef __OA__
+
+{
+    if (_x == 5) exitWith {
+        _box addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf"];
+        _box addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf"];
+    };
+} forEach __pGetVar(GVAR(perks_unlocked));
 _box addAction [(localize "STR_DOM_MISSIONSTRING_302") call FUNC(BlueText), "x_client\x_getbackpack.sqf"];
-#endif
 
 [_box] call FUNC(weaponcargo);
 
