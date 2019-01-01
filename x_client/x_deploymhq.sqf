@@ -46,7 +46,8 @@ if (!_hxhx) then {
         _camo = createVehicle [_camotype, _pmpos, [], 0, "NONE"];
         _camo setDir direction _mhq;
         _camo setVectorUp (vectorUp _mhq);
-        _camo setPos _pmpos;		
+        _camo setPos _pmpos;
+        _camo addEventHandler ["handleDamage", {0}];
         _mhq setVariable [QGVAR(MHQ_Camo), _camo, true];
     };
     _mhq setVariable [QGVAR(MHQ_Deployed), true, true];
