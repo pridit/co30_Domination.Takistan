@@ -359,7 +359,7 @@ if (isServer) then {
         [light2,309,false,600],
         [wrk1,310,false,600],
         [wrk2,311,false,600],
-        [atv1,312,false,5],
+        [atv1,312,false,180],
         [atv2,313,false,180],
         [atv3,314,false,180],
         [atv4,315,false,180]
