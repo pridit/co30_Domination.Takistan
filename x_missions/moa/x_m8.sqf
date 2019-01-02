@@ -25,4 +25,5 @@ if (call FUNC(checkSHC)) then {
     _vehicle call FUNC(addKilledEHSM);
     sleep 2.22;
     ["specops", 1, "basic", 2, _poss,0] spawn FUNC(CreateInf);
+    __AddToExtraVec(_vehicle)
 };
