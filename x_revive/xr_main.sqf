@@ -140,7 +140,6 @@ if (isNil QGVARXR(respawn_markers)) then {GVARXR(respawn_markers) = ["base"]};
 
 GVARXR(use_dom_opendlg) = false;
 
-GVARXR(dropAction) = -3333;
 if (isNil QGVARXR(phd_invulnerable)) then {GVARXR(phd_invulnerable) = false};
 
 GVARXR(respawn_delay) = getNumber(missionConfigFile >> "respawndelay");
@@ -281,8 +280,6 @@ FUNCXR(respawneh) = {
         };
     };
     __pSetVar [QGVARXR(pisinaction), false];
-    __pSetVar [QGVARXR(is_dragging), false];
-    __pSetVar [QGVARXR(dragged), false, true];
     __pSetVar [QGVARXR(busyt), -1, true];
 };
 
@@ -1089,8 +1086,7 @@ FUNCXR(addActions) = {
     if (_hasaction == -9999) then {
         _reviveorcprs = if (GVARXR(pl_can_revive)) then {(localize "STR_DOM_MISSIONSTRING_923")} else {(localize "STR_DOM_MISSIONSTRING_924")};
         _reviveorcpr = "<t color='#FF0000'>" + _reviveorcprs + " " + name _unit + "</t>";
-        _unit setVariable [QGVARXR(ReviveAction), _unit addAction [_reviveorcpr, "x_revive\xr_dorevive.sqf", [], -1, false, false, "", "(_this distance _target <= 3) && {(_target getVariable 'xr_pluncon')} && {!(_this getVariable 'xr_pisinaction')} && {time > (_target getVariable 'xr_busyt')} && {!(_target getVariable 'xr_dragged')}"]];
-        _unit setVariable [QGVARXR(DragAction), _unit addAction [format ["<t color='#FF0000'>Drag %1</t>", name _unit], "x_revive\xr_dodrag.sqf", [], -1, false, false, "", "(_this distance _target <= 3) && {(_target getVariable 'xr_pluncon')} && {!(_this getVariable 'xr_pisinaction')} && {time > (_target getVariable 'xr_busyt')} && {!(_target getVariable 'xr_dragged')}"]];
+        _unit setVariable [QGVARXR(ReviveAction), _unit addAction [_reviveorcpr, "x_revive\xr_dorevive.sqf", [], -1, false, false, "", "(_this distance _target <= 3) && {(_target getVariable 'xr_pluncon')} && {!(_this getVariable 'xr_pisinaction')} && {time > (_target getVariable 'xr_busyt')}"]];
     };
 };
 
@@ -1103,12 +1099,6 @@ FUNCXR(removeActions) = {
         _unit removeAction _hasaction;
     };
     _unit setVariable [QGVARXR(ReviveAction), -9999];
-    _hasaction = __GV(_unit,GVARXR(DragAction));
-    if (isNil "_hasaction") then {_hasaction = -9999};
-    if (_hasaction != -9999) then {
-        _unit removeAction _hasaction;
-    };
-    _unit setVariable [QGVARXR(DragAction), -9999];
 };
 
 FUNCXR(respawn_markers) = {
@@ -1663,260 +1653,6 @@ FUNCXR(makeUncon) = {
         player playActionNow "Die";
     };
     [player, "body", 5, player, ""] call FUNCXR(ClientHD);
-};
-
-FUNCXR(dragkeydown) = {
-    #include "\ca\editor\Data\Scripts\dikCodes.h"
-    private["_handled", "_ctrl", "_dikCode", "_shift", "_alt"];
-    PARAMS_5(_du,_dikCode,_shift,_ctrl,_alt);
-    if (!_shift && {!_ctrl} && {!_alt}) then {
-        (_dikCode in ([DIK_C] + (actionKeys "NetworkStats") + (actionKeys "Crouch") + (actionKeys "Stand")))
-    }
-};
-
-FUNCXR(drag) = {
-    scriptName "funcxr_drag";
-    private ["_dragee", "_unit", "_found_anim", "_sdone", "_isdragging"];
-    _dragee = __pGetVar(GVARXR(cursorTarget));
-
-    _isdragging = __pGetVar(GVARXR(is_dragging));
-    if (isNil "_isdragging") then {_isdragging = false};
-    if (_isdragging) exitWith {};
-
-    if (isNull _dragee) exitWith {};
-    if (!alive player) exitWith {};
-    
-    __pSetVar [QGVARXR(pisinaction), true];
-    __pSetVar [QGVARXR(is_dragging), true];
-
-    _anim = player call FUNCXR(getUnitStance);
-    if (_anim == "prone") exitWith {
-        [_dragee] spawn FUNCXR(dragprone);
-    };
-
-    _unit = player;
-    private "_name_dragee";
-    _name_dragee = (localize "STR_DOM_MISSIONSTRING_906");
-    if (alive _dragee) then {if (name _dragee != (localize "STR_DOM_MISSIONSTRING_906")) then {_name_dragee = name _dragee}};
-     
-    GVARXR(drag_keyDownEHId) = (findDisplay 46) displayAddEventHandler ["KeyDown", format ["_this call %1_fnc_dragkeydown", __COMPXRstr]];
-    _dragee setVariable [QGVARXR(dragged), true, true];
-
-    _unit playMove "acinpknlmstpsraswrfldnon";
-    sleep 2;
-
-    [QGVARXR(a3), _dragee] call d_fnc_NetCallEvent;
-
-    _dragee attachto [_unit,[0.1, 1.01, 0]];
-    
-    sleep 0.02;
-    [QGVARXR(dir), _dragee] call d_fnc_NetCallEvent;
-    GVARXR(drag) = true;
-
-    if (GVARXR(dropAction) != -3333) then {__PRA(GVARXR(dropAction));GVARXR(dropAction) = -3333};
-    GVARXR(dropAction) = player addAction [format["<t color='#FF0000'>Drop %1</t>",_name_dragee], "x_revive\drop_body.sqf", [_dragee, 0], 0, false, true];
-    GVARXR(carryAction) = player addAction [format["<t color='#FF0000'>Carry %1</t>",_name_dragee], "x_revive\carry.sqf", _dragee, 0, false, true];
-    sleep 1;
-
-    _found_anim = false;
-    
-    _animsd = ["acinpknlmstpsraswrfldnon","acinpknlmwlksraswrfldb"];
-
-    while {GVARXR(drag)} do {
-        if (!_found_anim) then {
-            if (animationState player in _animsd) then {
-                _found_anim = true;
-            };
-        };
-        if (!alive _dragee || {!__GV(_dragee,GVARXR(pluncon))}) exitWith {
-            __PRA(GVARXR(dropAction));
-            GVARXR(dropAction) = -3333;
-            if (GVARXR(carryAction) != -3333) then {
-                __PRA(GVARXR(carryAction));
-                GVARXR(carryAction) = -3333;
-            };
-            detach _dragee;
-            sleep 0.5;
-            if ((alive _dragee && {__GV(_dragee,GVARXR(pluncon))}) || {!alive _dragee}) then {
-                [QGVARXR(wn), [_dragee,101]] call d_fnc_NetCallEvent;
-            } else {
-                [QGVARXR(wn), [_dragee,102]] call d_fnc_NetCallEvent;
-            };
-            [QGVARXR(swmnon), _unit] call d_fnc_NetCallEvent;
-            sleep 1;
-            GVARXR(drag) = false;
-        };
-        
-        if (_found_anim && {!((animationState _unit) in _animsd)}) exitWith {
-            __PRA(GVARXR(dropAction));
-            GVARXR(dropAction) = -3333;
-            if (GVARXR(carryAction) != -3333) then {
-                __PRA(GVARXR(carryAction));
-                GVARXR(carryAction) = -3333;
-            };
-            detach _dragee;
-            sleep 0.5;
-            if ((alive _dragee && {__GV(_dragee,GVARXR(pluncon))}) || {!alive _dragee}) then {
-                [QGVARXR(wn), [_dragee,101]] call d_fnc_NetCallEvent;
-            } else {
-                [QGVARXR(wn), [_dragee,102]] call d_fnc_NetCallEvent;
-            };
-            [QGVARXR(swmnon), _unit] call d_fnc_NetCallEvent;
-            sleep 1;
-            GVARXR(drag) = false;
-        };
-
-        if (!alive _unit) exitWith {
-            __PRA(GVARXR(dropAction));
-            GVARXR(dropAction) = -3333;
-            if (GVARXR(carryAction) != -3333) then {
-                __PRA(GVARXR(carryAction));
-                GVARXR(carryAction) = -3333;
-            };
-            detach _unit;
-            if ((alive _dragee && {__GV(_dragee,GVARXR(pluncon))}) || {!alive _dragee}) then {
-                [QGVARXR(wn), [_dragee,101]] call d_fnc_NetCallEvent;
-            } else {
-                [QGVARXR(wn), [_dragee,102]] call d_fnc_NetCallEvent;
-            };
-            [QGVARXR(swmnon), _unit] call d_fnc_NetCallEvent;
-            sleep 1;
-            GVARXR(drag) = false;
-        };
-        
-        if (isNull _dragee) then {
-            __PRA(GVARXR(dropAction));
-            GVARXR(dropAction) = -3333;
-            if (GVARXR(carryAction) != -3333) then {
-                __PRA(GVARXR(carryAction));
-                GVARXR(carryAction) = -3333;
-            };
-            detach _unit;
-            [QGVARXR(swmnon), _unit] call d_fnc_NetCallEvent;
-            sleep 1;
-            GVARXR(drag) = false;
-        };
-        sleep 0.1;
-    };
-
-    __pSetVar [QGVARXR(pisinaction), false];
-    __pSetVar [QGVARXR(is_dragging), false];
-    _dragee setVariable [QGVARXR(dragged), false, true];
-
-    (findDisplay 46) displayRemoveEventHandler ["KeyDown", {_this call GVARXR(drag_keyDownEHId)}];
-
-    if (GVARXR(carryAction) != -3333) then {
-        __PRA(GVARXR(carryAction));
-        GVARXR(carryAction) = -3333;
-    };
-};
-
-FUNCXR(dragkeydownprone) = {
-    if ((_this select 1) in (actionKeys "moveForward" + actionKeys "moveFastForward")) exitWith {true};
-    false
-};
-
-FUNCXR(dragprone) = {
-    scriptName "funcxr_dragprone";
-    private ["_dragee", "_unit", "_pullanims"];
-    _dragee = __pGetVar(GVARXR(cursorTarget));
-
-    if (isNull _dragee || {!alive player}) exitWith {};
-    
-    __pSetVar [QGVARXR(pisinaction), true];
-    __pSetVar [QGVARXR(is_dragging), true];
-
-    _unit = player;
-    private "_name_dragee";
-    _name_dragee = (localize "STR_DOM_MISSIONSTRING_906");
-    if (alive _dragee) then {if (name _dragee != (localize "STR_DOM_MISSIONSTRING_906")) then {_name_dragee = name _dragee}};
-    
-    _dragee setVariable [QGVARXR(dragged), true, true];
-     
-    sleep 2;
-
-    [QGVARXR(a4), _dragee] call d_fnc_NetCallEvent;
-
-    _dragee attachto [_unit, [0, 2, 0]];
-    sleep 0.02;
-    [QGVARXR(dir), _dragee] call d_fnc_NetCallEvent;
-    GVARXR(drag) = true;
-
-    if (GVARXR(dropAction) != -3333) then {__PRA(GVARXR(dropAction));GVARXR(dropAction) = -3333};
-    GVARXR(dropAction) = player addAction [format["<t color='#FF0000'>Drop %1</t>",_name_dragee], "x_revive\drop_body.sqf", [_dragee, 1], 0, false, true];
-    GVARXR(dragprone_keyDownEHId) = (findDisplay 46) displayAddEventHandler ["KeyDown", format ["_this call %1_fnc_dragkeydownprone", __COMPXRstr]];
-    sleep 0.5;
-
-    _found_anim = false;
-
-    _pullanims = ["amovppnemstpsraswrfldnon","amovppnemrunslowwrfldf","amovppnemsprslowwrfldfl","amovppnemsprslowwrfldfr","amovppnemrunslowwrfldb","amovppnemsprslowwrfldbl","amovppnemsprslowwrfldr","amovppnemstpsraswrfldnon_turnl","amovppnemstpsraswrfldnon_turnr","amovppnemrunslowwrfldl","amovppnemrunslowwrfldr","amovppnemsprslowwrfldb","amovppnemrunslowwrfldbl","amovppnemsprslowwrfldl","amovppnemsprslowwrfldbr"];
-
-    while {GVARXR(drag)} do {
-        if (!_found_anim && {animationState player in _pullanims}) then {
-            _found_anim = true;
-        };
-        if (!alive _dragee || {!__GV(_dragee,GVARXR(pluncon))}) exitWith {
-            __PRA(GVARXR(dropAction));
-            GVARXR(dropAction) = -3333;
-            detach _dragee;
-            sleep 0.5;
-            if ((alive _dragee && {__GV(_dragee,GVARXR(pluncon))}) || {!alive _dragee}) then {
-                [QGVARXR(wn), [_dragee,101]] call d_fnc_NetCallEvent;
-            } else {
-                [QGVARXR(wn), [_dragee,102]] call d_fnc_NetCallEvent;
-            };
-            sleep 1;
-            GVARXR(drag) = false;
-        };
-        
-        if (_found_anim && {!((animationState _unit) in _pullanims)}) exitWith {
-            __PRA(GVARXR(dropAction));
-            GVARXR(dropAction) = -3333;
-            detach _dragee;
-            sleep 0.5;
-            if ((alive _dragee && {__GV(_dragee,GVARXR(pluncon))}) || {!alive _dragee}) then {
-                [QGVARXR(wn), [_dragee,101]] call d_fnc_NetCallEvent;
-            } else {
-                [QGVARXR(wn), [_dragee,102]] call d_fnc_NetCallEvent;
-            };
-            sleep 1;
-            GVARXR(drag) = false;
-        };
-
-        if (!alive _unit) exitWith {
-            __PRA(GVARXR(dropAction));
-            GVARXR(dropAction) = -3333;
-            detach _unit;
-            if ((alive _dragee && {__GV(_dragee, GVARXR(pluncon))}) || {!alive _dragee}) then {
-                [QGVARXR(wn), [_dragee,101]] call d_fnc_NetCallEvent;
-            } else {
-                [QGVARXR(wn), [_dragee,102]] call d_fnc_NetCallEvent;
-            };
-            sleep 1;
-            GVARXR(drag) = false;
-        };
-        
-        if (isNull _dragee) then {
-            __PRA(GVARXR(dropAction));
-            GVARXR(dropAction) = -3333;
-            detach _unit;
-            sleep 1;
-            GVARXR(drag) = false;
-        };
-        
-        sleep 0.1;
-    };
-
-    __pSetVar [QGVARXR(pisinaction), false];
-    __pSetVar [QGVARXR(is_dragging), false];
-    _dragee setVariable [QGVARXR(dragged), false, true];
-
-    (findDisplay 46) displayRemoveEventHandler ["KeyDown", {_this call GVARXR(dragprone_keyDownEHId)}];
-
-    if (GVARXR(dropAction) != -3333) then {
-        __PRA(GVARXR(dropAction));
-        GVARXR(dropAction) = -3333;
-    };
 };
 
 FUNCXR(pllbupdater) = {

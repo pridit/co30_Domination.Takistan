@@ -55,8 +55,6 @@ waitUntil {player == player};
 __pSetVar [QGVARXR(lives), GVARXR(max_lives)];
 __pSetVar [QGVARXR(num_death), 0];
 
-__pSetVar [QGVARXR(is_dragging), false];
-
 // 100 = died after live time over ,   1 = uncon, 0 = normal state
 // 200 = map respawn
 __pSetVar [QGVARXR(u_state), 0];
@@ -88,7 +86,6 @@ GVARXR(strpldead) = GVARXR(strpl) + "_xr_dead";
 
 __pSetVar [QGVARXR(pisinaction), false];
 __pSetVar [QGVARXR(death_pos), []];
-__pSetVar [QGVARXR(dragged), false, true];
 
 __pSetVar [QGVARXR(isdead), false];
 
@@ -199,7 +196,6 @@ if (GVARXR(with_marker)) then {
             _unit call FUNCXR(addActions);
         } else {
             _unit setVariable [QGVARXR(ReviveAction), -9999];
-            _unit setVariable [QGVARXR(DragAction), -9999];
         };
     };
 } forEach GVARXR(player_entities);
