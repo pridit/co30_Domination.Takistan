@@ -149,13 +149,6 @@ class Params {
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
-    class GVAR(only_medics_canrevive) {
-        title = "$STR_DOM_MISSIONSTRING_1008";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
     class xr_max_lives {
         title = "$STR_DOM_MISSIONSTRING_1009";
         values[] = {1,5,10,20,30,40,50,-1};

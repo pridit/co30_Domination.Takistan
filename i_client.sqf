@@ -257,12 +257,16 @@ GVAR(show_chopper_welcome) = GVAR(WithChopHud);
 
 GVAR(backpackclasses) = [
     [ // US
-        "USBasicBag", "Tripod_Bag", "M2StaticMG_US_Bag_EP1", "M2HD_mini_TriPod_US_Bag_EP1", "MK19_TriPod_US_Bag_EP1", "M252_US_Bag_EP1", "TOW_TriPod_US_Bag_EP1",
-        "US_UAV_Pack_EP1", "US_Assault_Pack_EP1", "US_Patrol_Pack_EP1", "US_Backpack_EP1", "DE_Backpack_Specops_EP1"
-        
-        // "USBasicBag", "Tripod_Bag", "M2StaticMG_US_Bag_EP1", "M2HD_mini_TriPod_US_Bag_EP1", "MK19_TriPod_US_Bag_EP1", "M252_US_Bag_EP1", "TOW_TriPod_US_Bag_EP1",
-        // "US_UAV_Pack_EP1", "US_Assault_Pack_EP1", "US_Assault_Pack_Ammo_EP1", "US_Assault_Pack_AmmoSAW_EP1", "US_Assault_Pack_AT_EP1", "US_Assault_Pack_Explosives_EP1", "US_Patrol_Pack_EP1", "US_Patrol_Pack_Ammo_EP1",
-        // "US_Patrol_Pack_Specops_EP1", "US_Backpack_EP1", "US_Backpack_AmmoMG_EP1", "US_Backpack_AT_EP1", "US_Backpack_Specops_EP1", "DE_Backpack_Specops_EP1"
+        "TK_ALICE_Pack_EP1",
+        "US_Assault_Pack_EP1",
+        "TK_Assault_Pack_EP1",
+        "US_Backpack_EP1",
+        "BAF_AssaultPack_special",
+        "DE_Backpack_Specops_EP1",
+        "US_Patrol_Pack_EP1",
+        "TK_RPG_Backpack_EP1",
+        "Tripod_Bag",
+        "US_UAV_Pack_EP1"
     ],
     [ // East
         "Tripod_Bag", "DSHKM_TK_GUE_Bag_EP1", "KORD_high_TK_Bag_EP1", "KORD_TK_Bag_EP1", "AGS_TK_Bag_EP1", "2b14_82mm_TK_Bag_EP1", "Metis_TK_Bag_EP1", "TK_RPG_Backpack_EP1",
