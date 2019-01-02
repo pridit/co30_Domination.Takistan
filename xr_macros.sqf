@@ -7,7 +7,6 @@
 #define QGVARXR(varname) QUOTE(GVARXR(varname))
 #define __GV(obje,varname) (obje getVariable #varname)
 #define __GV2(obje,varname) (obje getVariable varname)
-#define __PRA(actionnr) player removeAction actionnr
 #define __SV(obje,varname,val) (obje setVariable [#varname, val])
 #define __SV2(obje,varname,val,public) (obje setVariable [#varname, val,public])
 
