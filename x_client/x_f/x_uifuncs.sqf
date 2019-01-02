@@ -115,7 +115,7 @@ FUNC(take_backpack) = {
 
     format [(localize "STR_DOM_MISSIONSTRING_688"), _dispname] call FUNC(GlobalChat);
 
-    clearWeaponCargo (unitBackpack player);
+    clearMagazineCargo (unitBackpack player);
 
     [QGVAR(p_o_a2), [GVAR(string_player), unitBackpack player]] call FUNC(NetCallEventCTS);
 
