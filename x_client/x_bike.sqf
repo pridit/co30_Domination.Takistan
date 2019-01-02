@@ -35,6 +35,7 @@ _pos = position player;
 _vehicle = createVehicle [_create_bike, _pos, [], 0, "NONE"];
 _vehicle setDir direction player;
 _vehicle setPos _pos;
+[QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
 player reveal _vehicle;
 
 player moveInDriver _vehicle;
