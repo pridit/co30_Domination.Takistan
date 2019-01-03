@@ -77,8 +77,11 @@ __cppfln(FUNC(markercheck),x_server\x_markercheck.sqf);
             _rbox = true;
         };
         if (!_rbox) then {
-            if !(_x isKindOf _radar) then {
+            if (_x isKindOf "AllVehicles" && {!(_x isKindOf "StaticWeapon")}) then {
                 __addDead(_x)
+            };
+            
+            if !(_x isKindOf _radar) then {
                 if ((toUpper (typeOf _x)) in GVAR(base_aavecs_check)) then {
                     _x addEventHandler ["killed", FUNC(handleDeadVec)];
                     _dgrp = [GVAR(own_side)] call FUNC(creategroup);

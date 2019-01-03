@@ -34,8 +34,7 @@ __cppfln(FUNC(makegroup),x_shc\x_makegroup.sqf);
 __cppfln(FUNC(objectMapper),x_shc\x_f\fn_objectMapper.sqf);
 __cppfln(FUNC(createpara3x),x_shc\x_createpara3x.sqf);
 
-//execFSM "fsms\NotAliveRemover.fsm";
-execFSM "fsms\NotAliveRemoverUnits.fsm";
+execFSM "fsms\NotAliveRemover.fsm";
 execFSM "fsms\GroupClean.fsm";
 if (GVAR(doRespawnGroups)) then {
     execFSM "fsms\ReduceGroups.fsm";

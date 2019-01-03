@@ -100,7 +100,7 @@ _make_jump = {
             sleep 0.1;
             {
                 _one_unit = _paragrp createunit [_x, [10,10,0], [], 300,"NONE"];
-                [_one_unit, {__addDeadAI(_this)}] call FUNC(setUnitCode);
+                [_one_unit, {__addDead(_this)}] call FUNC(setUnitCode);
 
                 _one_unit setSkill ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
                 

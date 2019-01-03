@@ -51,7 +51,7 @@ _unitcode = {
     _this addEventHandler ["killed", {
         __INC(GVAR(num_species));
     }];
-    __addDeadAI(_this)
+    __addDead(_this)
 };
 {
     [_x, _unitcode] call FUNC(setUnitCode);

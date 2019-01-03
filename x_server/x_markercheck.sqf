@@ -32,5 +32,5 @@ if (!isNil "_val") then {
 _body = __getMNsVar2(_pvar_name);
 if (!isNil "_body") then {
     // cleanup later
-    if (!isNull _body) then {__addDeadAI(_unit)};
+    if (!isNull _body) then {__addDead(_unit)};
 };

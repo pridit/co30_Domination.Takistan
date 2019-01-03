@@ -115,7 +115,7 @@ switch (_sec_kind) do {
             [QGVAR(s_b_client)] call FUNC(NetCallEventToClients);
         } else {
             if (!isNull __XJIPGetVar(GVAR(searchbody))) then {[QGVAR(searchbody), objNull] call FUNC(NetSetJIP)};
-            __addDeadAI(_vehicle)
+            __addDead(_vehicle)
         };
         sleep 0.1;
         __vkilled(gov_dead);
@@ -335,7 +335,7 @@ switch (_sec_kind) do {
             [QGVAR(s_b_client)] call FUNC(NetCallEventToClients);
         } else {
             if (!isNull __XJIPGetVar(GVAR(searchbody))) then {[QGVAR(searchbody), objNull] call FUNC(NetSetJIP)};
-            __addDeadAI(_vehicle)
+            __addDead(_vehicle)
         };
         sleep 0.1;
         __vkilled(lopo_dead);
@@ -374,7 +374,7 @@ switch (_sec_kind) do {
             [QGVAR(s_b_client)] call FUNC(NetCallEventToClients);
         } else {
             if (!isNull __XJIPGetVar(GVAR(searchbody))) then {[QGVAR(searchbody), objNull] call FUNC(NetSetJIP)};
-            __addDeadAI(_vehicle)
+            __addDead(_vehicle)
         };
         sleep 0.1;
         __vkilled(dealer_dead);

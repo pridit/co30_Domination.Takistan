@@ -159,16 +159,8 @@ class FSM
        "				_allunits set [_counter, -1];" \n
        "			} else {" \n
        "				if (_element call d_fnc_GetVehicleEmpty) then {" \n
-       "					_ddead = _element getVariable ""d_ddeadt"";" \n
-       "					if (isNil ""_ddead"") then {" \n
-       "						deleteVehicle _element;" \n
-       "						_allunits set [_counter, -1];" \n
-       "					} else {" \n
-       "						if (time - _ddead > 180) then {" \n
-       "							deleteVehicle _element;" \n
-       "							_allunits set [_counter, -1];" \n
-       "						};" \n
-       "					};" \n
+       "					deleteVehicle _element;" \n
+       "					_allunits set [_counter, -1];" \n
        "				};" \n
        "			};" \n
        "		} else {" \n
@@ -193,7 +185,7 @@ class FSM
        "};" \n
        "" \n
        "_counter = _counter + 1;" \n
-       "_timenow = time + 5 + random 1;";
+       "_timenow = time + 1 + random 1;";
       precondition = "";
       class Links
       {

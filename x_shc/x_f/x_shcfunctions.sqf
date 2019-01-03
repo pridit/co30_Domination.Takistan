@@ -118,7 +118,6 @@ FUNC(handleDeadVec) = {
     _dv setVelocity _vel;
     _dv setFuel _fuel;
     _dv setDamage 1;
-    _dv setVariable [QGVAR(ddeadt), diag_tickTime];
     __addDead(_dv)
     if (_putsmex) then {GVAR(extra_mission_vehicle_remover_array) set [count GVAR(extra_mission_vehicle_remover_array), _dv]};
 };
@@ -199,7 +198,7 @@ FUNC(makemgroup) = {
             };
         };
         _one_unit setVariable ["BIS_noCoreConversations", true];
-        [_one_unit, {__addDeadAI(_this)}] call FUNC(setUnitCode);
+        [_one_unit, {__addDead(_this)}] call FUNC(setUnitCode);
         _one_unit setUnitAbility ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
         _ret set [count _ret, _one_unit];
     } foreach _unitliste;

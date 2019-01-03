@@ -56,9 +56,6 @@ if (call FUNC(checkSHC)) then {
     FUNC(KilledSMTargetNormal) = {
         private ["_dvec", "_killer"];
         PARAMS_2(_dvec,_killer);
-        if !(_dev isKindOf "CAManBase") then {
-            __addDead(_dvec)
-        };
         if (!isNull _killer && {_killer != _dvec}) then {
             GVAR(side_mission_winner) = if (side (group _killer) == GVAR(side_player)) then {2} else {-1};
         } else {

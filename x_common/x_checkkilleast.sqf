@@ -11,7 +11,7 @@ if (local _killed) then {
 
 if (!isServer) exitWith {};
 
-__addDeadAI(_killed)
+__addDead(_killed)
 
 _killedfriendly = (side (group _killer) == side (group _killed));
 

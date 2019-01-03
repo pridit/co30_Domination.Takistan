@@ -63,7 +63,7 @@ if (_hasDriver == 1 && {isNull (driver _vehicle)}) then {
             _unit setVariable ["BIS_noCoreConversations", true];
             _crew set [count _crew, _unit];
 
-            __addDeadAI(_unit)
+            __addDead(_unit)
 
             _unit setUnitAbility ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
 
@@ -101,7 +101,7 @@ _funcSpawnTurrets = {
                     _unit setVariable ["BIS_noCoreConversations", true];
                     _crew set [count _crew, _unit];
                     
-                    __addDeadAI(_unit)
+                    __addDead(_unit)
 
                     _unit setUnitAbility ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
                     

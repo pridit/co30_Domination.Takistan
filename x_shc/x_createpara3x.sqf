@@ -90,7 +90,7 @@ _make_jump = {
                     if (_one_unit hasWeapon "NVGoggles") then {_one_unit removeWeapon "NVGoggles"};
                 };
                 _one_unit setVariable ["BIS_noCoreConversations", true];
-                [_one_unit, {__addDeadAI(_this)}] call FUNC(setUnitCode);
+                [_one_unit, {__addDead(_this)}] call FUNC(setUnitCode);
                 _one_unit setSkill ((GVAR(skill_array) select 0) + (random (GVAR(skill_array) select 1)));
                 
                 _para = createVehicle [_parachute_type, position _vehicle, [], 20, 'NONE'];

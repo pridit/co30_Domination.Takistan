@@ -39,7 +39,6 @@
 #define __TargetInfo _target_array2 = GVAR(target_names) select (X_JIPH getVariable QUOTE(GVAR(current_target_index)));_current_target_name = _target_array2 select 1;
 #define __addRemoveVehi(xvecx) xvecx execFSM "fsms\RemoveVehi.fsm";
 #define __addDead(xunitx) GVAR(allunits_add) set [count GVAR(allunits_add), xunitx];
-#define __addDeadAI(xunitx) GVAR(allunits_ai_add) set [count GVAR(allunits_ai_add), xunitx];
 #define __Poss _poss = GVAR(x_sm_pos) select 0;
 #define __PossAndOther _poss = GVAR(x_sm_pos) select 0;_pos_other = GVAR(x_sm_pos) select 1;
 #define __ccppfln(xfile1) call compile preprocessFileLineNumbers #xfile1

@@ -27,7 +27,7 @@ if (call FUNC(checkSHC)) then {
         if (_sm_vehicle hasWeapon "NVGoggles") then {_sm_vehicle removeWeapon "NVGoggles"};
     };
     _sm_vehicle setVariable ["BIS_noCoreConversations", true];
-    __addDeadAI(_sm_vehicle)
+    __addDead(_sm_vehicle)
     _sm_vehicle addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal)}];
     sleep 2.123;
     ["specops", 1, "basic", 0, _newpos, 0,true] call FUNC(CreateInf);

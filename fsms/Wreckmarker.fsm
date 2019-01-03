@@ -261,7 +261,6 @@ class FSM
        "[""d_w_m_c"", [_mname,_sav_pos,_type_name,_pside]] call d_fnc_NetCallEventToClients;" \n
        "_d_wreck_marker set [count _d_wreck_marker,  [_mname,_sav_pos,_type_name,_pside]];" \n
        "X_JIPH setVariable [""d_wreck_marker"",_d_wreck_marker,true];" \n
-       "if ((_vehicle getVariable ""D_VEC_SIDE"") == 1) then {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""EnemyWreck"",[""1"","""",_type_name,[]],[""2"","""",_mname,[]],true];};" \n
        "_wreckdel = _vehicle getVariable ""d_WreckDeleteTime"";" \n
        "_timedelete = if (!isNil ""_wreckdel"" && {_wreckdel != -1}) then {time + _wreckdel} else {time + 1e+011};" \n
        "" \n

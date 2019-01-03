@@ -12,7 +12,7 @@ if (!isServer) exitWith {};
 
 _killedfriendly = (side (group _killer) == side (group _killed));
 
-__addDeadAI(_killed)
+__addDead(_killed)
 
 if (!isNull _killer && {isPlayer _killer} && {vehicle _killer != vehicle _killed}) then {
     _par = GVAR(player_store) getVariable (getPlayerUID _killed);

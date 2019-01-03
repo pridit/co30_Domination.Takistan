@@ -38,7 +38,7 @@ if (call FUNC(checkSHC)) then {
         if (_unit hasWeapon "NVGoggles") then {_unit removeWeapon "NVGoggles"};
     };
     _unit setVariable ["BIS_noCoreConversations", true];
-    __addDeadAI(_unit)
+    __addDead(_unit)
     _unit moveInDriver _vehicle;
     __AddToExtraVec(_unit)
     __AddToExtraVec(_vehicle)
