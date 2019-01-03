@@ -1308,7 +1308,7 @@ class Mission
         };
         class Item2
         {
-            position[]={8180.1201,296.04001,1936.3538};
+            position[]={8168.5103,296.04001,1928.0614};
             azimut=-28.504801;
             id=2;
             side="EMPTY";
@@ -1565,7 +1565,7 @@ class Mission
         };
         class Item25
         {
-            position[]={8179.6631,296.04001,1937.0098};
+            position[]={8168.0532,296.04001,1928.7174};
             azimut=-28.504801;
             special="NONE";
             id=25;
@@ -3806,7 +3806,7 @@ class Mission
         };
         class Item258
         {
-            position[]={8146.3115,296.04001,1915.2483};
+            position[]={8134.7017,296.04001,1906.9559};
             azimut=-28.504801;
             id=329;
             side="EMPTY";
@@ -3817,7 +3817,7 @@ class Mission
         };
         class Item259
         {
-            position[]={8145.854,296.04001,1915.9043};
+            position[]={8134.2441,296.04001,1907.6119};
             azimut=-28.504801;
             special="NONE";
             id=330;
@@ -4019,7 +4019,7 @@ class Mission
         };
         class Item11
         {
-            position[]={8236.373,296.39618,1962.2006};
+            position[]={8226.6572,296.04001,1957.4619};
             name="d_base_radar_pos";
             type="Empty";
         };
@@ -4759,7 +4759,7 @@ class Mission
         {
             position[]={7906.0386,296.04001,1776.4888};
             name="marker1_2";
-            text="Wreck Repair";
+            text="Wreck Service";
             type="mil_dot";
             colorName="ColorBrown";
         };
