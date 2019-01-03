@@ -262,7 +262,7 @@ class PerkButton_Role5_2: XD_LinkButtonUpgradeBase
     y = 0.48625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Heal injured players";
+    tooltip = "Self-heal at any stage of injury";
 };
 class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
 {
@@ -278,7 +278,7 @@ class PerkButton_Role5_4: XD_LinkButtonUpgradeBase
     y = 0.59625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Self-heal at any stage of injury";
+    tooltip = "Two mash emplacements";
 };
 class PerkButton_Role5_5: XD_LinkButtonUpgradeBase
 {
@@ -286,7 +286,7 @@ class PerkButton_Role5_5: XD_LinkButtonUpgradeBase
     y = 0.65125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Two mash emplacements";
+    tooltip = "Three self-heals";
 };
 class PerkButton_Role6_1: XD_LinkButtonUpgradeBase
 {

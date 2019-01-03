@@ -184,11 +184,19 @@ class PerkIcon_Role3_4: XD_RscPicture
 };
 class PerkIcon_Role3_5: XD_RscPicture
 {
-    text = "ca\ui\data\stats_armored_ca";
-    x = 0.474219 * safezoneW + safezoneX;
-    y = 0.65125 * safezoneH + safezoneY;
-    w = 0.0172917 * safezoneW;
-    h = 0.0309259 * safezoneH;
+    text = "ca\ui\data\iconparachute_ca";
+    x = 0.477019 * safezoneW + safezoneX;
+    y = 0.65325 * safezoneH + safezoneY;
+    w = 0.0122917 * safezoneW;
+    h = 0.0229259 * safezoneH;
+};
+class PerkIcon_Role3_5_1: XD_RscPicture
+{
+    text = "ca\ui\data\stats_soft_ca";
+    x = 0.476919 * safezoneW + safezoneX;
+    y = 0.66425 * safezoneH + safezoneY;
+    w = 0.0082917 * safezoneW;
+    h = 0.0174259 * safezoneH;
 };
 class PerkIcon_Role4_1: XD_RscPicture
 {
@@ -272,7 +280,15 @@ class PerkIcon_Role5_3: XD_RscPicture
 };
 class PerkIcon_Role5_4: XD_RscPicture
 {
-    text = "ca\ui\data\iconvehicle_ca";
+    text = "ca\ui\data\icon_unit_agony_ca";
+    x = 0.538672 * safezoneW + safezoneX;
+    y = 0.59625 * safezoneH + safezoneY;
+    w = 0.0172917 * safezoneW;
+    h = 0.0309259 * safezoneH;
+};
+class PerkIcon_Role5_4_1: XD_RscPicture
+{
+    text = "ca\ui\data\markers\n_unknown";
     x = 0.538672 * safezoneW + safezoneX;
     y = 0.59625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
@@ -280,15 +296,7 @@ class PerkIcon_Role5_4: XD_RscPicture
 };
 class PerkIcon_Role5_5: XD_RscPicture
 {
-    text = "ca\ui\data\icon_unit_agony_ca";
-    x = 0.538672 * safezoneW + safezoneX;
-    y = 0.65125 * safezoneH + safezoneY;
-    w = 0.0172917 * safezoneW;
-    h = 0.0309259 * safezoneH;
-};
-class PerkIcon_Role5_5_1: XD_RscPicture
-{
-    text = "ca\ui\data\markers\n_unknown";
+    text = "ca\ui\data\cursor_firstaid_ca";
     x = 0.538672 * safezoneW + safezoneX;
     y = 0.65125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
