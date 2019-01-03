@@ -5,7 +5,7 @@ class PerkButton_General_1: XD_LinkButtonUpgradeBase
     y = 0.2990 * safezoneH + safezoneY;
     w = 0.0162917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "One field self-heal";
+    tooltip = "One self-heal";
     action = "[1] call d_fnc_perkclicked";
 };
 class PerkButton_General_2: XD_LinkButtonUpgradeBase
@@ -15,7 +15,7 @@ class PerkButton_General_2: XD_LinkButtonUpgradeBase
     y = 0.2990 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "One field vehicle service";
+    tooltip = "One vehicle service";
     action = __EVAL("[2] call d_fnc_perkclicked");
 };
 class PerkButton_General_3: XD_LinkButtonUpgradeBase
@@ -134,7 +134,7 @@ class PerkButton_Role2_1: XD_LinkButtonUpgradeBase
     y = 0.43125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Two field vehicle services";
+    tooltip = "Two vehicle services";
 };
 class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
 {
@@ -142,7 +142,7 @@ class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
     y = 0.48625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Field vehicle services fix 100% of damage";
+    tooltip = "Vehicle services by player fix 100% of damage";
 };
 class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
 {
@@ -158,7 +158,7 @@ class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
     y = 0.59625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Three field vehicle services";
+    tooltip = "Three vehicle services";
 };
 class PerkButton_Role2_5: XD_LinkButtonUpgradeBase
 {
@@ -214,7 +214,7 @@ class PerkButton_Role4_1: XD_LinkButtonUpgradeBase
     y = 0.43125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "One mash emplacement";
+    tooltip = "One trench emplacement";
 };
 class PerkButton_Role4_2: XD_LinkButtonUpgradeBase
 {
@@ -222,7 +222,7 @@ class PerkButton_Role4_2: XD_LinkButtonUpgradeBase
     y = 0.48625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Injured players can now be healed";
+    tooltip = "Two trench emplacements";
 };
 class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
 {
@@ -230,7 +230,7 @@ class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
     y = 0.54125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Two field self-heals";
+    tooltip = "Trench cooldown reduced by 120s";
 };
 class PerkButton_Role4_4: XD_LinkButtonUpgradeBase
 {
@@ -238,7 +238,7 @@ class PerkButton_Role4_4: XD_LinkButtonUpgradeBase
     y = 0.59625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Self-heal at any stage of injury";
+    tooltip = "Three trench emplacements";
 };
 class PerkButton_Role4_5: XD_LinkButtonUpgradeBase
 {
@@ -246,7 +246,7 @@ class PerkButton_Role4_5: XD_LinkButtonUpgradeBase
     y = 0.65125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Two mash emplacements";
+    tooltip = "MQ-9 available as air drop (requires call air drop perk)";
 };
 class PerkButton_Role5_1: XD_LinkButtonUpgradeBase
 {
@@ -254,7 +254,7 @@ class PerkButton_Role5_1: XD_LinkButtonUpgradeBase
     y = 0.43125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "C130J can now load one ground vehicle";
+    tooltip = "One mash emplacement";
 };
 class PerkButton_Role5_2: XD_LinkButtonUpgradeBase
 {
@@ -262,7 +262,7 @@ class PerkButton_Role5_2: XD_LinkButtonUpgradeBase
     y = 0.48625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "OPFOR wrecks can now be lifted";
+    tooltip = "Heal injured players";
 };
 class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
 {
@@ -270,7 +270,7 @@ class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
     y = 0.54125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "C130J can now load two ground vehicles";
+    tooltip = "Two self-heals";
 };
 class PerkButton_Role5_4: XD_LinkButtonUpgradeBase
 {
@@ -278,7 +278,7 @@ class PerkButton_Role5_4: XD_LinkButtonUpgradeBase
     y = 0.59625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "[PLACEHOLDER]";
+    tooltip = "Self-heal at any stage of injury";
 };
 class PerkButton_Role5_5: XD_LinkButtonUpgradeBase
 {
@@ -286,7 +286,7 @@ class PerkButton_Role5_5: XD_LinkButtonUpgradeBase
     y = 0.65125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "AH-6X available as air drop (requires call air drop perk)";
+    tooltip = "Two mash emplacements";
 };
 class PerkButton_Role6_1: XD_LinkButtonUpgradeBase
 {
@@ -294,7 +294,7 @@ class PerkButton_Role6_1: XD_LinkButtonUpgradeBase
     y = 0.43125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "One field trench emplacement";
+    tooltip = "Call air taxi back to base";
 };
 class PerkButton_Role6_2: XD_LinkButtonUpgradeBase
 {
@@ -302,7 +302,7 @@ class PerkButton_Role6_2: XD_LinkButtonUpgradeBase
     y = 0.48625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Two field trench emplacements";
+    tooltip = "Lift OPFOR wrecks";
 };
 class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
 {
@@ -310,7 +310,7 @@ class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
     y = 0.54125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Trench cooldown reduced by 120s";
+    tooltip = "Load one ground vehicle into the C130J";
 };
 class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
 {
@@ -318,7 +318,7 @@ class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
     y = 0.59625 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "Three field trench emplacements";
+    tooltip = "Load up to two ground vehicles into the C130J";
 };
 class PerkButton_Role6_5: XD_LinkButtonUpgradeBase
 {
@@ -326,5 +326,5 @@ class PerkButton_Role6_5: XD_LinkButtonUpgradeBase
     y = 0.65125 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
-    tooltip = "MQ-9 available as air drop (requires call air drop perk)";
+    tooltip = "AH-6X available as air drop (requires call air drop perk)";
 };
