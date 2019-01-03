@@ -81,7 +81,7 @@ while {true} do {
         if (GVAR(enemy_wreck_chance) > random 100) then {
             _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
             _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
-            _vehicle addEventHandler ["killed", {
+            _vehicle addMPEventHandler ["MPKilled", {
                 (_this select 0) spawn {
                     sleep 30;
                     GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"EnemyWreck",["1","",[typeOf _this,0] call FUNC(GetDisplayName),[]],true];
