@@ -720,7 +720,7 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="ENGINEER1";
-                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Engineer Team Leader";
                 };
                 class Item1
@@ -734,7 +734,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="ENGINEER2";
-                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Engineer";
                 };
                 class Item2
@@ -748,7 +748,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER3";
-                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Engineer";
                 };
                 class Item3
@@ -762,7 +762,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER4";
-                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Engineer";
                 };
                 class Item4
@@ -776,7 +776,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="ENGINEER5";
-                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Engineer";
                 };
                 class Item5
@@ -790,7 +790,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="ENGINEER6";
-                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Engineer";
                 };
                 class Item6
@@ -804,7 +804,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER7";
-                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Engineer";
                 };
                 class Item7
@@ -818,7 +818,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER8";
-                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Bravo""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Engineer";
                 };
             };
@@ -841,7 +841,7 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="MGUNNER1";
-                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Charlie""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Machine Gunner Team Leader";
                 };
                 class Item1
@@ -962,7 +962,7 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="MARKSMAN1";
-                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Marksman Team Leader";
                 };
                 class Item1
@@ -976,7 +976,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.2;
                     text="MARKSMAN2";
-                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Marksman";
                 };
                 class Item2
@@ -990,7 +990,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MARKSMAN3";
-                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Marksman";
                 };
                 class Item3
@@ -1004,7 +1004,7 @@ class Mission
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MARKSMAN4";
-                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Delta""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Marksman";
                 };
                 class Item4
@@ -1204,7 +1204,7 @@ class Mission
                     leader=1;
                     skill=0.59999996;
                     text="PILOT1";
-                    init="this setGroupId [""Foxtrot""];removeallweapons this;this disableAI ""MOVE"";";
+                    init="this setGroupId [""Foxtrot""];removeallweapons this;this disableAI ""MOVE"";removeBackpack this;";
                     description="Pilot Team Leader";
                 };
                 class Item1
