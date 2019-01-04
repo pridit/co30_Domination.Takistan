@@ -1084,49 +1084,31 @@ FUNC(vehicleScripts) = {
 [_pos, [0, 0, 0, false], ["NONE", "PRESENT", true], ["vehicle player != player && {alive player} && {!(player getVariable 'xr_pluncon')}", "call d_fnc_vehicleScripts","d_player_in_vec = false"]] call FUNC(CreateTrigger);
 
 player setVariable ["d_p_isadmin", false];
-GVAR(clientScriptsAr) = [false, false];
-if (GVAR(AutoKickTime) == 0 || {GVAR(MissionType) == 2}) then {
-    GVAR(clientScriptsAr) set [1, true];
-};
+
 FUNC(startClientScripts) = {
+    private ["_vec", "_type"];
+    
     if (!alive player || {(player getVariable 'xr_pluncon')}) exitWith {};
-    private ["_vec", "_type", "_wtime", "_minutes"];
-    if (!(GVAR(clientScriptsAr) select 0) && {(isMultiplayer && {serverCommandAvailable "#shutdown"}) || {!isMultiplayer}} && {alive player} && {!(player getVariable 'xr_pluncon')}) then {
-        GVAR(clientScriptsAr) set [0, true];
+    if (__pGetVar(GVAR(perkCanFlyAttackAircraft))) exitWith {};
+    if (__pGetVar(GVAR(p_isadmin))) exitWith {};
+    
+    if (isMultiplayer && {serverCommandAvailable "#shutdown"}) then {
         __pSetVar [QGVAR(p_isadmin), true];
         execFSM "fsms\isAdmin.fsm";
     };
-    if (!(GVAR(clientScriptsAr) select 1) && {!isNil QGVAR(player_autokick_time)}) then {
-        if (isNil QGVAR(nomercyendtime)) then {
-            GVAR(nomercyendtime) = time + 1800;
-            if (GVAR(player_autokick_time) <= 0) exitWith {
-                GVAR(clientScriptsAr) set [1, true];
-                GVAR(player_autokick_time) = nil;
-                GVAR(nomercyendtime) = nil;
+
+    _vec = vehicle player;
+    if (_vec != player && {_vec isKindOf "Air"}) then {
+        _type = typeOf _vec;
+        if ((toUpper(_type) in GVAR(mt_bonus_vehicle_array) || {toUpper(_type) in GVAR(sm_bonus_vehicle_array)}) && {(player == driver _vec || {player == gunner _vec} || {player == commander _vec})}) then {
+            _was_engineon = isEngineOn _vec;
+            if (!_was_engineon && {isEngineOn _vec}) then {
+                _vec engineOn false;
+                player action ["engineOff", _vec];
             };
-        } else {
-            {
-                if (_x == 3) exitWith {
-                    GVAR(clientScriptsAr) set [1, true];
-                    GVAR(player_autokick_time) = nil;
-                    GVAR(nomercyendtime) = nil;
-                };
-            } forEach __pGetVar(GVAR(perks_unlocked));
-            _vec = vehicle player;
-            if (_vec != player && {_vec isKindOf "Air"} && !(serverCommandAvailable "#shutdown")) then {
-                _type = typeOf _vec;
-                if ((toUpper(_type) in GVAR(mt_bonus_vehicle_array) || {toUpper(_type) in GVAR(sm_bonus_vehicle_array)}) && {(player == driver _vec || {player == gunner _vec} || {player == commander _vec})}) then {
-                    _was_engineon = isEngineOn _vec;
-                    player action ["Eject",_vec];
-                    if (!_was_engineon && {isEngineOn _vec}) then {
-                        _vec engineOn false;
-                        player action ["engineOff", _vec];
-                    };
-                    _type_name = [_type,0] call FUNC(GetDisplayName);
-                    _wtime = GVAR(nomercyendtime) - time;
-                    hint format ["%1", (localize "STR_DOM_MISSIONSTRING_1452")];
-                };
-            };
+            player action ["Eject",_vec];
+            _type_name = [_type,0] call FUNC(GetDisplayName);
+            hint format ["%1", (localize "STR_DOM_MISSIONSTRING_1452")];
         };
     };
 };
