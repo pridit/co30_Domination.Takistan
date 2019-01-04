@@ -24,7 +24,7 @@ GVAR(current_defend_idx) = -1;
 GVAR(current_attack_target) = "";
 GVAR(current_attack_idx) = -1;
 
-__pSetVar [QGVAR(perk_points_available), 0];
+__pSetVar [QGVAR(perk_points_available), 2];
 __pSetVar [QGVAR(perks_unlocked), []];
 
 __ccppfln(x_client\x_f\x_perframe.sqf);
@@ -1101,12 +1101,11 @@ FUNC(startClientScripts) = {
     if (_vec != player && {_vec isKindOf "Air"}) then {
         _type = typeOf _vec;
         if ((toUpper(_type) in GVAR(mt_bonus_vehicle_array) || {toUpper(_type) in GVAR(sm_bonus_vehicle_array)}) && {(player == driver _vec || {player == gunner _vec} || {player == commander _vec})}) then {
-            _was_engineon = isEngineOn _vec;
-            if (!_was_engineon && {isEngineOn _vec}) then {
+            if (isEngineOn _vec) then {
                 _vec engineOn false;
                 player action ["engineOff", _vec];
             };
-            player action ["Eject",_vec];
+            player action ["Eject", _vec];
             _type_name = [_type,0] call FUNC(GetDisplayName);
             hint format ["%1", (localize "STR_DOM_MISSIONSTRING_1452")];
         };
