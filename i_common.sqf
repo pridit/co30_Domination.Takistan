@@ -157,60 +157,37 @@ if (GVAR(with_mgnest)) then {
     GVAR(mg_nest) = "WarfareBMGNest_M240_US_EP1";
 };
 
-GVAR(sm_bonus_vehicle_array) = (
-#ifdef __DEFAULT__
-    switch (GVAR(own_side)) do {
-        case "GUER": {["A10","AH1Z","UH1Y","AV8B","AV8B2", "F35B", "M1A2_TUSK_MG","M1A1"]};
-        case "WEST": {
-            switch (true) do {
-                case (__OAVer): {
-                    ["A10_US_EP1","AH64D_EP1","AH6J_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1","M6_EP1","UH60M_EP1","UH1Y"]
-                };
-                case (__COVer): {
-                    ["A10","AH1Z","UH1Y","AV8B","AV8B2", "F35B", "M1A2_TUSK_MG","M1A1","AH64D"]
-                };
-            }
-        };
-        case "EAST": {
-            switch (true) do {
-                case (__OAVer): {
-                    ["Su25_TK_EP1","L39_TK_EP1","Mi24_D_TK_EP1","T72_TK_EP1","T55_TK_EP1","ZSU_TK_EP1"]
-                };
-                case (__COVer): {
-                    ["Su34","Ka52","Ka52Black","Mi24_P","Mi24_V","Su39","T72_RU","2S6M_Tunguska","T90"]
-                };
-            }
-        };
-    }
-#endif
-);
+GVAR(sm_bonus_vehicle_array) = [
+    "A10_US_EP1",
+    "AH64D_EP1",
+    "AH6J_EP1",
+    "M1A1_US_DES_EP1",
+    "M1A2_US_TUSK_MG_EP1",
+    "M6_EP1",
+    "UH60M_EP1",
+    "UH1Y",
+    "Su25_TK_EP1",
+    "L39_TK_EP1"
+];
 
-GVAR(mt_bonus_vehicle_array) =
-#ifdef __DEFAULT__
-switch (GVAR(own_side)) do {
-    case "GUER": {["BMP2_Gue","BRDM2_Gue","T34","HMMWV_M2","HMMWV_MK19","HMMWV_TOW","HMMWV_Avenger"]};
-    case "WEST": {
-        switch (true) do {
-            case (__OAVer): {
-                ["M1126_ICV_M2_EP1","M1126_ICV_mk19_EP1","M1128_MGS_EP1","M1129_MC_EP1","M1135_ATGMV_EP1","M2A2_EP1","M2A3_EP1","HMMWV_M1151_M2_DES_EP1","HMMWV_M1151_M2_DES_EP1","HMMWV_M998_crows_M2_DES_EP1","HMMWV_M998_crows_MK19_DES_EP1","HMMWV_M998A2_SOV_DES_EP1","HMMWV_MK19_DES_EP1","HMMWV_TOW_DES_EP1","HMMWV_M1151_M2_CZ_DES_EP1","LandRover_Special_CZ_EP1"]
-            };
-            case (__COVer): {
-                ["AAV","LAV25","HMMWV_M2","HMMWV_MK19","HMMWV_TOW","HMMWV_Avenger"]
-            };
-        };
-    };
-    case "EAST": {
-        switch (true) do {
-            case (__OAVer): {
-                ["BMP2_TK_EP1","BRDM2_ATGM_TK_EP1","BRDM2_TK_EP1","BTR60_TK_EP1","M113_TK_EP1","LandRover_MG_TK_EP1","LandRover_SPG9_TK_EP1","UAZ_AGS30_TK_EP1","UAZ_MG_TK_EP1","Ural_ZU23_TK_EP1"]
-            };
-            case (__COVer): {
-                ["BMP3","BTR90","GAZ_Vodnik","GAZ_Vodnik_HMG","UAZ_AGS30_RU"]
-            };
-        };
-    };
-};
-#endif
+GVAR(mt_bonus_vehicle_array) = [
+    "M1126_ICV_M2_EP1",
+    "M1126_ICV_mk19_EP1",
+    "M1128_MGS_EP1",
+    "M1129_MC_EP1",
+    "M1135_ATGMV_EP1",
+    "M2A2_EP1",
+    "M2A3_EP1",
+    "HMMWV_M1151_M2_DES_EP1",
+    "HMMWV_M1151_M2_DES_EP1",
+    "HMMWV_M998_crows_M2_DES_EP1",
+    "HMMWV_M998_crows_MK19_DES_EP1",
+    "HMMWV_M998A2_SOV_DES_EP1",
+    "HMMWV_MK19_DES_EP1",
+    "HMMWV_TOW_DES_EP1",
+    "HMMWV_M1151_M2_CZ_DES_EP1",
+    "LandRover_Special_CZ_EP1"
+];
 
 // positions for aircraft factories (if one get's destroyed you're not able to service jets/service choppers/repair wrecks)
 // first jet service, second chopper service, third wreck repair
