@@ -782,6 +782,10 @@ FUNC(perkclicked) = {
         __pSetVar [QGVAR(eng_can_repfuel), true];
     };
     
+    if (_idc == 3) then {  
+        __pSetVar [QGVAR(perkCanFlyAttackAircraft), true];
+    };
+    
     if (_idc == 4) then {
         call xr_fnc_calldrop;
     };
