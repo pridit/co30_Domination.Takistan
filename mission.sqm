@@ -3927,7 +3927,7 @@ class Mission
             vehicle="Info_Board_EP1";
             skill=0.60000002;
             text="help";
-            init="this setObjectTexture [0,""pics\help.paa""]; this addAction [""Main Targets"", ""boards\main.sqf""]; this addAction [""Perks"", ""boards\perks.sqf""]; this addAction [""Tips"", ""boards\tips.sqf""]; this addEventHandler [""HandleDamage"", {false}];";
+            init="this setObjectTexture [0,""pics\help.paa""]; this addAction [""Main Targets"", ""boards\main.sqf""]; this addAction [""Perks"", ""boards\perks.sqf""]; this addAction [""Roles"", ""boards\roles.sqf""]; this addAction [""Tips"", ""boards\tips.sqf""]; this addEventHandler [""HandleDamage"", {false}];";
         };
     };
     class Markers
