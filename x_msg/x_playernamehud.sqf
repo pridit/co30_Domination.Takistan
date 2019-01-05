@@ -16,7 +16,7 @@ if (GVAR(BlockSpacebarScanning) == 0) then {
 };
 
 // 0 = over head, 1 = cursor target
-x_show_pname_hud = 0;
+x_show_pname_hud = false;
 
 GVAR(show_player_namesx) = GVAR(playernames_state);
 
@@ -166,60 +166,8 @@ FUNC(player_name_huddo) = {
     };
 };
 
-GVAR(pnhuddo2_prevCT) = objNull;
 GVAR(showPlayerNameRSC_shown) = false;
-GVAR(pnhuddo2_frskip) = 0;
-
-FUNC(dosshowhuddo2spawn) = {
-    scriptName "spawn_dosshowhuddo2spawn";
-    waitUntil {time >= GVAR(pnhuddo2_endtime)};
-    GVAR(showPlayerNameRSC_shown) = false;
-    4769 cutRsc ["Default", "PLAIN"];
-};
-
-FUNC(player_name_huddo2) = {
-    scriptName "perfr_player_name_huddo2";
-    __INC(GVAR(pnhuddo2_frskip));
-    if (GVAR(pnhuddo2_frskip) == 2) exitWith {
-        GVAR(pnhuddo2_frskip) = 0;
-    };
-    private ["_ct", "_txtar", "_ctrl", "_pre", "_unc", "_name", "_icon"];
-    disableSerialization;
-    if (!x_show_pname_hud && {!visibleMap}) then {
-        _ct = cursorTarget;
-        if (!isNull _ct && {_ct isKindOf "CAManBase"} && {alive _ct} && {!GV(player,xr_pluncon)} && {_ct != player} && {((positionCameraToWorld [0,0,0]) distance _ct) <= (GVAR(dist_pname_hud) / 2)} && {side (group _ct) getFriend side (group player) >= 0.6}) then { // && {isPlayer _ct}
-            GVAR(pnhuddo2_endtime) = time + 0.8;
-            if (!GVAR(showPlayerNameRSC_shown)) then {
-                4769 cutRsc [QGVAR(showPlayerNameRsc), "PLAIN"];
-                GVAR(showPlayerNameRSC_shown) = true;
-                0 spawn FUNC(dosshowhuddo2spawn);
-            };
-            
-            _txtar = [];
-            _ctrl = __uiGetVar(GVAR(showPlayerNameRsc1)) displayCtrl 1000;
-            _pre = if (group player == group _ct) then {"*"} else {""};
-            _unc = _ct getVariable ["xr_pluncon", false];
-            _name = if (!_unc) then {if (isPlayer _ct) then {name _ct} else {getText(configFile/"CfgVehicles"/typeOf _ct/"displayName")}} else {GVAR(phud_loc883)};
-            _txtar set [count _txtar, _pre + _name];
-            _icon = getText(configFile/"CfgVehicles"/typeOf _ct/"Icon");
-            if (_icon != "") then {
-                _txtar set [count _txtar, image _icon];
-            };
-            if (getNumber(configFile>>"CfgVehicles">>typeOf player>>"attendant") == 1) then {
-                _txtar set [count _txtar, lineBreak];
-                _txtar set [count _txtar, "Damage: " + str(damage _ct)];
-            };
-            _ctrl ctrlSetStructuredText composeText _txtar;
-        };
-    } else {
-        if (x_show_pname_hud) then {
-            ["player_hud2"] call FUNC(removePerFrame);
-        };
-    };
-};
 
 if (x_show_pname_hud) then {
     ["player_hud", {call FUNC(player_name_huddo)},0] call FUNC(addPerFrame);
-} else {
-    ["player_hud2", {call FUNC(player_name_huddo2)},0] call FUNC(addPerFrame);
 };
