@@ -40,7 +40,7 @@ class FSM
     class Init
     {
       name = "Init";
-      init = "private [""_rep_station"",""_name"",""_types"",""_wreck"",""_type"",""_dpos"",""_ddir"",""_new_vec"",""_timenow"",""_endtime"", ""_rep_station_side"", ""_pos_rep_station""];" \n
+      init = "private [""_rep_station"",""_name"",""_types"",""_wreck"",""_type"",""_dpos"",""_ddir"",""_new_vec"",""_timenow"",""_endtime"", ""_rep_station_side"", ""_pos_rep_station"",""_repby""];" \n
        "" \n
        "_rep_station = _this select 0;" \n
        "_name = _this select 1;" \n
@@ -145,6 +145,7 @@ class FSM
        "_sidevar = _wreck getVariable ""D_VEC_SIDE"";" \n
        "private ""_maxrep"";" \n
        "_maxrep = _wreck getVariable ""d_WreckMaxRepair"";" \n
+       "_repby = _wreck getVariable ""d_VehiclePickedUp"";" \n
        "deleteVehicle _wreck;" \n
        "_new_vec = createVehicle [_type, _dpos, [], 0, ""NONE""];" \n
        "_new_vec setDir _ddir;" \n
@@ -190,6 +191,7 @@ class FSM
        "_new_vec lock false;" \n
        "_new_vec setVariable [""D_VEC_SIDE"", 2, true];" \n
        "_new_vec execFSM ""fsms\Wreckmarker.fsm"";" \n
+       "[""d_pas"", [_repby, 10]] call d_fnc_NetCallEventCTS;" \n
        "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true];";
       precondition = "";
       class Links

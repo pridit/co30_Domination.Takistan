@@ -250,6 +250,7 @@ if (isServer) then {
     [QGVAR(sm_poi), {if (_this == 0) then {__INC(GVAR(sm_points_west))} else {__INC(GVAR(sm_points_east))}}] call FUNC(NetAddEventCTS);
 
     [QGVAR(getSM), {execVM "x_missions\x_getsidemission.sqf"}] call FUNC(NetAddEventCTS);
+    [QGVAR(VehiclePickedUp), {(_this select 0) setVariable [QGVAR(VehiclePickedUp), (_this select 1)]}] call FUNC(NetAddEventCTS);
 };
 
 #include "x_missions\x_missionssetup.sqf"

@@ -82,6 +82,7 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
                     _release_id = _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_255") call FUNC(RedText), "x_client\x_heli_release.sqf",-1,100000];
                     [_vehicle, (localize "STR_DOM_MISSIONSTRING_252")] call FUNC(VehicleChat);
                     _vehicle setVariable [QGVAR(Attached_Vec), _nearest];
+                    [QGVAR(VehiclePickedUp), [_nearest, player]] call FUNC(NetCallEventCTS);
                     
                     _fuelloss = switch (true) do {
                         case (_vehicle isKindOf "Wheeled_APC"): {0.0002};
