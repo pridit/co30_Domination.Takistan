@@ -231,28 +231,6 @@ class XD_StatusDialog {
             sizeEx = 0.032;
             text = "";
         };
-        class XDRLivesCaption : XC_RscText {
-            idc = 30000;
-            x = 0.68;
-            y = 0.51;
-            w = 0.25;
-            h = 0.1;
-            colorBackground[] = {1, 1, 1, 0};
-            XCTextBlack;
-            sizeEx = 0.032;
-            text = "$STR_DOM_MISSIONSTRING_1317";
-        };
-        class XDRLivesNumber : XC_RscText {
-            idc = 30001;
-            x = 0.79;
-            y = 0.51;
-            w = 0.25;
-            h = 0.1;
-            colorBackground[] = {1, 1, 1, 0};
-            colorText[] = {0.643, 0.5742, 0.4102, 1};
-            sizeEx = 0.032;
-            text = "0";
-        };
         class XD_MainCaption : XC_RscText {
             x = 0.12;
             y = 0.01;
