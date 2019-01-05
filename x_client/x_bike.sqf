@@ -40,10 +40,6 @@ player reveal _vehicle;
 
 player moveInDriver _vehicle;
 
-if (_vehicle isKindOf "ATV_US_EP1") then {
-    _vehicle addAction [(localize "STR_DOM_MISSIONSTRING_162") call FUNC(BlueText), "x_client\x_flipatv.sqf", 0, -1, false, false, "", "!(player in _target) && {((vectorUp _target) select 2) < 0.6}"];
-};
-
 if (_b_mode == 1) then {
     _vehicle spawn {
         scriptName "spawn_x_bike_1";
