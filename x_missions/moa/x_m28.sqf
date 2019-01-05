@@ -25,6 +25,7 @@ if (call FUNC(checkSHC)) then {
     _vehicle setPos _poss;
     _vehicle setVectorUp [0,0,1];
     _vehicle call FUNC(addKilledEHSM);
+    _vehicle addEventHandler ["handleDamage", {_this call FUNC(CheckMTShotHD)}];
     sleep 2.22;
     ["shilka", 1, "bmp", 0, "tank", 0, _pos_other,1,0,false] spawn FUNC(CreateArmor);
     sleep 2.333;

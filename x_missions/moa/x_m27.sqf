@@ -23,6 +23,7 @@ if (call FUNC(checkSHC)) then {
     _vehicle setPos _poss;
     _vehicle setVectorUp [0,0,1];
     _vehicle call FUNC(addKilledEHSM);
+    _vehicle addEventHandler ["handleDamage", {_this call FUNC(CheckMTShotHD)}];
     sleep 2.333;
     ["specops", 2, "basic", 2, _poss,220,true] spawn FUNC(CreateInf);
     __AddToExtraVec(_vehicle)

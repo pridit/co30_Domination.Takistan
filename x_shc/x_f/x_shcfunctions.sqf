@@ -656,7 +656,7 @@ FUNC(CheckMTShotHD) = {
     PARAMS_1(_tower);
     _r = 0;
     if ((toUpper(getText(configFile >> "CfgAmmo" >> (_this select 4) >> "simulation")) in GVAR(hd_sim_types)) || {((_this select 4) == "ACE_PipebombExplosion")}) then {
-        _r = (_this select 2) / 5;
+        _r = _this select 2;
     } else {
         if (GVAR(MTTowerSatchelsOnly) == 1 && {getText(configFile >> "CfgAmmo" >> (_this select 4) >> "CraterEffects") == "BombCrater"}) then {
             _r = _this select 2;
