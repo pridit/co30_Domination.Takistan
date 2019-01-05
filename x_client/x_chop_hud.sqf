@@ -124,7 +124,7 @@ while {GVAR(player_in_vec)} do {
                         if (!isNull _nearest) then {
                             private "_marp";
                             _marp = GV(_nearest,GVAR(WreckMaxRepair));
-                            if (isNil "_marp") then {_marp = GVAR(WreckMaxRepair)};
+                            if (isNil "_marp") then {_marp = 0};
                             __TRACE_2("","_vec","_marp");
                             _nearestu = toUpper (typeOf _nearest);
                             __TRACE_2("","_vec","_nearestu");

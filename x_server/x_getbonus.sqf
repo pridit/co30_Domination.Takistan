@@ -38,5 +38,6 @@ if (!isServer) exitWith {};
     _vehicle setVariable [QGVAR(vec), _number_v, true];
     [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
     _vehicle setVariable ["D_VEC_SIDE", 2, true];
+    _vehicle setVariable [QGVAR(WreckMaxRepair), GVAR(WreckMaxRepair), true];
     _vehicle execFSM "fsms\Wreckmarker.fsm";
 } forEach _this;

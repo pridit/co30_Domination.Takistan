@@ -37,7 +37,7 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
             };
             if (!isNull _nearest) then {
                 _marp = GV(_nearest,GVAR(WreckMaxRepair));
-                if (isNil "_marp") then {_marp = GVAR(WreckMaxRepair)};
+                if (isNil "_marp") then {_marp = 0};
                 if (
                     _nearest isKindOf "CAManBase" ||
                     {_marp == 0} ||

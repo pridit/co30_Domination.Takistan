@@ -12,7 +12,7 @@ class FSM
        "_startpos_vec = position _vehicle;" \n
        "_thedesmarker = """";" \n
        "" \n
-       "_timenow = time + 30 + random 5;" \n
+       "_timenow = time + 1;" \n
        "";
       precondition = "";
       class Links
@@ -210,7 +210,8 @@ class FSM
     class Saftey_Speed_Che
     {
       name = "Saftey_Speed_Che";
-      init = "if ((vectorUp _vehicle) select 2 < 0) then {_vehicle setVectorUp [0,0,1]};";
+      init = "if ((vectorUp _vehicle) select 2 < 0) then {_vehicle setVectorUp [0,0,1]};" \n
+       "_timenow = time + 10;";
       precondition = "";
       class Links
       {
@@ -227,7 +228,7 @@ class FSM
           priority = 0.000000;
           to="Create_Marker";
           precondition = "";
-          condition="true";
+          condition="time > _timenow";
           action="";
         };
       };

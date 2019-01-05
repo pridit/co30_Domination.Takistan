@@ -77,13 +77,14 @@ while {true} do {
     
         _vehicle flyInHeight 200;
         _vehicle setVariable ["D_VEC_SIDE", 1, true];
-        _vehicle setVariable [QGVAR(WreckMaxRepair), 0, true];
+        
         if (GVAR(enemy_wreck_chance) > random 100) then {
             _vehicle setVariable [QGVAR(WreckDeleteTime), 2700, true];
             _vehicle setVariable [QGVAR(WreckMaxRepair), 1, true];
+            _vehicle execFSM "fsms\Wreckmarker.fsm";
             _vehicle addMPEventHandler ["MPKilled", {
                 (_this select 0) spawn {
-                    sleep 30;
+                    sleep 10;
                     GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"EnemyWreck",["1","",[typeOf _this,0] call FUNC(GetDisplayName),[]],true];
                 };
             }];
@@ -91,7 +92,6 @@ while {true} do {
             __addDead(_vehicle)
         };
         
-        _vehicle execFSM "fsms\Wreckmarker.fsm";
         _vehicle spawn FUNC(AirMarkerMove);
         sleep 0.1;
     };
