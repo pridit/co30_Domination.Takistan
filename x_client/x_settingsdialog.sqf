@@ -46,12 +46,8 @@ if (GVAR(dont_show_player_markers_at_all) == 1) then {
 };
 
 _ctrl = __ctrl(1602);
-if (GVAR(show_playernames) == 1) then {
-    {_ctrl lbAdd _x} forEach [(localize "STR_DOM_MISSIONSTRING_363"), (localize "STR_DOM_MISSIONSTRING_364"), (localize "STR_DOM_MISSIONSTRING_366"), (localize "STR_DOM_MISSIONSTRING_367")];
-    _ctrl lbSetCurSel GVAR(show_player_namesx);
-} else {
-    _ctrl ctrlEnable false;
-};
+{_ctrl lbAdd _x} forEach [(localize "STR_DOM_MISSIONSTRING_363"), (localize "STR_DOM_MISSIONSTRING_364"), (localize "STR_DOM_MISSIONSTRING_366"), (localize "STR_DOM_MISSIONSTRING_367")];
+_ctrl lbSetCurSel GVAR(show_player_namesx);
 
 __ctrl(2001) ctrlSetText str(GVAR(points_needed) select 0);
 __ctrl(2002) ctrlSetText str(GVAR(points_needed) select 1);
@@ -116,7 +112,7 @@ __str (localize "STR_DOM_MISSIONSTRING_409") + (if (GVAR(WithBaseAttack) == 0) _
 __str (localize "STR_DOM_MISSIONSTRING_411") + (if (GVAR(OverrideBISEffects) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_412") + (if (GVAR(BloodDirtScreen) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_413") + (if (GVAR(BlockSpacebarScanning) == 0) __tyn);
-__str (localize "STR_DOM_MISSIONSTRING_414") + (if (GVAR(show_playernames) == 0) __tyn);
+__str (localize "STR_DOM_MISSIONSTRING_394") + str GVAR(playernames_state) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_415") + str GVAR(GrasAtStart) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_416") + (if (GVAR(Terraindetail) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_417") + (if (GVAR(WreckDeleteTime) == -1) then {(localize "STR_DOM_MISSIONSTRING_418")} else {(str(GVAR(WreckDeleteTime) / 60) + (localize "STR_DOM_MISSIONSTRING_419"))});

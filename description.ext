@@ -198,17 +198,10 @@ class Params {
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
-    class GVAR(show_playernames) {
-        title = "$STR_DOM_MISSIONSTRING_1159";
-        values[] = {0,1};
-        default = 0;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1446","$STR_DOM_MISSIONSTRING_1447"};
-    };
-    
     class GVAR(playernames_state) {
         title = "$STR_DOM_MISSIONSTRING_1160";
         values[] = {0,1,2,3};
-        default = 1;
+        default = 0;
         texts[] = {"$STR_DOM_MISSIONSTRING_1058","$STR_DOM_MISSIONSTRING_1161", "$STR_DOM_MISSIONSTRING_1162", "$STR_DOM_MISSIONSTRING_1163"};
     };
     

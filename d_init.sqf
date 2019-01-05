@@ -108,6 +108,7 @@ if (X_Client) then {
     __cppfln(FUNC(showstatus),x_client\x_showstatus.sqf);
     __cppfln(FUNC(showperks),x_client\x_showperks.sqf);
     __cppfln(FUNC(settingsdialog),x_client\x_settingsdialog.sqf);
+    __cppfln(FUNC(pnselchanged),x_msg\x_pnselchanged.sqf);
     __cppfln(FUNC(x_dropammoboxd),x_client\x_dropammobox2.sqf);
     __cppfln(FUNC(x_loaddropped),x_client\x_loaddropped.sqf);
     __cppfln(FUNC(x_deploymhq),x_client\x_deploymhq.sqf);

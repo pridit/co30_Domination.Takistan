@@ -23,6 +23,7 @@ FUNC(weaponcargo) = nil;
 FUNC(showstatus) = nil;
 FUNC(showperks) = nil;
 FUNC(settingsdialog) = nil;
+FUNC(pnselchanged) = nil;
 FUNC(x_dropammoboxd) = nil;
 FUNC(x_loaddropped) = nil;
 FUNC(x_deploymhq) = nil;
