@@ -58,7 +58,7 @@ class PerkIcon_General_8: XD_RscPicture
 {
     text = "\ca\ui\data\ui_action_eject_ca";
     x = 0.512891 * safezoneW + safezoneX;
-    y = 0.3440 * safezoneH + safezoneY;
+    y = 0.3455 * safezoneH + safezoneY;
     w = 0.0172917 * safezoneW;
     h = 0.0309259 * safezoneH;
 };
