@@ -205,7 +205,7 @@ _str = "";
         if (_str != "") then {__str ", "};
         __str (if (alive _med) then {name _med} else {(localize "STR_DOM_MISSIONSTRING_493")});
     };
-} forEach GVAR(is_medic);
+} forEach GVAR(medics);
 
 if (_str == "") then {_str = (localize "STR_DOM_MISSIONSTRING_494")};
 __ctrl(2008) ctrlSetText _str;
@@ -217,7 +217,7 @@ _str = "";
         if (_str != "") then {__str ", "};
         __str (if (alive _art) then {name _art} else {(localize "STR_DOM_MISSIONSTRING_493")});
     };
-} forEach GVAR(can_use_artillery);
+} forEach GVAR(artillery);
 
 if (_str == "") then {_str = (localize "STR_DOM_MISSIONSTRING_495")};
 __ctrl(2009) ctrlSetText _str;
@@ -229,7 +229,7 @@ _str = "";
         if (_str != "") then {__str ", "};
         __str (if (alive _eng) then {name _eng} else {(localize "STR_DOM_MISSIONSTRING_493")});
     };
-} forEach GVAR(is_engineer);
+} forEach GVAR(engineers);
 
 if (_str == "") then {_str = (localize "STR_DOM_MISSIONSTRING_496")};
 __ctrl(2010) ctrlSetText _str;
