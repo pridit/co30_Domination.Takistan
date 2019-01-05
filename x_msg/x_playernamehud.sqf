@@ -8,34 +8,6 @@ if (!local player) exitwith {};
 
 disableSerialization;
 
-x_pm_received_ar = [];
-x_pm_send_ar = [];
-x_pm_add_ar = [];
-x_player_name = name player;
-x_pm_send_ar_update = false;
-
-FUNC(XSendMsgSysMsg) = {
-    private "_xctrl";
-    disableSerialization;
-    _xx_display = __uiGetVar(XD_MsgDialog);
-    _xctrl = _xx_display displayCtrl 1010;
-    if (ctrlText (_xx_display displayCtrl 1201) != "") then {
-        if (x_player_name != ctrlText _xctrl) then {
-            ["x_msg_net", [ctrlText _xctrl,x_player_name,ctrlText (_xx_display displayCtrl 1201)]] call FUNC(NetCallEvent);
-            (format [(localize "STR_DOM_MISSIONSTRING_879"), ctrlText _xctrl]) call FUNC(GlobalChat);
-        } else {
-            (localize "STR_DOM_MISSIONSTRING_880") call FUNC(GlobalChat);
-        };
-        _one_ele = [ctrlText _xctrl, ctrlText (_xx_display displayCtrl 1201), date];
-        x_pm_send_ar = [x_pm_send_ar, [_one_ele], 0] call FUNC(arrayInsert);
-        x_pm_send_ar_update = true;
-    } else {
-        (localize "STR_DOM_MISSIONSTRING_881") call FUNC(GlobalChat)
-    };
-};
-
-[2, "x_msg_net", {if (x_player_name == _this select 0) then {x_pm_add_ar set [count x_pm_add_ar, [_this select 1, _this select 2, date]];playSound "IncomingChallenge2";(format [(localize "STR_DOM_MISSIONSTRING_882"), _this select 1] + (_this select 2)) call FUNC(AddHudMsg)}}] call FUNC(NetAddEvent);
-
 if (isNil "d_blockspacebarscanning") then {GVAR(blockspacebarscanning) = 1};
 if (GVAR(BlockSpacebarScanning) == 0) then {
     X_KeyboardHandlerKeyDown = {((_this select 1) == 57)};

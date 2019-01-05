@@ -736,7 +736,6 @@ class Params {
 #include "x_dlg\Parajump.hpp"
 #include "x_dlg\VecDialog.hpp"
 #include "x_dlg\SettingsDialog.hpp"
-#include "x_dlg\MsgDialog.hpp"
 #include "x_dlg\AirDropDialog.hpp"
 #include "x_dlg\Sat_Cam.hpp"
 #include "x_dlg\BackpackDialog.hpp"

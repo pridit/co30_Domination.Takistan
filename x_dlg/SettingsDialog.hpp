@@ -105,36 +105,6 @@ class XD_SettingsDialog {
             h = 0.03;
             onLBSelChanged = "[_this] call d_fnc_pmselchanged"; 
         };
-        class PlayernamesCaption : XC_RscText {
-            idc = 1601;
-            x = 0.12;
-            y = 0.45;
-            w = 0.25;
-            h = 0.1;
-            sizeEx = 0.029;
-            colorBackground[] = {1, 1, 1, 0};
-            XCTextBlack;
-            text = "$STR_DOM_MISSIONSTRING_1291";
-        };
-        class PlayernamesHint : XC_RscText {
-            idc = 1600;
-            x = 0.12;
-            y = 0.468;
-            w = 0.25;
-            h = 0.1;
-            sizeEx = 0.010;
-            colorBackground[] = {1, 1, 1, 0};
-            colorText[] = {0.5, 0.5, 0.5, 0.8};
-            text = "$STR_DOM_MISSIONSTRING_1292";
-        };
-        class PlayernamesCombo:XD_UIComboBox {
-            idc = 1602;
-            x = 0.125;
-            y = 0.526;
-            w = 0.17;
-            h = 0.03;
-            onLBSelChanged = "[_this] call d_fnc_pnselchanged"; 
-        };
         class XD_CloseButton: XD_ButtonBase {
             idc = -1;
             text = "$STR_DOM_MISSIONSTRING_1218"; 

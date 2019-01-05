@@ -35,12 +35,6 @@ class XD_StatusDialog {
             x = 0.68;
             y = 0.68;
         };
-        class XD_MsgButton: XD_ButtonBase {
-            text = "$STR_DOM_MISSIONSTRING_1304"; 
-            action = "closeDialog 0;call d_fnc_showmsg_dialog";
-            x = 0.68;
-            y = 0.74;
-        };
         class XD_AdminButton: XD_ButtonBase {
             idc = 123123;
             text = "$STR_DOM_MISSIONSTRING_1305"; 
