@@ -96,7 +96,7 @@ GVAR(points_needed) = [
     250 // Colonel
 ];
 
-GVAR(graslayer_index) = if (GVAR(GrasAtStart) == 1) then {0} else {1};
+GVAR(graslayer_index) = GVAR(GrasAtStart);
 
 GVAR(custom_layout) = [];
 

@@ -112,25 +112,15 @@ __str (localize "STR_DOM_MISSIONSTRING_403") + (switch (GVAR(WithLessArmor)) do 
 __str (localize "STR_DOM_MISSIONSTRING_406") + (if (GVAR(WithTeleToBase) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_407") + (if (GVAR(IllumMainTarget) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_408") + (if (GVAR(WithEnemyArtySpotters) == 0) __tyn);
-
-#ifndef __TT__
 __str (localize "STR_DOM_MISSIONSTRING_409") + (if (GVAR(WithBaseAttack) == 0) __tyn);
-#endif
-
 __str (localize "STR_DOM_MISSIONSTRING_411") + (if (GVAR(OverrideBISEffects) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_412") + (if (GVAR(BloodDirtScreen) == 0) __tyn);
-
 __str (localize "STR_DOM_MISSIONSTRING_413") + (if (GVAR(BlockSpacebarScanning) == 0) __tyn);
 __str (localize "STR_DOM_MISSIONSTRING_414") + (if (GVAR(show_playernames) == 0) __tyn);
-
-__str (localize "STR_DOM_MISSIONSTRING_415") + (if (GVAR(GrasAtStart) == 0) __tyn);
-
+__str (localize "STR_DOM_MISSIONSTRING_415") + str GVAR(GrasAtStart) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_416") + (if (GVAR(Terraindetail) == 0) __tyn);
-
 __str (localize "STR_DOM_MISSIONSTRING_417") + (if (GVAR(WreckDeleteTime) == -1) then {(localize "STR_DOM_MISSIONSTRING_418")} else {(str(GVAR(WreckDeleteTime) / 60) + (localize "STR_DOM_MISSIONSTRING_419"))});
-
 __str (localize "STR_DOM_MISSIONSTRING_420") + (if (GVAR(ViewdistanceChange) == 0) __tyn);
-
 __str (localize "STR_DOM_MISSIONSTRING_421");
 {
     __str ([_x, 0] call FUNC(GetDisplayName));

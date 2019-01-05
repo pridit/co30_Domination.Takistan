@@ -1080,16 +1080,16 @@
         <Original>Viewdistance: %1</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_359">
-        <Original>No Gras</Original>
+        <Original>No Grass</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_360">
-        <Original>Medium Gras</Original>
+        <Original>Medium Grass</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_361">
-        <Original>Full Gras</Original>
+        <Original>Full Grass</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_362">
-        <Original>Gras Layer</Original>
+        <Original>Grass Layer</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_363">
         <Original>Off</Original>
@@ -3855,7 +3855,7 @@
         <Original>Click on the slider to change the VD</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_1287">
-        <Original>Select Gras Layer</Original>
+        <Original>Grass</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_1288">
         <Original>Click on the number to change the layer</Original>

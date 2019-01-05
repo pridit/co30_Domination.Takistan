@@ -36,7 +36,7 @@ if (GVAR(MainTargets) >= 50) then {
     GVAR(MainTargets) = _h;
 };
 
-if (GVAR(GrasAtStart) == 1) then {setterraingrid 50};
+if (GVAR(GrasAtStart) == 0) then {setTerrainGrid 50};
 
 if (isServer) then {skiptime GVAR(TimeOfDay)};
 
