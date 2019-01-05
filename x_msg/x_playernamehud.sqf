@@ -16,7 +16,7 @@ if (GVAR(BlockSpacebarScanning) == 0) then {
 };
 
 // 0 = over head, 1 = cursor target
-x_show_pname_hud = (GVAR(playernames_state) > 0);
+x_show_pname_hud = 0;
 
 GVAR(show_player_namesx) = GVAR(playernames_state);
 
