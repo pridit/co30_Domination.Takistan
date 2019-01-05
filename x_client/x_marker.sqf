@@ -30,7 +30,7 @@ FUNC(X_XMarkerPlayers) = {
             _as setMarkerTextLocal (switch (GVAR(show_player_marker)) do {
                 case 1: {name _ap};
                 case 2: {""};
-                case 3: {GVAR(player_roles) select _forEachIndex};
+                case 3: {GVAR(player_entities) select _forEachIndex};
                 case 4: {GVAR(mark_loc280) + str(9 - round(9 * damage _ap))};
                 default {""};
             });
@@ -56,7 +56,7 @@ if (_ncpr != _ncpe && {_ncpe > _ncpr}) then {
 };
 
 {
-    GVAR(misc_store) setVariable [_x, [_forEachIndex, GVAR(player_roles) select _forEachIndex]];
+    GVAR(misc_store) setVariable [_x, [_forEachIndex, GVAR(player_entities) select _forEachIndex]];
 } forEach GVAR(player_entities);
 
 0 spawn {
