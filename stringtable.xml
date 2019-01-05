@@ -24,7 +24,7 @@
         <Original>Teleporter / Parajump</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_7">
-        <Original>Lift One</Original>
+        <Original>Lift %1</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_8">
         <Original>Lift Two</Original>

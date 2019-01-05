@@ -127,13 +127,13 @@ GVAR(marker_vecs) = [];
 
 // chopper varname, type (0 = lift chopper, 1 = wreck lift chopper, 2 = normal chopper), marker name, unique number (same as in init.sqf), marker type, marker color, marker text, chopper string name
 GVAR(choppers) = [
-    ["LIFT1",0,"lift1",301,"n_air","ColorWhite","CH1",(localize "STR_DOM_MISSIONSTRING_7")],
-    ["LIFT2",0,"lift2",302,"n_air","ColorWhite","CH2",(localize "STR_DOM_MISSIONSTRING_8")],
-    ["LIFT3",0,"lift3",303,"n_air","ColorWhite","HC3",(localize "STR_DOM_MISSIONSTRING_9")],
-    ["TRANSPORT1",2,"transport1",304,"n_air","ColorWhite","UH1",""],
-    ["TRANSPORT2",2,"transport2",305,"n_air","ColorWhite","UH2",""],
-    ["TRANSPORT3",0,"transport3",306,"n_air","ColorWhite","MV22",""],
-    ["TRANSPORT4",2,"transport4",307,"n_air","ColorWhite","C130J",""],
+    ["LIFT1",0,"lift1",301,"n_air","ColorWhite","CH1",format [(localize "STR_DOM_MISSIONSTRING_7"), "One"]],
+    ["LIFT2",0,"lift2",302,"n_air","ColorWhite","CH2",format [(localize "STR_DOM_MISSIONSTRING_7"), "Two"]],
+    ["LIFT3",0,"lift3",303,"n_air","ColorWhite","HC3",format [(localize "STR_DOM_MISSIONSTRING_7"), "Three"]],
+    ["LIFT4",0,"lift4",304,"n_air","ColorWhite","MV22",format [(localize "STR_DOM_MISSIONSTRING_7"), "Four"]],
+    ["TRANSPORT1",2,"transport1",305,"n_air","ColorWhite","UH1",""],
+    ["TRANSPORT2",2,"transport2",306,"n_air","ColorWhite","UH2",""],
+    ["TRANSPORT3",2,"transport3",307,"n_air","ColorWhite","C130J",""],
     ["LIGHT1",2,"light1",308,"n_air","ColorWhite","LB1",""],
     ["LIGHT2",2,"light2",309,"n_air","ColorWhite","LB2",""],
     ["WRECK1",1,"wreck1",310,"n_air","ColorWhite","WRK1",(localize "STR_DOM_MISSIONSTRING_10")],

@@ -1849,19 +1849,19 @@ class Mission
         };
         class Item51
         {
-            position[]={8177.314,296.04001,2020.4795};
-            azimut=151.92;
+            position[]={8207.8672,296.04001,2097.4265};
+            azimut=364.77252;
             id=52;
             side="EMPTY";
             vehicle="MH6J_EP1";
             lock="UNLOCKED";
             skill=0.60000002;
-            text="light1";
+            text="light2";
         };
         class Item52
         {
-            position[]={8150.8574,296.04001,2005.5135};
-            azimut=151.92;
+            position[]={8222.6475,296.04001,2105.8638};
+            azimut=364.77252;
             special="NONE";
             id=53;
             side="EMPTY";
@@ -1871,8 +1871,8 @@ class Mission
         };
         class Item53
         {
-            position[]={8177.3296,296.04001,2020.3043};
-            azimut=151.92;
+            position[]={8207.9443,296.04001,2097.5803};
+            azimut=364.77252;
             special="NONE";
             id=54;
             side="EMPTY";
@@ -1882,14 +1882,14 @@ class Mission
         };
         class Item54
         {
-            position[]={8150.6162,296.04001,2005.6116};
-            azimut=151.92;
+            position[]={8222.7949,296.04001,2105.6509};
+            azimut=364.77252;
             id=77;
             side="EMPTY";
             vehicle="MH6J_EP1";
             lock="UNLOCKED";
             skill=0.60000002;
-            text="light2";
+            text="light1";
         };
         class Item55
         {
@@ -2060,7 +2060,7 @@ class Mission
             side="EMPTY";
             vehicle="MV22";
             skill=0.60000002;
-            text="transport3";
+            text="lift4";
         };
         class Item70
         {
@@ -2081,7 +2081,7 @@ class Mission
             side="EMPTY";
             vehicle="C130J_US_EP1";
             skill=0.33333331;
-            text="transport4";
+            text="transport3";
         };
         class Item72
         {
@@ -4084,7 +4084,7 @@ class Mission
         };
         class Item20
         {
-            position[]={8206.5674,296.04001,2036.2288};
+            position[]={8205.6885,296.04001,2038.1346};
             name="d_bonus_air_positions_1";
             type="Empty";
             angle=150.0743;
