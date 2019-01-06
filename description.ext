@@ -642,20 +642,6 @@ class Params {
         texts[] = {""};
     };
     
-    class GVAR(mainTargetBonus) {
-        title = "$STR_DOM_MISSIONSTRING_1211";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
-    class GVAR(sideMissionBonus) {
-        title = "$STR_DOM_MISSIONSTRING_1212";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
     class GVAR(params_dummy_line_18) {
         title = "------------------------ Wreck Handling ---------------------------";
         values[] = {-99999};

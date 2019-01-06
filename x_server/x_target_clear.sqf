@@ -46,7 +46,11 @@ if (!isNull GVAR(intel_unit)) then {
 sleep 0.5;
 
 if (GVAR(current_counter) < GVAR(MainTargets)) then {
-    execVM "x_server\x_gettargetbonus.sqf";
+    ["target_clear",true] call FUNC(NetSetJIP);
+    [QGVAR(target_clear), ""] call FUNC(NetCallEventToClients);
+    __TargetInfo
+    _tname = _current_target_name call FUNC(KBUseName);
+    GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"Captured",["1","",_current_target_name,[_tname]],true];
 } else {
     ["target_clear",true] call FUNC(NetSetJIP);
     [QGVAR(target_clear), ""] call FUNC(NetCallEventToClients);
