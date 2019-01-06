@@ -12,7 +12,7 @@ class FSM
        "_startpos_vec = position _vehicle;" \n
        "_thedesmarker = """";" \n
        "" \n
-       "_timenow = time + 1;" \n
+       "_timenow = time + 20;" \n
        "";
       precondition = "";
       class Links
