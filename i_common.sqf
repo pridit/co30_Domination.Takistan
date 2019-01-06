@@ -166,7 +166,6 @@ GVAR(sm_bonus_vehicle_array) = [
     "M6_EP1",
     "UH60M_EP1",
     "UH1Y",
-    "UH1H_TK_EP1",
     "Mi24_D_TK_EP1",
     "Su25_TK_EP1",
     "L39_TK_EP1"
