@@ -100,39 +100,41 @@ class FSM
       init = "if (_startpos_vec distance _vehicle > 300) then {" \n
        "	_empty = _vehicle call d_fnc_GetVehicleEmpty;" \n
        "	_des = _vehicle getVariable ""d_deserted"";" \n
-       "	if (_empty) then {" \n
-       "		if (isNil ""_des"") then {" \n
-       "			_vehicle setVariable [""d_deserted"", time + 1800];" \n
-       "		} else {" \n
-       "			if (_des != -1) then {" \n
-       "				if (time >= _des) then {" \n
-       "					_desmarker = _vehicle getVariable ""d_deserted_marker"";" \n
-       "					if (isNil ""_desmarker"") then {" \n
-       "						_desmarker = """";" \n
-       "					};" \n
-       "					if (_desmarker == """") then {" \n
-       "						_thedesmarker = [str(_vehicle) + ""_deserted"", getPosASL _vehicle,""ICON"",""ColorBlack"",[1,1], format [localize ""STR_DOM_MISSIONSTRING_260"", [typeOf _vehicle, 0] call d_fnc_GetDisplayName],0,""Dot""] call d_fnc_CreateMarkerGlobal;" \n
-       "						_vehicle setVariable [""d_deserted_marker"", _thedesmarker, true];" \n
-       "					};" \n
-       "				};" \n
-       "			} else {" \n
+       "    if (_vehicle getVariable ""D_VEC_SIDE"" == 1) then {" \n
+       "		if (_empty) then {" \n
+       "			if (isNil ""_des"") then {" \n
        "				_vehicle setVariable [""d_deserted"", time + 1800];" \n
+       "			} else {" \n
+       "				if (_des != -1) then {" \n
+       "					if (time >= _des) then {" \n
+       "						_desmarker = _vehicle getVariable ""d_deserted_marker"";" \n
+       "						if (isNil ""_desmarker"") then {" \n
+       "							_desmarker = """";" \n
+       "						};" \n
+       "						if (_desmarker == """") then {" \n
+       "							_thedesmarker = [str(_vehicle) + ""_deserted"", getPosASL _vehicle,""ICON"",""ColorBlack"",[1,1], format [localize ""STR_DOM_MISSIONSTRING_260"", [typeOf _vehicle, 0] call d_fnc_GetDisplayName],0,""Dot""] call d_fnc_CreateMarkerGlobal;" \n
+       "							_vehicle setVariable [""d_deserted_marker"", _thedesmarker, true];" \n
+       "						};" \n
+       "					};" \n
+       "				} else {" \n
+       "					_vehicle setVariable [""d_deserted"", time + 1800];" \n
+       "				};" \n
        "			};" \n
-       "		};" \n
-       "	} else {" \n
-       "		if (!isNil ""_des"") then {" \n
-       "			if (_des != -1) then {" \n
-       "				_vehicle setVariable [""d_deserted"", -1];" \n
-       "				_desmarker = _vehicle getVariable ""d_deserted_marker"";" \n
-       "				if (!isNil ""_desmarker"") then {" \n
-       "					if (_desmarker != """") then {" \n
-       "						deleteMarker _desmarker;" \n
-       "						_vehicle setVariable [""d_deserted_marker"", """", true];" \n
-       "						_thedesmarker = """";" \n
+       "		} else {" \n
+       "			if (!isNil ""_des"") then {" \n
+       "				if (_des != -1) then {" \n
+       "					_vehicle setVariable [""d_deserted"", -1];" \n
+       "					_desmarker = _vehicle getVariable ""d_deserted_marker"";" \n
+       "					if (!isNil ""_desmarker"") then {" \n
+       "						if (_desmarker != """") then {" \n
+       "							deleteMarker _desmarker;" \n
+       "							_vehicle setVariable [""d_deserted_marker"", """", true];" \n
+       "							_thedesmarker = """";" \n
+       "						};" \n
        "					};" \n
        "				};" \n
        "			};" \n
-       "		};" \n
+       "   		};" \n
        "	};" \n
        "};" \n
        "" \n
