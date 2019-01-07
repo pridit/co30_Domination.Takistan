@@ -1089,13 +1089,14 @@ FUNC(startClientScripts) = {
     private ["_vec", "_type"];
     
     if (!alive player || {(player getVariable 'xr_pluncon')}) exitWith {};
-    if (__pGetVar(GVAR(perkCanFlyAttackAircraft))) exitWith {};
     if (__pGetVar(GVAR(p_isadmin))) exitWith {};
     
     if (isMultiplayer && {serverCommandAvailable "#shutdown"}) then {
         __pSetVar [QGVAR(p_isadmin), true];
         execFSM "fsms\isAdmin.fsm";
     };
+    
+    if (__pGetVar(GVAR(perkCanFlyAttackAircraft))) exitWith {};
 
     _vec = vehicle player;
     if (_vec != player && {_vec isKindOf "Air"}) then {
