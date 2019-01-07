@@ -367,17 +367,18 @@ if (isServer) then {
     [
         [mhq1,0],
         [mhq2,1],
-        [xmedvec,10],
-        [xvec3,20],
-        [xvec4,21],
-        [xvec5,22],
-        [xvec7,23],
-        [xvec8,24],
-        [xvec9,25],
-        [xvec6,30],
-        [xvec10,31],
-        [xvec11,40],
-        [xvec12,41]
+        [ambulance1,10],
+        [ambulance2,11],
+        [repair1,20],
+        [repair2,21],
+        [repair3,22],
+        [repair4,23],
+        [fuel1,24],
+        [fuel2,25],
+        [fuel3,26],
+        [fuel4,27],
+        [ammo1,28],
+        [ammo2,29]
     ] execVM "x_server\x_vrespawn2.sqf";
 
     [
