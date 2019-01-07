@@ -8,19 +8,19 @@ class XD_PerkDialog {
         class PerksDialogBackground: XD_RscPicture
         {
             text = "\ca\ui\data\ui_background_controls_ca.paa";
-            x = 0.40332 * safezoneW + safezoneX;
-            y = 0.225 * safezoneH + safezoneY;
-            w = 0.246459 * safezoneW;
-            h = 0.551297 * safezoneH;
+            x = 0.265624;
+            y = -2.98023e-008;
+            w = 0.596213;
+            h = 1.00236;
         };
     };
     class controls {
         class DialogBackground: XC_RscText
         {
-            x = 0.404166 * safezoneW + safezoneX;
-            y = 0.27963 * safezoneH + safezoneY;
-            w = 0.19073 * safezoneW;
-            h = 0.422593 * safezoneH;
+            x = 0.26751;
+            y = 0.101011;
+            w = 0.461276;
+            h = 0.768351;
             colorBackground[] = {200,200,200,0.4};
         };
         #include "partial\icons\background.hpp"
@@ -31,35 +31,35 @@ class XD_PerkDialog {
         class MenuText: X3_RscText
         {
             text = "Perks";
-            x = 0.392351 * safezoneW + safezoneX;
-            y = 0.247222 * safezoneH + safezoneY;
-            w = 0.0652083 * safezoneW;
-            h = 0.0230556 * safezoneH;
+            x = 0.267878;
+            y = 0.0420879;
+            w = 0.0879105;
+            h = 0.0348484;
         };
         class AvailablePointsText: X3_RscText
         {
             text = "Available points:";
-            x = 0.49677 * safezoneW + safezoneX;
-            y = 0.247223 * safezoneH + safezoneY;
-            w = 0.0959376 * safezoneW;
-            h = 0.0244444 * safezoneH;
+            x = 0.504878;
+            y = 0.0420879;
+            w = 0.196496;
+            h = 0.0348484;
         };
         class AvailablePointsValue : X3_RscText {
             idc = 1;
-            x = 0.53477 * safezoneW + safezoneX;
-            y = 0.247223 * safezoneH + safezoneY;
-            w = 0.0959376 * safezoneW;
-            h = 0.0244444 * safezoneH;
+            x = 0.680878;
+            y = 0.0415879;
+            w = 0.0374055;
+            h = 0.0348484;
             text = "";
         };
         class CloseButton: XD_ButtonBase
         {
             text = "Close";
             action = "CloseDialog 0";
-            x = 0.522135 * safezoneW + safezoneX;
-            y = 0.705325 * safezoneH + safezoneY;
-            w = 0.0678125 * safezoneW;
-            h = 0.0596295 * safezoneH;
+            x = 0.547506;
+            y = 0.86894;
+            w = 0.163131;
+            h = 0.113468;
         };
     };
 };
