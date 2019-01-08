@@ -4352,6 +4352,9 @@
       <Key ID="STR_DOM_MISSIONSTRING_1452">
         <Original>You do not have the requisite perk to perform this action</Original>
       </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1453">
+        <Original>Replenish %1</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

@@ -449,6 +449,9 @@ FUNC(calculatePerks) = {
 };
 
 FUNC(resetPerks) = {
+    __pSetVar ["perkSelfHeal", false]; // Set as GVAR
+    [0] call xr_fnc_setselfheals;
+    __pSetVar ["perkVehicleService", false]; // Set as GVAR
     __pSetVar [QGVAR(eng_can_repfuel), false];
     __pSetVar [QGVAR(perkCanFlyAttackAircraft), false];
     __pSetVar ["perkSaveLayout", false]; // Set as GVAR
@@ -466,10 +469,17 @@ FUNC(unlockPerk) = {
     
     switch (_perk) do {
         case 1: {
+            __pSetVar ["perkSelfHeal", true];
+            
             [1] call xr_fnc_setselfheals;
+            
+            if (_actions) then {
+                call xr_fnc_selfheal;
+            };
         };
         
         case 2: {
+            __pSetVar ["perkVehicleService", true];
             __pSetVar [QGVAR(eng_can_repfuel), true];
         };
         
@@ -1223,6 +1233,14 @@ FUNC(startClientScripts) = {
         };
     };
 };
+
+{
+    _x addAction [format [(localize "STR_DOM_MISSIONSTRING_1453"), "Medkits"] call FUNC(BlueText), "x_client\x_restoreheals.sqf",[],2,false,true,"","(player getVariable 'perkSelfHeal') && {(player getVariable 'xr_numheals') < 1}"];
+} forEach [MEDIC_TENT1, MEDIC_TENT2];
+
+{
+    _x addAction [format [(localize "STR_DOM_MISSIONSTRING_1453"), "Repair Kits"] call FUNC(BlueText), "x_client\x_restoreeng.sqf",[],2,false,true,"","(player getVariable 'perkVehicleService') && {!(player getVariable 'd_eng_can_repfuel')}"];
+} forEach [SERVICE_POINT1, SERVICE_POINT2, SERVICE_POINT3];
 
 [_pos, [0, 0, 0, false], ["NONE", "PRESENT", false], ["call d_fnc_startClientScripts;false", "", ""]] call FUNC(CreateTrigger);
 

@@ -1690,7 +1690,6 @@ FUNCXR(setselfheals) = {
     PARAMS_1(_heals);
     
     __pSetVar [QGVARXR(numheals), _heals];
-    call FUNCXR(selfheal);
 };
 
 FUNCXR(selfheal) = {
