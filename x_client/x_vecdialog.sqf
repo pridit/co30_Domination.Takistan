@@ -89,8 +89,10 @@ if (GVAR(chophud_on)) then {
     __control(44480) ctrlSetText "Show HUD";
 };
 
-if (!__pGetVar(GVAR(WithMHQTeleport))) then {
-    __control(44453) ctrlShow false;
+if (__pGetVar(GVAR(WithMHQTeleport))) then {
+    __control(44453) ctrlEnable true;
+} else {
+    __control(44453) ctrlEnable false;
 };
 
 if (_move_controls) then {
