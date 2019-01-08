@@ -7,17 +7,7 @@ class FSM
     {
       name = "Start";
       init = "private [""_waittime"", ""_num_p"", ""_has_player"", ""_man"", ""_vehicle""];" \n
-       "_waittime = time + 200 + random 10;" \n
-       "if (d_MissionType != 2) then {" \n
-       "	_num_p = call d_fnc_PlayersNumber;" \n
-       "	if (_num_p > 0) then {" \n
-       "		{" \n
-       "			if (_num_p <= (_x select 0)) exitWith {" \n
-       "				_waittime = time + (_x select 1) + random 10;" \n
-       "			}" \n
-       "		} forEach d_time_until_next_sidemission;" \n
-       "	};" \n
-       "};";
+       "_waittime = time + 30;";
       precondition = "";
       class Links
       {
