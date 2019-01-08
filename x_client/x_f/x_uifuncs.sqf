@@ -774,58 +774,7 @@ FUNC(perkclicked) = {
     
     _disp = __uiGetVar(X_PERK_DIALOG);
     
-    if (_idc == 1) then {
-        [1] call xr_fnc_setselfheals;
-    };
-    
-    if (_idc == 2) then {
-        __pSetVar [QGVAR(eng_can_repfuel), true];
-    };
-    
-    if (_idc == 3) then {  
-        __pSetVar [QGVAR(perkCanFlyAttackAircraft), true];
-    };
-    
-    if (_idc == 4) then {
-        call xr_fnc_calldrop;
-    };
-    
-    if (_idc == 5) then {
-        __pSetVar ["perkSaveLayout", true];
-        
-        {
-            _x addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf",[],2,false,true,"","player getVariable 'perkSaveLayout'"];
-            _x addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf",[],2,false,true,"","player getVariable 'perkSaveLayout'"];
-        } forEach (player nearObjects [GVAR(the_box), 100000]);
-    };
-    
-    if (_idc == 6) then {
-        __pSetVar [QGVAR(WithMHQTeleport), true];    
-    };
-    
-    if (_idc == 7) then {
-        __pSetVar [QGVAR(ammobox_next), 120];    
-    };
-    
-    if (_idc == 8) then {
-        __pSetVar ["perkHalo", true];
-        
-        {
-            if (_x isKindOf "Air") then {
-                _x addAction [(localize "STR_DOM_MISSIONSTRING_259") call FUNC(YellowText),"x_client\x_halo.sqf",[],0,false,true,"","player getVariable 'perkHalo' && {vehicle player != player} && {((vehicle player) call d_fnc_GetHeight) > 100}"]
-            };
-        } forEach vehicles;
-    };
-    
-    if (_idc == 9) then {
-        __pSetVar ["perkFlip", true];
-        
-        {
-            if (_x isKindOf "LandVehicle") then {
-                _x addAction [(localize "STR_DOM_MISSIONSTRING_162") call FUNC(YellowText), "x_client\x_flipatv.sqf", 0, -1, false, false, "", "player getVariable 'perkFlip' && {!(player in _target)} && {((vectorUp _target) select 2) < 0.6}"];
-            };
-        } forEach vehicles;
-    };
+    [_idc, true] call FUNC(unlockPerk);
     
     __pSetVar [QGVAR(perk_points_available), _points - 1];
     __pSetVar [QGVAR(perks_unlocked), __pGetVar(GVAR(perks_unlocked)) + [_idc]];

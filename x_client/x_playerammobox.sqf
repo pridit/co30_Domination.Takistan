@@ -27,13 +27,6 @@ _box setDir (_box_array select 1);
 _box setPos (_box_array select 0);
 player reveal _box;
 
-{
-    if (_x == 5) exitWith {
-        _box addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf"];
-        _box addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf"];
-    };
-} forEach __pGetVar(GVAR(perks_unlocked));
-
 _backpacks = GVAR(backpacks) createVehicleLocal (_backpacks_array select 0);
 _backpacks setDir (_backpacks_array select 1);
 _backpacks setPos (_backpacks_array select 0);

@@ -415,13 +415,124 @@ FUNC(prespawned) = {
             call FUNC(x_dlgopen);
         };
     };
-    if (_x == 4) then {
-        call xr_fnc_calldrop;
-    } forEach __pGetVar(GVAR(perks_unlocked));
+    
     [1, _this] call FUNC(x_playerspawn);
 };
 
-player addEventHandler ["respawn", {_this call FUNC(prespawned)}];
+FUNC(calculatePerks) = {
+    private ["_deduct","_score"];
+    PARAMS_1(_deduct);
+    
+    _score = score player;
+    _perks_unlocked = __pGetVar(GVAR(perks_unlocked));
+    _points_available = __pGetVar(GVAR(perk_points_available));
+    
+    for "_i" from 1 to 7 do {
+        if (_score >= ((_i * 2) * 10) && (count _perks_unlocked + _points_available) < (_i * 2)) then {
+            __pSetVar [QGVAR(perk_points_available), (floor(_score / 20) * 2) - count _perks_unlocked];
+        };
+        
+        if (_deduct) then {
+            if (_score < ((_i * 2) * 10) && (count _perks_unlocked + _points_available) == (_i * 2)) then {
+                _unlocked = _perks_unlocked;
+                _unlocked resize (floor(_score / 20) * 2);
+                
+                __pSetVar [QGVAR(perks_unlocked), _unlocked];
+                __pSetVar [QGVAR(perk_points_available), ((floor(_score / 20) * 2) - count _unlocked)];
+            };
+        };
+    };
+    
+    if (_deduct) then {
+        call FUNC(resetPerks);
+    };
+};
+
+FUNC(resetPerks) = {
+    __pSetVar [QGVAR(eng_can_repfuel), false];
+    __pSetVar [QGVAR(perkCanFlyAttackAircraft), false];
+    __pSetVar ["perkSaveLayout", false]; // Set as GVAR
+    __pSetVar [QGVAR(WithMHQTeleport), false];
+    __pSetVar [QGVAR(ammobox_next), 300];
+    __pSetVar ["perkHalo", false]; // Set as GVAR
+    __pSetVar ["perkFlip", false]; // Set as GVAR
+    
+    call FUNC(replenishPerks);
+};
+
+FUNC(unlockPerk) = {
+    private ["_perk","_actions"];
+    PARAMS_2(_perk,_actions);
+    
+    switch (_perk) do {
+        case 1: {
+            [1] call xr_fnc_setselfheals;
+        };
+        
+        case 2: {
+            __pSetVar [QGVAR(eng_can_repfuel), true];
+        };
+        
+        case 3: {
+            __pSetVar [QGVAR(perkCanFlyAttackAircraft), true];
+        };
+        
+        case 4: {
+            call xr_fnc_calldrop;
+        };
+        
+        case 5: {
+            __pSetVar ["perkSaveLayout", true];
+            
+            if (_actions) then {
+                {
+                    _x addAction [(localize "STR_DOM_MISSIONSTRING_300") call FUNC(BlueText), "x_client\x_savelayout.sqf",[],2,false,true,"","player getVariable 'perkSaveLayout'"];
+                    _x addAction [(localize "STR_DOM_MISSIONSTRING_301") call FUNC(BlueText), "x_client\x_clearlayout.sqf",[],2,false,true,"","player getVariable 'perkSaveLayout'"];
+                } forEach (allMissionObjects GVAR(the_box));
+            };
+        };
+        
+        case 6: {
+            __pSetVar [QGVAR(WithMHQTeleport), true];
+        };
+        
+        case 7: {
+            __pSetVar [QGVAR(ammobox_next), 120];  
+        };
+        
+        case 8: {
+            __pSetVar ["perkHalo", true];
+            
+            if (_actions) then {
+                {
+                    if (_x isKindOf "Air") then {
+                        _x addAction [(localize "STR_DOM_MISSIONSTRING_259") call FUNC(YellowText),"x_client\x_halo.sqf",[],0,false,true,"","player getVariable 'perkHalo' && {vehicle player != player} && {((vehicle player) call d_fnc_GetHeight) > 100}"]
+                    };
+                } forEach vehicles;
+            };
+        };
+        
+        case 9: {
+            __pSetVar ["perkFlip", true];
+            
+            if (_actions) then {
+                {
+                    if (_x isKindOf "LandVehicle") then {
+                        _x addAction [(localize "STR_DOM_MISSIONSTRING_162") call FUNC(YellowText), "x_client\x_flipatv.sqf", 0, -1, false, false, "", "player getVariable 'perkFlip' && {!(player in _target)} && {((vectorUp _target) select 2) < 0.6}"];
+                    };
+                } forEach vehicles;
+            };
+        };
+    };
+};
+
+FUNC(replenishPerks) = {
+    {
+        [_x, false] call FUNC(unlockPerk);
+    } forEach __pGetVar(GVAR(perks_unlocked));
+};
+
+player addEventHandler ["respawn", {[true] call FUNC(calculatePerks);_this call FUNC(prespawned)}];
 
 if (count __XJIPGetVar(GVAR(ammo_boxes)) > 0) then {
     private ["_box_pos", "_boxnew", "_boxscript"];
