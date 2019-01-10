@@ -56,7 +56,7 @@ if (_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) then {
             67327 cutRsc ["xvehicle_hud", "PLAIN"];
             _disp = __uiGetVar(DVEC_HUD);
             _ison = true;
-            while {GVAR(player_in_vec) != player && {alive player} && {player == driver _vec}} do {
+            while {GVAR(player_in_vec) && {alive player} && {player == driver _vec}} do {
                 _crewctrl = __uiGetVar(GVAR(rscCrewText)) displayCtrl 9999;
                 _cctrlshown = if (isNil "_crewctrl") then {false} else {ctrlShown _crewctrl};
                 if (!visibleMap && {!_cctrlshown}) then {
