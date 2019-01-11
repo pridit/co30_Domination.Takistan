@@ -637,15 +637,20 @@ if (GVAR(WithBackpack)) then {
     [_pos, [0, 0, 0, false], ["NONE", "PRESENT", true], ["primaryWeapon player != d_prim_weap_player && primaryWeapon player != ' ' && !dialog","call {d_prim_weap_player = primaryWeapon player;_id = player getVariable 'd_pbp_id';if (_id != -9999 && count (player getVariable 'd_player_backpack') == 0) then {player removeAction _id;player setVariable ['d_pbp_id', -9999]};if ((player getVariable 'd_pbp_id' == -9999) && count (player getVariable 'd_player_backpack') == 0 && d_prim_weap_player != '' && d_prim_weap_player != ' ') then {player setVariable ['d_pbp_id', player addAction [format [localize 'STR_DOM_MISSIONSTRING_155', [d_prim_weap_player,1] call d_fnc_GetDisplayName] call d_fnc_GreyText, 'x_client\x_backpack.sqf',[],-1,false]]}}",""]] call FUNC(CreateTrigger);
 };
 
-GVAR(base_trigger) = createTrigger["EmptyDetector" ,GVAR(base_array) select 0];
+GVAR(base_trigger) = createTrigger ["EmptyDetector", GVAR(base_array) select 0];
 GVAR(base_trigger) setTriggerArea [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true];
 GVAR(base_trigger) setTriggerActivation [GVAR(own_side_trigger), "PRESENT", true];
-GVAR(base_trigger) setTriggerStatements["this", "", ""];
+GVAR(base_trigger) setTriggerStatements ["this", "", ""];
 
-GVAR(engineer_trigger) = createTrigger["EmptyDetector" , position player];
+GVAR(engineer_trigger) = createTrigger ["EmptyDetector", position player];
 GVAR(engineer_trigger) setTriggerArea [0, 0, 0, true];
 GVAR(engineer_trigger) setTriggerActivation ["NONE", "PRESENT", true];
-GVAR(engineer_trigger) setTriggerStatements["player getVariable 'd_eng_can_repfuel' && call d_fnc_sfunc", "d_actionID2 = player addAction ['Service Vehicle' call d_fnc_YellowText, 'x_client\x_repengineer.sqf',[],0,false]", "player removeAction d_actionID2"];
+GVAR(engineer_trigger) setTriggerStatements ["player getVariable 'd_eng_can_repfuel' && call d_fnc_sfunc", "d_actionID2 = player addAction ['Service Vehicle' call d_fnc_YellowText, 'x_client\x_repengineer.sqf',[],0,false]", "player removeAction d_actionID2"];
+
+GVAR(tow_trigger) = createTrigger ["EmptyDetector", position player];
+GVAR(tow_trigger) setTriggerArea [0, 0, 0, true];
+GVAR(tow_trigger) setTriggerActivation ["NONE", "PRESENT", true];
+GVAR(tow_trigger) setTriggerStatements ["call d_fnc_sfunc2", "d_actionID3 = (vehicle player) addAction ['Tow' call d_fnc_YellowText, 'dll_tow\enabletowing.sqf',[],5,false]", "(vehicle player) removeAction d_actionID3"];
 
 // _x addAction [(localize "STR_DOM_MISSIONSTRING_513") call FUNC(BlueText), "x_client\x_restoreeng.sqf"]} forEach (__XJIPGetVar(GVAR(farps)));
 

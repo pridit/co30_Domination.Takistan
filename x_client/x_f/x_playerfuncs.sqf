@@ -19,6 +19,25 @@ FUNC(sfunc) = {
     }
 };
 
+FUNC(sfunc2) = {
+    private ["_objs","_vehicle"];
+    _vehicle = vehicle player;
+    _towing = _vehicle getVariable "dll_tow_towing";
+    if (typeOf _vehicle == "ATV_US_EP1" && !_towing) then {
+        _objs = (position player) nearEntities ["Air", 16];
+        if (count _objs > 0) then {
+            GVAR(objectID2) = _objs select 0;
+            if (alive GVAR(objectID2)) then {
+                true
+            } else {
+                false
+            };
+        }
+    } else {
+        false
+    };
+};
+
 FUNC(ffunc) = {
     private ["_l","_vUp","_winkel"];
     if (vehicle player == player) then {

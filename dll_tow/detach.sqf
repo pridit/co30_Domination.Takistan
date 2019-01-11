@@ -1,0 +1,1 @@
+(vehicle player) setVariable ["dll_tow_towing", false];

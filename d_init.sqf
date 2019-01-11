@@ -286,7 +286,6 @@ if (isServer) then {
     [QGVAR(currentcamps),[]] call FUNC(NetSetJIP);
 
     execVM "x_bikb\kbinit.sqf";
-    execVM "dll_tow\enabletowing.sqf";
     
     GVAR(X_DropZone) = createVehicle [GVAR(HeliHEmpty), [0, 0, 0], [], 0, "NONE"];
     [QUOTE(X_DropZone), GVAR(X_DropZone)] call FUNC(NetSetJIP);
