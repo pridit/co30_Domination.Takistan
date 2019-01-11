@@ -20,14 +20,26 @@ FUNC(sfunc) = {
 };
 
 FUNC(sfunc2) = {
-    private ["_objs","_vehicle"];
+    private ["_objs","_vehicle","_canTow","_canBeTowed"];
     _vehicle = vehicle player;
     _towing = _vehicle getVariable "dll_tow_towing";
-    if (typeOf _vehicle == "ATV_US_EP1" && !_towing) then {
+
+    _canTow = false;
+    if (isNil "_towing" || {!_towing}) then {
+        _canTow = true;
+    };
+    
+    if (typeOf _vehicle == "ATV_US_EP1" && {_canTow}) then {
         _objs = (position player) nearEntities ["Air", 16];
         if (count _objs > 0) then {
             GVAR(objectID2) = _objs select 0;
-            if (alive GVAR(objectID2)) then {
+            _canBeTowed = GVAR(objectID2) getVariable "dll_tow_canBeTowed";
+            
+            if (isNil "_canBeTowed") then {
+                _canBeTowed = true;
+            };
+            
+            if (alive GVAR(objectID2) && {_canBeTowed}) then {
                 true
             } else {
                 false

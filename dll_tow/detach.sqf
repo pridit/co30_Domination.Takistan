@@ -1,1 +1,2 @@
-(vehicle player) setVariable ["dll_tow_towing", false];
+_T = _this select 0;
+_T setVariable ["dll_tow_towing", false];
