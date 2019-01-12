@@ -149,6 +149,9 @@ if (isDedicated) then {
     };
 };
 
+[QGVAR(setVectorDirGlobal), {(_this select 0) setVectorDir [(_this select 1),(_this select 2),(_this select 3)]}] call FUNC(NetAddEventSTO);
+[QGVAR(setVelocityGlobal), {(_this select 0) setVelocity [(_this select 1),(_this select 2),(_this select 3)]}] call FUNC(NetAddEventSTO);
+
 [0, QGVAR(AirD), {[_this] spawn BIS_Effects_AirDestruction}] call FUNC(NetAddEvent);
 [0, QGVAR(AirD2), {_this spawn BIS_Effects_AirDestructionStage2}] call FUNC(NetAddEvent);
 [0, QGVAR(Burn), {_this spawn BIS_Effects_Burn}] call FUNC(NetAddEvent);
