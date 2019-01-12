@@ -100,7 +100,7 @@ class FSM
       init = "if (_startpos_vec distance _vehicle > 300) then {" \n
        "	_empty = _vehicle call d_fnc_GetVehicleEmpty;" \n
        "	_des = _vehicle getVariable ""d_deserted"";" \n
-       "    if (_vehicle getVariable ""D_VEC_SIDE"" == 1) then {" \n
+       "    if (_vehicle getVariable ""D_VEC_SIDE"" == 2) then {" \n
        "		if (_empty) then {" \n
        "			if (isNil ""_des"") then {" \n
        "				_vehicle setVariable [""d_deserted"", time + 1800];" \n
