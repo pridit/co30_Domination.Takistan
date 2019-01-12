@@ -1,7 +1,7 @@
 // by Xeno
 #define THIS_FILE "x_helirespawn2.sqf"
 #include "x_setup.sqf"
-private ["_heli_array", "_vec_a", "_vehicle", "_number_v", "_is_west_chopper", "_i", "_tt", "_ifdamage", "_empty", "_disabled", "_empty_respawn", "_startpos", "_hasbox", "_fuelleft"];
+private ["_heli_array", "_vec_a", "_vehicle", "_number_v", "_is_west_chopper", "_i", "_tt", "_ifdamage", "_empty", "_disabled", "_empty_respawn", "_startpos", "_hasbox"];
 if (!isServer) exitWith{};
 
 _heli_array = [];
@@ -14,7 +14,6 @@ _heli_array = [];
     
     _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
     _vehicle setVariable [QGVAR(vec), _number_v, true];
-    _vehicle setVariable [QGVAR(vec_islocked), (_vehicle call d_fnc_isVecLocked)];
 } forEach _this;
 _this = nil;
 
@@ -61,23 +60,16 @@ while {true} do {
         if ((_disabled && {_empty}) || {(_empty && {!alive _vehicle})}) then {
             _hasbox = GV(_vehicle,GVAR(ammobox));
             if (isNil "_hasbox") then {_hasbox = false};
-            _fuelleft = GV(_vehicle,GVAR(fuel));
-            if (isNil "_fuelleft") then {_fuelleft = 1};
             if (_hasbox) then {[QGVAR(num_ammo_boxes),__XJIPGetVar(GVAR(num_ammo_boxes)) - 1] call FUNC(NetSetJIP)};
-            _isitlocked = _vehicle getVariable QGVAR(vec_islocked);
             sleep 0.1;
-            deletevehicle _vehicle;
+            deleteVehicle _vehicle;
             if (!_ifdamage) then {_vec_a set [3,-1]};
             sleep 0.5;
             _vehicle = objNull;
             _vehicle = createVehicle [_vec_a select 6, _vec_a select 4, [], 0, "NONE"];
-            _vehicle setdir (_vec_a select 5);
-            _vehicle setpos (_vec_a select 4);
-            
-            _vehicle setVariable [QGVAR(vec_islocked), _isitlocked];
-            if (_isitlocked) then {_vehicle lock true};
-            
-            _vehicle setFuel _fuelleft;
+            _vehicle setDir (_vec_a select 5);
+            _vehicle setPos (_vec_a select 4);
+            _vehicle setFuel 1;
             
             _vec_a set [0,_vehicle];
             _heli_array set [_forEachIndex, _vec_a];
@@ -85,7 +77,6 @@ while {true} do {
             _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
             _vehicle setVariable [QGVAR(vec), _number_v, true];
             [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
-            _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(fuelCheck)}}];
         };
     } forEach _heli_array;
     sleep 20 + random 5;

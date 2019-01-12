@@ -150,27 +150,24 @@ FUNC(makevgroup) = {
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
                     __addDead(_vehicle)
                 };
-                if (GVAR(LockArmored) == 0) then {_vehicle lock true};
             };
             case (_vehicle isKindOf "Wheeled_APC"): {
                 if !((toUpper _vehiclename) in GVAR(heli_wreck_lift_types)) then {
                     __addDead(_vehicle)
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
                 };
-                if (GVAR(LockCars) == 0) then {_vehicle lock true};
             };
             case (_vehicle isKindOf "Car"): {
                 if !((toUpper _vehiclename) in GVAR(heli_wreck_lift_types)) then {
                     __addDead(_vehicle)
                     _vehicle addEventHandler ["killed", {_this call FUNC(handleDeadVec)}];
                 };
-                if (GVAR(LockCars) == 0) then {_vehicle lock true};
             };
             default {
                 if !((toUpper _vehiclename) in GVAR(heli_wreck_lift_types)) then {
                     __addDead(_vehicle)
                 };
-                if (_vehicle isKindOf "Air") then {_is_air_vec = true;if (GVAR(LockAir) == 0) then {_vehicle lock true}};
+                if (_vehicle isKindOf "Air") then {_is_air_vec = true};
             };
         };
     };

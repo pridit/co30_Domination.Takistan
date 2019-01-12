@@ -473,16 +473,6 @@ FUNC(SortAR) = {
     _this select 0
 };
 
-#ifndef __TOH__
-FUNC(isVecLocked) = {
-    locked _this
-};
-#else
-FUNC(isVecLocked) = {
-    locked _this > 1
-};
-#endif
-
 FUNC(WorldBoundsCheck) = {
     private "_pos";
     _pos = _this;

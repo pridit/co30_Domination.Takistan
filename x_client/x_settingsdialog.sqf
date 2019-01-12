@@ -178,12 +178,6 @@ __str "Maximum distance player to airdrop point to call in an airdrop: " + str(G
 
 __str (localize "STR_DOM_MISSIONSTRING_476") + str(GVAR(AutoKickTime)) + "\n";
 
-__str (localize "STR_DOM_MISSIONSTRING_477") + (if (GVAR(LockArmored) == 0) __tyn);
-
-__str (localize "STR_DOM_MISSIONSTRING_478") + (if (GVAR(LockCars) == 0) __tyn);
-
-__str (localize "STR_DOM_MISSIONSTRING_479") + (if (GVAR(LockAir) == 0) __tyn);
-
 if (GVAR(WithChopHud)) then {
     __str (localize "STR_DOM_MISSIONSTRING_480") + (if (GVAR(chophud_on)) __tyn);
 };

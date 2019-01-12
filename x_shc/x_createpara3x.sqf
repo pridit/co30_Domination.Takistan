@@ -163,7 +163,6 @@ for "_i" from 1 to _number_vehicles do {
     if !((toUpper _heli_type) in GVAR(heli_wreck_lift_types)) then {__addDead(_vehicle)};
     _vehicle spawn FUNC(AirMarkerMove);
 
-    if (GVAR(LockAir) == 0) then {_vehicle lock true};
     sleep 5.012;
     
     _vehicle flyInHeight 100;

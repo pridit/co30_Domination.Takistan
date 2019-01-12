@@ -530,27 +530,6 @@ class Params {
         texts[] = {""};
     };
     
-    class GVAR(LockArmored) {
-        title = "$STR_DOM_MISSIONSTRING_1082";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-
-    class GVAR(LockCars) {
-        title = "$STR_DOM_MISSIONSTRING_1083";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-
-    class GVAR(LockAir) {
-        title = "$STR_DOM_MISSIONSTRING_1084";
-        values[] = {0,1};
-        default = 1;
-        texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
-    };
-    
     class GVAR(params_dummy_line_15) {
         title = "--------------------------- Artillery -----------------------------";
         values[] = {-99999};

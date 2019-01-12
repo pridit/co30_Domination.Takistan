@@ -226,12 +226,6 @@ FUNC(TKR) = {
     [QGVAR(unit_tk2), [_namep,_namek]] call FUNC(NetCallEventToClients);
 };
 
-FUNC(fuelCheck) = {
-    private "_vec";
-    PARAMS_1(_vec);
-    _vec setVariable [QGVAR(fuel), fuel _vec];
-};
-
 FUNC(DoKBMsg) = {
     switch (_this select 0) do {
         case 0: {GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"TellAirSUAttack",true]};

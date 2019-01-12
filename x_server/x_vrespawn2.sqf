@@ -3,7 +3,7 @@
 #include "x_setup.sqf"
 
 #define __Trans(tkind) _trans = getNumber(configFile >> #CfgVehicles >> typeOf _vehicle >> #tkind)
-private ["_vehicle", "_camotype", "_camo", "_i", "_disabled", "_trans", "_empty", "_outb", "_hasbox", "_fuelleft"];
+private ["_vehicle", "_camotype", "_camo", "_i", "_disabled", "_trans", "_empty", "_outb", "_hasbox"];
 if (!isServer) exitWith{};
 
 _vec_array = [];
@@ -15,8 +15,6 @@ _vec_array = [];
     _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
     _vehicle setVariable [QGVAR(vec), _number_v, true];
     _vehicle setAmmoCargo 0;
-    _vehicle setVariable [QGVAR(vec_islocked), (_vehicle call d_fnc_isVecLocked)];
-    _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(fuelCheck)}}];
     if (_number_v < 10 || {(_number_v > 99 && {_number_v < 110})}) then {
         _vehicle addMPEventhandler ["MPKilled", {(_this select 0) call FUNC(MHQFunc)}];
     };
@@ -70,25 +68,20 @@ while {true} do {
             _number_v = _vec_a select 1;
             _hasbox = GV(_vehicle,GVAR(ammobox));
             if (isNil "_hasbox") then {_hasbox = false};
-            _fuelleft = GV(_vehicle,GVAR(fuel));
-            if (isNil "_fuelleft") then {_fuelleft = 1};
             if (_hasbox) then {[QGVAR(num_ammo_boxes),__XJIPGetVar(GVAR(num_ammo_boxes)) - 1] call FUNC(NetSetJIP)};
             if (_number_v < 10 || {(_number_v > 99 && {_number_v < 110})}) then {
                 _dhqcamo = GV(_vehicle,GVAR(MHQ_Camo));
                 if (isNil "_dhqcamo") then {_dhqcamo = objNull};
                 if (!isNull _dhqcamo) then {deleteVehicle _dhqcamo};
             };
-            _isitlocked = _vehicle getVariable QGVAR(vec_islocked);
             sleep 0.1;
-            deletevehicle _vehicle;
+            deleteVehicle _vehicle;
             sleep 0.5;
             _vehicle = objNull;
             _vehicle = createVehicle [_vec_a select 4, _vec_a select 2, [], 0, "NONE"];
-            _vehicle setdir (_vec_a select 3);
-            _vehicle setpos (_vec_a select 2);
-            _vehicle setFuel _fuelleft;
-            
-            _vehicle addMPEventhandler ["MPKilled", {if (isServer) then {_this call FUNC(fuelCheck)}}];
+            _vehicle setDir (_vec_a select 3);
+            _vehicle setPos (_vec_a select 2);
+            _vehicle setFuel 1;
             
             if (_number_v < 10 || {(_number_v > 99 && {_number_v < 110})}) then {
                 _vehicle addMPEventhandler ["MPKilled", {(_this select 0) call FUNC(MHQFunc)}];
@@ -98,8 +91,6 @@ while {true} do {
             _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
             _vehicle setVariable [QGVAR(vec), _number_v, true];
             _vehicle setAmmoCargo 0;
-            _vehicle setVariable [QGVAR(vec_islocked), _isitlocked];
-            if (_isitlocked) then {_vehicle lock true};
             [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
         };
         sleep 8 + random 5;

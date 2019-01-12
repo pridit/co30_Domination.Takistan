@@ -177,66 +177,39 @@ GVAR(is_medic) = ["alpha_6","bravo_6","charlie_6","echo_6"];
 // can build mg nest
 GVAR(can_use_mgnests) =  ["alpha_3","alpha_7","charlie_3","charlie_7","bravo_4","echo_3","echo_7"];
 
-#ifdef __OWN_SIDE_EAST__
-_armor = if (GVAR(LockArmored) == 1) then {
-    switch (true) do {
-        case (__OAVer): {["M1A2_US_TUSK_MG_EP1","M1A1_US_DES_EP1","M1126_ICV_M2_EP1","M1126_ICV_mk19_EP1","M1128_MGS_EP1","M1135_ATGMV_EP1","M2A2_EP1","M2A3_EP1","M6_EP1"]};
-        case (__COVer): {["AAV","LAV25","MLRS"]};
-    };
-} else {[]};
-_car = if (GVAR(LockCars) == 1) then {
-    switch (true) do {
-        case (__OAVer): {["HMMWV_Avenger_DES_EP1","HMMWV_M1151_M2_DES_EP1","HMMWV_M998_crows_M2_DES_EP1","HMMWV_M1151_M2_CZ_DES_EP1","LandRover_Special_CZ_EP1","HMMWV_M998_crows_MK19_DES_EP1","HMMWV_MK19_DES_EP1","HMMWV_TOW_DES_EP1","M119_US_EP1"]};
-        case (__COVer): {["HMMWV_Avenger","HMMWV_M2","HMMWV_Armored","HMMWV_MK19","HMMWV_TOW","M119"]};
-    };
-} else {[]};
-#endif
-#ifdef __OWN_SIDE_WEST__
-_armor = if (GVAR(LockArmored) == 1) then {
-    switch (true) do {
-        case (__OAVer): {["T72_TK_EP1","T55_TK_EP1","T34_TK_EP1","BMP2_HQ_TK_EP1","BMP2_TK_EP1","M113_TK_EP1","BRDM2_ATGM_TK_EP1","BRDM2_TK_EP1","BTR60_TK_EP1","ZSU_TK_EP1","Ural_ZU23_TK_EP1","GRAD_TK_EP1"]};
-        case (__COVer): {["BMP3","BTR90","BTR90_HQ","GAZ_Vodnik","GAZ_Vodnik_HMG"]};
-    };
-} else {[]};
-_car = if (GVAR(LockCars) == 1) then {
-    switch (true) do {
-        case (__OAVer): {["UAZ_MG_TK_EP1","BTR40_MG_TK_INS_EP1","LandRover_MG_TK_INS_EP1","LandRover_MG_TK_EP1","UAZ_AGS30_TK_EP1","LandRover_SPG9_TK_INS_EP1","LandRover_SPG9_TK_EP1","D30_TK_EP1","D30_TK_INS_EP1"]};
-        case (__COVer): {["UAZ_RU","UAZ_AGS30_RU","D30_RU"]};
-    };
-} else {[]};
-#endif
-#ifdef __OWN_SIDE_GUER__
-_armor = if (GVAR(LockArmored) == 1) then {["BMP3","BTR90","BTR90_HQ","GAZ_Vodnik","GAZ_Vodnik_HMG"]} else {[]};
-_car = if (GVAR(LockCars) == 1) then {["UAZ_RU","UAZ_AGS30_RU","D30_RU"]} else {[]};
-#endif
+_armor = [
+    "T72_TK_EP1",
+    "T55_TK_EP1",
+    "T34_TK_EP1",
+    "BMP2_HQ_TK_EP1",
+    "BMP2_TK_EP1",
+    "M113_TK_EP1",
+    "BRDM2_ATGM_TK_EP1",
+    "BRDM2_TK_EP1",
+    "BTR60_TK_EP1",
+    "ZSU_TK_EP1",
+    "Ural_ZU23_TK_EP1",
+    "GRAD_TK_EP1"
+];
 
-GVAR(helilift1_types) =
-#ifdef __OWN_SIDE_EAST__
-switch (true) do {
-    case (__OAVer): {
-        ["BMP2_HQ_TK_EP1","M113Ambul_TK_EP1","UralSupply_TK_EP1","UralRepair_TK_EP1","UralRefuel_TK_EP1","UralReammo_TK_EP1","V3S_Open_TK_EP1","V3S_TK_EP1","UAZ_Unarmed_TK_EP1","D30_TK_EP1"]
-    };
-    case (__COVer): {
-        ["BTR90_HQ","GAZ_Vodnik_MedEvac","WarfareSalvageTruck_RU","KamazRepair","KamazRefuel","KamazReammo","Kamaz","KamazOpen","UAZ_RU"]
-    };
-};
-#endif
-#ifdef __OWN_SIDE_WEST__
-switch (true) do {
-    case (__OAVer): {
-        ["M1133_MEV_EP1","HMMWV_DES_EP1","HMMWV_M1035_DES_EP1","MTVR_DES_EP1","HMMWV_Ambulance_DES_EP1","MtvrReammo_DES_EP1","MtvrRefuel_DES_EP1","MtvrRepair_DES_EP1","LandRover_CZ_EP1","HMMWV_Ambulance_CZ_DES_EP1","MtvrSupply_DES_EP1","M119_US_EP1"]
-    };
-    case (__COVer): {
-        ["LAV25_HQ","HMMWV","HMMWV_Armored","MTVR","HMMWV_Ambulance","MtvrReammo","MtvrRefuel","MtvrRepair"]
-    };
-};
-#endif
-#ifdef __OWN_SIDE_GUER__
-    [];
-#endif
+_car = [
+    "UAZ_MG_TK_EP1",
+    "BTR40_MG_TK_INS_EP1",
+    "LandRover_MG_TK_INS_EP1",
+    "LandRover_MG_TK_EP1",
+    "UAZ_AGS30_TK_EP1",
+    "LandRover_SPG9_TK_INS_EP1",
+    "LandRover_SPG9_TK_EP1",
+    "D30_TK_EP1",
+    "D30_TK_INS_EP1"
+];
 
-if (count _armor > 0) then {GVAR(helilift1_types) = [GVAR(helilift1_types), _armor] call FUNC(arrayPushStack2)};
-if (count _car > 0) then {GVAR(helilift1_types) = [GVAR(helilift1_types), _car] call FUNC(arrayPushStack2)};
+GVAR(helilift1_types) = [
+    "M1133_MEV_EP1","HMMWV_DES_EP1","HMMWV_M1035_DES_EP1","MTVR_DES_EP1","HMMWV_Ambulance_DES_EP1","MtvrReammo_DES_EP1","MtvrRefuel_DES_EP1","MtvrRepair_DES_EP1","LandRover_CZ_EP1","HMMWV_Ambulance_CZ_DES_EP1","MtvrSupply_DES_EP1","M119_US_EP1"
+];
+
+GVAR(helilift1_types) = [GVAR(helilift1_types), _armor] call FUNC(arrayPushStack2);
+GVAR(helilift1_types) = [GVAR(helilift1_types), _car] call FUNC(arrayPushStack2);
 
 {GVAR(helilift1_types) set [_forEachIndex, toUpper _x]} forEach GVAR(helilift1_types);
 
