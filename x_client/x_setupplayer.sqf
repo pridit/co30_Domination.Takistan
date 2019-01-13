@@ -454,6 +454,7 @@ FUNC(resetPerks) = {
     __pSetVar ["perkVehicleService", false]; // Set as GVAR
     __pSetVar [QGVAR(eng_can_repfuel), false];
     __pSetVar [QGVAR(perkCanFlyAttackAircraft), false];
+    __pSetVar ["perkCallDrop", false]; // Set as GVAR
     __pSetVar ["perkSaveLayout", false]; // Set as GVAR
     __pSetVar [QGVAR(WithMHQTeleport), false];
     __pSetVar [QGVAR(ammobox_next), 300];
@@ -488,7 +489,11 @@ FUNC(unlockPerk) = {
         };
         
         case 4: {
-            call xr_fnc_calldrop;
+            __pSetVar ["perkCallDrop", true];
+            
+            if (_actions) then {
+                call xr_fnc_calldrop;
+            };
         };
         
         case 5: {

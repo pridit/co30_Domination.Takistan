@@ -1710,9 +1710,9 @@ FUNCXR(calldrop) = {
         scriptName "spawn_xr_calldrop";
         private "_id";
         while {true} do {
-            waitUntil {sleep 0.332;alive player;__XJIPGetVar(para_available)};
-            _id = player addAction ["Call Drop" call d_fnc_YellowText, "x_client\x_calldrop.sqf", [], 0, false, false, "", ""];
-            waitUntil {sleep 0.231;!alive player;!__XJIPGetVar(para_available)};
+            waitUntil {sleep 0.332;alive player};
+            _id = player addAction ["Call Drop" call d_fnc_YellowText, "x_client\x_calldrop.sqf", [], 0, false, false, "", "alive _target && {(_target getVariable 'perkCallDrop')} && {(X_JIPH getVariable 'para_available')}"];
+            waitUntil {sleep 0.231;!alive player};
             player removeAction _id;
         };
     };
