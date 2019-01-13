@@ -759,7 +759,8 @@ FUNCXR(spectating) = {
     _disp = __uiGetVar(GVARXR(SpectDlg));
     #define __dspctrl(ctrlid) (_disp displayCtrl ctrlid)
     __dspctrl(1000) ctrlShow false;
-    __dspctrl(1001) ctrlShow false;
+    __dspctrl(1001) ctrlShow true;
+    __dspctrl(1002) ctrlSetText "Hide Map";
     #define __spectdlg1006e (__uiGetVar(GVARXR(SpectDlg)) displayCtrl 1006)
     if (!_withresp) then {
         __dspctrl(1020) ctrlShow false;
@@ -924,7 +925,7 @@ FUNCXR(spectating) = {
                 } forEach GVARXR(player_entities);
             } else {
                 _sfm = markerPos QGVARXR(playerparkmarker);
-                _sfms set [2,0];
+                _sfm set [2,0];
                 {
                     _u = __getMNsVar2(_x);
                     if (!isNil "_u" && {!isNull _u} && {alive _u} && {side (group _u) == GVARXR(side_pl)} && {_u != player}) then {

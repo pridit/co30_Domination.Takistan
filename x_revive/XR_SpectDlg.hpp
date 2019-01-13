@@ -2,7 +2,7 @@
 class GVARXR(SpectDlg) {
     idd = -1;
     movingEnable = 1;
-    onLoad = "uiNamespace setVariable ['XR_SpectDlg', _this select 0];d_do_ma_update_n = true";
+    onLoad = "uiNamespace setVariable ['XR_SpectDlg', _this select 0];d_do_ma_update_n = true;escKeyEH = (_this select 0) displayAddEventHandler [""KeyDown"", ""if (((_this select 1) == 1)) then {true};""]";
     //onUnload = "uiNamespace setVariable ['XR_SpectDlg', nil];d_do_ma_update_n = false";
     objects[] = {};
     class controls {
