@@ -388,6 +388,11 @@ class Sentences {
             class 1 {type = "simple";};
         };
     };
+    class DropCalled {
+        text = "$STR_DOM_MISSIONSTRING_167";
+        speech[] = {};
+        class Arguments {};
+    };
 };
 class Arguments{};
 class Special{};

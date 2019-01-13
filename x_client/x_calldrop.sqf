@@ -45,7 +45,7 @@ if (GVAR(x_drop_type) != "") then {
         GVAR(x_dropzone) setPosASL _oldpos;
         QGVAR(drop_zone) setMarkerPos _oldpos;
     };
-    [player, format [(localize "STR_DOM_MISSIONSTRING_167"), [GVAR(x_drop_type), 0] call FUNC(GetDisplayName)]] call FUNC(SideChat);
+    player kbTell [GVAR(kb_logic1),GVAR(kb_topic_side),"DropCalled",["1","",[GVAR(x_drop_type), 0] call FUNC(GetDisplayName),[]],true];
     [QGVAR(x_dr_t), [GVAR(x_drop_type), markerPos QGVAR(drop_zone), player]] call FUNC(NetCallEventCTS);
 } else {
     GVAR(x_dropzone) setPosASL _oldpos;
