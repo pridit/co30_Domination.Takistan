@@ -118,21 +118,6 @@ FUNC(take_backpack) = {
     clearMagazineCargo (unitBackpack player);
 
     [QGVAR(p_o_a2), [GVAR(string_player), unitBackpack player]] call FUNC(NetCallEventCTS);
-
-    _bar = _bar - [_bar select _sel];
-
-    if (_typeold != "" && {!(_typeold in _bar)}) then {
-        _bar set [count _bar, _typeold];
-    };
-
-    switch (GVAR(side_player)) do {
-        case west: {GVAR(backpackclasses) set [0, _bar]};
-        case east: {GVAR(backpackclasses) set [1, _bar]};
-    };
-
-    if (!isNull _oldbpobj) then {
-        [QGVAR(p_o_a2r), [GVAR(string_player), _oldbpobj]] call FUNC(NetCallEventCTS);
-    };
 };
 
 FUNC(pmselchanged) = {
