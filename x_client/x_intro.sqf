@@ -46,8 +46,8 @@ playMusic "MyIntro";
 if (daytime > 19.75 || daytime < 4.15) then {camUseNVG true};
 
 GVAR(intro_color) = switch (GVAR(own_side)) do {case "WEST": {[0.85,0.88,1,1]};case "EAST": {[1,0.36,0.34,1]};case "GUER": {[1,1,0,1]};};
-_camstart = camstart;
 
+//_camstart = camstart;
 // private "_camera";
 // _camera = "camera" camCreate [getPosASL _camstart select 0, (getPosASL _camstart select 1) + 1, 120];
 // _camera camSetTarget [getPosASL player select 0, getPosASL player select 1 , 1.5];
