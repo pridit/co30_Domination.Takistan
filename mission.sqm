@@ -679,6 +679,7 @@ class Mission
                     id=291;
                     side="WEST";
                     vehicle="US_Delta_Force_Air_Controller_EP1";
+                    player="PLAY CDG";
                     leader=1;
                     skill=0.33333331;
                     text="ARTY1";
