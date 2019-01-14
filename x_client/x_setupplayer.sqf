@@ -578,6 +578,13 @@ __cppfln(FUNC(spawn_mash),x_client\x_mash.sqf);
 __cppfln(FUNC(spawn_mgnest),x_client\x_mgnest.sqf);
 __cppfln(FUNC(DirIndicator),scripts\fn_dirindicator.sqf);
 __cppfln(FUNC(Sandstorm),scripts\fn_sandstorm.sqf);
+__cppfln(FUNC(VehicleTow),dll_tow\tow.sqf);
+
+{
+    if (_x isKindOf "ATV_US_EP1" && {_x getVariable "dll_tow_isTowing"}) then {
+        [_x, (_x getVariable "dll_tow_vehicleTowee")] spawn FUNC(VehicleTow);
+    };
+} forEach vehicles;
 
 diag_log ["Internal D Version:",__DOM_NVER_STR2__];
 
@@ -655,7 +662,16 @@ GVAR(engineer_trigger) setTriggerStatements ["player getVariable 'd_eng_can_repf
 GVAR(tow_trigger) = createTrigger ["EmptyDetector", position player];
 GVAR(tow_trigger) setTriggerArea [0, 0, 0, true];
 GVAR(tow_trigger) setTriggerActivation ["NONE", "PRESENT", true];
-GVAR(tow_trigger) setTriggerStatements ["call d_fnc_sfunc2", "d_actionID3 = (vehicle player) addAction ['Tow' call d_fnc_YellowText, 'dll_tow\enabletowing.sqf',[],5,false]", "(vehicle player) removeAction d_actionID3"];
+GVAR(tow_trigger) setTriggerStatements ["call d_fnc_sfunc2", "d_actionID3 = (vehicle player) addAction ['Tow' call d_fnc_YellowText, 'dll_tow\enabletowing.sqf',[],5,false,true,'','player in _target']", "(vehicle player) removeAction d_actionID3"];
+
+// GVAR(towD_trigger) = createTrigger ["EmptyDetector", position player];
+// GVAR(towD_trigger) setTriggerArea [0, 0, 0, true];
+// GVAR(towD_trigger) setTriggerActivation ["NONE", "PRESENT", true];
+// GVAR(towD_trigger) setTriggerStatements [
+//     "_towing = (thisTrigger getVariable (nearestObjects [player, ['ATV_US_EP1'], 15]) select 0) getVariable 'dll_tow_isTowing'; (!isNil '_towing' && {_towing})",
+//     "d_actionID4 = (thisTrigger getVariable ((nearestObjects [player, ['ATV_US_EP1'], 15]) select 0) addAction ['Detach' call d_fnc_YellowText, 'dll_tow\detach.sqf',[],5,false,true,'','!(player in _target)']",
+//     "(thisTrigger getVariable ((nearestObjects [player, ['ATV_US_EP1'], 15]) select 0) removeAction d_actionID4"
+// ];
 
 // _x addAction [(localize "STR_DOM_MISSIONSTRING_513") call FUNC(BlueText), "x_client\x_restoreeng.sqf"]} forEach (__XJIPGetVar(GVAR(farps)));
 
@@ -928,7 +944,6 @@ FUNC(HudDispMsg) = {
 };
 
 __ccppfln(x_client\x_marker.sqf);
-
 __ccppfln(x_client\x_playerammobox.sqf);
 
 0 spawn {

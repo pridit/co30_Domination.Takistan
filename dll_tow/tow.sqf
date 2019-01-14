@@ -6,39 +6,52 @@
 // Returns: nothing
 // ****************************************************************
 #include "x_setup.sqf"
-private ["_towfromrear", "_aTpos", "_aPpos", "_wheelPpos", "_dx", "_dy", "_dirdeg", "_xP", "_yP", "_P_axis_offset", "_d_axis", "_dx_axis", "_dy_axis", "_speed", "_dirdeg_axis"];
+private ["_towFromRear", "_aTpos", "_aPpos", "_wheelPpos", "_dx", "_dy", "_dirdeg", "_xP", "_yP", "_P_axis_offset", "_d_axis", "_dx_axis", "_dy_axis", "_speed", "_dirdeg_axis"];
 
-// usage:
-// T is the Towing vehicle
-// P is the towed vehcile (orginated from Plane)
+_vehicleTower = _this select 0;
+_vehicleTowee = _this select 1;
 
-//get constants
-_P = _this select 0;
-_T = _this select 1;
+_displayName = getText (configFile >> "CfgVehicles" >> typeOf(_vehicleTowee) >> "displayName");
 
-_displayName = getText (configFile >> "CfgVehicles" >> typeOf(_P) >> "displayName");
-_T_axis_offset = [0.25, -2, 0];
-_P_axis_offset = (_P getVariable "dll_tow_front_axis_offset") + [0];
-_P_wheel_offset = (_P getVariable "dll_tow_wheel_offset") + [0];
+//try to find the class or a base of it in the deflist
+dll_tow_i = -1;
+dll_tow_class = typeOf (_vehicleTowee);
 
-_towfromrear = ((_P_axis_offset select 1) < 0);
+//go trough config backwards
+while {(dll_tow_i < 0) && (dll_tow_class != "All")} do {
+    dll_tow_i = GVAR(dll_tow_classlist) find dll_tow_class;
+    dll_tow_class = configname (inheritsFrom (configFile >> "CfgVehicles" >> dll_tow_class));
+};
 
-_T setVariable ["dll_tow_towing", true];//now we know something is coupled
-_P setVariable ["dll_tow_T", _T]; //P should know who is T
+_def = GVAR(dll_tow_defs) select dll_tow_i;
 
-//add EH for killing P or T
-_P_EHkilledIdx = _P addEventHandler ["Killed", "((_this select 0) getvariable ""dll_tow_T"") setVariable [""dll_tow_towing"", false]"];
-_T_EHkilledIdx = _T addEventHandler ["Killed", "(_this select 0) setVariable [""dll_tow_towing"", false]"];
+_P_axis_offset = (_def select 1) + [0];
+_P_wheel_offset = (_def select 2) + [0];
+
+_towFromRear = ((_P_axis_offset select 1) < 0);
+
+// Set the variables to track this process
+_vehicleTower setVariable ["dll_tow_isTowing", true, true];
+_vehicleTower setVariable ["dll_tow_vehicleTowee", _vehicleTowee, true];
+_vehicleTowee setVariable ["dll_tow_vehicleTower", _vehicleTower, true];
+
+_vehicleTowerKilled = _vehicleTower addMPEventHandler ["MPKilled", {
+    (_this select 0) setVariable ["dll_tow_isTowing", false, true];
+}];
+
+_vehicleToweeKilled = _vehicleTowee addMPEventHandler ["MPKilled", {
+    ((_this select 0) getVariable "dll_tow_vehicleTower") setVariable ["dll_tow_isTowing", false, true];
+}];
 
 hint format ["%1 attached", _displayName];
 
-_detach = _T addAction ["<t color='#e7e700'>Detach</t>", "dll_tow\detach.sqf", [], 5, true, true];
+_detach = _vehicleTower addAction ["<t color='#e7e700'>Detach</t>", "dll_tow\detach.sqf", [], 5, true, true, "", "player in _target"];
 
-while {_T getVariable "dll_tow_towing"} do {
+while {_vehicleTower getVariable "dll_tow_isTowing"} do {
     //get global coordinates
-    _aTpos = _T modelToWorld _T_axis_offset;
-    _aPpos = _P modelToWorld _P_axis_offset;
-    _wheelPpos = _P modelToWorld _P_wheel_offset;
+    _aTpos = _vehicleTower modelToWorld [0.25, -2, 0];
+    _aPpos = _vehicleTowee modelToWorld _P_axis_offset;
+    _wheelPpos = _vehicleTowee modelToWorld _P_wheel_offset;
 
     //get the x and y length of the difference vector
     _dx_axis = (_aTpos select 0) - (_aPpos select 0);
@@ -51,43 +64,43 @@ while {_T getVariable "dll_tow_towing"} do {
         _dy = (_aTpos select 1) - (_wheelPpos select 1);		
         _dirdeg = _dx atan2 _dy; //convert to direction in deg
 
-        if (_towfromrear) then {
+        if (_towFromRear) then {
             _dirdeg = _dirdeg + 180;
         };
     
         //set the direction of P, preserving pitch and bank
-        [QGVAR(setVectorDirGlobal), [_P, _dx, _dy, 0]] call FUNC(NetCallEventSTO);
-        _P setVectorDir [_dx, _dy, 0];
+        [QGVAR(setVectorDirGlobal), [_vehicleTowee, _dx, _dy, 0]] call FUNC(NetCallEventSTO);
+        _vehicleTowee setVectorDir [_dx, _dy, 0];
 
         //velocity implementation (smoother but elastic)		
         _dirdeg_axis = _dx_axis atan2 _dy_axis;	//get the direction of the difference vector						
         _speed = _d_axis * 4; //control the speed needed to make this distance smaller TWEAK HERE	Higher value means less elasticty, but more choppy.
         _speed = _speed min 15; //set max speed for safety.
-        _Pvel = velocity _P;
+        _Pvel = velocity _vehicleTowee;
 
         sleep 0.1;
 
-        [QGVAR(setVelocityGlobal), [_P, (sin _dirdeg_axis * _speed), (cos _dirdeg_axis * _speed), (_Pvel select 2)]] call FUNC(NetCallEventSTO);
-        _P setVelocity [
+        [QGVAR(setVelocityGlobal), [_vehicleTowee, (sin _dirdeg_axis * _speed), (cos _dirdeg_axis * _speed), (_Pvel select 2)]] call FUNC(NetCallEventSTO);
+        _vehicleTowee setVelocity [
             (sin _dirdeg_axis * _speed),
             (cos _dirdeg_axis * _speed),
             (_Pvel select 2)
         ]; //set the velocity in the correct direction
-
-        null = [_T, 15] execVM "x_client\x_limitspeed.sqf";
+        
+        [_vehicleTower, 15] execVM "x_client\x_limitspeed.sqf";
     };
 };
 
-_T removeAction _detach;
+// We have entered the detached state
+[QGVAR(setvel0), _vehicleTowee] call FUNC(NetCallEventSTO);
 
-[QGVAR(setvel0), _P] call FUNC(NetCallEventSTO);
+_vehicleTower removeAction _detach;
 
-//remove EHs
-_T removeEventHandler ["killed", _T_EHkilledIdx];
-_P removeEventHandler ["killed", _P_EHkilledIdx];
+_vehicleTower removeMPEventHandler ["MPKilled", _vehicleTowerKilled];
+_vehicleTowee removeMPEventHandler ["MPKilled", _vehicleToweeKilled];
 
-//finally, we are not towing anymore
-_T setVariable ["dll_tow_towing", false];
-_P setVariable ["dll_tow_canBeTowed", true];
+_vehicleTower setVariable ["dll_tow_isTowing", false, true];
+_vehicleTower setVariable ["dll_tow_vehicleTowee", nil, true];
+_vehicleTowee setVariable ["dll_tow_vehicleTower", nil, true];
 
 hint format ["%1 detached", _displayName];

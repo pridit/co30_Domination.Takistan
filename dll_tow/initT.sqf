@@ -1,18 +1,14 @@
-_P = _this select 0;
-_T = _this select 1;
+_vehicleTower = _this select 0;
+_vehicleTowee = _this select 1;
 
-_towing = (vehicle player) getVariable "dll_tow_towing";
+_isTowing = _vehicleTower getVariable "dll_tow_isTowing";
 
-if (isNil "_towing") then {
-    _T setVariable ["dll_tow_towing", false];
-    _towing = false;
-    _T setVariable ["dll_tow_canAttach", true];
-    _P setVariable ["dll_tow_canBeTowed", true];
+if (isNil "_isTowing") then {
+    _vehicleTower setVariable ["dll_tow_isTowing", false, true];
+    _isTowing = false;
 };
 
-if (!_towing) then {
-    _P setVariable ["dll_tow_P", _T];
-    [_P, _T] spawn dll_tow;
-    _T setVariable ["dll_tow_canAttach", false];
-    _P setVariable ["dll_tow_canBeTowed", false];
+if (!_isTowing) then {
+    _vehicleTower setVariable ["dll_tow_isTowing", true, true];
+    [_vehicleTower, _vehicleTowee] spawn dll_tow;
 };

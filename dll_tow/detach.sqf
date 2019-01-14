@@ -1,2 +1,3 @@
-_T = _this select 0;
-_T setVariable ["dll_tow_towing", false];
+_vehicleTower = _this select 0;
+_vehicleTower setVariable ["dll_tow_isTowing", false, true];
+_vehicleTower setVariable ["dll_tow_vehicleTowee", nil, true];
