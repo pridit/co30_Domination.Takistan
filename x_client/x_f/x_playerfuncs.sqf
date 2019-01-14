@@ -33,7 +33,7 @@ FUNC(sfunc2) = {
         _objs = (position player) nearEntities ["Air", 16];
         if (count _objs > 0) then {
             GVAR(objectID2) = _objs select 0;
-            _attached = _vehicle getVariable "dll_tow_vehicleTowee";
+            _attached = GVAR(objectID2) getVariable "dll_tow_vehicleTower";
             if (alive GVAR(objectID2) && {isNil "_attached"}) then {
                 true
             } else {
