@@ -39,4 +39,4 @@ _backpacks addAction [(localize "STR_DOM_MISSIONSTRING_302") call FUNC(BlueText)
 GVAR(player_ammobox_pos) = nil;
 GVAR(player_backpacks_pos) = nil;
 
-[_box,_box_array,_backpacks,_backpacks_array] execFSM "fsms\PlayerAmmobox.fsm";
+[_box,_box_array] execFSM "fsms\PlayerAmmobox.fsm";
