@@ -662,7 +662,11 @@ GVAR(engineer_trigger) setTriggerStatements ["player getVariable 'd_eng_can_repf
 GVAR(tow_trigger) = createTrigger ["EmptyDetector", position player];
 GVAR(tow_trigger) setTriggerArea [0, 0, 0, true];
 GVAR(tow_trigger) setTriggerActivation ["NONE", "PRESENT", true];
-GVAR(tow_trigger) setTriggerStatements ["call d_fnc_sfunc2", "d_actionID3 = (vehicle player) addAction ['Tow' call d_fnc_YellowText, 'dll_tow\enabletowing.sqf',[],5,false,true,'','player in _target']", "(vehicle player) removeAction d_actionID3"];
+// If the player exits the vehicle with the context option then we won't know
+// what vehicle the context option was bound to, requiring the (vehicle player)
+// for when the player is inside and goes out of range, and nearestObjects
+// for if a player ejects with the context option still present
+GVAR(tow_trigger) setTriggerStatements ["call d_fnc_sfunc2", "d_actionID3 = (vehicle player) addAction ['Tow' call d_fnc_YellowText, 'dll_tow\enabletowing.sqf',[],5,false,true,'','player in _target']", "(vehicle player) removeAction d_actionID3; ; ((nearestObjects [player, ['ATV_US_EP1'], 5]) select 0) removeAction d_actionID3"];
 
 // GVAR(towD_trigger) = createTrigger ["EmptyDetector", position player];
 // GVAR(towD_trigger) setTriggerArea [0, 0, 0, true];
