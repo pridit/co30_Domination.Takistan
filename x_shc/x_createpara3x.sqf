@@ -143,12 +143,6 @@ _dummy = GVAR(target_names) select __XJIPGetVar(GVAR(current_target_index));
 _current_target_pos = _dummy select 0;
 _stop_it = false;
 
-#ifndef __TT__
-if ((__XJIPGetVar(GVAR(searchintel)) select 1) == 1) then {
-    [QGVAR(kbmsg), [43]] call FUNC(NetCallEventCTS);
-};
-#endif
-
 for "_i" from 1 to _number_vehicles do {
     if (__XJIPGetVar(GVAR(mt_radio_down))) exitWith {_stop_it = true};
     _dummy = GVAR(target_names) select __XJIPGetVar(GVAR(current_target_index));

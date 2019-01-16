@@ -106,17 +106,7 @@ switch (_sec_kind) do {
         _vehicle setSkill 0.3;
         _vehicle disableAI "MOVE";
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
-        _iar = __XJIPGetVar(GVAR(searchintel));
-        _sum = 0;
-        {if (_x == 1) then {__INC(_sum)}} forEach _iar;
-        if (_sum < count _iar) then {
-            GVAR(intel_unit) = _vehicle;
-            [QGVAR(searchbody), _vehicle] call FUNC(NetSetJIP);
-            [QGVAR(s_b_client)] call FUNC(NetCallEventToClients);
-        } else {
-            if (!isNull __XJIPGetVar(GVAR(searchbody))) then {[QGVAR(searchbody), objNull] call FUNC(NetSetJIP)};
-            __addDead(_vehicle)
-        };
+        __addDead(_vehicle)
         sleep 0.1;
         __vkilled(gov_dead);
         sleep 1.0112;
@@ -326,17 +316,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         for "_i" from 1 to 4 do {_vehicle addMagazine "15Rnd_9x19_M9"};
         _vehicle addWeapon "M9";
-        _iar = __XJIPGetVar(GVAR(searchintel));
-        _sum = 0;
-        {if (_x == 1) then {__INC(_sum)}} forEach _iar;
-        if (_sum < count _iar) then {
-            GVAR(intel_unit) = _vehicle;
-            [QGVAR(searchbody), _vehicle] call FUNC(NetSetJIP);
-            [QGVAR(s_b_client)] call FUNC(NetCallEventToClients);
-        } else {
-            if (!isNull __XJIPGetVar(GVAR(searchbody))) then {[QGVAR(searchbody), objNull] call FUNC(NetSetJIP)};
-            __addDead(_vehicle)
-        };
+        __addDead(_vehicle)
         sleep 0.1;
         __vkilled(lopo_dead);
         sleep 1.0112;
@@ -365,17 +345,7 @@ switch (_sec_kind) do {
         _vehicle disableAI "MOVE";
         for "_i" from 1 to 4 do {_vehicle addMagazine "15Rnd_9x19_M9"};
         _vehicle addWeapon "M9";
-        _iar = __XJIPGetVar(GVAR(searchintel));
-        _sum = 0;
-        {if (_x == 1) then {__INC(_sum)}} forEach _iar;
-        if (_sum < count _iar) then {
-            GVAR(intel_unit) = _vehicle;
-            [QGVAR(searchbody), _vehicle] call FUNC(NetSetJIP);
-            [QGVAR(s_b_client)] call FUNC(NetCallEventToClients);
-        } else {
-            if (!isNull __XJIPGetVar(GVAR(searchbody))) then {[QGVAR(searchbody), objNull] call FUNC(NetSetJIP)};
-            __addDead(_vehicle)
-        };
+        __addDead(_vehicle)
         sleep 0.1;
         __vkilled(dealer_dead);
         sleep 1.0112;

@@ -38,11 +38,6 @@ _resolved_targets set [count _resolved_targets, __XJIPGetVar(GVAR(current_target
 ["resolved_targets",_resolved_targets] call FUNC(NetSetJIP);
 #endif
 
-if (!isNull GVAR(intel_unit)) then {
-    deleteVehicle GVAR(intel_unit);
-    GVAR(intel_unit) = objNull;
-};
-
 sleep 0.5;
 
 if (GVAR(current_counter) < GVAR(MainTargets)) then {

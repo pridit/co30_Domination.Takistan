@@ -218,9 +218,6 @@ if (GVAR(engineerfull) == 0) then {
 [QGVAR(jet_sf), {_this call FUNC(jet_service_facNet)}] call FUNC(NetAddEventToClients);
 [QGVAR(chop_sf), {_this call FUNC(chopper_service_facNet)}] call FUNC(NetAddEventToClients);
 [QGVAR(wreck_rf), {_this call FUNC(wreck_repair_facNet)}] call FUNC(NetAddEventToClients);
-[QGVAR(s_b_client), {__XJIPGetVar(GVAR(searchbody)) setVariable [QGVAR(search_id), __XJIPGetVar(GVAR(searchbody)) addAction [(localize "STR_DOM_MISSIONSTRING_518"), "x_client\x_searchbody.sqf"]]}] call FUNC(NetAddEventToClients);
-[QGVAR(rem_sb_id), {if (!isNil {__XJIPGetVar(GVAR(searchbody)) getVariable QGVAR(search_id)}) then {__XJIPGetVar(GVAR(searchbody)) removeAction (__XJIPGetVar(GVAR(searchbody)) getVariable QGVAR(search_id))}}] call FUNC(NetAddEventToClients);
-[QGVAR(intel_upd), {_this call FUNC(intel_updNet)}] call FUNC(NetAddEventToClients);
 [QGVAR(w_m_c), {[_this select 0, _this select 1,"ICON",_this select 3,[1,1],format [(localize "STR_DOM_MISSIONSTRING_517"), _this select 2],0,"mil_triangle"] call FUNC(CreateMarkerLocal)}] call FUNC(NetAddEventToClients);
 [QGVAR(smsg), {(localize "STR_DOM_MISSIONSTRING_519") call FUNC(HQChat)}] call FUNC(NetAddEventToClients);
 
@@ -823,13 +820,6 @@ if (_primw != "") then {
     _p selectWeapon _primw;
     _muzzles = getArray(configFile >>"cfgWeapons" >> _primw >> "muzzles");
     _p selectWeapon (_muzzles select 0);
-};
-
-if (GVAR(MissionType) != 2) then {
-    _sb = __XJIPGetVar(GVAR(searchbody));
-    if (!isNull _sb && {isNil {GV(_sb,GVAR(search_body))}}) then {
-        _sb setVariable [QGVAR(search_id), _sb addAction [(localize "STR_DOM_MISSIONSTRING_518"), "x_client\x_searchbody.sqf"]];
-    };
 };
 
 player addEventHandler ["fired", {_this call FUNC(ParaExploitHandler)}];

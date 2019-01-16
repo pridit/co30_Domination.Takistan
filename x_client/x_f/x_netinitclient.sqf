@@ -144,31 +144,3 @@ FUNC(mhqdeplNet) = {
         if (!isNil "_m") then {_m setMarkerTextLocal (GV(_mhq,GVAR(marker_text)))};
     };
 };
-
-#ifndef __TT__
-FUNC(intel_updNet) = {
-    switch (_this select 0) do {
-        case 0: {
-            format [(localize "STR_DOM_MISSIONSTRING_649"), _this select 1] call FUNC(HQChat)
-        };
-        case 1: {
-            format [(localize "STR_DOM_MISSIONSTRING_650"), _this select 1] call FUNC(HQChat)
-        };
-        case 2: {
-            format [(localize "STR_DOM_MISSIONSTRING_651"), _this select 1] call FUNC(HQChat)
-        };
-        case 3: {
-            format [(localize "STR_DOM_MISSIONSTRING_652"), _this select 1] call FUNC(HQChat)
-        };
-        case 4: {
-            format [(localize "STR_DOM_MISSIONSTRING_653"), _this select 1] call FUNC(HQChat)
-        };
-        case 5: {
-            format [(localize "STR_DOM_MISSIONSTRING_654"), _this select 1] call FUNC(HQChat)
-        };
-        case 6: {
-            format [(localize "STR_DOM_MISSIONSTRING_655"), _this select 1] call FUNC(HQChat)
-        };
-    };
-};
-#endif

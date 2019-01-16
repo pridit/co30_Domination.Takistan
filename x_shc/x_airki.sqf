@@ -60,12 +60,6 @@ while {true} do {
     waitUntil {sleep 0.323;__XJIPGetVar(GVAR(current_target_index)) >= 0};
     _cdir = [_pos, GVAR(island_center)] call FUNC(DirTo);
 
-    switch (_type) do {
-        case "SU": {if ((__XJIPGetVar(GVAR(searchintel)) select 2) == 1) then {[QGVAR(kbmsg), [0]] call FUNC(NetCallEventCTS)}};
-        case "KA": {if ((__XJIPGetVar(GVAR(searchintel)) select 3) == 1) then {[QGVAR(kbmsg), [1]] call FUNC(NetCallEventCTS)}};
-        case "MIMG": {if ((__XJIPGetVar(GVAR(searchintel)) select 4) == 1) then {[QGVAR(kbmsg), [2]] call FUNC(NetCallEventCTS)}};
-    };
-
     for "_xxx" from 1 to _numair do {
         _vec_array = [[_pos select 0, _pos select 1, 400], _cdir, _heli_type, _grp] call FUNC(spawnVehicle);
         

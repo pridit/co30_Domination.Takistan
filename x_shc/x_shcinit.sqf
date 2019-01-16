@@ -55,5 +55,3 @@ if (GVAR(MissionType) != 2) then {
         ["SU",GVAR(number_attack_planes)] execVM "x_shc\x_airki.sqf";
     };
 };
-
-if (count GVAR(with_isledefense) > 0) then {execVM "x_shc\x_isledefense.sqf"};

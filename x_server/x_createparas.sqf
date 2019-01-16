@@ -149,12 +149,6 @@ _make_jump = {
 
 _current_target_pos = GVAR(enemyai_mt_attack_pos);
 
-#ifndef __TT__
-if ((__XJIPGetVar(GVAR(searchintel)) select 0) == 1) then {
-    GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"TellAirDropAttack",true];
-};
-#endif
-
 for "_i" from 1 to _number_vehicles do {
     _new_current_target_pos = GVAR(enemyai_mt_attack_pos);
     __GetEGrp(_vgrp)

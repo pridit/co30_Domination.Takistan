@@ -57,31 +57,7 @@ if (GVAR(WithRevive) == 1) then {
     __ctrl2(30001) ctrlSetText str(__pGetVar(xr_lives));
 };
 
-#ifndef __TT__
-_iar = __XJIPGetVar(GVAR(searchintel));
-_intels = "";
-{
-    if (_x == 1) then {
-        _tmp = switch (_forEachIndex) do {
-            case 0: {(localize "STR_DOM_MISSIONSTRING_541")};
-            case 1: {(localize "STR_DOM_MISSIONSTRING_542")};
-            case 2: {(localize "STR_DOM_MISSIONSTRING_543")};
-            case 3: {(localize "STR_DOM_MISSIONSTRING_544")};
-            case 4: {(localize "STR_DOM_MISSIONSTRING_545")};
-            case 5: {(localize "STR_DOM_MISSIONSTRING_546")};
-            case 6: {(localize "STR_DOM_MISSIONSTRING_547")};
-        };
-        _intels = _intels + _tmp + "\n";
-    };
-} forEach _iar;
-if (_intels == "") then {
-    _intels = (localize "STR_DOM_MISSIONSTRING_548");
-};
-__ctrl2(11018) ctrlSetText _intels;
-#else
-__ctrl2(11019) ctrlShow false;
-__ctrl2(11018) ctrlShow false;
-#endif
+__ctrl2(11018) ctrlSetText (localize "STR_DOM_MISSIONSTRING_548");
 
 __ctrl2(11003) ctrlSetText _current_target_name;
 

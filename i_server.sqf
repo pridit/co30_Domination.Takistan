@@ -842,7 +842,6 @@ GVAR(sm_cargo) = "Misc_Cargo1B_military";
 GVAR(sm_hangar) = "Land_SS_hangar";
 GVAR(sm_tent) = "ACamp";
 #endif
-GVAR(intel_unit) = objNull;
 
 GVAR(enemyai_mt_start_pos) = [];
 
