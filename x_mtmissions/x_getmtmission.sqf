@@ -344,7 +344,7 @@ switch (_sec_kind) do {
     };
     case 11: {
         __GetEGrp(_newgroup)
-        _ctype = "CIV_EuroMan01_EP1";
+        _ctype = "TK_Aziz_EP1";
         _vehicle = _newgroup createUnit [_ctype, _poss, [], 0, "FORM"];
         if (GVAR(without_nvg) == 0) then {
             if (_vehicle hasWeapon "NVGoggles") then {_vehicle removeWeapon "NVGoggles"};
