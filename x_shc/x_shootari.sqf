@@ -26,6 +26,12 @@ _type = if (GVAR(enemy_side) == "EAST") then {
     }
 };
 
+if (_kind in [0,1]) then {
+    _number_shells = 3 + (ceil random 3);
+} else {
+    _number_shells = 1;
+}; 
+
 _wp_array = [];
 while {count _wp_array < _number_shells} do {
     _angle = floor random 360;
