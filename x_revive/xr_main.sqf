@@ -1506,9 +1506,9 @@ FUNCXR(ClientHD) = {
     PARAMS_5(_unit,_part,_dam,_injurer,_ammo);
     if (!alive _unit) exitWith {_dam};
     if (GVARXR(phd_invulnerable) || {__GV(_unit,GVARXR(pluncon))}) exitWith {0};
-    if (d_no_teamkill == 0 && {_dam >= 0.5} && {isPlayer _injurer} && {_injurer != _unit} && {_part == ""} && {side (group _injurer) == side (group _unit)} && {getText (configFile >> "CfgAmmo" >> _ammo >> "simulation") in __shots}) exitWith {
-        hint format [(localize "STR_DOM_MISSIONSTRING_497"), name _injurer];
-        ["d_unit_tkr", [_unit,_injurer]] call d_fnc_NetCallEventCTS;
+    if (_injurer != _unit && {side (group _injurer) == side (group _unit)}) exitWith {
+        //hint format [(localize "STR_DOM_MISSIONSTRING_497"), name _injurer];
+        //["d_unit_tkr", [_unit,_injurer]] call d_fnc_NetCallEventCTS;
         0
     };
     _ret = 0;
