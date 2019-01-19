@@ -20,7 +20,6 @@ if (GVAR(side_mission_winner) > 0) then {
     ];
     GVAR(current_side_task) setTaskState "Succeeded";
     [GVAR(current_side_task), "SUCCEEDED"] call FUNC(TaskHint);
-    playSound "AhRosie";
 } else {
     _s = switch (GVAR(side_mission_winner)) do {
         case -1: {(localize "STR_DOM_MISSIONSTRING_716")};

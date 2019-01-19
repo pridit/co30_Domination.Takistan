@@ -719,7 +719,6 @@ class CfgSounds {
     class Ui_cc {name="Ui_cc";sound[]={"\sounds\ui_cc.wss",db,1.0};titles[] = {};};
     class PizzaTime {name="PizzaTime";sound[]={"\sounds\pizzatime.ogg",db,1.0};titles[] = {};};
     class Impressive {name="Impressive";sound[]={"\sounds\impressive.ogg",db,1.0};titles[] = {};};
-    class AhRosie {name="AhRosie";sound[]={"\sounds\ahrosie.ogg",db,1.0};titles[] = {};};
     class PowerOfTheSun {name="PowerOfTheSun";sound[]={"\sounds\powerofthesun.ogg",db,1.0};titles[] = {};};
     
 #define __hitSound(vname)\
