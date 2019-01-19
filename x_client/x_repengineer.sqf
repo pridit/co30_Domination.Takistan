@@ -7,7 +7,6 @@ _caller = _this select 1;
 _aid = _this select 2;
 
 _truck_near = false;
-if (player distance TR7 < 21 || {player distance TR8 < 21}) then {_truck_near = true};
 if (!__pGetVar(GVAR(eng_can_repfuel)) && {!_truck_near}) exitWith {
     hintSilent (localize "STR_DOM_MISSIONSTRING_324");
 };

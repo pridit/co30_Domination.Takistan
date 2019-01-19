@@ -5,7 +5,7 @@ class PerkButton_General_1: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One self-heal";
+    tooltip = "One medkit";
     action = "[1] call d_fnc_perkclicked";
 };
 class PerkButton_General_2: XD_LinkButtonUpgradeBase
@@ -15,7 +15,7 @@ class PerkButton_General_2: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One vehicle service";
+    tooltip = "One repair kit";
     action = __EVAL("[2] call d_fnc_perkclicked");
 };
 class PerkButton_General_3: XD_LinkButtonUpgradeBase
@@ -134,7 +134,7 @@ class PerkButton_Role2_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two vehicle services";
+    tooltip = "Two repair kits";
 };
 class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
 {
@@ -142,7 +142,7 @@ class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Vehicle services by player fix 100% of damage";
+    tooltip = "Repair kits fix 100% of damage";
 };
 class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
 {
@@ -158,7 +158,7 @@ class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three vehicle services";
+    tooltip = "Three repair kits";
 };
 class PerkButton_Role2_5: XD_LinkButtonUpgradeBase
 {

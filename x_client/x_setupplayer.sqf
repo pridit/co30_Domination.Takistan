@@ -654,7 +654,7 @@ GVAR(base_trigger) setTriggerStatements ["this", "", ""];
 GVAR(engineer_trigger) = createTrigger ["EmptyDetector", position player];
 GVAR(engineer_trigger) setTriggerArea [0, 0, 0, true];
 GVAR(engineer_trigger) setTriggerActivation ["NONE", "PRESENT", true];
-GVAR(engineer_trigger) setTriggerStatements ["player getVariable 'd_eng_can_repfuel' && call d_fnc_sfunc", "d_actionID2 = player addAction ['Service Vehicle' call d_fnc_YellowText, 'x_client\x_repengineer.sqf',[],0,false]", "player removeAction d_actionID2"];
+GVAR(engineer_trigger) setTriggerStatements ["player getVariable 'd_eng_can_repfuel' && call d_fnc_sfunc", "d_actionID2 = player addAction ['Use Repair Kit' call d_fnc_BlueText, 'x_client\x_repengineer.sqf',[],0,false]", "player removeAction d_actionID2"];
 
 GVAR(tow_trigger) = createTrigger ["EmptyDetector", position player];
 GVAR(tow_trigger) setTriggerArea [0, 0, 0, true];
