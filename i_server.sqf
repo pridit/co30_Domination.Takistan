@@ -668,7 +668,7 @@ GVAR(recapture_indices) = [];
 
 // max number of cities that the enemy will recapture at once
 // if set to -1 no check is done
-GVAR(max_recaptures) = 2;
+GVAR(max_recaptures) = 1;
 
 0 spawn {
     scriptName "spawn_CreateWarFac";

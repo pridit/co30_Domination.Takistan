@@ -407,7 +407,7 @@ class Params {
     class GVAR(WithRecapture) {
         title = "$STR_DOM_MISSIONSTRING_1130";
         values[] = {0,1};
-        default = 1;
+        default = 0;
         texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
     };
     
