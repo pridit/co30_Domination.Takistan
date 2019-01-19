@@ -631,9 +631,9 @@ GVAR(taxi_aircraft) =
 // max men for main target clear
 GVAR(man_count_for_target_clear) = 6;
 // max tanks for main target clear
-GVAR(tank_count_for_target_clear) = 0;
+GVAR(tank_count_for_target_clear) = 1;
 // max cars for main target clear
-GVAR(car_count_for_target_clear) = 0;
+GVAR(car_count_for_target_clear) = 1;
 
 // add some random patrols on the island
 // if the array is empty, no patrols
