@@ -46,11 +46,13 @@ if (GVAR(current_counter) < GVAR(MainTargets)) then {
     __TargetInfo
     _tname = _current_target_name call FUNC(KBUseName);
     GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"Captured",["1","",_current_target_name,[_tname]],true];
+    diag_log format ["Main Target: %1/%2 captured (%3)", GVAR(current_counter), GVAR(MainTargets), _current_target_name];
 } else {
     ["target_clear",true] call FUNC(NetSetJIP);
     [QGVAR(target_clear), ""] call FUNC(NetCallEventToClients);
     _tname = _current_target_name call FUNC(KBUseName);
     GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"Captured2",["1","",_current_target_name,[_tname]],true];
+    diag_log format ["Main Target: %1/%2 captured (%3)", GVAR(current_counter), GVAR(MainTargets), _current_target_name];
 };
 
 sleep 2.123;
