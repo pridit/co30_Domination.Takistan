@@ -20,7 +20,6 @@ if (GVAR(side_mission_winner) > 0) then {
     ];
     GVAR(current_side_task) setTaskState "Succeeded";
     [GVAR(current_side_task), "SUCCEEDED"] call FUNC(TaskHint);
-    diag_log format ["Side Target: completed (m%1)", GVAR(x_sm_oldmission_index)];
 } else {
     _s = switch (GVAR(side_mission_winner)) do {
         case -1: {(localize "STR_DOM_MISSIONSTRING_716")};
@@ -42,8 +41,9 @@ if (GVAR(side_mission_winner) > 0) then {
     };
     GVAR(current_side_task) setTaskState "Failed";
     [GVAR(current_side_task), "FAILED"] call FUNC(TaskHint);
-    diag_log format ["Side Target: failed (m%1)", GVAR(x_sm_oldmission_index)];
 };
+
+diag_log format ["Side Target: %1 (m%2)", toLower(taskState GVAR(current_side_task)), GVAR(x_sm_oldmission_index)];
 
 sleep 1;
 GVAR(side_mission_winner) = 0;
