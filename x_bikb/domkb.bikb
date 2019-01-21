@@ -359,6 +359,7 @@ class Sentences {
         class Arguments {
             class 1 {type = "simple";};
             class 2 {type = "simple";};
+            class 3 {type = "simple";};
         };
     };
     class WreckRepaired {

@@ -4,6 +4,5 @@
     "Perks: Medkits are replenished at medical tents. Repair kits are replenished at vehicle service point structures (i.e. ammo point or ground vehicle service).",
     "Roles: Medics are able to heal other players, should they be injured.",
     "Vehicles: ATVs can tow certain aircraft.",
-    "Wrecks: Only wrecks designated on the map can be lifted. Wrecks without markers will eventually disappear.",
-    "Wreck Service: It takes 8 minutes for a helicopter rebuild cycle, and 12 minutes for a plane."
+    "Wrecks: Only wrecks designated on the map can be lifted. Wrecks without markers will eventually disappear."
 ]

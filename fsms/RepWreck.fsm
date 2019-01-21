@@ -159,7 +159,6 @@ class FSM
        "" \n
        "d_wreck_cur_ar set [count d_wreck_cur_ar, _new_vec];" \n
        "" \n
-       "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true];" \n
        "" \n
        "_sleep_time = 240;" \n
        "if (_new_vec isKindOf ""Plane"") then {" \n
@@ -169,6 +168,7 @@ class FSM
        "		_sleep_time = 480;" \n
        "	};" \n
        "};" \n
+       "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],[""3"","""",str floor(_sleep_time / 60),[]],true];" \n
        "_sleep_time = _sleep_time + random 10;" \n
        "_timenow = time + _sleep_time;";
       precondition = "";

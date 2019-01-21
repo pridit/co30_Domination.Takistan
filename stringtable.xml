@@ -4197,7 +4197,7 @@
         <Original>Sidemission: ATTENTION!!! Enemy troops will arrive in less than 2 minutes at the crash site...</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_1401">
-        <Original>Rebuilding %1 at %2, this will take some time...</Original>
+        <Original>Rebuilding %1 at %2, this will take approx. %3 minutes.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_1402">
         <Original>%1 ready at %2</Original>
