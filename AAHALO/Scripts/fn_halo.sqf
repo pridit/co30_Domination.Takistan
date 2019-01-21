@@ -361,6 +361,7 @@ if (typename _this == typename []) then {
         bis_fnc_halo_para_keydown_eh = nil;
         bis_fnc_halo_para_mousemoving_eh = nil;
         bis_fnc_halo_para_mouseholding_eh = nil;
+        player setvariable ["bis_fnc_halo_now",false];
         
         waitUntil {vehicle player != player};
         if (!alive player || {__pGetVar(xr_pluncon)}) then {

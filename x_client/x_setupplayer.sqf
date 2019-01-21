@@ -592,8 +592,11 @@ __pSetVar [QGVAR(WithMHQTeleport), false];
 __pSetVar [QGVAR(ammobox_next), 300];
 __pSetVar [QGVAR(trench), objNull];
 __pSetVar [QGVAR(trenchid), -9999];
-__pSetVar [QGVAR(showperks), _p addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false]];
-__pSetVar [QGVAR(showstatus), _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false]];
+
+__pSetVar ["bis_fnc_halo_now", false];
+__pSetVar [QGVAR(showperks), _p addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false,true,"","!(player getVariable 'bis_fnc_halo_now')"]];
+__pSetVar [QGVAR(showstatus), _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false,true,"","!(player getVariable 'bis_fnc_halo_now')"]];
+
 if (GVAR(string_player) in GVAR(can_use_artillery)) then {
     GVAR(player_can_call_arti) = switch (GVAR(string_player)) do {
         case "RESCUE": {1};

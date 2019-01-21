@@ -1712,7 +1712,7 @@ FUNCXR(calldrop) = {
         private "_id";
         while {true} do {
             waitUntil {sleep 0.332;alive player};
-            _id = player addAction ["Call Drop" call d_fnc_YellowText, "x_client\x_calldrop.sqf", [], 0, false, false, "", "alive _target && {(_target getVariable 'perkCallDrop')} && {(X_JIPH getVariable 'para_available')}"];
+            _id = player addAction ["Call Drop" call d_fnc_YellowText, "x_client\x_calldrop.sqf", [], 0, false, false, "", "alive _target && {(_target getVariable 'perkCallDrop')} && {(X_JIPH getVariable 'para_available')} && {!(_target getVariable 'bis_fnc_halo_now')}"];
             waitUntil {sleep 0.231;!alive player};
             player removeAction _id;
         };
