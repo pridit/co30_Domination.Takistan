@@ -4358,6 +4358,9 @@
       <Key ID="STR_DOM_MISSIONSTRING_1454">
         <Original>You have lost %1 perk(s) due to being below the required score</Original>
       </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1455">
+        <Original>%1 wreck is being transported by airlift.</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

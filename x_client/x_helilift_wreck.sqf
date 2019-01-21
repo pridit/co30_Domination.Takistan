@@ -93,30 +93,16 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
                     };
                     
                     _nearest engineOn false;
-//#ifndef __TOH__
                     _nearest attachTo [_vehicle, [0,0,-15]];
-//#else
-//					_vehicle animate ["AddCargoHook_Cover", 0];
-//					_vehicle animate ["AddCargoHook", 1];
-//					private "_rope";
-//					_rope = ropeCreate [_vehicle, "slingload0", _nearest,[0,0,0], 10, 25];
-//					ropeSetCargoMass [_rope, _nearest, 1000];
-//#endif
+                    GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"WreckInAir",["1","",[typeOf _nearest,0] call FUNC(GetDisplayName),[]],true];
                     
                     while {alive _vehicle && {(player in _vehicle)} && {!isNull _nearest} && {alive player} && {!(GV(_vehicle,GVAR(Vehicle_Released)))}} do {
                         _vehicle setFuel ((fuel _vehicle) - _fuelloss);
                         sleep 0.312;
                     };
                     
-//#ifndef __TOH__
                     detach _nearest;
-//#else
-//					if (alive _vehicle) then {
-//						_vehicle animate ["AddCargoHook_Cover", 1];
-//						_vehicle animate ["AddCargoHook", 0];
-//					};
-//					ropeDestroy _rope;
-//#endif
+                    
                     [QGVAR(setvel0), _nearest] call FUNC(NetCallEventSTO);
                     
                     _vehicle setVariable [QGVAR(Vehicle_Attached), false];

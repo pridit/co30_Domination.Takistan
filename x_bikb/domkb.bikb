@@ -393,6 +393,13 @@ class Sentences {
         speech[] = {};
         class Arguments {};
     };
+    class WreckInAir {
+        text = "$STR_DOM_MISSIONSTRING_1455";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
 };
 class Arguments{};
 class Special{};
