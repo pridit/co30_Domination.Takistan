@@ -642,6 +642,7 @@ FUNC(SideMissionResolved) = {
         [QGVAR(kbmsg), [35]] call FUNC(NetCallEventCTS);
         if (!X_SPE) then {GVAR(side_mission_winner) = 0};
     };
+    diag_log format ["Side Target: %1 (m%2)", toLower(taskState GVAR(current_side_task)), __XJIPGetVar(GVAR(current_mission_index))];
     0 spawn {
         sleep 120;
         [QGVAR(getSM)] call FUNC(NetCallEventCTS);

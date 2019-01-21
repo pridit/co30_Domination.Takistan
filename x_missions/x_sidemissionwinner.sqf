@@ -43,7 +43,5 @@ if (GVAR(side_mission_winner) > 0) then {
     [GVAR(current_side_task), "FAILED"] call FUNC(TaskHint);
 };
 
-diag_log format ["Side Target: %1 (m%2)", toLower(taskState GVAR(current_side_task)), GVAR(x_sm_oldmission_index)];
-
 sleep 1;
 GVAR(side_mission_winner) = 0;
