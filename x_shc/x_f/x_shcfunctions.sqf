@@ -645,7 +645,7 @@ FUNC(SideMissionResolved) = {
     };
     [QGVAR(current_mission_index),-1] call FUNC(NetSetJIP);
     0 spawn {
-        sleep 15;
+        sleep 120;
         [QGVAR(getSM)] call FUNC(NetCallEventCTS);
     };
 };
