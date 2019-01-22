@@ -633,18 +633,19 @@ FUNC(SideMissionResolved) = {
         deleteMarkerLocal (format ["XMISSIONM%1", __XJIPGetVar(GVAR(current_mission_index)) + 1]);
         if (GVAR(x_sm_type) == "convoy") then {deleteMarkerLocal (format ["XMISSIONM2%1", __XJIPGetVar(GVAR(current_mission_index)) + 1])};
     };
-    [QGVAR(current_mission_index),-1] call FUNC(NetSetJIP);
     [QGVAR(sm_res_client), [GVAR(side_mission_winner), ""]] call FUNC(NetCallEventToClients);
     if (GVAR(side_mission_winner) > 0) then {
         GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"MissionAccomplished",true];
+        diag_log format ["Side Target: completed (m%1)", __XJIPGetVar(GVAR(current_mission_index))];
     };
     if (GVAR(side_mission_winner) in [-1,-2,-300,-400,-500,-600,-700,-878,-879]) then {
         [QGVAR(kbmsg), [35]] call FUNC(NetCallEventCTS);
         if (!X_SPE) then {GVAR(side_mission_winner) = 0};
+        diag_log format ["Side Target: failed (m%1)", __XJIPGetVar(GVAR(current_mission_index))];
     };
-    diag_log format ["Side Target: %1 (m%2)", toLower(taskState GVAR(current_side_task)), __XJIPGetVar(GVAR(current_mission_index))];
+    [QGVAR(current_mission_index),-1] call FUNC(NetSetJIP);
     0 spawn {
-        sleep 120;
+        sleep 15;
         [QGVAR(getSM)] call FUNC(NetCallEventCTS);
     };
 };
