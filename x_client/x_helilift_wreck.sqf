@@ -94,7 +94,7 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
                     
                     _nearest engineOn false;
                     _nearest attachTo [_vehicle, [0,0,-15]];
-                    GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"WreckInAir",["1","",[typeOf _nearest,0] call FUNC(GetDisplayName),[]],true];
+                    player kbTell [GVAR(kb_logic1),GVAR(kb_topic_side),"WreckInAir",["1","",[typeOf _nearest,0] call FUNC(GetDisplayName),[]],true];
                     
                     while {alive _vehicle && {(player in _vehicle)} && {!isNull _nearest} && {alive player} && {!(GV(_vehicle,GVAR(Vehicle_Released)))}} do {
                         _vehicle setFuel ((fuel _vehicle) - _fuelloss);
