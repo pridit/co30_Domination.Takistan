@@ -45,7 +45,7 @@ if (isNil "paramsArray") then {
     };
 };
 
-GVAR(enemy_wreck_chance) = 70;
+GVAR(enemy_wreck_chance) = 40;
 
 GVAR(WithBackpack) = (GVAR(WithBackpack) == 0);
 GVAR(LimitedWeapons) = (GVAR(LimitedWeapons) == 0);
