@@ -417,31 +417,33 @@ FUNC(prespawned) = {
 };
 
 FUNC(calculatePerks) = {
-    private ["_respawned","_score"];
+    private ["_respawned","_score","_points"];
     PARAMS_1(_respawned);
     
     _score = score player;
+    _points = (floor(_score / 20) * 2) max 0;
+    
     _perks_unlocked = __pGetVar(GVAR(perks_unlocked));
     _points_available = __pGetVar(GVAR(perk_points_available));
     
     for "_i" from 1 to 7 do {
-        if (_score >= ((_i * 2) * 10) && (count _perks_unlocked + _points_available) < (_i * 2)) then {
-            __pSetVar [QGVAR(perk_points_available), (floor(_score / 20) * 2) - count _perks_unlocked];
+        if (_score >= ((_i * 2) * 10) && {(count _perks_unlocked + _points_available) < (_i * 2)}) then {
+            __pSetVar [QGVAR(perk_points_available), _points - count _perks_unlocked];
         };
     };
     
     if (_respawned) then {
-        if ((floor(_score / 20) * 2) < (count _perks_unlocked + _points_available)) then {
-            if ((floor(_score / 20) * 2) < count _perks_unlocked) then {
+        if (_points < (count _perks_unlocked + _points_available)) then {
+            if (_points < count _perks_unlocked) then {
                 (format [
                     (localize "STR_DOM_MISSIONSTRING_1454"),
-                    (count _perks_unlocked - (floor(_score / 20) * 2))
+                    (count _perks_unlocked - _points)
                 ]) call FUNC(HQChat);
                 
-                _perks_unlocked resize (floor(_score / 20) * 2);
+                _perks_unlocked resize _points;
             };
             
-            __pSetVar [QGVAR(perk_points_available), ((floor(_score / 20) * 2) - count _perks_unlocked)];
+            __pSetVar [QGVAR(perk_points_available), (_points - count _perks_unlocked)];
         };
         
         call FUNC(resetPerks);
