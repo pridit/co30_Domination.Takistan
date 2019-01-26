@@ -31,6 +31,7 @@ if (_hasbox) exitWith {[_unit, _caller, (localize "STR_DOM_MISSIONSTRING_269")] 
 _nobjs = nearestObjects [_unit, [GVAR(the_box)], 20];
 if (count _nobjs == 0) exitWith {[_unit, _caller, (localize "STR_DOM_MISSIONSTRING_271")] call _chatfunc};
 _box = _nobjs select 0;
+if (_box getVariable "immune") exitWith {[_unit, _caller, (localize "STR_DOM_MISSIONSTRING_271")] call _chatfunc};
 [_unit, _caller, (localize "STR_DOM_MISSIONSTRING_272")] call _chatfunc;
 [QGVAR(r_box), position _box] call FUNC(NetCallEvent);
 _unit setVariable [QGVAR(ammobox), true, true];

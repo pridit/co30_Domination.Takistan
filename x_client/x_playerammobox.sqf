@@ -25,6 +25,7 @@ if (isMultiplayer) then {
 _box = GVAR(the_base_box) createVehicleLocal (_box_array select 0);
 _box setDir (_box_array select 1);
 _box setPos (_box_array select 0);
+_box setVariable ["immune", true];
 player reveal _box;
 
 _backpacks = GVAR(backpacks) createVehicleLocal (_backpacks_array select 0);

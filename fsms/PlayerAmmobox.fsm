@@ -46,6 +46,7 @@ class FSM
        "_box = d_the_base_box createVehicleLocal (_box_array select 0);" \n
        "_box setDir (_box_array select 1);" \n
        "_box setPos (_box_array select 0);" \n
+       "_box setVariable [""immune"", true];" \n
        "player reveal _box;" \n
        "{" \n
        "    if (_x == 5) exitWith {" \n
