@@ -187,7 +187,7 @@ if (_rtype == 0) then { // player died
     };
     
     _p addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false,true,"","!(player getVariable 'bis_fnc_halo_now')"];
-    _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false,true,"","!(player getVariable 'bis_fnc_halo_now')"];
+    _p addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-3,false,true,"","!(player getVariable 'bis_fnc_halo_now')"];
 
     __pSetVar ["bis_fnc_halo_now", false];
 

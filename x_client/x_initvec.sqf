@@ -39,7 +39,7 @@ _vec addEventHandler ["getout", {_this call FUNC(checkhelipilotout)}]
 
 #define __addchopm _vec addAction [(localize "STR_DOM_MISSIONSTRING_258") call FUNC(GreyText),"x_client\x_vecdialog.sqf",[],-1,false]
 #define __addperks _vec addAction [(localize "STR_DOM_MISSIONSTRING_1451") call FUNC(GreyText), "x_client\x_showperks.sqf",[],-2,false,true,"","player in _target"]
-#define __addstatus _vec addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-2,false,true,"","player in _target"]
+#define __addstatus _vec addAction [(localize "STR_DOM_MISSIONSTRING_304") call FUNC(GreyText), "x_client\x_showstatus.sqf",[],-3,false,true,"","player in _target"]
 
 private "_vec";
 
