@@ -421,7 +421,7 @@ FUNC(calculatePerks) = {
     PARAMS_1(_respawned);
     
     _score = score player;
-    _points = (floor(_score / 20) * 2) max 0;
+    _points = ((floor(_score / 20) * 2) max 0) min 14;
     
     _perks_unlocked = __pGetVar(GVAR(perks_unlocked));
     _points_available = __pGetVar(GVAR(perk_points_available));
