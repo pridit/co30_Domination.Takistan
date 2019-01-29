@@ -421,13 +421,13 @@ FUNC(calculatePerks) = {
     PARAMS_1(_respawned);
     
     _score = score player;
-    _points = ((floor(_score / 20) * 2) max 0) min 14;
+    _points = ((floor(_score / 15) * 2) max 0) min 14;
     
     _perks_unlocked = __pGetVar(GVAR(perks_unlocked));
     _points_available = __pGetVar(GVAR(perk_points_available));
     
     for "_i" from 1 to 7 do {
-        if (_score >= ((_i * 2) * 10) && {(count _perks_unlocked + _points_available) < (_i * 2)}) then {
+        if (_score >= (_i * 15) && {(count _perks_unlocked + _points_available) < (_i * 2)}) then {
             __pSetVar [QGVAR(perk_points_available), _points - count _perks_unlocked];
         };
     };
