@@ -22,6 +22,7 @@ _wp2 setWaypointBehaviour "CARELESS";
 _wp2 setWaypointSpeed "NORMAL";
 _wp2 setwaypointtype "MOVE";
 
+[QGVAR(n_v), _chopper] call FUNC(NetCallEventToClients);
 _chopper flyinheight 100;
 
 _chopper spawn FUNC(AirMarkerMove);

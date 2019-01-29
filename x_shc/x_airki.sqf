@@ -65,6 +65,7 @@ while {true} do {
         
         _vehicle = _vec_array select 0;
         _vehicle setPos [_pos select 0, _pos select 1, 400];
+        [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
         _vehicles set [count _vehicles, _vehicle];
         
         _funits = [_funits, (_vec_array select 1)] call FUNC(arrayPushStack2);
