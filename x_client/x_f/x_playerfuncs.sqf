@@ -127,12 +127,19 @@ FUNC(RecapturedUpdate) = {
 };
 #endif
 FUNC(PlayerRank) = {
-    private ["_score","_d_player_old_score","_d_player_old_rank","_perks_unlocked","_points_available"];
+    private ["_score","_rating","_d_player_old_score","_d_player_old_rank","_perks_unlocked","_points_available"];
+    
     _score = score player;
+    _rating = rating player;
+    
     _d_player_old_score = __pGetVar(GVAR(player_old_score));
     if (isNil "_d_player_old_score") then {_d_player_old_score = 0};
     _d_player_old_rank = __pGetVar(GVAR(player_old_rank));
     if (isNil "_d_player_old_rank") then {_d_player_old_rank = 0};
+
+    if (_rating < 0) then {
+        player addRating abs(_rating);
+    };
     
     [false] call FUNC(calculatePerks);
     
