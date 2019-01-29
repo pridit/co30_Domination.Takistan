@@ -6,7 +6,7 @@ dll_tow_bbox = compile preprocessfile "dll_tow\bbox.sqf";
 _objs = nearestObjects [position (vehicle player), GVAR(dll_tow_classlist), 30];
 _vehicle = _objs select 0;
 
-if (isNil "_vehicle" || {!alive _vehicle) exitWith {
+if (isNil "_vehicle" || {!alive _vehicle}) exitWith {
     hint "This aircraft cannot be towed";
 };
 
