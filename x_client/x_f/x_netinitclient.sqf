@@ -6,7 +6,7 @@ FUNC(create_boxNet) = {
     private "_box";
     _box = objNull;
     _box = GVAR(the_box) createVehicleLocal (_this select 0);
-    _box setDir (getDir (_this select 1));
+    _box setDir (getDir (_this select 2));
     _box setPos (_this select 0);
     player reveal _box;
     _box allowDamage false;

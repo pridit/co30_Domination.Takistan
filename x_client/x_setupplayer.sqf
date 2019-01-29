@@ -552,12 +552,14 @@ FUNC(replenishPerks) = {
 player addEventHandler ["respawn", {[true] call FUNC(calculatePerks);_this call FUNC(prespawned)}];
 
 if (count __XJIPGetVar(GVAR(ammo_boxes)) > 0) then {
-    private ["_box_pos", "_boxnew", "_boxscript"];
+    private ["_box_pos", "_boxnew", "_boxscript", "_box_dir"];
     {
         if (typeName _x == "ARRAY") then {
             _box_pos = _x select 0;
+            _box_dir = _x select 2;
             if ((_x select 1) != "") then {[_x select 1, _box_pos,"ICON","ColorBlue",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_523"),0,GVAR(dropped_box_marker)] call FUNC(CreateMarkerLocal)};
             _boxnew = GVAR(the_box) createVehicleLocal _box_pos;
+            _boxnew setDir _box_dir;
             _boxnew setPos _box_pos;
             {
                 if (_x == 5) exitWith {

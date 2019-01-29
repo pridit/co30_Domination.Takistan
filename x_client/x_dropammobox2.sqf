@@ -1,7 +1,7 @@
 // by Xeno
 #define THIS_FILE "x_dropammobox2.sqf"
 #include "x_setup.sqf"
-private ["_unit", "_caller", "_chatfunc", "_height", "_speed", "_s", "_hasbox", "_boxpos"];
+private ["_unit", "_caller", "_chatfunc", "_height", "_speed", "_s", "_hasbox", "_boxpos", "_boxdir"];
 
 if (!X_Client) exitWith {};
 
@@ -49,7 +49,8 @@ _unit setVariable [QGVAR(ammobox_next), _time_next, true];
 
 _boxpos = _unit modelToWorld [4,0,0];
 _boxpos set [2, 0];
+_boxdir = getDir _unit;
 
-[QGVAR(m_box), [_boxpos,_unit]] call FUNC(NetCallEvent);
+[QGVAR(m_box), [_boxpos,_boxdir,_unit]] call FUNC(NetCallEvent);
 
 [_unit, _caller, (localize "STR_DOM_MISSIONSTRING_225")] call _chatfunc;

@@ -163,11 +163,11 @@ FUNC(RemABox) = {
 };
 
 FUNC(CreateDroppedBox) = {
-    private ["_the_box_pos","_boxes","_mname"];
-    PARAMS_1(_the_box_pos);
+    private ["_the_box_pos","_the_box_dir","_boxes","_mname"];
+    PARAMS_2(_the_box_pos, _the_box_dir);
     _mname = "bm_" + str(_the_box_pos);
     _boxes = __XJIPGetVar(GVAR(ammo_boxes));
-    _boxes set [count _boxes, [_the_box_pos,_mname]];
+    _boxes set [count _boxes, [_the_box_pos,_mname,_the_box_dir]];
     [QGVAR(ammo_boxes),_boxes] call FUNC(NetSetJIP);
     [_mname, _the_box_pos, "ICON", "ColorBlue",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_523"),0,GVAR(dropped_box_marker)] call FUNC(CreateMarkerGlobal);
 };
