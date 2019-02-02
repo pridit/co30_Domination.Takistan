@@ -1210,24 +1210,8 @@ FUNC(vehicleScripts) = {
     };
     if (GVAR(WithRepStations) == 0) then {execFSM "fsms\RepStation.fsm"};
     
-    if (_isAir && {count GVAR(only_pilots_can_fly) > 0} && {!(GVAR(string_player) in GVAR(only_pilots_can_fly))} && {player == driver _vec}) then {
-        if (isEngineOn _vec) then {
-            _vec engineOn false;
-            player action ["engineOff", _vec];
-        };
-        player action ["eject", _vec];
-        hintSilent localize "STR_DOM_MISSIONSTRING_1417";
-    };
     if (toUpper (typeOf _vec) in GVAR(check_ammo_load_vecs)) then {
-        #ifndef __TT__
         [GVAR(AMMOLOAD)] execFSM "fsms\AmmoLoad.fsm";
-        #else
-        if (GVAR(player_side) == west) then { // TODO: check if west uses ammoload and east ammoload2
-            [GVAR(AMMOLOAD)] execFSM "fsms\AmmoLoad.fsm";
-        } else {
-            [GVAR(AMMOLOAD2)] execFSM "fsms\AmmoLoad.fsm";
-        };
-        #endif
     };
 };
 
@@ -1257,8 +1241,7 @@ FUNC(startClientScripts) = {
                 player action ["engineOff", _vec];
             };
             player action ["Eject", _vec];
-            _type_name = [_type,0] call FUNC(GetDisplayName);
-            hint format ["%1", (localize "STR_DOM_MISSIONSTRING_1452")];
+            hint (localize "STR_DOM_MISSIONSTRING_1452");
         };
     };
 };

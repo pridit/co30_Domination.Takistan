@@ -55,12 +55,6 @@ switch (true) do {
 };
 #endif
 
-// if the array is empty, anybody can fly,
-// just add the string name (var name in the editor) of the playable units that can fly, for example:
-// for example: ["pilot_1","pilot_2"];, case sensitiv
-// this includes bonus aircrafts too
-GVAR(only_pilots_can_fly) = [];
-
 GVAR(current_mission_text) = "";
 GVAR(current_mission_resolved_text) = "";
 

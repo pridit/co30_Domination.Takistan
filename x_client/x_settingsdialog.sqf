@@ -126,16 +126,6 @@ __str "\n";
 
 __str (localize "STR_DOM_MISSIONSTRING_422") + str(GVAR(VecCreateWaitTime)) + "\n";
 
-if (count GVAR(only_pilots_can_fly) > 0) then {
-    __str (localize "STR_DOM_MISSIONSTRING_423");
-    _hstr = "";
-    {
-        if (_hstr != "") then {_hstr = _hstr + ", "};
-        _hstr = _hstr + _x;
-    } forEach GVAR(only_pilots_can_fly);
-    __str _hstr + "\n";
-};
-
 __str (localize "STR_DOM_MISSIONSTRING_424") + str(GVAR(MaxNumAmmoboxes)) + "\n";
 __str (localize "STR_DOM_MISSIONSTRING_425") + str(__XJIPGetVar(GVAR(num_ammo_boxes))) + "\n";
 
