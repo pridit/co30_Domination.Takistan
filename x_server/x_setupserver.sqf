@@ -39,18 +39,6 @@ if (GVAR(MissionType) in [0,2]) then {
     };
 };
 
-GVAR(air_bonus_vecs) = 0;
-GVAR(land_bonus_vecs) = 0;
-
-{
-    _vecclass = toUpper (getText(configFile >> "CfgVehicles" >> _x >> "vehicleClass"));
-    if (_vecclass == "AIR") then {
-        __INC(GVAR(air_bonus_vecs));
-    } else {
-        __INC(GVAR(land_bonus_vecs));
-    };
-} foreach GVAR(sm_bonus_vehicle_array);
-
 [GVAR(base_array) select 0, [GVAR(base_array) select 1, GVAR(base_array) select 2, GVAR(base_array) select 3, true], [GVAR(enemy_side), "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0} || {'Car' countType thislist > 0}", "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'BaseUnderAtack',true]", ""]] call FUNC(CreateTrigger);
 
 FUNC(DomEnd) = {

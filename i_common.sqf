@@ -157,39 +157,6 @@ if (GVAR(with_mgnest)) then {
     GVAR(mg_nest) = "WarfareBMGNest_M240_US_EP1";
 };
 
-GVAR(sm_bonus_vehicle_array) = [
-    "A10_US_EP1",
-    "AH64D_EP1",
-    "AH6J_EP1",
-    "M1A1_US_DES_EP1",
-    "M1A2_US_TUSK_MG_EP1",
-    "M6_EP1",
-    "UH60M_EP1",
-    "UH1Y",
-    "Mi24_D_TK_EP1",
-    "Su25_TK_EP1",
-    "L39_TK_EP1"
-];
-
-GVAR(mt_bonus_vehicle_array) = [
-    "M1126_ICV_M2_EP1",
-    "M1126_ICV_mk19_EP1",
-    "M1128_MGS_EP1",
-    "M1129_MC_EP1",
-    "M1135_ATGMV_EP1",
-    "M2A2_EP1",
-    "M2A3_EP1",
-    "HMMWV_M1151_M2_DES_EP1",
-    "HMMWV_M1151_M2_DES_EP1",
-    "HMMWV_M998_crows_M2_DES_EP1",
-    "HMMWV_M998_crows_MK19_DES_EP1",
-    "HMMWV_M998A2_SOV_DES_EP1",
-    "HMMWV_MK19_DES_EP1",
-    "HMMWV_TOW_DES_EP1",
-    "HMMWV_M1151_M2_CZ_DES_EP1",
-    "LandRover_Special_CZ_EP1"
-];
-
 // positions for aircraft factories (if one get's destroyed you're not able to service jets/service choppers/repair wrecks)
 // first jet service, second chopper service, third wreck repair
 
@@ -244,30 +211,17 @@ GVAR(x_drop_array) =
 // side of the pilot that will fly the drop air vehicle
 GVAR(drop_side) = GVAR(own_side);
 
-#ifndef __TT__
-for "_i" from 0 to (count GVAR(sm_bonus_vehicle_array) - 1) do {
-    GVAR(sm_bonus_vehicle_array) set [_i, toUpper(GVAR(sm_bonus_vehicle_array) select _i)];
-};
-for "_i" from 0 to (count GVAR(mt_bonus_vehicle_array) - 1) do {
-    GVAR(mt_bonus_vehicle_array) set [_i, toUpper(GVAR(mt_bonus_vehicle_array) select _i)];
-};
-#else
-for "_i" from 0 to (count (GVAR(sm_bonus_vehicle_array) select 0) - 1) do {
-    (GVAR(sm_bonus_vehicle_array) select 0) set [_i, toUpper((GVAR(sm_bonus_vehicle_array) select 0) select _i)];
-};
-for "_i" from 0 to (count (GVAR(sm_bonus_vehicle_array) select 1) - 1) do {
-    (GVAR(sm_bonus_vehicle_array) select 1) set [_i, toUpper((GVAR(sm_bonus_vehicle_array) select 1) select _i)];
-};
-for "_i" from 0 to (count (GVAR(mt_bonus_vehicle_array) select 0) - 1) do {
-    (GVAR(mt_bonus_vehicle_array) select 0) set [_i, toUpper((GVAR(mt_bonus_vehicle_array) select 0) select _i)];
-};
-for "_i" from 0 to (count (GVAR(mt_bonus_vehicle_array) select 1) - 1) do {
-    (GVAR(mt_bonus_vehicle_array) select 1) set [_i, toUpper((GVAR(mt_bonus_vehicle_array) select 1) select _i)];
-};
-#endif
+GVAR(attack_aircraft) = [
+    "A10_US_EP1",
+    "AH64D_EP1",
+    "AW159_Lynx_BAF",
+    "Mi24_D_TK_EP1",
+    "Su25_TK_EP1",
+    "L39_TK_EP1"
+];
 
 // these vehicles can be lifted by the wreck lift chopper (previous chopper 4), but only, if they are completely destroyed
-GVAR(heli_wreck_lift_types) = GVAR(sm_bonus_vehicle_array) + GVAR(mt_bonus_vehicle_array) + ["Su25_TK_EP1","L39_TK_EP1","Mi24_D_TK_EP1","UH1H_TK_EP1"];
+GVAR(heli_wreck_lift_types) = GVAR(attack_aircraft);
 {GVAR(heli_wreck_lift_types) set [_forEachIndex, toUpper _x]} forEach GVAR(heli_wreck_lift_types);
 
 GVAR(lift_types_custom) = [

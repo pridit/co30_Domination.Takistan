@@ -130,10 +130,11 @@ GVAR(choppers) = [
     ["TRANSPORT3",2,"transport3",307,"n_air","ColorWhite","C130J",""],
     ["LIGHT1",2,"light1",308,"n_air","ColorWhite","LB1",""],
     ["LIGHT2",2,"light2",309,"n_air","ColorWhite","LB2",""],
-    ["WRECK1",1,"wreck1",310,"n_air","ColorWhite","WRK1",(localize "STR_DOM_MISSIONSTRING_10")],
-    ["WRECK2",1,"wreck2",311,"n_air","ColorWhite","WRK2",(localize "STR_DOM_MISSIONSTRING_10")],
+    ["UH60",2,"light3",310,"n_air","ColorWhite","UH60",""],
+    ["WRECK1",1,"wreck1",311,"n_air","ColorWhite","WRK1",(localize "STR_DOM_MISSIONSTRING_10")],
+    ["WRECK2",1,"wreck2",312,"n_air","ColorWhite","WRK2",(localize "STR_DOM_MISSIONSTRING_10")],
     ["A10",2,"attack1",350,"n_air","ColorWhite","A10",""],
-    ["UH1Y",2,"attack2",351,"n_air","ColorWhite","UH1Y",""],
+    ["AH11",2,"attack2",351,"n_air","ColorWhite","AH11",""],
     ["AH64",2,"attack3",352,"n_air","ColorWhite","AH64",""]
 ];
 

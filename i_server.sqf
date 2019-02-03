@@ -494,91 +494,17 @@ switch (GVAR(WithLessArmor)) do {
     };
 };
 
-#ifdef __CO__
-GVAR(arti_observer_E) = "RU_Soldier_Spotter";
-GVAR(arti_observer_W) = "USMC_Soldier_Officer";
-GVAR(arti_observer_G) = "GUE_Commander";
-#endif
-#ifdef __OA__
 GVAR(arti_observer_E) = "TK_Soldier_Spotter_EP1";
 GVAR(arti_observer_W) = "US_Soldier_Spotter_EP1";
 GVAR(arti_observer_G) = "TK_GUE_Soldier_AR_EP1";
-#endif
 
-// type of enemy plane that will fly over the main target
-GVAR(airki_attack_plane) = switch (true) do {
-    case (__OAVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Su25_TK_EP1","L39_TK_EP1"]};
-            case "WEST": {["A10_US_EP1"]};
-            default {[]};
-        };
-    };
-    case (__COVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Su34","Su39"]};
-            case "WEST": {["A10","AV8B2","AV8B","F35B"]};
-            default {[]};
-        };
-    };
-};
 GVAR(number_attack_planes) = 1;
-
-// type of enemy chopper that will fly over the main target
-GVAR(airki_attack_chopper) = switch (true) do {
-    case (__OAVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Mi24_D_TK_EP1"]};
-            case "WEST": {["AH64D_EP1"]};
-            default {[]};
-        };
-    };
-    case (__COVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Ka52","Ka52Black","Mi24_P","Mi24_V"]};
-            case "WEST": {["AH1Z","AH64D"]};
-            default {[]};
-        };
-    };
-};
-
 GVAR(number_attack_choppers) = 1;
 
-// enemy parachute troops transport chopper
-GVAR(transport_chopper) = switch (true) do {
-    case (__OAVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Mi17_TK_EP1"]};
-            case "WEST": {["CH_47F_EP1","UH60M_EP1"]};
-            case "GUER": {["UH1H_TK_GUE_EP1"]};
-        };
-    };
-    case (__COVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Mi17_rockets_RU"]};
-            case "WEST": {["MH60S"]};
-            case "GUER": {["Mi17_Civilian"]};
-        };
-    };
-};
-
-// light attack chopper (for example Mi17 with MG)
-GVAR(light_attack_chopper) = switch (true) do {
-    case (__OAVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["UH1H_TK_EP1"]};
-            case "WEST": {["AH6J_EP1"]};
-            default {[]};
-        };
-    };
-    case (__COVer): {
-        switch (GVAR(enemy_side)) do {
-            case "EAST": {["Mi17_Ins"]};
-            case "WEST": {["UH1Y"]};
-            default {[]};
-        };
-    };
-};
+GVAR(airki_attack_plane) = ["Su25_TK_EP1","L39_TK_EP1"];
+GVAR(airki_attack_chopper) = ["Mi24_D_TK_EP1"];
+GVAR(light_attack_chopper) = ["UH1H_TK_EP1"];
+GVAR(transport_chopper) = ["Mi17_TK_EP1"];
 
 // enemy ai skill: [base skill, random value (random 0.3) that gets added to the base skill]
 GVAR(skill_array) = switch (GVAR(EnemySkill)) do {
@@ -587,52 +513,12 @@ GVAR(skill_array) = switch (GVAR(EnemySkill)) do {
     case 3: {[0.7,0.3]};
 };
 
-// Type of aircraft, that will air drop stuff
-GVAR(drop_aircraft) =
-#ifdef __OWN_SIDE_GUER__
-    switch (true) do {
-        case (__OAVer): {"UH1H_TK_GUE_EP1"};
-        case (__COVer): {"MH60S"};
-    };
-#endif
-#ifdef __OWN_SIDE_WEST__
-    switch (true) do {
-        case (__OAVer): {"C130J_US_EP1"};
-        case (__COVer): {"MH60S"};
-    };
-#endif
-#ifdef __OWN_SIDE_EAST__
-    switch (true) do {
-        case (__OAVer): {"An2_TK_EP1"};
-        case (__COVer): {"Mi17_rockets_RU"};
-    };
-#endif
+GVAR(drop_aircraft) = "C130J_US_EP1";
+GVAR(taxi_aircraft) = "UH60M_EP1";
 
-GVAR(taxi_aircraft) =
-#ifdef __OWN_SIDE_GUER__
-    switch (true) do {
-        case (__OAVer): {"UH1H_TK_GUE_EP1"};
-        case (__COVer): {"MH60S"};
-    };
-#endif
-#ifdef __OWN_SIDE_WEST__
-    switch (true) do {
-        case (__OAVer): {"UH60M_EP1"};
-        case (__COVer): {"MH60S"};
-    };
-#endif
-#ifdef __OWN_SIDE_EAST__
-    switch (true) do {
-        case (__OAVer): {"Mi17_TK_EP1"};
-        case (__COVer): {"Mi17_rockets_RU"};
-    };
-#endif
-
-// max men for main target clear
+// max count for target clear
 GVAR(man_count_for_target_clear) = 6;
-// max tanks for main target clear
 GVAR(tank_count_for_target_clear) = 1;
-// max cars for main target clear
 GVAR(car_count_for_target_clear) = 1;
 
 // add some random patrols on the island

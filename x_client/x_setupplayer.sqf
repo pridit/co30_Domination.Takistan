@@ -1235,13 +1235,16 @@ FUNC(startClientScripts) = {
     _vec = vehicle player;
     if (_vec != player && {_vec isKindOf "Air"}) then {
         _type = typeOf _vec;
-        if ((toUpper(_type) in GVAR(mt_bonus_vehicle_array) || {toUpper(_type) in GVAR(sm_bonus_vehicle_array)}) && {(player == driver _vec || {player == gunner _vec} || {player == commander _vec})}) then {
-            if (isEngineOn _vec) then {
-                _vec engineOn false;
-                player action ["engineOff", _vec];
+        if (toUpper(_type) in GVAR(attack_aircraft)) then {
+            if (player == driver _vec || {player == gunner _vec} || {player == commander _vec}) then {
+                if (isEngineOn _vec) then {
+                    _vec engineOn false;
+                    player action ["engineOff", _vec];
+                };
+                diag_log "Player prevented from entering attack aircraft";
+                player action ["Eject", _vec];
+                hint (localize "STR_DOM_MISSIONSTRING_1452");
             };
-            player action ["Eject", _vec];
-            hint (localize "STR_DOM_MISSIONSTRING_1452");
         };
     };
 };

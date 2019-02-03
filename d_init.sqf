@@ -355,12 +355,13 @@ if (isServer) then {
         [transport3,307,false,1200],
         [light1,308,false,600],
         [light2,309,false,600],
-        [wrk1,310,false,600],
-        [wrk2,311,false,600],
-        [atv1,312,false,180],
-        [atv2,313,false,180],
-        [atv3,314,false,180],
-        [atv4,315,false,180]
+        [light3,310,false,1200],
+        [wrk1,311,false,600],
+        [wrk2,312,false,600],
+        [atv1,313,false,180],
+        [atv2,314,false,180],
+        [atv3,315,false,180],
+        [atv4,316,false,180]
     ] execVM "x_server\x_helirespawn2.sqf";
 
     // editor varname, unique number
@@ -384,7 +385,7 @@ if (isServer) then {
 
     [
         [350, 'A10_US_EP1'],
-        [351, 'UH1Y'],
+        [351, 'AW159_Lynx_BAF'],
         [352, 'AH64D_EP1']
     ] execVM "x_server\x_getbonus.sqf";
 

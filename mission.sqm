@@ -1282,7 +1282,7 @@ class Mission
     };
     class Vehicles
     {
-        items=288;
+        items=289;
         class Item0
         {
             position[]={8330.8545,296.04001,2045.4362};
@@ -4144,6 +4144,16 @@ class Mission
             skill=0.33333331;
             init="this addEventHandler [""HandleDamage"", {false}];";
         };
+        class Item288
+        {
+            position[]={8263.2002,296.03888,1800.6428};
+            azimut=-28.504801;
+            id=358;
+            side="EMPTY";
+            vehicle="UH60M_EP1";
+            skill=0.60000002;
+            text="light3";
+        };
     };
     class Markers
     {
@@ -4306,7 +4316,7 @@ class Mission
         };
         class Item21
         {
-            position[]={8221.5742,296.0372,1779.5};
+            position[]={8224.0322,296.0307,1774.4596};
             name="d_bonus_air_positions_2";
             type="Empty";
             angle=-27.133801;
