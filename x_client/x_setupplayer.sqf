@@ -1241,7 +1241,6 @@ FUNC(startClientScripts) = {
                     _vec engineOn false;
                     player action ["engineOff", _vec];
                 };
-                diag_log "Player prevented from entering attack aircraft";
                 player action ["Eject", _vec];
                 hint (localize "STR_DOM_MISSIONSTRING_1452");
             };
