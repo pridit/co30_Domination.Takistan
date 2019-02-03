@@ -21,20 +21,6 @@ _line = 0;
 GVAR(animL_i) = 0;
 titleText ["", "BLACK IN",4];
 
-_arrow_over_head = "Sign_arrow_down_large_EP1" createVehicleLocal [getPosASL player select 0, getPosASL player select 1, 2.2];
-_arrow_over_head setPos [getPosASL player select 0, getPosASL player select 1, 2.2];
-_arrow_over_head spawn {
-    private ["_dir", "_arr"];
-    _dir = 0;
-    _arr = _this;
-    while {!isNull _arr} do {
-        _arr setDir _dir;
-        __INC(_dir);
-        if (_dir == 360) then {_dir = 0};
-        sleep 0.005;
-    };
-};
-
 "dynamicBlur" ppEffectEnable true;
 "dynamicBlur" ppEffectAdjust [6];
 "dynamicBlur" ppEffectCommit 0;
@@ -122,7 +108,6 @@ switch (GVAR(MissionType)) do {
 55 cutRsc ["dXlabel","PLAIN"];
 sleep 14.5;
 // waitUntil {camCommitted _camera};
-deleteVehicle _arrow_over_head;
 player cameraEffect ["terminate","back"];
 // camDestroy _camera;
 closeDialog 0;
