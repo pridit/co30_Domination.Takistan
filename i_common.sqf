@@ -221,7 +221,7 @@ GVAR(attack_aircraft) = [
 ];
 
 // these vehicles can be lifted by the wreck lift chopper (previous chopper 4), but only, if they are completely destroyed
-GVAR(heli_wreck_lift_types) = GVAR(attack_aircraft);
+GVAR(heli_wreck_lift_types) = GVAR(attack_aircraft) + ["UH1H_TK_EP1"];
 {GVAR(heli_wreck_lift_types) set [_forEachIndex, toUpper _x]} forEach GVAR(heli_wreck_lift_types);
 
 GVAR(lift_types_custom) = [
