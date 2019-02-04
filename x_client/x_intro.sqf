@@ -27,8 +27,6 @@ titleText ["", "BLACK IN",4];
 "dynamicBlur" ppEffectAdjust [0.0];
 "dynamicBlur" ppEffectCommit 15;
 
-playMusic "MyIntro";
-
 if (daytime > 19.75 || daytime < 4.15) then {camUseNVG true};
 
 GVAR(intro_color) = switch (GVAR(own_side)) do {case "WEST": {[0.85,0.88,1,1]};case "EAST": {[1,0.36,0.34,1]};case "GUER": {[1,1,0,1]};};

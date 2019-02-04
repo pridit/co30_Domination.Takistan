@@ -1010,19 +1010,3 @@ class CfgIdentities {
     };
 #endif
 };
-
-class CfgMusic
-{
-    tracks[] = {};
-    class MyIntro
-    {
-        // display name
-        name	= "My intro music";
-
-        // filename, volume, pitch
-        sound[]	= { "\sounds\intro.ogg", db + 0, 1.0 };
-    };
-};
-
-
-//__EXEC(diag_log [diag_frameno, diag_ticktime, time, "Dom description.ext processed"]);
