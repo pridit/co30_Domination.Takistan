@@ -13,6 +13,14 @@ class FSM
       precondition = "";
       class Links
       {
+        class MT_Completed
+        {
+          priority = 1.000000;
+          to="End";
+          precondition = "";
+          condition="(X_JIPH getVariable ""d_current_target_index"") != _target";
+          action="";
+        };
         class Delay
         {
           priority = 0.000000;
@@ -26,10 +34,18 @@ class FSM
     class Sleep
     {
       name = "Sleep";
-      init = "_timenow = time + (30 + random 5);";
+      init = "_timenow = time + 600;";
       precondition = "";
       class Links
       {
+        class MT_Completed
+        {
+          priority = 1.000000;
+          to="End";
+          precondition = "";
+          condition="(X_JIPH getVariable ""d_current_target_index"") != _target";
+          action="";
+        };
         class Delay_Random
         {
           priority = 0.000000;
@@ -50,18 +66,10 @@ class FSM
        "    diag_log ""Main Target: Camp integrity compromised.. forcing cycle"";" \n
        "    0 = [] execVM 'x_server\x_target_clear.sqf';" \n
        "};" \n
-       "_timenow = time + 600;";
+       "_timenow = time + 30;";
       precondition = "";
       class Links
       {
-        class MT_Completed
-        {
-          priority = 1.000000;
-          to="End";
-          precondition = "";
-          condition="(X_JIPH getVariable ""d_current_target_index"") != _target";
-          action="";
-        };
         class Delay_Random2
         {
           priority = 0.000000;
