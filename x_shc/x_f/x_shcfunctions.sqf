@@ -679,15 +679,7 @@ FUNC(CheckMTHardTarget) = {
         };
         [QGVAR(mt_radio_down),true] call FUNC(NetSetJIP);
         deleteMarker QGVAR(main_target_radiotower);
-        #ifndef __TT__
         [QGVAR(kbmsg), [37]] call FUNC(NetCallEventCTS);
-        #else
-        [QGVAR(kbmsg), [38]] call FUNC(NetCallEventCTS);
-        _killedby = switch (_this select 1) do {case west: {"US"};case east: {"EAST"};default {"N"};};
-        if (_killedby != "N") then {
-            [QGVAR(kbmsg), [39, _killedby]] call FUNC(NetCallEventCTS);
-        };
-        #endif
     }];
     _hdeh = _vehicle addEventHandler ["handleDamage", {_this call FUNC(CheckMTShotHD)}];
 };
@@ -695,12 +687,7 @@ FUNC(CheckMTHardTarget) = {
 FUNC(GetSMTargetMessage) = {
     switch (_this) do {
         case "gov_dead": {(localize "STR_DOM_MISSIONSTRING_949")};
-        #ifdef __CO__
-        case "radar_down": {(localize "STR_DOM_MISSIONSTRING_950")};
-        #endif
-        #ifdef __OA__
         case "radar_down": {(localize "STR_DOM_MISSIONSTRING_951")};
-        #endif
         case "ammo_down": {(localize "STR_DOM_MISSIONSTRING_952")};
         case "apc_down": {(localize "STR_DOM_MISSIONSTRING_953")};
         case "hq_down": {(localize "STR_DOM_MISSIONSTRING_954")};
@@ -725,6 +712,9 @@ FUNC(MTSMTargetKilled) = {
     _s = (if (side (_this select 1) == GVAR(side_player)) then {_type} else {"sec_over"}) call FUNC(GetSMTargetMessage);
     [QGVAR(kbmsg), [42, _s]] call FUNC(NetCallEventCTS);
     ["sec_kind",0] call FUNC(NetSetJIP);
+    if (getMarkerColor QGVAR(main_target_secondary) == "ColorBlack") then {
+        deleteMarker QGVAR(main_target_secondary);
+    };
 };
 
 #ifndef __TT__

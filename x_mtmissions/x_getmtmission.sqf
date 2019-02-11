@@ -130,6 +130,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
+        [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Fortress",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 3: {
         __getPos;
@@ -205,6 +206,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
+        [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Headquarters",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 6: {
         __getPos;
@@ -229,6 +231,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
+        [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Light Factory",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 7: {
         __getPos;
@@ -254,6 +257,7 @@ switch (_sec_kind) do {
         sleep 1.0112;
         __GetEGrp(_newgroup)
         __specops;
+        [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Heavy Factory",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 8: {
         __getPos;
@@ -273,6 +277,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
+        [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Artillery Radar",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 9: {
         __getPos;
@@ -292,6 +297,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
         sleep 1.0112;
         __specops;
+        [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"AA Radar",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 10: {
         __GetEGrp(_newgroup)
