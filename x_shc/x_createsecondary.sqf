@@ -44,6 +44,7 @@ _vehicle = createVehicle [GVAR(illum_tower), _poss, [], 0, "NONE"];
 _vehicle setPos _poss;
 _vehicle setVectorUp [0,0,1];
 [_vehicle] call FUNC(CheckMTHardTarget);
+[_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
 [QGVAR(mt_radio_down),false] call FUNC(NetSetJIP);
 ["mt_radio_pos",_poss] call FUNC(NetSetJIP);
 [QGVAR(main_target_radiotower), _poss,"ICON","ColorBlack",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_521"),0,"mil_dot"] call FUNC(CreateMarkerGlobal);
@@ -62,13 +63,7 @@ _current_target_pos = _dummy select 0;
 _current_target_radius = _dummy select 2;
 _act2 = GVAR(enemy_side) + " D";
 GVAR(mt_spotted) = false;
-#ifndef __TT__
 GVAR(f_check_trigger) = [_current_target_pos, [_current_target_radius + 300, _current_target_radius + 300, 0, false], [GVAR(own_side_trigger), _act2, false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\Parahandler.fsm'};d_mt_spotted = true;['d_kbmsg', [12]] call d_fnc_NetCallEventCTS;sleep 5;deleteVehicle d_f_check_trigger}", ""]] call FUNC(CreateTrigger);
-#else
-GVAR(f_check_trigger2) = objNull;
-GVAR(f_check_trigger) = [_current_target_pos, [_current_target_radius + 300, _current_target_radius + 300, 0, false], ["WEST", _act2, false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\Parahandler.fsm'};d_mt_spotted = true;['d_kbmsg', [13]] call d_fnc_NetCallEventCTS;sleep 5;deleteVehicle d_f_check_trigger;if (!isNull d_f_check_trigger2) then {deleteVehicle d_f_check_trigger2}}", ""]] call FUNC(CreateTrigger);
-GVAR(f_check_trigger2) = [_current_target_pos, [_current_target_radius + 300, _current_target_radius + 300, 0, false], ["EAST", _act2, false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\Parahandler.fsm'};d_mt_spotted = true;['d_kbmsg', [14]] call d_fnc_NetCallEventCTS;sleep 5;deleteVehicle d_f_check_trigger2;if (!isNull d_f_check_trigger) then {deleteVehicle d_f_check_trigger}}", ""]] call FUNC(CreateTrigger);
-#endif
 
 sleep 5.234;
 _d_currentcamps = [];
@@ -123,24 +118,19 @@ for "_i" from 1 to _nrcamps do {
     [_maname, _poss,"ICON","ColorBlack",[0.5,0.5],"",0,"Strongpoint"] call FUNC(CreateMarkerGlobal);
     
     _wf addEventHandler ["HandleDamage", {0}];
-    #ifndef __TT__
     [_wf, _flagPole] execFSM "fsms\HandleCamps2.fsm";
-    #else
-    [_wf, _flagPole] execFSM "fsms\HandleCampsTT2.fsm";
-    #endif
     sleep 0.5;
 };
 [QGVAR(currentcamps),_d_currentcamps] call FUNC(NetSetJIP);
 __XJIPSetVar [QGVAR(campscaptured), 0, true];
 //__XJIPSetVar [QGVAR(numcamps), _nrcamps];
-#ifndef __TT__
 [QGVAR(kbmsg), [15, _nrcamps]] call FUNC(NetCallEventCTS);
-#else
-[QGVAR(kbmsg), [16, _nrcamps]] call FUNC(NetCallEventCTS);
-#endif
 
 sleep 5.213;
 GVAR(main_target_ready) = true;
 if (!isServer) then {
     [QGVAR(sSetVar), [QGVAR(main_target_ready), true]] call FUNC(NetCallEventCTS);
 };
+
+sleep 5;
+[__XJIPGetVar(GVAR(current_target_index)), _current_target_pos] execFSM "fsms\CampIntegrity.fsm";

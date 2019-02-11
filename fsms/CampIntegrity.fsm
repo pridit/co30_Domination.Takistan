@@ -1,0 +1,90 @@
+class FSM
+{
+  fsmName = "CampIntegrity";
+  class States
+  {
+    class Start
+    {
+      name = "Start";
+      init = "private [""_target"", ""_pos""];" \n
+       "_target = _this select 0;" \n
+       "_pos = _this select 1;" \n
+       "_timenow = time + 60;";
+      precondition = "";
+      class Links
+      {
+        class Delay
+        {
+          priority = 0.000000;
+          to="Check_Camps";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+    class Sleep
+    {
+      name = "Sleep";
+      init = "_timenow = time + (30 + random 5);";
+      precondition = "";
+      class Links
+      {
+        class Delay_Random
+        {
+          priority = 0.000000;
+          to="Check_Camps";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+    class Check_Camps
+    {
+      name = "Check_Camps";
+      init = "_camps = nearestObjects [_pos, [""Land_fortified_nest_big_EP1""], 300];" \n
+       "diag_log format [""Debug: Main target camps: %1/%2"", count _camps, d_sum_camps];" \n
+       "if (count _camps < d_sum_camps) then {" \n
+       "    d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, ""MTBadIntegrity"", true];" \n
+       "    diag_log ""Main Target: Camp integrity compromised.. forcing cycle"";" \n
+       "    0 = [] execVM 'x_server\x_target_clear.sqf';" \n
+       "};" \n
+       "_timenow = time + 600;";
+      precondition = "";
+      class Links
+      {
+        class MT_Completed
+        {
+          priority = 1.000000;
+          to="End";
+          precondition = "";
+          condition="(X_JIPH getVariable ""d_current_target_index"") != _target";
+          action="";
+        };
+        class Delay_Random2
+        {
+          priority = 0.000000;
+          to="Sleep";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+    class End
+    {
+      name = "End";
+      init = "";
+      precondition = "";
+      class Links
+      {
+      };
+    };
+  };
+  initState="Start";
+  finalStates[] =
+  {
+    "End",
+  };
+};

@@ -323,3 +323,16 @@ FUNC(checkSHC) = {
     if (isServer) exitWith {true};
     false
 };
+
+FUNC(fixor) = {
+    private ["_unit","_curidx"];
+    PARAMS_2(_unit,_curidx);
+    waitUntil {_curidx != __XJIPGetVar(GVAR(current_target_index))};
+    if (alive _unit) then {
+        deleteVehicle _unit;
+        GVAR(side_main_done) = true;
+        if (!isServer) then {
+            [QGVAR(sSetVar), [QGVAR(side_main_done), true]] call FUNC(NetCallEventCTS);
+        };
+    };
+};

@@ -105,6 +105,14 @@ if (GVAR(delete_mt_vehicles_after_time) != 0) then {
 
 GVAR(run_illum) = false;
 
+if (getMarkerColor QGVAR(main_target_radiotower) == "ColorBlack") then {
+    deleteMarker QGVAR(main_target_radiotower);
+};
+
+if (getMarkerColor QGVAR(main_target_secondary) == "ColorBlack") then {
+    deleteMarker QGVAR(main_target_secondary);
+};
+
 if (GVAR(current_counter) < GVAR(MainTargets)) then {
     if (GVAR(MHQDisableNearMT) != 0) then {
         {

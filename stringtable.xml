@@ -4361,6 +4361,9 @@
       <Key ID="STR_DOM_MISSIONSTRING_1455">
         <Original>%1 wreck is being transported by airlift.</Original>
       </Key>
+      <Key ID="STR_DOM_MISSIONSTRING_1456">
+        <Original>Be advised, bad intel reported at Main Target - await new orders</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

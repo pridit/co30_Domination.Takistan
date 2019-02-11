@@ -30,46 +30,6 @@ if (GVAR(doRespawnGroups)) then { \
 private ["_man","_newgroup","_poss","_unit_array","_vehicle","_wp_array","_truck","_the_officer","_sec_kind","_fixor"];
 if !(call FUNC(checkSHC)) exitWith {};
 
-_fixor = {
-    scriptName "spawn_x_getmtmission_fixor";
-    private ["_unit", "_list","_curidx"];
-    PARAMS_2(_unit,_curidx);
-    while {true} do {
-        if (!alive _unit || {isNull _unit}) exitWith {};
-        sleep 0.01;
-        _list = list GVAR(current_trigger);
-        if (!isNil QGVAR(sum_camps)) then {
-            if ((X_JIPH getVariable QGVAR(campscaptured)) == GVAR(sum_camps) && {("Car" countType _list <= GVAR(car_count_for_target_clear))} && {("Tank" countType _list <= GVAR(tank_count_for_target_clear))} && {("CAManBase" countType _list <= GVAR(man_count_for_target_clear))}) exitWith {};
-        };
-        
-        sleep 3.219;
-    };
-    if (alive _unit) then {
-        sleep 240 + random 60;
-        if (alive _unit && _curidx == __XJIPGetVar(GVAR(current_target_index))) then {
-            _unit setDamage 1;
-            GVAR(side_main_done) = true;
-            if (!isServer) then {
-                [QGVAR(sSetVar), [QGVAR(side_main_done), true]] call FUNC(NetCallEventCTS);
-            };
-        } else {
-            if (isNull _unit && {!GVAR(side_main_done)} && {_curidx == __XJIPGetVar(GVAR(current_target_index))}) then {
-                GVAR(side_main_done) = true;
-                if (!isServer) then {
-                    [QGVAR(sSetVar), [QGVAR(side_main_done), true]] call FUNC(NetCallEventCTS);
-                };
-            };
-        };
-    } else {
-        if (isNull _unit && {!GVAR(side_main_done)} && {_curidx == __XJIPGetVar(GVAR(current_target_index))}) then {
-            GVAR(side_main_done) = true;
-            if (!isServer) then {
-                [QGVAR(sSetVar), [QGVAR(side_main_done), true]] call FUNC(NetCallEventCTS);
-            };
-        };
-    };
-};
-
 _wp_array = _this;
 
 sleep 3.120;
@@ -105,7 +65,7 @@ switch (_sec_kind) do {
         _vehicle setRank "COLONEL";
         _vehicle setSkill 0.3;
         _vehicle disableAI "MOVE";
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         __addDead(_vehicle)
         sleep 0.1;
         __vkilled(gov_dead);
@@ -127,7 +87,7 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(radar_down);
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Fortress",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
@@ -156,7 +116,7 @@ switch (_sec_kind) do {
             _this call FUNC(MTSMTargetKilled);
             _this call FUNC(handleDeadVec);
         }];
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
     };
@@ -183,7 +143,7 @@ switch (_sec_kind) do {
             _this call FUNC(MTSMTargetKilled);
             _this call FUNC(handleDeadVec);
         }];
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
     };
@@ -203,7 +163,7 @@ switch (_sec_kind) do {
         _vehicle lock true;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(hq_down);
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Headquarters",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
@@ -228,7 +188,7 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(light_down);
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Light Factory",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
@@ -253,7 +213,7 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(heavy_down);
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __GetEGrp(_newgroup)
         __specops;
@@ -274,7 +234,7 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(artrad_down);
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Artillery Radar",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
@@ -294,7 +254,7 @@ switch (_sec_kind) do {
         _vehicle setPos _poss;
         [_vehicle] execFSM "fsms\XRemoveVehiExtra.fsm";
         __vkilled(airrad_down);
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"AA Radar",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
@@ -319,7 +279,7 @@ switch (_sec_kind) do {
         _vehicle setRank "COLONEL";
         _vehicle setSkill 0.3;
         _vehicle disableAI "MOVE";
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         for "_i" from 1 to 4 do {_vehicle addMagazine "15Rnd_9x19_M9"};
         _vehicle addWeapon "M9";
         __addDead(_vehicle)
@@ -347,7 +307,7 @@ switch (_sec_kind) do {
         _vehicle setVariable ["BIS_noCoreConversations", true];
         _vehicle setRank "COLONEL";
         _vehicle setSkill 0.3;
-        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn _fixor;
+        [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         _vehicle disableAI "MOVE";
         for "_i" from 1 to 4 do {_vehicle addMagazine "15Rnd_9x19_M9"};
         _vehicle addWeapon "M9";
