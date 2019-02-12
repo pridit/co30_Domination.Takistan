@@ -90,6 +90,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
+        [QGVAR(mtsm_type),"Fortress"] call FUNC(NetSetJIP);
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Fortress",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 3: {
@@ -166,6 +167,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
+        [QGVAR(mtsm_type),"Headquarters"] call FUNC(NetSetJIP);
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Headquarters",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 6: {
@@ -191,6 +193,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
+        [QGVAR(mtsm_type),"Light Factory"] call FUNC(NetSetJIP);
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Light Factory",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 7: {
@@ -217,6 +220,7 @@ switch (_sec_kind) do {
         sleep 1.0112;
         __GetEGrp(_newgroup)
         __specops;
+        [QGVAR(mtsm_type),"Heavy Factory"] call FUNC(NetSetJIP);
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Heavy Factory",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 8: {
@@ -237,6 +241,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
+        [QGVAR(mtsm_type),"Artillery Radar"] call FUNC(NetSetJIP);
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"Artillery Radar",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 9: {
@@ -257,6 +262,7 @@ switch (_sec_kind) do {
         [_vehicle, __XJIPGetVar(GVAR(current_target_index))] spawn FUNC(fixor);
         sleep 1.0112;
         __specops;
+        [QGVAR(mtsm_type),"AA Radar"] call FUNC(NetSetJIP);
         [QGVAR(main_target_secondary), _poss,"ICON","ColorBlack",[0.5,0.5],"AA Radar",0,"mil_dot"] call FUNC(CreateMarkerGlobal);
     };
     case 10: {
@@ -319,7 +325,10 @@ switch (_sec_kind) do {
     };
 };
 
+[QGVAR(mtsm_done),false] call FUNC(NetSetJIP);
+[QGVAR(mtsm_pos),_poss] call FUNC(NetSetJIP);
 ["sec_kind",_sec_kind] call FUNC(NetSetJIP);
+
 _s = "";
 if (__XJIPGetVar(GVAR(current_target_index)) != -1) then {
     _s = (switch (_sec_kind) do {

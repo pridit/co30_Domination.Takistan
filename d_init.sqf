@@ -263,6 +263,9 @@ if (X_SPE) then {GVAR(date_str) = date};
 if (isServer) then {
     [QGVAR(mt_radio_down),true] call FUNC(NetSetJIP);
     [QUOTE(mt_radio_pos),[0,0,0]] call FUNC(NetSetJIP);
+    [QGVAR(mtsm_done),true] call FUNC(NetSetJIP);
+    [QGVAR(mtsm_pos),[0,0,0]] call FUNC(NetSetJIP);
+    [QGVAR(mtsm_type),""] call FUNC(NetSetJIP);
     [QUOTE(target_clear),false] call FUNC(NetSetJIP);
     [QUOTE(all_sm_res),false] call FUNC(NetSetJIP);
     [QGVAR(the_end),false] call FUNC(NetSetJIP);

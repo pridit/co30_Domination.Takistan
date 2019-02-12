@@ -352,6 +352,10 @@ if (GVAR(MissionType) != 2 && {!__XJIPGetVar(GVAR(mt_radio_down))} && {__XJIPGet
     [QGVAR(main_target_radiotower), __XJIPGetVar(mt_radio_pos),"ICON","ColorBlack",[0.5,0.5],(localize "STR_DOM_MISSIONSTRING_521"),0,"mil_dot"] call FUNC(CreateMarkerLocal);
 };
 
+if (!__XJIPGetVar(GVAR(mtsm_done)) && {__XJIPGetVar(GVAR(mtsm_pos)) select 0 != 0} && {__XJIPGetVar(GVAR(mtsm_type)) != ""}) then {
+    [QGVAR(main_target_secondary), __XJIPGetVar(GVAR(mtsm_pos)),"ICON","ColorBlack",[0.5,0.5],__XJIPGetVar(GVAR(mtsm_type)),0,"mil_dot"] call FUNC(CreateMarkerLocal);
+};
+
 if (GVAR(MissionType) != 2 && {count __XJIPGetVar(GVAR(currentcamps)) > 0}) then {
     {
         if (!isNull _x) then {

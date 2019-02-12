@@ -106,10 +106,18 @@ if (GVAR(delete_mt_vehicles_after_time) != 0) then {
 GVAR(run_illum) = false;
 
 if (getMarkerColor QGVAR(main_target_radiotower) == "ColorBlack") then {
+    GVAR(mt_spotted) = false;
+    if (GVAR(IS_HC_CLIENT)) then {
+        [QGVAR(sSetVar), [QGVAR(mt_spotted), false]] call FUNC(NetCallEventCTS);
+    };
+    [QGVAR(mt_radio_down),true] call FUNC(NetSetJIP);
     deleteMarker QGVAR(main_target_radiotower);
 };
 
 if (getMarkerColor QGVAR(main_target_secondary) == "ColorBlack") then {
+    [QGVAR(mtsm_done),true] call FUNC(NetSetJIP);
+    [QGVAR(mtsm_pos),[0,0,0]] call FUNC(NetSetJIP);
+    [QGVAR(mtsm_type),""] call FUNC(NetSetJIP);
     deleteMarker QGVAR(main_target_secondary);
 };
 

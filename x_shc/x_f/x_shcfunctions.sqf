@@ -711,6 +711,9 @@ FUNC(MTSMTargetKilled) = {
     private "_s";
     _s = (if (side (_this select 1) == GVAR(side_player)) then {_type} else {"sec_over"}) call FUNC(GetSMTargetMessage);
     [QGVAR(kbmsg), [42, _s]] call FUNC(NetCallEventCTS);
+    [QGVAR(mtsm_done),true] call FUNC(NetSetJIP);
+    [QGVAR(mtsm_pos),[0,0,0]] call FUNC(NetSetJIP);
+    [QGVAR(mtsm_type),""] call FUNC(NetSetJIP);
     ["sec_kind",0] call FUNC(NetSetJIP);
     if (getMarkerColor QGVAR(main_target_secondary) == "ColorBlack") then {
         deleteMarker QGVAR(main_target_secondary);
