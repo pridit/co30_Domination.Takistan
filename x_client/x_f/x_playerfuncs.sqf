@@ -9,7 +9,7 @@ FUNC(sfunc) = {
         if (count _objs > 0) then {
             GVAR(objectID2) = _objs select 0;
             if (alive GVAR(objectID2)) then {
-                (damage GVAR(objectID2) >= 0.15)
+                (damage GVAR(objectID2) >= 0.05)
             } else {
                 false
             }
