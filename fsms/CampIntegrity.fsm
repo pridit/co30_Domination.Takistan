@@ -59,7 +59,7 @@ class FSM
     class Check_Camps
     {
       name = "Check_Camps";
-      init = "_camps = nearestObjects [_pos, [""Land_fortified_nest_big_EP1""], 300];" \n
+      init = "_camps = nearestObjects [_pos, [""Land_fortified_nest_big_EP1""], 350];" \n
        "diag_log format [""Debug: Main target camps: %1/%2"", count _camps, d_sum_camps];" \n
        "if (count _camps < d_sum_camps) then {" \n
        "    d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, ""MTBadIntegrity"", true];" \n
