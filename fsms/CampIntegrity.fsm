@@ -60,10 +60,9 @@ class FSM
     {
       name = "Check_Camps";
       init = "_camps = nearestObjects [_pos, [""Land_fortified_nest_big_EP1""], 350];" \n
-       "diag_log format [""Debug: Main target camps: %1/%2"", count _camps, d_sum_camps];" \n
        "if (count _camps < d_sum_camps) then {" \n
+       "    diag_log format [""Main Target: Camp integrity compromised (%1/%2) - forcing cycle"", count _camps, d_sum_camps];" \n
        "    d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, ""MTBadIntegrity"", true];" \n
-       "    diag_log ""Main Target: Camp integrity compromised.. forcing cycle"";" \n
        "    0 = [] execVM 'x_server\x_target_clear.sqf';" \n
        "};" \n
        "_timenow = time + 30;";
