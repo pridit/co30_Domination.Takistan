@@ -18,7 +18,7 @@ class FSM
           priority = 1.000000;
           to="End";
           precondition = "";
-          condition="(X_JIPH getVariable ""d_current_target_index"") != _target";
+          condition="(X_JIPH getVariable ""d_current_target_index"") != _target || {(X_JIPH getVariable ""d_the_end"")}";
           action="";
         };
         class Delay
@@ -43,7 +43,7 @@ class FSM
           priority = 1.000000;
           to="End";
           precondition = "";
-          condition="(X_JIPH getVariable ""d_current_target_index"") != _target";
+          condition="(X_JIPH getVariable ""d_current_target_index"") != _target || {(X_JIPH getVariable ""d_the_end"")}";
           action="";
         };
         class Delay_Random
