@@ -26,6 +26,7 @@ _vehicle lockdriver true;
 _pospl = getPosASL player;
 _pospl set [2,0];
 _helperh = GVAR(HeliHEmpty) createVehicleLocal _pospl;
+[QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
 _vehicle flyInHeight 80;
 _unit doMove (position _player);
 _vehicle flyInHeight 80;
@@ -92,7 +93,7 @@ if (alive _unit && {alive _player} && {alive _vehicle} && {canMove _vehicle}) th
         sleep 30 + random 5;
         [QGVAR(ataxi), [_player, 5]] call FUNC(NetCallEventSTO);
         _vehicle flyInHeight 80;
-        _unit doMove (position GVAR(AISPAWN));
+        _unit doMove (markerPos QGVAR(airtaxi));
         _vehicle flyInHeight 80;
         _grp setBehaviour "CARELESS";
         sleep 5;

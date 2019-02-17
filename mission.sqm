@@ -1282,7 +1282,7 @@ class Mission
     };
     class Vehicles
     {
-        items=289;
+        items=290;
         class Item0
         {
             position[]={8330.8545,296.04001,2045.4362};
@@ -4154,10 +4154,21 @@ class Mission
             skill=0.60000002;
             text="light3";
         };
+        class Item289
+        {
+            position[]={8249.8398,296.04001,2118.6182};
+            azimut=-28.3703;
+            special="NONE";
+            id=359;
+            side="EMPTY";
+            vehicle="HeliHEmpty";
+            lock="UNLOCKED";
+            skill=0.60000002;
+        };
     };
     class Markers
     {
-        items=128;
+        items=129;
         class Item0
         {
             position[]={12779.68,158.9151,13160.88};
@@ -4244,8 +4255,8 @@ class Mission
         };
         class Item11
         {
-            position[]={8226.6572,296.04001,1957.4619};
-            name="d_base_radar_pos";
+            position[]={8249.8164,296.04001,2118.6023};
+            name="d_airtaxi";
             type="Empty";
         };
         class Item12
@@ -5005,6 +5016,12 @@ class Mission
             type="Airport";
             colorName="ColorBlack";
             angle=-17.846001;
+        };
+        class Item128
+        {
+            position[]={8226.6572,296.04001,1957.4619};
+            name="d_base_radar_pos";
+            type="Empty";
         };
     };
     class Sensors
