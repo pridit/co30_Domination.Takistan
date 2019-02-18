@@ -23,6 +23,7 @@ _wp2 setWaypointSpeed "NORMAL";
 _wp2 setwaypointtype "MOVE";
 
 [QGVAR(n_v), _chopper] call FUNC(NetCallEventToClients);
+_chopper setVariable [QGVAR(WreckMaxRepair), 0, true];
 _chopper flyinheight 100;
 
 _chopper spawn FUNC(AirMarkerMove);

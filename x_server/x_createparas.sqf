@@ -162,6 +162,7 @@ for "_i" from 1 to _number_vehicles do {
     sleep 5.012;
     
     [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
+    _vehicle setVariable [QGVAR(WreckMaxRepair), 0, true];
     _vehicle flyInHeight 100;
 
     [_vgrp,_vehicle,_attackpoint,_heliendpoint, _delveccrew] spawn _make_jump;
