@@ -36,8 +36,13 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
                 };
             };
             if (!isNull _nearest) then {
-                if (_nearest isKindOf "CAManBase" || (speed _nearest > 10) || {(position _nearest select 2 > 5)} || {!((toUpper (typeof _nearest)) in _possible_types)}) then {
-                     _nearest = objNull;
+                if (
+                    _nearest isKindOf "CAManBase" ||
+                    (speed _nearest > 10) ||
+                    {(position _nearest select 2 > 5)} ||
+                    {!((toUpper (typeof _nearest)) in _possible_types) && !((typeof _nearest) in _possible_types)}
+                ) then {
+                    _nearest = objNull;
                 };
             };
             sleep 0.1;

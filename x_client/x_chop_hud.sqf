@@ -129,9 +129,9 @@ while {GVAR(player_in_vec)} do {
                             _nearestu = toUpper (typeOf _nearest);
                             __TRACE_2("","_vec","_nearestu");
                             _check_cond = if (_chopttype == 1) then {
-                                 (!isNull _nearest && {_marp > 0} && {damage _nearest >= 1} && {(_nearestu in _possible_types)})
+                                (!isNull _nearest && {_marp > 0} && {damage _nearest >= 1} && {(_nearestu in _possible_types)})
                             } else {
-                                (!isNull _nearest && {(position _vec) select 2 > 2.5} && {(_nearestu in _possible_types)})
+                                (!isNull _nearest && {(position _vec) select 2 > 2.5} && {(_nearestu in _possible_types) || (typeOf _nearest) in _possible_types})
                             };
                         };
                         
