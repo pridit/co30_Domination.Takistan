@@ -24,6 +24,11 @@ if (isClass (configFile >> "CfgPatches" >> "dayz")) exitWith {
     endMission "LOSER";
 };
 
+FUNC(GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
+FUNC(RedText) = {"<t color='#f0ff0000'>" + _this + "</t>"};
+FUNC(BlueText) = {"<t color='#f07f7f00'>" + _this + "</t>"}; //olive
+FUNC(YellowText) = {"<t color='#e7e700'>" + _this + "</t>"};
+
 GVAR(HeliHEmpty) = "HeliHEmpty";
 
 if (isNil "paramsArray") then {
@@ -378,12 +383,12 @@ if (isServer) then {
         [repair2,21],
         [repair3,22],
         [repair4,23],
-        [fuel1,24],
-        [fuel2,25],
-        [fuel3,26],
-        [fuel4,27],
-        [ammo1,28],
-        [ammo2,29]
+        [fuel1,30],
+        [fuel2,31],
+        [fuel3,32],
+        [fuel4,33],
+        [ammo1,40],
+        [ammo2,41]
     ] execVM "x_server\x_vrespawn2.sqf";
 
     [

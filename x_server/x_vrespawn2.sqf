@@ -15,6 +15,7 @@ _vec_array = [];
     _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];
     _vehicle setVariable [QGVAR(vec), _number_v, true];
     _vehicle setAmmoCargo 0;
+    
     if (_number_v < 10 || {(_number_v > 99 && {_number_v < 110})}) then {
         _vehicle addMPEventhandler ["MPKilled", {(_this select 0) call FUNC(MHQFunc)}];
     };
@@ -86,6 +87,15 @@ while {true} do {
             if (_number_v < 10 || {(_number_v > 99 && {_number_v < 110})}) then {
                 _vehicle addMPEventhandler ["MPKilled", {(_this select 0) call FUNC(MHQFunc)}];
             };
+            
+            if (_number_v >= 10 && _number_v < 20) then {
+                _vehicle addAction [format [(localize "STR_DOM_MISSIONSTRING_1453"), "Medkits"] call d_fnc_BlueText, "x_client\x_restoreheals.sqf",[],2,false,true,"","alive _target && {(player getVariable 'perkSelfHeal')} && {(player getVariable 'xr_numheals') < 1}"];
+            };
+            
+            if (_number_v >= 20 && _number_v < 30) then {
+                _vehicle addAction [format [(localize "STR_DOM_MISSIONSTRING_1453"), "Repair Kits"] call d_fnc_BlueText, "x_client\x_restoreeng.sqf",[],2,false,true,"","alive _target && {(player getVariable 'perkVehicleService')} && {!(player getVariable 'd_eng_can_repfuel')}"];
+            };
+            
             _vec_a set [0, _vehicle];
             _vec_array set [_forEachIndex, _vec_a];
             _vehicle setVariable [QGVAR(OUT_OF_SPACE), -1];

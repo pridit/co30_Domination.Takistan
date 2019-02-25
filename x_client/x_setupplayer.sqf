@@ -34,11 +34,6 @@ GVAR(player_faction) = faction player;
 
 GVAR(misc_store) = GVAR(HeliHEmpty) createVehicleLocal [0,0,0];
 
-FUNC(GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
-FUNC(RedText) = {"<t color='#f0ff0000'>" + _this + "</t>"};
-FUNC(BlueText) = {"<t color='#f07f7f00'>" + _this + "</t>"}; //olive
-FUNC(YellowText) = {"<t color='#e7e700'>" + _this + "</t>"};
-
 __pSetVar ["BIS_noCoreConversations", true];
 
 _p = player;
@@ -1253,12 +1248,12 @@ FUNC(startClientScripts) = {
 };
 
 {
-    _x addAction [format [(localize "STR_DOM_MISSIONSTRING_1453"), "Medkits"] call FUNC(BlueText), "x_client\x_restoreheals.sqf",[],2,false,true,"","(player getVariable 'perkSelfHeal') && {(player getVariable 'xr_numheals') < 1}"];
-} forEach [MEDIC_TENT1, MEDIC_TENT2];
+    _x addAction [format [(localize "STR_DOM_MISSIONSTRING_1453"), "Medkits"] call FUNC(BlueText), "x_client\x_restoreheals.sqf",[],2,false,true,"","alive _target && {(player getVariable 'perkSelfHeal')} && {(player getVariable 'xr_numheals') < 1}"];
+} forEach [MEDIC_TENT1, MEDIC_TENT2, ambulance1, ambulance2];
 
 {
-    _x addAction [format [(localize "STR_DOM_MISSIONSTRING_1453"), "Repair Kits"] call FUNC(BlueText), "x_client\x_restoreeng.sqf",[],2,false,true,"","(player getVariable 'perkVehicleService') && {!(player getVariable 'd_eng_can_repfuel')}"];
-} forEach [SERVICE_POINT1, SERVICE_POINT2, SERVICE_POINT3];
+    _x addAction [format [(localize "STR_DOM_MISSIONSTRING_1453"), "Repair Kits"] call FUNC(BlueText), "x_client\x_restoreeng.sqf",[],2,false,true,"","alive _target && {(player getVariable 'perkVehicleService')} && {!(player getVariable 'd_eng_can_repfuel')}"];
+} forEach [SERVICE_POINT1, SERVICE_POINT2, SERVICE_POINT3, repair1, repair2, repair3, repair4];
 
 [_pos, [0, 0, 0, false], ["NONE", "PRESENT", false], ["call d_fnc_startClientScripts;false", "", ""]] call FUNC(CreateTrigger);
 
