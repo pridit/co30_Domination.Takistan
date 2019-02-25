@@ -631,7 +631,7 @@ class Params {
     class GVAR(WreckDeleteTime) {
         title = "$STR_DOM_MISSIONSTRING_1170";
         values[] = {1800,3600,5400,7200,-1};
-        default = -1;
+        default = 7200;
         texts[] = {"$STR_DOM_MISSIONSTRING_1093","$STR_DOM_MISSIONSTRING_1095","$STR_DOM_MISSIONSTRING_1171","$STR_DOM_MISSIONSTRING_1172","$STR_DOM_MISSIONSTRING_1087"};
     };
     
