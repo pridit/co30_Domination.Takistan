@@ -71,6 +71,8 @@ if (_d_vec < 10) exitWith {
         _mt = _car select 5;
         if (!isNil {GV(_vec,GVAR(MHQ_Deployed))} && {GV(_vec,GVAR(MHQ_Deployed))}) then {
             _mt = format [(localize "STR_DOM_MISSIONSTRING_261"), _mt];
+            _camo = GV(_vec,GVAR(MHQ_Camo));
+            _camo allowDamage false;
         };
         if (str(markerPos (_car select 2)) != "[0,0,0]") then {
             (_car select 2) setMarkerTextLocal _mt;

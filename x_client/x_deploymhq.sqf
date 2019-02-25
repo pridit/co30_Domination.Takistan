@@ -29,17 +29,7 @@ _hxhx = GV(_mhq,GVAR(MHQ_Deployed));
 if (isNil "_hxhx") then {_hxhx = false};
 if (!_hxhx) then {
     if (count (crew _mhq) > 0) exitWith {(localize "STR_DOM_MISSIONSTRING_215") call FUNC(GlobalChat)};
-
-    _camotype = switch (GVAR(player_side)) do {
-#ifdef __CO__
-        case west: {"Land_CamoNetB_NATO"};
-        case east: {"Land_CamoNetB_EAST"};
-#endif
-#ifdef __OA__
-        case west: {"Land_CamoNetB_NATO_EP1"};
-        case east: {"Land_CamoNetB_EAST_EP1"};
-#endif
-    };
+    _camotype = "Land_CamoNetB_NATO_EP1";
     _pmpos = position _mhq;
     _pmpos set [2, 0];
     if (GVAR(with_mhq_camo) == 0) then {
