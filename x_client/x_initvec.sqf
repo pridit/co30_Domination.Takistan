@@ -45,14 +45,6 @@ private "_vec";
 
 _vec = _this;
 
-private "_desm";
-_desm = GV(_vec,GVAR(deserted_marker));
-if (!isNil "_desm") then {
-    if (_desm != "") then {
-        [_desm, getPosASL _vec,"ICON","ColorBlack",[1,1], format [(localize "STR_DOM_MISSIONSTRING_260"), [typeOf _vec, 0] call FUNC(GetDisplayName)],0,"Dot"] call FUNC(CreateMarkerLocal);
-    };
-};
-
 _d_vec = GV(_vec,GVAR(vec));
 
 if (!isNil {GV(_vec,GVAR(vcheck))}) exitWith {};
