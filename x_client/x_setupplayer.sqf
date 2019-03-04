@@ -1234,7 +1234,7 @@ FUNC(startClientScripts) = {
     _vec = vehicle player;
     if (_vec != player && {_vec isKindOf "Air"}) then {
         _type = typeOf _vec;
-        if (toUpper(_type) in GVAR(attack_aircraft)) then {
+        if (_type in GVAR(attack_aircraft)) then {
             if (player == driver _vec || {player == gunner _vec} || {player == commander _vec}) then {
                 if (isEngineOn _vec) then {
                     _vec engineOn false;
