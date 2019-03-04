@@ -133,9 +133,9 @@ GVAR(choppers) = [
     ["UH60",2,"light3",310,"n_air","ColorWhite","UH60",""],
     ["WRECK1",1,"wreck1",311,"n_air","ColorWhite","WRK1",(localize "STR_DOM_MISSIONSTRING_10")],
     ["WRECK2",1,"wreck2",312,"n_air","ColorWhite","WRK2",(localize "STR_DOM_MISSIONSTRING_10")],
-    ["A10",2,"attack1",350,"n_air","ColorWhite","A10",""],
-    ["AH11",2,"attack2",351,"n_air","ColorWhite","AH11",""],
-    ["AH64",2,"attack3",352,"n_air","ColorWhite","AH64",""]
+    ["A10",2,"A10_US_EP1",350,"n_air","ColorWhite","A10",""],
+    ["AH11",2,"AW159_Lynx_BAF",351,"n_air","ColorWhite","AH11",""],
+    ["AH64",2,"AH64D_EP1",352,"n_air","ColorWhite","AH64",""]
 ];
 
 // vehicle varname, unique number (same as in init.sqf), marker name, marker type, marker color, marker text, vehicle string name
