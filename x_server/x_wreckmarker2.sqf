@@ -20,11 +20,10 @@ _mname = str(_vehicle);
 _sav_pos = [getPosASL _vehicle select 0,getPosASL _vehicle select 1,position _vehicle select 2];
 _type_name = [typeOf _vehicle, 0] call FUNC(GetDisplayName);
 _d_wreck_marker = __XJIPGetVar(GVAR(wreck_marker));
-_vec_side = (_vehicle getVariable QGVAR(VEC_SIDE));
+_vec_side = _vehicle getVariable QGVAR(VEC_SIDE);
+_pside = "";
 if (!isNil "_vec_side") then {
-    _pside = switch (_vehicle getVariable QGVAR(VEC_SIDE)) do {case 1: {"ColorRed"};case 2: {"ColorBlue"};};
-} else {
-    _pside = "ColorBlue";
+    _pside = switch (_vec_side) do {case 1: {"ColorRed"};case 2: {"ColorBlue"};};
 };
 [QGVAR(w_m_c), [_mname,_sav_pos,_type_name,_pside]] call FUNC(NetCallEventToClients);
 _d_wreck_marker set [count _d_wreck_marker, [_mname,_sav_pos,_type_name,_pside]];

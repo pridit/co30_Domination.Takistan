@@ -213,7 +213,7 @@ if (GVAR(engineerfull) == 0) then {
 [QGVAR(jet_sf), {_this call FUNC(jet_service_facNet)}] call FUNC(NetAddEventToClients);
 [QGVAR(chop_sf), {_this call FUNC(chopper_service_facNet)}] call FUNC(NetAddEventToClients);
 [QGVAR(wreck_rf), {_this call FUNC(wreck_repair_facNet)}] call FUNC(NetAddEventToClients);
-[QGVAR(w_m_c), {[_this select 0, _this select 1,"ICON",_this select 3,[1,1],format [(localize "STR_DOM_MISSIONSTRING_517"), _this select 2],0,"mil_triangle"] call FUNC(CreateMarkerLocal)}] call FUNC(NetAddEventToClients);
+[QGVAR(w_m_c), {[_this select 0, _this select 1,"ICON",(if (_this select 3 != "") then {_this select 3} else {"ColorBlue"}),[1,1],format [(localize "STR_DOM_MISSIONSTRING_517"), _this select 2],0,"mil_triangle"] call FUNC(CreateMarkerLocal)}] call FUNC(NetAddEventToClients);
 [QGVAR(smsg), {(localize "STR_DOM_MISSIONSTRING_519") call FUNC(HQChat)}] call FUNC(NetAddEventToClients);
 
 [QGVAR(mqhtn), {[format [(localize "STR_DOM_MISSIONSTRING_520"), GVAR(MHQDisableNearMT), _this], "HQ"] call FUNC(HintChatMsg)}] call FUNC(NetAddEventToClients);

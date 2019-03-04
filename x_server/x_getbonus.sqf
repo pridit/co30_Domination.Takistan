@@ -37,7 +37,7 @@ if (!isServer) exitWith {};
     _vehicle setPos _endpos;
     _vehicle setVariable [QGVAR(vec), _number_v, true];
     [QGVAR(n_v), _vehicle] call FUNC(NetCallEventToClients);
-    _vehicle setVariable ["D_VEC_SIDE", 2, true];
+    _vehicle setVariable [QGVAR(VEC_SIDE), 2, true];
     _vehicle setVariable [QGVAR(WreckMaxRepair), GVAR(WreckMaxRepair), true];
     _vehicle addMPEventHandler ["MPKilled", {
         deleteMarkerLocal (typeOf (_this select 0));
