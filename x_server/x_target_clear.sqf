@@ -66,7 +66,7 @@ if (!isNil QGVAR(HC_CLIENT_OBJ)) then {
 sleep 4.321;
 
 if (GVAR(WithJumpFlags) == 1) then {
-    execVM "x_server\x_createjumpflag.sqf";
+    if (GVAR(current_counter) < GVAR(MainTargets)) then {execVM "x_server\x_createjumpflag.sqf"};
 };
 
 if (count GVAR(respawn_ai_groups) > 0) then {
