@@ -1280,7 +1280,7 @@ class Mission
     };
     class Vehicles
     {
-        items=287;
+        items=290;
         class Item0
         {
             position[]={8330.8545,296.04001,2045.4362};
@@ -4117,14 +4117,51 @@ class Mission
         };
         class Item286
         {
-            position[]={8099.29,296.04001,1875.6504};
-            azimut=237.85556;
+            position[]={8088.5435,296.29001,1877.7262};
+            azimut=780.48499;
             id=356;
             side="EMPTY";
             vehicle="ATV_US_EP1";
             leader=1;
             skill=0.60000002;
             text="atv5";
+            init="this setPos [getPos this select 0, getPos this select 1,1.5];";
+        };
+        class Item287
+        {
+            position[]={7964.5625,296.12076,1689.7336};
+            azimut=-118;
+            id=357;
+            side="EMPTY";
+            vehicle="ATV_US_EP1";
+            leader=1;
+            skill=0.60000002;
+            text="atv6";
+            init="this setPos [getPos this select 0, getPos this select 1,1.5];";
+        };
+        class Item288
+        {
+            position[]={8016.8403,296.12076,1720.4272};
+            azimut=-118;
+            id=358;
+            side="EMPTY";
+            vehicle="ATV_US_EP1";
+            leader=1;
+            skill=0.60000002;
+            text="atv7";
+            init="this setPos [getPos this select 0, getPos this select 1,1.5];";
+        };
+        class Item289
+        {
+            position[]={7909.104,296.12076,1658.5116};
+            azimut=-118;
+            id=359;
+            side="EMPTY";
+            vehicle="ATV_US_EP1";
+            leader=1;
+            skill=0.60000002;
+            text="atv8";
+            init="this setPos [getPos this select 0, getPos this select 1,1.5];";
         };
     };
     class Markers
