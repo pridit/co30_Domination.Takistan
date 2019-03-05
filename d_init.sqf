@@ -290,6 +290,7 @@ if (isServer) then {
     [QGVAR(ammo_boxes),[]] call FUNC(NetSetJIP);
     [QGVAR(wreck_marker),[]] call FUNC(NetSetJIP);
     [QUOTE(para_available),true] call FUNC(NetSetJIP);
+    [QGVAR(wreck_hangars_occupied),0] call FUNC(NetSetJIP);
 
     [QGVAR(campscaptured),0] call FUNC(NetSetJIP);
     [QGVAR(currentcamps),[]] call FUNC(NetSetJIP);

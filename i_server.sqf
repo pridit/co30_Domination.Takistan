@@ -3,7 +3,7 @@
 #define THIS_FILE "i_server.sqf"
 #include "x_setup.sqf"
 #endif
-#ifdef __DEFAULT__
+
 GVAR(bap_counter) = 0;
 _mpos = markerPos QGVAR(bonus_create_pos);
 _mpos set [2,0];
@@ -16,9 +16,7 @@ for "_i" from 1 to 10000 do {
     if (str _mpos == "[0,0,0]") exitWith {};
     GVAR(bonus_air_positions) set [count GVAR(bonus_air_positions), [_mpos, markerDir _mna]];
 };
-#endif
 
-#ifdef __DEFAULT__
 GVAR(bvp_counter) = 0;
 GVAR(bonus_vec_positions) = [];
 for "_i" from 1 to 10000 do {
@@ -28,7 +26,32 @@ for "_i" from 1 to 10000 do {
     if (str _mpos == "[0,0,0]") exitWith {};
     GVAR(bonus_vec_positions) set [count GVAR(bonus_vec_positions), [_mpos, markerDir _mna]];
 };
-#endif
+
+GVAR(wreck_hangars) = [];
+GVAR(wreck_hangar_triggers) = [];
+for "_i" from 1 to 3 do {
+    _mna = format [QGVAR(wreck_hangar_%1), _i];
+    _mpos = markerPos _mna;
+    _mpos set [2,0];
+    if (str _mpos == "[0,0,0]") exitWith {};
+    GVAR(wreck_hangars) set [count GVAR(wreck_hangars), [_mpos, markerDir _mna]];
+    
+    _vehicle = createVehicle ["Land_Mil_hangar_EP1", _mpos, [], 0, "NONE"];
+    _vehicle setDir (markerDir _mna);
+    _vehicle addEventHandler ["handleDamage", {0}];
+    
+    _trigger = [QGVAR(%1_trigger), _mna];
+    GVAR(_trigger) = createTrigger ["EmptyDetector", _mpos];
+    GVAR(_trigger) setTriggerArea [12, 20, -30, true];
+    GVAR(_trigger) setTriggerActivation ["ANY", "PRESENT", true];
+    GVAR(_trigger) setTriggerStatements [
+        "{_x isKindOf 'Air'} count thislist > 0",
+        "X_JIPH setVariable ['d_wreck_hangars_occupied', (X_JIPH getVariable 'd_wreck_hangars_occupied') + 1, true]",
+        "X_JIPH setVariable ['d_wreck_hangars_occupied', (X_JIPH getVariable 'd_wreck_hangars_occupied') - 1, true]"
+    ];
+    
+    GVAR(wreck_hangar_triggers) set [count GVAR(wreck_hangar_triggers), GVAR(_trigger)];
+};
 
 GVAR(firebase) =
 #ifdef __CO__

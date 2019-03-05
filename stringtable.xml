@@ -4200,7 +4200,7 @@
         <Original>Rebuilding %1 at %2, this will take approx. %3 minutes.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_1402">
-        <Original>%1 ready at %2</Original>
+        <Original>%1 wreck has been rebuilt.</Original>
       </Key>
       <Key ID="STR_DOM_MISSIONSTRING_1403">
         <Original>Enemy troops in your base.</Original>

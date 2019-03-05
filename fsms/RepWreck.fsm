@@ -117,9 +117,17 @@ class FSM
       precondition = "";
       class Links
       {
-        class Not_Null_Wreck
+        class No_Hangars_Available
         {
           priority = 1.000000;
+          to="Sleep";
+          precondition = "";
+          condition="X_JIPH getVariable 'd_wreck_hangars_occupied' == count d_wreck_hangars";
+          action="";
+        };
+        class Not_Null_Wreck
+        {
+          priority = 0.800000;
           to="Rebuild";
           precondition = "";
           condition="!isNull _wreck";
@@ -196,9 +204,15 @@ class FSM
     {
       name = "Unlock_Vehicle";
       init = "d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n
+       "{" \n
+       "    if (!triggerActivated _x) then {" \n
+       "        _new_vec setDir -30;" \n
+       "        _new_vec setPos (getPos _x);" \n
+       "    };" \n
+       "} forEach d_wreck_hangar_triggers;" \n
        "_new_vec lock false;" \n
        "_new_vec execFSM ""fsms\Wreckmarker.fsm"";" \n
-       "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],true];";
+       "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],true];";
       precondition = "";
       class Links
       {
