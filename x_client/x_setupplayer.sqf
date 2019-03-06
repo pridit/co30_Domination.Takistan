@@ -548,7 +548,7 @@ FUNC(replenishPerks) = {
     } forEach __pGetVar(GVAR(perks_unlocked));
 };
 
-player addEventHandler ["respawn", {[true] call FUNC(calculatePerks);_this call FUNC(prespawned)}];
+player addEventHandler ["respawn", {(_this select 0) setDir 240.214;[true] call FUNC(calculatePerks);_this call FUNC(prespawned)}];
 
 if (count __XJIPGetVar(GVAR(ammo_boxes)) > 0) then {
     private ["_box_pos", "_boxnew", "_boxscript", "_box_dir"];

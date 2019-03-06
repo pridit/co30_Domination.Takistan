@@ -4187,9 +4187,10 @@ class Mission
         };
         class Item3
         {
-            position[]={8274.708,296.04001,2110.7688};
+            position[]={8268.9326,296.04001,2106.5864};
             name="base_spawn_1";
             type="Empty";
+            colorName="ColorGreen";
         };
         class Item4
         {
