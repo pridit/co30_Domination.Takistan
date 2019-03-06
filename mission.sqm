@@ -4988,7 +4988,7 @@ class Mission
             name="marker1_2";
             text="Wreck Service";
             type="mil_dot";
-            colorName="ColorBrown";
+            colorName="ColorYellow";
         };
         class Item125
         {

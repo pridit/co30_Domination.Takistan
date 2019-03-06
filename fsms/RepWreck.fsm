@@ -212,7 +212,11 @@ class FSM
        "} forEach d_wreck_hangar_triggers;" \n
        "_new_vec lock false;" \n
        "_new_vec execFSM ""fsms\Wreckmarker.fsm"";" \n
-       "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],true];";
+       "_full = """";" \n
+       "if (X_JIPH getVariable 'd_wreck_hangars_occupied' == (count d_wreck_hangars - 1)) then {" \n
+       "    _full = "" All hangars now full. Free up a hangar to continue rebuilding wrecks."";" \n
+       "};" \n
+       "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_full,[]],true];"
       precondition = "";
       class Links
       {
