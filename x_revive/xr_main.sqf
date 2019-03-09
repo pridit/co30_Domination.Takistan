@@ -1699,7 +1699,7 @@ FUNCXR(selfheal) = {
         private "_id";
         while {true} do {
             waitUntil {sleep 0.332;alive player};
-            _id = player addAction ["Use Medkit" call d_fnc_BlueText, "x_revive\xr_selfheal.sqf", [], -1, false, false, "", "alive _target &&  {!(_target getVariable 'xr_pluncon')} && {!(_target getVariable 'xr_pisinaction')} && {(damage _target >= (xr_selfheals_minmaxdam select 0))} && {(damage _target <= (xr_selfheals_minmaxdam select 1))} && {(_target getVariable 'xr_numheals') > 0}"];
+            _id = player addAction ["Use Medkit (self)" call d_fnc_BlueText, "x_revive\xr_selfheal.sqf", [], -1, false, false, "", "alive _target &&  {!(_target getVariable 'xr_pluncon')} && {!(_target getVariable 'xr_pisinaction')} && {(damage _target >= (xr_selfheals_minmaxdam select 0))} && {(damage _target <= (xr_selfheals_minmaxdam select 1))} && {(_target getVariable 'xr_numheals') > 0}"];
             waitUntil {sleep 0.231;!alive player};
             player removeAction _id;
         };
