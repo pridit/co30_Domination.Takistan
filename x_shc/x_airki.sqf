@@ -87,6 +87,7 @@ while {true} do {
             __addDead(_vehicle)
         };
         
+        _vehicle addEventHandler ["getout", "(_this select 0) setDamage 1"];
         _vehicle spawn FUNC(AirMarkerMove);
         sleep 0.1;
     };
