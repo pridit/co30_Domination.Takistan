@@ -164,14 +164,16 @@ class FSM
        "if (!isNil ""_number_v"") then {_new_vec setVariable [""d_vec"", _number_v, true]};" \n
        "[""d_n_v"", _new_vec] call d_fnc_NetCallEventToClients;" \n
        "_type_name = [_type,0] call d_fnc_GetDisplayName;" \n
-       "if (!isNil ""_sidevar"") then {_new_vec setVariable [""D_VEC_SIDE"", _sidevar]};" \n
+       "if (!isNil ""_sidevar"") then {" \n
+       "    _new_vec setVariable [""D_VEC_SIDE"", _sidevar];" \n
+       "    if (_sidevar == 2) then {" \n
+       "        _new_vec addMPEventHandler [""MPKilled"", {" \n
+       "            deleteMarkerLocal (typeOf (_this select 0));" \n
+       "        }];" \n
+       "    };" \n
+       "};" \n
        "if (isNil ""_maxrep"") then {_maxrep = d_WreckMaxRepair};" \n
        "_new_vec setVariable [""d_WreckMaxRepair"", (_maxrep - 1), true];" \n
-       "if (str(markerPos (typeOf _new_vec)) != ""[0,0,0]"") then {" \n
-       "    _new_vec addMPEventHandler [""MPKilled"", {" \n
-       "        deleteMarkerLocal (typeOf (_this select 0));" \n
-       "    }];" \n
-       "};" \n
        "" \n
        "d_wreck_cur_ar set [count d_wreck_cur_ar, _new_vec];" \n
        "" \n
