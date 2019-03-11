@@ -70,6 +70,9 @@ __cppfln(FUNC(markercheck),x_server\x_markercheck.sqf);
     [GVAR(base_anti_air2), _unit_array select 0, _dgrp,true] call FUNC(makemgroup);
     [_dgrp, GVAR(base_anti_air2)] call FUNC(taskDefend);
 
+    deleteVehicle ((nearestObjects [GVAR(base_anti_air1), ["Land_CamoNetB_NATO_EP1"], 10]) select 0);
+    deleteVehicle ((nearestObjects [GVAR(base_anti_air2), ["Land_CamoNetB_NATO_EP1"], 10]) select 0);
+
     {
         _rbox = false;
         if (__RankedVer && {_x isKindOf "ReammoBox"}) then {
