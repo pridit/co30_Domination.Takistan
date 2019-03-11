@@ -40,22 +40,16 @@ player reveal _vehicle;
 
 player moveInDriver _vehicle;
 
-if (_b_mode == 1) then {
-    _vehicle spawn {
-        scriptName "spawn_x_bike_1";
-        private "_vehicle";
-        _vehicle = _this;
-        [QGVAR(ad), _vehicle] call FUNC(NetCallEventCTS);
-        waitUntil {sleep 0.412;!alive player || {!alive _vehicle}};
-        sleep 10.123;
-        while {true} do {
+_vehicle spawn {
+    scriptName "spawn_x_bike_1";
+    private "_vehicle";
+    _vehicle = _this;
+    [QGVAR(ad), _vehicle] call FUNC(NetCallEventCTS);
+    sleep 10.123;
+    while {true} do {
+        if ({_x distance _vehicle < 50} count playableUnits < 1) then {
             if (_vehicle call FUNC(GetVehicleEmpty)) exitWith {deleteVehicle _vehicle};
-            sleep 15.123;
         };
+        sleep 30;
     };
-} else {
-    GVAR(flag_vec) = _vehicle;
-    GVAR(vec_end_time) = diag_tickTime + GVAR(VecCreateWaitTime) + 60;
-    [QGVAR(ad2), [GVAR(flag_vec),GVAR(vec_end_time)]] call FUNC(NetCallEventCTS);
-    GVAR(flag_vec) addEventHandler ["killed", {(_this select 0) spawn {private ["_vec"];_vec = _this;sleep 10.123;while {true} do {if (isNull _vec) exitWith {};if (_vec call FUNC(GetVehicleEmpty)) exitWith {deleteVehicle _vec};sleep 15.123};GVAR(flag_vec) = objNull}}];
 };
