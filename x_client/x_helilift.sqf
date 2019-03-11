@@ -190,6 +190,6 @@ while {alive _vehicle && {alive player} && {(player in _vehicle)}} do {
 };
 
 if (alive _vehicle) then {
-    if (_id != -1212) then {_vehicle removeAction _id};
+    if (_id != -1212) then {_vehicle removeAction _id;_menu_lift_shown = false};
     if (_release_id != -1212) then {_vehicle removeAction _release_id};
 };
